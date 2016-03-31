@@ -1,0 +1,44 @@
+2010-12-29  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* tag2plan: removed (not maintained)
+
+2008-02-12  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm2 (ls_R): fix.
+	string =~ string is obsolete.
+	thx > dareka
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+
+	* howmkara
+	(ls_R): ditto.
+	(Book::interpret): ditto.
+
+2005-10-05  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howmkara
+	(String::offsets): avoid warning.
+	(Book::search): escape $ in regexp.
+
+2005-09-15  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* hcal.rb (ical_item): don't use Date
+
+2005-07-18  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* hcal.rb
+	(ical): fix.
+	iCalendar PRODID was merely copied from output of vPim
+	without consideration.
+	(usage): update URL
+
+2005-05-20  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm2: support aliases of come-from keywords
+
+2005-05-15  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* Makefile.am (EXTRA_DIST): 
+	howmkara, hsplit.rb, howm-rast-register.rb, howm-rast-search.rb
+	are added.
+
+

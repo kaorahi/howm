@@ -1,0 +1,33 @@
+2008-05-14  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* dot.emacs: set inhibit-startup-message
+
+2006-11-21  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* dot.emacs: set howm-history-file
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1141892764/193-194n
+
+2005-12-09  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* dot.emacs: leave howm-menu-lang to auto-detection
+
+	* Makefile.am (EXTRA_DIST):
+	0000-00-00-000000.howm is not needed any longer.
+
+2005-05-24  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* dot.emacs: howm-history-limit is set to be nil.
+	Otherwise, my private ~/.howm-history is shrunk.
+
+2005-05-11  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* 0000-00-00-000000.howm: added [Preference], %recent, %random
+
+2005-05-06  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* 0000-00-00-000000.howm: bind R = [Update Menu]
+
+2005-02-25  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* bug-report.txt: slightly modified expressions
+

@@ -1,0 +1,2356 @@
+2016-01-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.ac: test version
+
+2016-01-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm.el: change the order of "require"s for correct dependencies
+
+	* action-lock.el: require howm-common for avoiding warning
+
+	* riffle.el: ditto.
+
+	* illusion.el: ditto.
+
+	* howm-lang-en.el: ditto.
+
+	* howm-lang-ja.el: ditto.
+
+	* howm-common.el (howm-insert-file-contents):
+	moved from howm-backend.el for yarot13-insert-file-contents
+
+	* howm-vars.el (howm-menu-action-arg): moved from howm-menu.el
+	for avoiding reference to free variable in howm-lang-*.el
+
+	* howm-backend.el (howm-exclude-p): moved from howm-common.el
+
+	* howm-mode.el (howm-history): moved from howm-common.el
+
+	* howm-common.el (howm-fontify): useless now
+
+2016-01-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* cheat-font-lock.el (cheat-font-lock-compiled-body):
+	avoid warning in byte-compilation
+	"... is not known to be defined."
+
+	* howm-date.el (howm-action-lock-date-search): ditto.
+	"function ... used to take 0+ arguments, now takes 1"
+
+	* howm-misc.el (howm-ime-fix): ditto.
+	delete obsolete fix for avoiding
+	"`howm-raise-in-minor-mode-map-alist' is not known to be defined."
+
+	* howm-vars.el (howm-dtime-format): ditto.
+	moved from howm-mode.el for avoiding
+	"... is not known to be defined." in `howm-write-log'.
+
+	* howm-common.el (howm-normalize-file-name): ditto.
+	moved from howm-misc.el for avoiding "not known to be defined."
+
+	* howm-vars.el (howm-excluded-file-regexp): ditto.
+
+2016-01-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm.el: update copyright years
+
+2015-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm.el: use cl-lib instead of cl for avoiding warnings
+
+	* howm-cl.el: howm-cl-* are now useless.
+
+2015-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-backend.el
+	(howm-real-grep-single): use cl-labels for avoiding warnings
+	(howm-real-grep-multi): ditto.
+
+	* howm-view.el (howm-item-list-rangeset, tests): ditto.
+
+	* howm-reminder.el (howm-modify-form): ditto.
+
+	* howm-mode.el (howm-normalize): ditto.
+
+	* howm-misc.el (howm-basic-save-buffer): ditto.
+
+	* howm-common.el (howm-with-need, howm-call-process*): ditto.
+
+2015-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.ac: version 1.4.3
+
+2015-12-27  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.ac: version 1.4.3rc1
+
+	* howm-mode.el (howm-list-around): fix. howm-list-title didn't work.
+
+2015-05-24  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.ac: test version
+
+	* howm-common.el (howm-subdirectory-p):
+	check "local/remote" for avoiding unnecessary password prompting
+	(cf. http://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Recentf)
+	thx > Koie-san (hide at koie.org)
+
+	* howm-misc.el (howm-normalize-file-name): ditto.
+
+2015-01-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	update autotools
+
+2015-01-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-vars.el (howm-view-grep-default-option):
+	fix (void-function ed) error in git-head emacs (d5e3922)
+
+	* configure: use autoconf 2.69 instead of 2.67
+
+	* howm.el: update copyright years
+
+	* INSTALL: fix file mode
+
+	* COPYING: ditto.
+
+2013-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.4.2
+
+2013-12-25  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.4.2rc1
+
+2013-03-21  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-misc.el (howm-normalize-file-name): fix.
+	howm-mode was not set at C-c , c (howm-create)
+	if howm-directory is placed under symbolic links.
+	thx > dareka 2013-03-20
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
+
+2013-03-18  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+        * configure.in: test version
+
+	* gfunc.el (gfunc-with): fix an error in emacs 24.3.1 without byte-compilation.
+	"Can't detect type of ((:nest /home/.../) (%menu%) t) for howm-folder-grep-internal."
+	thx > dareka 2013-03-17
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
+
+2013-01-03  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	test version
+	- update copyright years
+	- use "declare" instead of "lisp-indent-hook"
+
+2012-12-30  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	test version
+
+2012-12-29  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-misc.el (howm-auto-mode-interpreter-regexp): use howm-if-unbound macro
+
+	* howm-mode.el (howm-keyword-add): fix `save-excursion' defeated by `set-buffer'
+
+	* howm-misc.el (howm-random-walk-summary): avoid non-interactive next-line
+
+	* howm-common.el (howm-goto-line): avoid non-interactive goto-line
+
+	* riffle.el (riffle-contents-to-summary, riffle-set-place): ditto.
+
+	* howm-reminder.el (howm-reminder-goto-today): ditto.
+
+	* howm-view.el (howm-view-summary-shell-command): ditto.
+
+	* howm-mode.el (howm-keyword-add-items): fix reference to free variable `dir'
+
+	* howm-backend.el (howm-open-directory-independently): ditto.
+
+2012-12-29  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-view.el
+	(howm-item-list-rangeset, howm-item-list-filter): cleaned
+	(howm-rangeset-belong-p): add "almighty" for the above cleaning
+	(howm-rangeset-hit-indicator): added for the above cleaning
+	(howm-rangeset-hit!, howm-rangeset-hit-p): ditto.
+
+2012-12-28  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-view.el
+	(howm-entitle-items-style1): improve efficiency of howm-list-all
+	by avoiding redundant grep calls.
+	thx > dareka 2012-12-10, 2012-12-15, 2012-12-16, 2012-12-28
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
+	(howm-item-list-filter): ditto
+
+2012-12-27  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-view.el
+	(howm-entitle-items-style2): add features to summary buffer
+	when howm-view-list-title-type is 2.
+	- min/max length of titles
+	- independent title lines
+	- delete title header "="
+	thx > Albert-san (areiner at tph.tuwien.ac.at)
+	http://sourceforge.jp/projects/howm/lists/archive/eng/2012/000107.html
+	http://sourceforge.jp/projects/howm/lists/archive/eng/2012/000111.html
+	(howm-entitle-items-style2-max-length): ditto.
+	(howm-entitle-items-style2-format): ditto.
+	(howm-entitle-items-style2-title-line): ditto.
+	(howm-view-summary-font-lock-keywords): ditto.
+	(howm-item-titles): ditto.
+	(howm-entitle-items-style1): delete redundant code
+	(howm-view-list-title): ditto.
+	howm-view-list-title1 and howm-view-list-title2 are deleted.
+
+2012-12-27  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.4.1
+
+	* howm-common.el (howm-get-buffer-for-file):
+	add comment on "File XXX no longer exists!" message.
+	thx > Albert-san (areiner at tph.tuwien.ac.at)
+	http://sourceforge.jp/projects/howm/lists/archive/eng/2012/000103.html
+	http://sourceforge.jp/projects/howm/lists/archive/eng/2012/000106.html
+
+2012-09-23  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-misc.el (howm-keyword-file): re-generate the keyword list
+	if .howm-keys doesn't exist.
+	thx > Albert-san (areiner at tph.tuwien.ac.at)
+	http://sourceforge.jp/projects/howm/lists/archive/eng/2012/000099.html
+
+	* howm-mode.el (howm-keyword-add-items): ditto.
+
+	* howm-backend.el (howm-open-directory-independently): ditto.
+
+	* howm-menu.el (howm-menu-copy-skel): fix.
+	scan keywords in the initial menu file.
+
+2012-09-13  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2012-09-10  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-view.el
+	(howm-view-summary-format): fix.
+	keep the position of the field separator "|" in summary mode
+	even when *.txt and *.howm are mixed.
+	thx > http://toro.2ch.net/test/read.cgi/unix/1141892764/940
+	(howm-view-summary-font-lock-keywords): ditto.
+
+2012-08-16  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.4.0
+
+2012-02-18  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.4.0rc2
+
+	* howm-misc.el
+	(howm-auto-mode): fix.
+	inhibit-first-line-modes-regexps and inhibit-first-line-modes-suffixes
+	are obsolete in emacs-24.
+	thx > Sasaki Kan san (sasaki at fcc.ad.jp)
+	thx > dareka 2012-02-12, 2012-02-17
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
+	(howm-if-unbound): ditto.
+
+2012-01-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm.el: update copyright years
+
+2011-12-28  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.4.0rc1
+
+	* howm.el: avoid warnings about mapcar during byte-compilation.
+
+	* howm-view.el (howm-entitle-items-style1): ditto.
+
+	* howm-misc.el (howm-bug-report): ditto.
+
+	* honest-report.el (honest-report): ditto.
+
+	* howm-cl.el (howm-cl-mapcar*): avoid warnings about cl package
+	during byte-compilation.
+
+	* howm-common.el (howm-call-process*): ditto.
+
+	* howm-date.el (howm-datestr-expand-general): ditto.
+
+	* howm-reminder.el (howm-define-reminder): ditto.
+
+2011-08-23  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* riffle.el (riffle-pop-to-buffer): fix.
+	windows were split recursively if frame size is large.
+	thx > dareka
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
+
+2011-03-20  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2011-03-11  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: fix warning "suspicious cache-id" in autoconf.
+
+2011-03-10  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-vars.el (howm-view-grep-default-option):
+	check availability of "--exclude-dir".
+	It requires grep >= 2.5.3, whereas popular Macs are shipped with 2.5.1.
+	thx > http://hibari.2ch.net/test/read.cgi/unix/1141892764/787-790n
+	thx > http://hibari.2ch.net/test/read.cgi/unix/1141892764/898-901n
+
+2011-01-19  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-menu.el
+	(howm-menu-recent): change arguments for broader customization.
+	thx > http://hibari.2ch.net/test/read.cgi/unix/1141892764/890
+	(howm-menu-random): ditto.
+	(howm-recent-menu): ditto.
+
+	* howm-backend.el (howm-page-viewer:file):
+	howm-view-external-viewer-assoc works even for directories now.
+	thx > http://hibari.2ch.net/test/read.cgi/unix/1141892764/891
+
+2011-01-14  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2011-01-13  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el (howm-define-risky-command):
+	avoid old-style-backquotes warning when *.elc is loaded.
+	thx > dareka
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
+
+2011-01-06  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el (howm-view-grep-option): cancel howm-efficiency group
+	because howm-grep group is already placed under it.
+
+2011-01-03  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-mode.el (howm-initialize-buffer): use howm-funcall-if-defined.
+
+	* riffle.el (riffle-summary-mode): ditto.
+
+2011-01-02  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-backend.el: delete rast.
+
+2011-01-02  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-mode.el (howm-initialize-buffer): fix.
+	make-local-hook does not exist in emacs-24.0.50.
+	thx > Yamamoto Munehiro san (munepi at vinelinux.org)
+
+	* riffle.el (riffle-summary-mode): ditto.
+
+2011-01-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el
+	(howm-list-buffers-exclude): officially supported now.
+	(howm-remember-first-line-to-title): ditto.
+	(howm-occur-force-fake-grep): ditto. change default value.
+
+	* howm-backend.el (howm-list-buffers,howm-list-mark-ring,howm-occur):
+	add docstring.
+
+	* howm-mode.el (howm-default-key-table): support new commands.
+
+	* howm-lang-en.el (howm-menu-command-table-en): ditto.
+
+	* howm-lang-ja.el (howm-menu-command-table-ja): ditto.
+
+	* howm-view.el (howm-view-directory,howm-ruby-mode-bug):
+	delete obsolete workaround
+
+	* howm-vars.el
+	(howm-action-lock-forward-fuzziness): update customize group
+	(howm-congrats-command): ditto.
+
+	* howm-reminder.el (howm-highlight-date-regexp-format): ditto.
+
+2011-01-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-view.el (howm-view-change-title): fix error at howm-list-all
+
+	* howm.el: update copyright years
+
+2010-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el
+	(howm-menu-reminder-separators): officially supported now.
+	(howm-todo-separators,howm-reminder-menu-types): ditto.
+	(howm-schedule-sort-by-time,howm-action-lock-forward-fuzziness): ditto.
+	(howm-process-coding-system): ditto.
+
+	* howm-view.el (howm-view-search-in-result-correctly): ditto.
+
+2010-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-vars.el
+	(howm-compatible-to-1.3): new option
+	(howm-compatibility): new customize group
+	(howm-file-name-format): add switch for compatibility.
+	change *.howm to *.txt.
+
+	* howm-mode.el (howm-normalizer-pair): care for typically wrong setting.
+	thx > http://hibari.2ch.net/test/read.cgi/unix/1141892764/865-870n
+
+2010-12-30  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.9
+
+2010-12-29  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.9rc1
+
+2010-07-02  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-reminder.el (howm-list-schedule): fix.
+	contents buffer was not updated if this function was called
+	from menu.
+	thx > http://pc12.2ch.net/test/read.cgi/unix/1141892764/826
+
+2010-05-05  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm.el: update copyright years
+
+	* howm-menu.el
+	(howm-menu-search): add new options for formatter and regexp search.
+	thx > Morgan Veyret san (morgan.veyret at gmail.com)
+	http://sourceforge.jp/projects/howm/lists/archive/eng/2010/000097.html
+	(howm-menu-general): add a new formatter to show full text.
+	(howm-menu-format-full): ditto.
+	(howm-menu-invoke): 
+	open item when RET is hit in menu if howm-menu-list-item
+	property is given at the current point.
+
+2009-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.8
+
+2009-08-08  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el (howm-excluded-dirs): add ".git".
+
+2009-07-23  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-mode.el (howm-keyword-search-subr): fix.
+	howm-list-title was ignored for come-from links.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/762
+
+2009-06-08  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-reminder.el (howm-reminder-font-lock-keywords): 
+	highlight late deadlines.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/738
+
+2009-06-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-backend.el (howm-real-grep-multi): fix.
+	howm-list-recent caused error "Can't exec program" or
+	"Spawning child process: exec format error" if howm-view-use-grep
+	is set and there are too many recently-changed files.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/733
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Windows
+
+	* howm-vars.el (howm-command-length-limit): new option
+
+2009-05-30  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-view.el
+	(howm-filter-items-by-contents):
+	splitted from howm-view-remove-by-contents for functional style.
+	it will be used in
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?HidePrivateReminder
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/731
+	(howm-entitle-items-style1): use howm-view-search-folder-fi.
+	(howm-item-list-filter): ditto.
+
+2009-05-22  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* riffle.el (riffle-line-number): widen before counting.
+
+2009-05-02  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+	update automake
+
+	* howm-vars.el
+	(howm-excluded-dirs): exclude _darcs/ etc. by default.
+	(howm-view-grep-default-option): ditto.
+
+2009-03-26  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2009-03-21  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-backend.el (howm-real-grep-multi, howm-real-grep-single): 
+	remove final slash for compatibility with yagrep.
+	http://www.kt.rim.or.jp/~kbk/yagrep/index.html
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/685-686n
+
+	* howm-common.el (howm-expand-file-names): ditto.
+
+2009-02-05  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm.el: update copyright years
+
+	* howm-reminder.el (howm-extend-deadlines): new command.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/671
+
+	* howm-menu.el (howm-menu-refresh-background): fix.
+	The main function was erased wrongly on 2006-03-11.
+
+2008-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.7
+
+	* howm-misc.el (howm-basic-save-buffer): fix.
+	inhibit "Wrote ..." message.
+
+2008-11-05  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.7rc4
+
+	* howm-view.el (howm-view-summary-item): fix.
+	use full path for equivalence check
+	thx > dareka
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
+
+2008-10-07  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.7rc3
+
+	* riffle.el (riffle-summary-update): 
+	cancel fix on 2008-09-23, and remove corresponding feature itself.
+	This special feature was broken from howm-1.2 to 1.3.7rc2,
+	and I received no bug report.
+
+2008-09-23  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* riffle.el (riffle-summary-update): fix.
+	behavior was wrong when howm-view-split-horizontally is
+	neither t nor nil.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/591
+
+2008-09-02  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-misc.el (howm-configuration-for-major-mode): 
+	modify sample for "defun*"
+
+2008-08-27  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.7rc2
+
+	* howm-menu.el (howm-recent-menu): 
+	select only one item from each file in random selection.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/563-566n
+
+	* howm-misc.el (howm-bug-report): use howm-cl-mapcan instead of mapcan
+
+	* howm-view.el (howm-entitle-items-style2): ditto.
+
+2008-08-11  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.7rc1
+
+2008-08-09  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el (howm-normalizer):
+	use original names instead of aliases
+
+2008-08-05  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-reminder.el (howm-reminder-menu): fix.
+	first argument was not used, and some items were dropped
+	in howm-menu-categorized-reminder.
+	thx > taka-san
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
+
+2008-07-25  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2008-07-24  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-mode.el (howm-keyword-search-subr):
+	howm-view-item-list was remained wrongly
+
+	* howm-reminder.el (howm-list-todo-sub): ditto.
+
+	* configure.in: test version
+
+	* howm-view.el (howm-entitle-items-style1): fix.
+	titleless items were not shown
+
+	* howm-view.el (howm-entitle-items-style2): fix error.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/552
+
+	* howm-mode.el
+	(howm-call-view-summary): added for manipulation of titles
+	(howm-list-title-clear-previous): ditto.
+
+	* howm-backend.el (howm-item-dup): ditto.
+
+2008-07-16  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-mode.el
+	(howm-all-items): splitted and renamed from howm-list-all
+	(howm-list-around): rewritten in functional style
+
+2008-07-15  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-view.el (howm-filter-items):
+	renamed from howm-view-filter-internal
+	(howm-filter-items-uniq, howm-filter-items-by-name) 
+	(howm-filter-items-by-summary, howm-filter-items-by-name/summary) 
+	(howm-filter-items-by-date, howm-filter-items-by-reminder) 
+	(howm-filter-items-by-mtime): ditto.
+	(howm-entitle-items):
+	renamed from howm-view-list-title-internal
+	(howm-entitle-items-style1, howm-entitle-items-style2): ditto.
+	(howm-entitle-items-style1): return value is changed
+	(howm-sort-items):
+	renamed from howm-view-sort-internal
+	(howm-sort-items-by-random, howm-sort-items-by-name) 
+	(howm-sort-items-by-numerical-name, howm-sort-items-by-date) 
+	(howm-sort-items-by-reverse-date, howm-sort-items-by-summary) 
+	(howm-sort-items-by-reminder, howm-sort-items-by-mtime) 
+	(howm-sort-items-by-reverse): ditto.
+	(howm-view-lift-internal): avoid simple variable name for safety
+
+	* howm-backend.el (howm-view-directory-items): 
+	use howm-folder-items insteadly.
+
+2008-07-14  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2008-07-12  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-mode.el
+	(howm-search): add argument
+	(howm-list-related): simplified
+
+	* howm-vars.el (howm-view-use-grep): fix docstring
+
+	* howm-mode.el (howm-call-view-search): removed
+
+2008-07-11  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-common.el (howm-view-in-background): don't use it in principle
+
+	* howm-reminder.el (howm-reminder-add-font-lock): splitted
+
+	* howm-misc.el (howm-mode-add-font-lock): ditto.
+
+	* howm-view.el (howm-view-summary,howm-view-summary-rebuild):
+	add optional argument for font-lock
+
+	* howm-mode.el (howm-search,howm-keyword-search-subr):
+	don't use *howm-view-font-lock-keywords* outside howm-view.el
+
+	* action-lock.el: untabify
+
+	* howm-view.el (howm-view-search-folder): splitted
+
+	* howm-mode.el
+	(howm-list-normalize, howm-normalizer-pair, howm-normalize-oldp): 
+	warn if howm-list-normalizer is set.
+	convert howm-list-normalizer to howm-normalizer if possible.
+	(howm-normalize-show): replace howm-list-normalize
+
+	* howm-mode.el (howm-list-all, howm-list-recent, howm-search):
+	use howm-normalize-show
+
+	* howm-backend.el (howm-open-directory-independently): ditto.
+
+2008-07-10  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el
+	(howm-normalizer): new option
+	(howm-list-normalizer): default is changed to nil
+
+	* howm-mode.el
+	(howm-list-normalize): switch new or old codes
+	(howm-normalize): rewrite howm-list-normalize in functional style
+	(howm-list-normalize-old): renamed from howm-list-normalize. use prog1.
+	(howm-list-title-put-previous): add optional argument
+
+	* howm-view.el
+	(howm-view-list-title-internal): split howm-view-list-title function
+	(howm-view-list-title1-internal): ditto.
+	(howm-view-list-title2-internal): ditto.
+
+	* howm-mode.el
+	(howm-default-key-table): update docstring
+	(howm-migemo-client): add docstring
+	(howm-mode): remove useless backquote
+
+	* howm.el: update copyright years
+
+2008-05-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-vars.el (howm-action-lock-forward-fuzziness): new option.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/519
+	* howm-reminder.el (howm-action-lock-forward-modify-current-line):
+	ditto.
+
+2008-05-24  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-view.el (howm-view-filter-general): fix. predicate was reversed.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/514
+
+2008-05-23  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* riffle.el
+	(riffle-keep-window): new option.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/507
+	(riffle-summary-subr): check riffle-keep-window.
+	(riffle-post-command): ditto.
+	(riffle-summary-to-contents): ditto.
+	(riffle-pop-to-buffer): ditto.
+	(riffle-refresh-window-configuration): ditto.
+
+	* howm-date.el (howm-date-forward-ymd): don't call riffle directly.
+
+	* riffle.el (riffle-summary-update): use catch & throw.
+
+2008-05-21  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-view.el (howm-view-filter-general): fix. revived for howmoney.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/503
+
+2008-05-14  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-backend.el
+	(howm-real-grep-single): use labels instead of flet.
+	(howm-real-grep-multi): ditto.
+
+	* howm-misc.el (howm-basic-save-buffer): ditto.
+
+	* howm-mode.el (howm-expand-aliases-recursively): ditto.
+
+	* howm-common.el (howm-with-exit): new macro for the below fix.
+
+	* howm-reminder.el
+	(howm-list-schedule): fix.
+	cancel postprocess if no-match.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/494
+	(howm-list-todo-sub): ditto.
+	(howm-list-reminder-final-setup): fix.
+	action-lock-mode was toggled unintentionally.
+
+	* howm-common.el
+	(howm-list-exclude): removed (unused)
+	(howm-item-exclude-p): ditto.
+	(howm-view-item-exclude-p): ditto.
+
+2008-05-13  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-view.el
+	(howm-view-summary-mode): fix.
+	global value of font-lock-keywords-only was set wrongly
+	in CVS head emacs after 2008-02-24.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/484-487n
+	(howm-view-contents-mode): ditto.
+
+	* howm-menu.el (howm-menu-set-face): unify the style (no effect)
+
+2008-04-21  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-backend.el (howm-real-grep-multi): 
+	split howm-view-grep-option.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/458
+
+2008-04-14  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-view.el (howm-view-title-skip-regexp): 
+	use howm-view-title-header.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/454
+
+2008-04-11  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-view.el (howm-view-dired): call howm-view-dired-goto by default.
+
+	* howm-vars.el (howm-view-dired-keep-cursor): removed.
+
+2008-04-06  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-misc.el (howm-test): add docstring.
+	thx > dareka
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+
+2007-11-07  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2007-11-06  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-common.el (howm-decode-time): 
+	fix.
+	today's schedule didn't appear on menu on the last day of DST.
+	thx > Mielke-san (peter.mielke at gmail.com)
+	http://lists.sourceforge.jp/mailman/archives/howm-eng/2007/000034.html
+
+2007-07-15  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-view.el (howm-view-sort/filter-doit): fix.
+	return list of items for backward compatibility.
+	thx > taku-san
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?HidePrivateReminder
+
+2007-05-28  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-view.el (howm-view-summary-next-section-sub): 
+	stop at the first hit line of each file.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/360
+
+2007-05-18  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm.el: manage circular dependencies
+
+	* elisp-comp: cancel the fix on 2007-05-05
+
+	* honest-report.el
+	(honest-report-version-assoc): be independent of howm-*
+	(honest-report-emacs-build-time): ditto.
+	howm-emacs-build-time is moved and renamed.
+
+2007-05-05  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* mkinstalldirs: update to automake-1.10
+
+	* missing: ditto.
+
+	* install-sh: ditto.
+
+	* elisp-comp: ditto. & fix (keep the order of arguments)
+
+	* config.guess: update to autotools-dev_20060702
+
+	* config.sub: ditto.
+
+	* acinclude.m4: fix for aclocal 1.10
+
+	* Makefile.am: ditto.
+
+2007-05-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-menu.el
+	(howm-menu-reminder-format): new option.
+	(howm-menu-list-format): columnar formatting
+	thx > Mielke-san (peter.mielke at gmail.com)
+	http://lists.sourceforge.jp/mailman/archives/howm-eng/2007/000032.html
+
+2007-04-13  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2007-04-12  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-view.el (howm-view-summary-mode): fix.
+	summary buffer was not highlighted in howm-occur.
+
+	* howm-backend.el (howm-occur-force-fake-grep): new option.
+
+	* howm-view.el (howm-view-search-folder): 
+	check FIXED-P for highlighting
+
+	* configure.in: test version
+
+2007-04-11  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-mode.el (howm-read-aliases): fix.
+	RET on "BBB" in "<<< aaa <<< BBB" didn't search "aaa"
+	if howm-keyword-case-fold-search is non-nil.
+
+2007-04-06  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-view.el
+	(howm-view-filter-by-mtime): fix. range was ignored.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/340
+	(howm-view-filter-by-time-range): ditto.
+
+2007-04-03  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-misc.el (howm-truncate-string): fix. correct docstring
+
+2007-04-02  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-view.el (howm-view-sort-by-random-internal): fix.
+	wrong variable name
+
+	* configure.in: test version (canceled)
+
+	* howm-view.el (howm-view-defun-sort-by): use macro to define sort-by-X
+
+2007-04-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: private test version
+
+	* howm-reminder.el (howm-schedule-sort-items): wrongly interactive
+
+	* howm-view.el
+	(howm-view-mtime): remove howm-view-xtime
+	(howm-view-filter-by-mtime): ditto.
+	(howm-view-sort-by-mtime): ditto.
+	(howm-view-filter-general): remove with-index
+	(howm-view-filter-internal): ditto.
+	(howm-view-sort-by-name-match): renamed to howm-view-lift-by-*
+	(howm-view-sort-by-summary-match): ditto.
+	(howm-view-sort-by-summary-match-string): ditto.
+	(howm-view-filter-general): removed for more functional style
+	(howm-view-sort-general): ditto.
+	(howm-view-sort-by-general-match): ditto.
+	(howm-view-filter-by-date-internal): fix. limit date was wrong by one
+	(howm-view-filter-by-reminder-internal): ditto.
+	(howm-view-filter-by-mtime-internal): ditto.
+
+	* howm-reminder.el (howm-list-reminder-final-setup): fix.
+	schedule/todo list was not fontified.
+	(howm-list-schedule): defer setup of summary buffer for efficiency.
+	(howm-list-todo-sub): ditto.
+
+	* howm-view.el
+	(howm-view-filter-by-date-internal): fix.
+	03-16 was listed when limit is "to 03-15".
+	(howm-view-filter-by-reminder-internal): ditto.
+	(howm-view-filter-by-xtime): ditto.
+
+	* configure.in: private test version
+
+2007-03-30  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el (howm-view-contents-limit): fix. not used.
+	also change its default from 10000 to nil for backward compatibility.
+
+	* howm-mode.el
+	(howm-list-toggle-title): fix.
+	internal calls to howm-list-title shouldn't perform toggle.
+	(howm-keyword-search-subr):
+	defer setup of summary buffer for efficiency.
+
+	* howm-cl.el (howm-cl-remove-duplicates*): fix.
+	"<<< foo" didn't appear at the top of the summary buffer
+	when howm-list-title is T.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/328
+
+	* howm-misc.el (howm-buffer-name-format): new option.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/333
+
+2007-03-26  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2007-03-22  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-view.el (howm-view-contents-item): 
+	don't insert separator "====>>> xxx.howm" in contents buffer
+	if just one item is displayed.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/314
+
+2007-02-24  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-vars.el (howm-check-word-break): new option.
+	thx > Mielke-san (peter.mielke at gmail.com)
+	http://lists.sourceforge.jp/mailman/archives/howm-eng/2007/000030.html
+
+	* howm-view.el (howm-view-summary-mode): 
+	highlight today and tomorrow.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/275
+
+	* howm-menu.el (howm-menu-font-lock-rules): ditto.
+
+	* howm-reminder.el (howm-highlight-date-regexp-format):
+	change default.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/275
+
+	* howm-vars.el (howm-funcall-if-defined): fix docstring
+
+	* howm.el: update copyright years
+
+2007-02-15  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* honest-report.el (honest-report-version-assoc): 
+	report environment variables "LANG" etc.
+
+2006-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-reminder.el (howm-reminder-summarizer): 
+	show "late days" in addition to "day of week".
+	thx > Mielke-san (peter.mielke at gmail.com)
+	http://lists.sourceforge.jp/mailman/archives/howm-eng/2006/000028.html
+
+2006-12-18  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-mode.el (howm-keyword-search-open-menu): 
+	show warning when two or more %menu% are found.
+
+	* howm-view.el (howm-view-sort-by-general-match): 
+	return single/multi/nil instead of conventional t/nil.
+
+2006-12-16  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm.el: security fix.
+	put risky-local-variable property
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/207
+
+	* configure.in: version 1.3.4 is released from another branch
+
+2006-12-10  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: private test version
+
+	* howm-vars.el
+	(howm-define-risky-command): put risky-local-variable property
+
+	* riffle.el: ditto.
+
+	* illusion.el: ditto.
+
+	* gfunc.el: ditto.
+
+	* action-lock.el: ditto.
+
+	* howm-cl.el (howm-cl-gensym): added.
+
+	* howm-misc.el (howm-required-features): add honest-report
+
+	* riffle.el (riffle-set-mode-maybe): removed (not used anywhere)
+
+	* howm-mode.el
+	(howm-keyword-aliases): fix. check howm-keyword-case-fold-search.
+	(howm-template-string): fix. accept (lambda ...) as howm-template.
+
+2006-11-21  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-common.el
+	(howm-log-buffer-name-format): added
+	(howm-write-log): rename buffer according to howm-log-buffer-name-format
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/193-194n
+	(howm-history): raise error if history file doesn't exist.
+
+	* howm-backend.el
+	(howm-keyword-buffer): 
+	force howm-keyword-buffer-name-format even for the normal case.
+	(howm-keyword-buffer-name): removed
+	(howm-get-keyword-buffer): removed
+
+	* howm-common.el (howm-get-buffer-for-file): added
+
+	* howm-misc.el (howm-basic-save-buffer): 
+	doesn't show "Wrote..." message any more.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/193-194n
+
+2006-10-27  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-common.el (howm-message-nolog): message without logging
+
+	* howm-view.el (riffle-post-update:howm): ditto.
+
+2006-10-25  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-backend.el
+	(howm-get-keyword-buffer): fix: argument is not optional any more.
+	(howm-keyword-buffer-name): new option.
+	(howm-keyword-buffer): buffer-name is now customizable.
+
+2006-10-15  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* cheat-font-lock.el (cheat-font-lock-20040624-format-p): fix.
+	font-lock-compile-keywords may add a help-echo
+	in CVS-head emacs, and its result can be longer than expected.
+	see 2005-10-21 in lisp/ChangeLog.
+	http://lists.gnu.org/archive/html/emacs-commit/2005-10/msg00635.html
+	http://cvs.savannah.gnu.org/viewcvs/emacs/emacs/lisp/font-lock.el.diff?tr1=1.276&tr2=1.277&r1=text&r2=text
+
+2006-10-03  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-backend.el (howm-page-open:file): fix. need widen.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/160-161n
+
+2006-09-12  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-reminder.el (howm-todo-priority-schedule-bottom): make it deeper
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/149
+
+	* howm-vars.el (howm-huge++): new parameter
+
+2006-09-10  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-version.el.in: remove howm-{en,ja}-dir
+
+	* howm-lang-ja.el (howm-day-of-week-ja): Use a list instead of a string.
+
+	* howm-lang-en.el (howm-day-of-week-en): ditto.
+	Use "Sun" instead of "S".
+
+	* howm-menu.el (howm-day-of-week-string): 
+	howm-day-of-week-{en,ja} can be a list.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/147
+
+2006-07-26  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-menu.el (howm-menu-list-regexp): fix.
+	RET at "7" in "> 2006-07-26-015606 |" in menu buffer caused error.
+	thx > na-san
+
+2006-06-28  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-misc.el (howm-bayesian-set): new command.
+
+2006-06-27  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-mode.el (howm-expand-aliases-recursively): 
+	CL function "copy-list" is replaced with built-in "copy-sequence".
+
+	* howm-menu.el (howm-menu-shortcut-sort): ditto.
+
+2006-06-26  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-reminder.el (howm-list-active-todo): new command.
+
+	* howm-view.el (howm-view-sort-by-summary-match-string): new feature.
+
+	* howm-misc.el (howm-mode-set-buffer-name): new tool.
+	thx > Mielke-san (peter at exegenix.com)
+	http://lists.sourceforge.jp/mailman/archives/howm-eng/2006/000020.html
+	http://lists.sourceforge.jp/mailman/archives/howm-eng/2006/000022.html
+	thx > anonymous
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?ExternalTool
+
+	* howm-vars.el (howm-menu-reminder-separators): fix.
+	"Between schedule and todo" corresponds to nil.
+
+	* howm-reminder.el (howm-todo-separators): new option.
+
+	* howm-backend.el
+	(howm-page-type): page can be nil.
+	(howm-make-page:nil): ditto.
+	(howm-item-page): ditto.
+
+	* howm-reminder.el (howm-todo-insert-separators): 
+	use nil-page item instead of string.
+
+	* howm-menu.el (howm-menu-format-todo): ditto.
+
+2006-06-10  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* COPYING: fix.
+	obsolete address of FSF is corrected.
+	thx > Fujimura Yuki san <ykfj@users.sourceforge.jp>
+
+2006-06-05  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.3
+
+2006-05-20  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.3rc1
+
+2006-05-15  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2006-05-13  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-common.el (howm-with-coding-system): 
+	accept a pair (for-read . for-write).
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/96
+
+	* howm-vars.el (howm-process-coding-system): ditto.
+
+2006-05-09  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-common.el (howm-with-coding-system): fix.
+	howm-process-coding-system should be checked at runtime.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/94-95n
+
+2006-05-02  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2006-05-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-misc.el (howm-remember-get-title): fix.
+	remove newline from title string.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/92
+
+2006-04-29  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-misc.el (howm-remember-first-line-to-title): new option.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/72-75n
+
+	* howm-common.el (howm-call-process): fix.
+	set coding-system for temporary buffer.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/63-83n
+
+2006-04-23  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-misc.el (howm-remember-submit): fix.
+	"%file" in howm-template now works even for howm-remember.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/61
+
+2006-03-25  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-misc.el (howm-remember): new command.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/24-25n
+
+2006-03-22  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-view.el (howm-view-list-title-type): 
+	experimental code to show title before summary of each item.
+	thx > Highfly san
+	http://lists.sourceforge.jp/mailman/archives/howm-eng/2006/000025.html
+
+2006-03-21  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* illusion.el: require easy-mmode explicitly
+
+	* honest-report.el (honest-report-window-list): 
+	support emacs20 (and meadow-1.15).
+
+2006-03-12  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2006-03-11  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-mode.el (howm-migemo-client-option): new option.
+	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/9
+
+2006-02-04  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2006-02-02  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm.el: fix.
+	howmz needs both howm-menu-command-table-{en,ja}.
+
+	* configure.in: test version
+
+	* howm.el: fix.
+	require howm-lang-* before it is really needed.
+	this may be necessary for howmz.
+	thx > (TxT) san
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus
+	http://noir.s7.xrea.com/archives/000136.html
+
+2006-01-23  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-menu.el (howm-menu-categorized-reminder): 
+	howm-menu-categorized-todo is replaced with -reminder.
+	fix error when howm-menu-reminder-separators is not null.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/919
+
+2006-01-19  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2006-01-18  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-backend.el (howm-page-viewer:file): 
+	list files in directory in contents buffer.
+
+2006-01-17  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-menu.el (howm-menu-categorized-todo): 
+	misc. can be omitted.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/909
+
+2006-01-16  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-menu.el (howm-menu-categorized-todo): new feature (experimental).
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/885
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/890
+
+	* howm-cl.el (howm-cl-find-if): added
+
+	* howm-backend.el (howm-folder-grep-internal:pages): cleaned.
+
+	* howm-menu.el (howm-menu-general): cleaned.
+	you can make your own list in menu buffer more easily.
+	see howm-menu-schedule, howm-menu-todo, howm-menu-recent, and
+	howm-menu-search for example.
+
+2006-01-10  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-misc.el (howm-buffer-p): fix.
+	.howm-keys and its alternatives were overlooked.
+	thx > http://d.hatena.ne.jp/dasm/20060110
+
+2006-01-07  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2006-01-06  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm.el: update copyright years
+
+	* cheat-font-lock.el (cheat-font-lock-20040624-format-p): fix.
+	avoid "Font-lock trying to use keywords before setting them up" error
+	during 'make' for emacs-22.0.50.1 (CVS version).
+	thx > http://tty0.exblog.jp/2944244
+	thx > http://d.hatena.ne.jp/yoshk/20060102
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/867
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/873-874n
+
+2005-12-17  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el (howm-custom-reminder-get-types): fix.
+	treat unknown marks correctly.
+
+	* howm-reminder.el (howm-modify-reminder-types): 
+	example is commented out.
+
+2005-12-10  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+	(packagedir): fix lispdir for xemacs with packagedir
+
+2005-12-09  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: endir and jadir are now obsolete.
+	--with-rel-datadir is canceled.
+	thx > HONJOH Eiji san. irodori@irodori.sakura.ne.jp
+	thx > ZENITANI Seiji san. zenitani@mac.com
+
+	* howm-menu.el (howm-menu-initialize-skel): ditto.
+	read howm-menu-*.el instead of {en,ja}/0000-00-00-000000.howm
+
+	* howm-mkmenu.el: ditto.
+	new script to make howm-menu-*.el from {en,ja}/0000-00-00-000000.howm
+
+	* Makefile.am: ditto.
+	add howm-menu-*.el. delete en/ and ja/.
+
+	* howm-lang-en.el: separate language-dependent variables
+
+	* howm-lang-ja.el: ditto.
+
+	* howm-menu.el (howm-lang-ref): ditto.
+
+	* howm-common.el (howm-get-symbol): ditto.
+
+	* Makefile.am (howm_LISP): ditto.
+
+2005-12-02  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: new option --with-howmdir
+	default lispdir is now .../site-lisp.
+	thx > HONJOH Eiji san. irodori@irodori.sakura.ne.jp
+
+	* Makefile.am (howm_LISP): ditto.
+
+	* acinclude.m4 (ac_output): ditto.
+
+	* bcomp.el.in (bcomp-files): ditto.
+
+2005-11-30  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* configure.in: new option --with-rel-datadir
+	previous --with-data-into-lispdir is canceled.
+	thx > ZENITANI Seiji san. zenitani@mac.com
+	thx > HONJOH Eiji san. irodori@irodori.sakura.ne.jp
+
+2005-11-29  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* configure.in: new option --with-data-into-lispdir
+	thx > HONJOH Eiji san. irodori@irodori.sakura.ne.jp
+
+2005-11-27  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el (howm-mode-off-hook): fix.
+	remove duplicated defcustom.
+	thx > TAKEMURA Masayuki san. ICG04984@nifty.com
+
+2005-11-26  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-menu.el (howm-menu-skel): 
+	- use symbol-value instead of eval.
+	- howm-en-dir and howm-ja-dir can be relative paths from the directory
+	of howm.elc or howm.el. (for Carbon emacs package)
+	thx > ZENITANI Seiji san. zenitani@mac.com
+	thx > HONJOH Eiji san. irodori@irodori.sakura.ne.jp
+	thx > ARAI Ryotaro san. misty@...
+	http://lists.sourceforge.jp/mailman/archives/macemacsjp-users/2005-November/000756.html
+	http://lists.sourceforge.jp/mailman/archives/macemacsjp-users/2005-November/000760.html
+
+2005-11-22  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el (howm-menu-todo-priority): change default.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/75-77n
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/842-846n
+
+2005-11-12  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-misc.el (howm-open-named-file): new command.
+	thx > Eduardo Ochs san
+	http://lists.sourceforge.jp/mailman/archives/howm-eng/2005/000010.html
+
+2005-11-11  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-reminder.el (howm-action-lock-forward-open): 
+	don't depend on magic-return.
+
+	* howm-date.el (howm-action-lock-date-search): 
+	now it works even on menu buffer.
+	thx > Kaneko Kensuke san
+	http://d.hatena.ne.jp/a666666/20051110/1131621183
+
+	* howm-reminder.el (howm-action-lock-forward): 
+	keep my text property for jump from menu.
+
+	* howm-menu.el (howm-menu-list-action): 
+	keyword is now optional.
+
+	* howm-date.el (howm-action-lock-date-prompt): 
+	misleading message is corrected.
+	thx > Kaneko Kensuke san
+	http://d.hatena.ne.jp/a666666/20051110/1131621183
+
+2005-11-06  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-menu.el (howm-menu-list-action): fix.
+	history list was broken.
+
+2005-11-05  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-menu.el (howm-menu-list-action): 
+	get text property not from buffer but from argument.
+
+	* action-lock.el (action-lock-general): 
+	keep text properties.
+
+	* howm-common.el (howm-history):
+	disable expansion of %schedule etc.
+
+	* configure.in: test version
+
+2005-11-04  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-common.el (howm-replace-region): 
+	`format' in xemacs doesn't keep text properties.
+
+	* howm-menu.el (howm-menu-list-format): 
+	store item to text property so that we can open it directly
+	instead of searching text when RET is hit on ">" in menu buffer.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/823
+
+	* action-lock.el (action-lock-general): add docstring
+
+	* configure.in: version 1.3.2
+
+	* howm-mode.el (howm-keyword-search-subr): 
+	cancel the below change. this problem should be fixed
+	more fundamentally.
+
+	* howm-mode.el (howm-keyword-search-subr): 
+	search lines whose entire texts exactly match to the geven keyword
+	when open-unique-p is non-nil.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/823
+
+2005-10-27  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.2rc4
+
+2005-10-25  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el (howm-view-dired-keep-cursor): new option.
+	thx > 797 http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+
+2005-10-24  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.2rc3
+	something was wrong in 'cvs commit' of rc2.
+
+2005-10-20  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.2rc2
+
+	* howm-view.el
+	(howm-view-dired): fix.
+	require dired-vir for xemacs, and remove duplicates.
+	thx > 797 http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+
+2005-10-16  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.2rc1
+
+2005-10-15  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-common.el (howm-read-event): fix.
+	error when RET is hit on date format [2005-10-15] in menu buffer
+	in xemacs.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/797-801n
+
+2005-10-08  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-common.el (howm-view-in-background): fix.
+	This macro is moved from howm-view.el because it is used across files.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/789-791n
+
+2005-09-30  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2005-09-27  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-backend.el (howm-occur): new command
+
+2005-09-26  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el (howm-view-contents-limit): default is changed to 10000
+
+2005-09-07  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* action-lock.el
+	(action-lock-open-regexp): include / at the end
+	(action-lock-browse-regexp): ditto
+
+2005-09-06  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* honest-report.el (honest-report-screenshot): fix.
+	window-end (without update) can be negative when completion window
+	is displayed temporally.
+
+2005-09-05  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-common.el (howm-call-process-here): set coding system
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/784
+
+	* howm-vars.el (howm-process-coding-system): new option
+
+2005-09-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-backend.el (action-lock-find-file): expand-file-name
+	thx > hattori-san
+	http://www.tom.sfc.keio.ac.jp/~hattori/blog/setting/2005/08/howm.html
+
+2005-08-29  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-vars.el (howm-list-title): add howm-action-lock-date-search
+	so that title is shown for `howm-search-today' (C-c , , .) by default.
+	thx > nobu-san
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+
+	* howm-date.el (howm-action-lock-date-search): add `howm-set-command'.
+
+2005-08-24  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-view.el: add (require 'riffle)
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/782
+
+2005-08-17  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.1
+
+2005-08-13  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.1rc1
+
+	* howm-vars.el (howm-get-locale): fix. never return nil
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/780-781n
+
+2005-08-12  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-view.el (howm-view-summary-omit-same-name): new option
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/779
+
+2005-08-11  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-view.el (howm-view-title-skip-regexp): new option
+
+2005-08-09  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-misc.el (howm-bug-shot): new command for bug report
+
+2005-08-08  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-misc.el (howm-bug-report):
+	call bugshot-version-assoc internally
+
+	* honest-report.el: new tool for better bug report
+
+2005-08-03  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* riffle.el (riffle-define-derived-mode):
+	defined to avoid slow down in xemacs.
+
+2005-08-02  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* gfunc.el (gfunc-call): recursion is rewritten to loop.
+	recursion seems remarkably slow in xemacs.
+
+	* configure.in: version 1.3.0
+
+2005-07-28  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.0rc5
+
+2005-07-27  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-view.el
+	(howm-view-summary-item):
+	don't show same name repeatedly.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/754
+	(howm-view-summary-stripe): canceled.
+	the above should be better.
+	(howm-view-contents-mode): fix.
+	howm-view-summary-font-lock-keywords must not work in contents buffer.
+	(howm-view-summary-font-lock-keywords): add default.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/754
+
+	* howm-reminder.el (howm-with-schedule-summary-format): 
+	use this macro and never use howm-view-summary-format directly.
+
+2005-07-26  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-view.el (howm-view-summary-stripe): new option.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/754
+
+	* configure.in: version 1.3.0rc4 again. mistake in packaging
+
+2005-07-25  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.0rc4
+
+	* howm-vars.el (howm-excluded-file-regexp-dir-char): fix.
+	Both "\" and "/" indicate directory in win.
+
+2005-07-23  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-common.el (howm-message-time):
+	Don't hide "No match" message even when howm-message-time is set.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/751
+
+	* riffle.el (riffle-summary): cleaned.
+	global varibale *howm-view-summary-nop* is replaced with optional
+	argument.
+	"No match" message is moved to howm-view-summary.
+
+2005-07-16  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-common.el (howm-call-process): 
+	howm-call-process-last-command keeps all arguments
+	so that we can repeat the last call-process
+	by (apply #'howm-call-process howm-call-process-last-command).
+
+2005-07-14  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el (howm-content-from-region): fix. Labels are corrected.
+
+2005-07-11  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.0rc3
+
+2005-07-08  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-menu.el (howm-menu-dynamic-setup): fix.
+	canceled change in this function on 2005-05-10,
+	so that underlines appear on come-from keywords
+	in reminder lines in menu.
+
+2005-06-26  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.0rc2
+
+2005-06-25  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el (howm-menu-lang):
+	check locale to select default language.
+
+2005-06-21  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.3.0rc1
+
+2005-06-17  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* riffle.el (riffle-pop-to-buffer): fix.
+	howm-view-summary-window-size didn't work when it is greater than
+	half size.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/724
+
+2005-06-13  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-mode.el (howm-template-receive-buffer): new option.
+	By default, previous buffer is also passed to howm-template
+	when it is a function.
+	thx > http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Comment
+
+2005-06-10  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2005-06-09  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-cl.el: cl functions are collected to single file
+	and defalias-ed to inhibit warning during byte-compilation
+	in emacs-22.0.50.1 (CVS version).
+
+	* howm-misc.el (howm-auto-save-buffers-p): 
+	Inhibit warning 'reference to free variable'
+	for auto-save-buffers-regexp during byte-compilation
+	in emacs-22.0.50.1 (CVS version).
+
+2005-06-08  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2005-06-07  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el
+	(howm-action-lock-forward-kill-buffer): new option.
+
+	* howm-reminder.el (howm-action-lock-forward-invoke): 
+	call undo-boundary before modification.
+	howm-action-lock-forward-save-buffer shouldn't work when
+	the corresponding buffer is already modified before this action.
+
+2005-06-03  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-common.el (howm-time-difference-second): don't omit milliseconds.
+	I can't remember the reason of omission
+	and I cancel this change on 2005-03-09.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/709
+
+	* action-lock.el (action-lock-magic-return): fix.
+	snatched RET from pobox-newline in pobox-mode.
+	Indeed, old code snatched all RET wrongly from any modes.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/711
+
+2005-06-02  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2005-06-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el: fix.
+	write color condition in each defface
+	to avoid error on monochrome display.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/706
+
+2005-05-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2005-05-30  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-reminder.el
+	(howm-action-lock-forward): fix.
+	menu buffer was collapsed when one hits RET on "@"
+	in "[2005-05-30]@ foo" in menu buffer with below setting.
+	- (setq howm-menu-expiry-hours 2)
+	- (setq howm-action-lock-forward-save-buffer t)
+	- (setq howm-menu-refresh-after-save t) ;; this is default
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/705
+	(howm-action-lock-forward-invoke):
+	kill-buffer when current-buffer was newly opened for this procedure.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/705
+
+2005-05-29  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-vars.el (howm-funcall-if-defined): 
+	cheat to avoid annoying "not known to be defined" warning
+	in byte-compilation.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1111816102/485
+
+	* howm-view.el (howm-view-sort-items): 
+	defalias for compatibility. howmz needs it.
+	http://noir.s7.xrea.com/archives/000136.html
+	http://noir.s7.xrea.com/pub/zaurus/howmz.el
+	thx > (TxT) san
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus
+
+2005-05-27  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-reminder.el (howm-todo-menu): fix.
+	Insertion of separators was wrong.
+	At least one item was placed between separators regardless of priority.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/703
+
+2005-05-25  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el (howm-action-lock-forward-save-buffer): 'defcustom'ed
+
+2005-05-24  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-mode.el: fix.
+	check direct requiring of howm-mode before loading howm-common.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/698
+
+2005-05-23  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-vars.el
+	(howm-menu-list-face): Its default is empty now
+	so that we can avoid troubles of reverse-video for emacs -nw.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/697
+	(howm-reminder-done-face): default is empty for light background
+
+	* howm-mode.el (howm-refresh): C-c , r on menu calls howm-menu-refresh
+	because howm-initialize-buffer on menu erases all underlines.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/696
+
+2005-05-21  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-mode.el (howm-keyword-aliases):
+	expand aliases of come-from keywords recursively
+
+	* howm-vars.el (howm-keyword-list-alias-sep):
+	enable aliases of come-from keywords by default
+
+2005-05-20  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+2005-05-19  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el (howm-experimental): moved to howm group
+
+	* howm-reminder.el (howm-highlight-date-regexp-format): new option.
+	Some people like to highlight 2005-05-19 rather than [2005-05-19]
+	as today, because they use [2005-05-19 20:52]@ for their schedule.
+
+	* configure.in: test version
+
+	* howm-backend.el (howm-folder-territory-p:dir): fix
+	wrongly returned nil for non-existing file name.
+
+2005-05-18  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-common.el (howm-first-n): fix.
+	avoid "Args out of range" error in xemacs.
+	It happened at %recent in menu when number of note files are small
+	or empty files exist.
+	thx > Nanashi-san
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+
+2005-05-17  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-reminder.el (howm-todo-menu): 
+	remove deep reminders before sorting
+
+	* howm-vars.el (howm-menu-reminder-separators): new option
+
+	* howm-menu.el (howm-menu-todo): item can be a separator string
+
+2005-05-16  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-mode.el (howm-keyword-search): 
+	menu is searched only in howm-directory
+
+	* howm-menu.el (howm-menu): fix
+	todo and schedule were searched only in howm-directory
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/685
+
+	* howm-view.el (howm-view-directory): 
+	set font-lock-keywords only when howm-ruby-mode-bug is non-nil
+
+	* howm-vars.el (howm-user-font-lock-keywords): new option
+	thx > taku-san
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Idea
+
+2005-05-15  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-reminder.el
+	(howm-schedule-sort-converter): 
+	aware of time part in "[2005-05-15 21:36]@"
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/683
+	(howm-schedule-menu): show future schedule one more day
+
+	* configure.in: test version
+
+	* howm-vars.el (howm-after-save-hook): new hook
+
+	* howm-misc.el (howm-set-mode-p): howm-directory can be rast folder
+
+	* howm-backend.el
+	(howm-create-file): 
+	use howm-folder-get-page-create instead of direct mkdir
+	(howm-make-folder:rast): rast folder
+
+	* gfunc.el (gfunc-def): set lisp-indent-hook
+
+	* howm-menu.el (howm-menu): 
+	mkdir only when howm-directory is dir folder
+	so that howm-directory can be any folder.
+	At now, howm-menu-file should be defined in that case;
+	howm-menu-initialize-skel assumes dir folder.
+
+2005-05-14  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: test version
+
+	* howm-misc.el (howm-prefix-names): renamed from howm-prex
+
+	* howm-vars.el (howm-prefix): renaming to howm-prefix-key is canceled
+
+2005-05-13  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el (howm-excluded-file-regexp): fix: wrong const values
+
+2005-05-12  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-view.el (howm-item-list-rangeset): add doc-str around this func
+
+2005-05-11  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-vars.el (howm-prefix-key): renamed to distinguish from function.
+	use defvar instead of defcustom
+	since setting this variable after loading howm may cause confusion.
+
+	* configure.in: test version
+
+	* howm-mode.el (howm-default-key-table): update
+	some are added and some are now globally bound.
+
+	* howm-view.el
+	(howm-view-list-title):
+	- remove-duplicates
+	- toggle title/notitle
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/427
+	(howm-view-summary-rebuild): simplified code
+
+	* howm-misc.el
+	(howm-random-walk): list all memo first when called on non-howm buffer.
+	(howm-auto-narrow): variable howm-auto-narrow can be t.
+
+	* howm-vars.el: Some hidden features are moved to official sections.
+
+2005-05-10  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-menu.el
+	(howm-menu-shortcut-warn): show list of defined keys
+	(howm-menu-invisible):
+	tried to remove use of invisible property. but failed.
+
+	* howm-view.el
+	(howm-view-search-in-result): aware of paragraph
+	(howm-view-remove-by-contents): aware of paragraph
+	(howm-view-list-title): aware of paragraph
+	(howm-view-filter-uniq): aware of paragraph
+
+	* howm-vars.el (howm-file-name-format): added to howm-efficiency group
+
+2005-05-08  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* riffle.el (howm-view-summary-window-size): 
+	moved to howm-experimental group
+
+	* howm-vars.el (howm-view-before-open-hook): fix.
+	used but not defined.
+
+	* configure.in: test version
+
+	* howm-vars.el: some variables are moved from howm-reminder.el.
+	(howm-todo-menu-types): "." (done) is included by default
+	so that one can easily customize several patterns by setting
+	howm-menu-todo-priority and howm-todo-priority-done-bottom.
+	Anyway, default value of howm-menu-todo-priority hides "." in menu.
+	Since it may cause slow response, I also added it into howm-efficiency
+	group.
+	(howm-viewer): new customize group
+
+	* howm-menu.el (howm-menu-invoke):
+	RET in menu-mode causes jump when the current line matches
+	to howm-menu-list-regexp. No need to type C-a now.
+
+	* howm-vars.el (howm-history-limit): 0 means 'no record'
+
+	* howm-common.el (howm-write-history): remove duplicated entries
+
+	* howm-view.el: follow the changes of riffle.el
+
+2005-05-07  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* riffle.el: use gfunc instead of riffle-controller
+
+	* howm.el: order of requires is modified; riffle.el requires gfunc.el.
+
+	* configure.in: test version
+
+	* howm-vars.el
+	(howm-view-grep-command):
+	use "grep -E" and "grep -F" instead of egrep and fgrep by default.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/670
+	(howm-view-grep-file-stdin-option): 
+	use "-f -" by default.
+
+	* howm-backend.el (howm-real-grep-multi):
+	use howm-view-grep-command instead if howm-view-fgrep-command is nil.
+
+	* howm-mode.el (howm-list-title):
+	show title by default for list of all/recent/around notes.
+
+	* howm-vars.el: new file
+	begin to support defcustom
+	thx >
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?RoadMap
+	http://pc8.2ch.net/test/read.cgi/unix/1077881095/668
+
+	* configure.in: version 1.2.3
+
+2005-05-06  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.2.3rc1
+
+	* howm-common.el (howm-with-schedule-interval): fix.
+	moved from howm-reminder.el because that macro is used
+	in another file howm-menu.el.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/669
+
+	* howm-mode.el (howm-search): fix.
+	call howm-list-all for empty regexp.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/668
+
+2005-05-02  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.in: version 1.2.2
+
+2005-04-29  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-view.el
+	(*howm-view-font-lock-keywords*): Spelling is corrected, and
+	worthless function howm-view-font-lock-keywords is removed.
+	(howm-view-contents-mode): hilight of searched keyword is prior
+	to howm-view-contents-font-lock-keywords
+
+2005-04-28  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* cheat-font-lock.el: fix.
+	canceled the use of font-lock-add-keywords in
+	cheat-font-lock-merge-keywords because "compiled keywords" may be
+	passed from current implementation of riffle-contents-mode.
+	I guess this is also related to 2005-04-08 problem.
+
+	* howm-common.el (howm-write-history): new option, howm-history-limit
+
+2005-04-26  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-reminder.el (howm-todo-parse-string): avoid warning
+	"variable dummy bound but not referenced" in xemacs
+
+	* howm-common.el (howm-dont-warn-free-variable): 
+	use macro for frequent trick to avoid warning
+
+	* howm-mode.el (howm-image-file-name-regexps): fix.
+	Meadow-1.15 doesn't have image-file-name-regexps.
+	thx > Touhi-san
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+
+2005-04-24  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-common.el (howm-exclude-p): fix.
+	No file was searched when howm-directory is a dot-directory
+	like "~/.howm".
+	My previous cleaning up on this function is canceled.
+	See the comment in the source code.
+	thx > taku-san
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+
+2005-04-23  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-menu.el (howm-menu-copy-skel): fix.
+	When come-from keyword %menu% isn't found,
+	assume 0000-00-00-000000.howm as menu file if it exists.
+	This can happen when you write (setq howm-keyword-header "<==")
+	in sample/dot.emacs and then do 'make install && make test'.
+	thx > taku-san
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+
+	* howm-mode.el (howm-image-file-name-regexps): fix.
+	(image-file-name-regexp) caused an error on Meadow 2.10
+	unless max-specpdl-size is increased from the default value 600.
+	thx > taku-san, Mo-san
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?MaxSpecpdlSize
+
+	* Makefile.am (EXTRA_DIST): test.bat was not included in tar.gz
+
+2005-04-15  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-menu.el (howm-menu): swap priority of two variables
+	howm-menu-top and howm-menu-file.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/648
+
+2005-04-08  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* cheat-font-lock.el: use old code for emacs20
+	New code may make howm-view-summary-open too slow.
+
+2005-04-02  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-backend.el (howm-real-grep-multi): new option variables
+	howm-view-grep-extended-option and howm-view-grep-fixed-option.
+	Now, we can use grep -E and grep -F instead of egrep and fgrep.
+	This will help linux-zaurus users.
+
+2005-03-30  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-menu.el (howm-menu-search): embed search result into menu
+
+2005-03-27  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-backend.el
+	(howm-folder-grep-internal:pages): fix.
+	list order was reversed when howm-list-all-title is non-nil
+	(howm-real-grep-single): fix. accept list of single pattern
+	(howm-folder-files:namazu): variable r bound but not referenced
+
+2005-03-20  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-view.el (howm-view-filter-by-contents): support C-u (= reject)
+
+2005-03-17  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-view.el (howm-view-contents-item): fix.
+	doubly displayed when matched to the last line of paragraph
+
+2005-03-09  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-common.el (howm-time-difference-second): omit microsecond
+
+	* howm-misc.el (howm-elp): initialize profiler
+
+2005-03-08  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* test.bat: invoke test environment for win
+
+2005-03-03  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-misc.el
+	(howm-random-walk-text): clean
+	(howm-random-walk): kill old buffers after jump
+
+2005-03-02  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-misc.el (howm-random-walk): automatic random walk
+
+2005-02-28  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-mode.el (howm-list-normalize): fix.
+	error when '[hoge' is searched.
+
+2005-02-25  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-misc.el (howm-bug-report): C-u to dump variables
+
+	* howm-mode.el (howm-create-default-title-content): fix.
+	howm-title-from-search was ignored.
+
+	* howm-backend.el (howm-list-buffers-exclude): new option
+
+2005-02-24  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-mode.el (howm-keyword-list): never return ""
+
+2005-02-23  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-common.el: fix for xemacs and emacs20
+
+2005-02-22  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* gfunc.el (gfunc-with): replace gfunc-def-with
+
+	* howm-backend.el: howm-page-load is renamed to howm-page-open
+
+	* howm-view.el (howm-view-set-item-list): comeback for howmoney
+
+	* howm-backend.el (howm-folder-grep-internal:namazu): fix.
+	didn't work for 'or' patterns
+
+2005-02-21  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-backend.el
+	(howm-folder-grep-internal:pages): fix.
+	Specification of howm-page-type was changed.
+	(howm-folder-grep-internal:pages-buffers): fix.
+	must return list of items
+
+	* howm-common.el (howm-exclude-p): fast check only
+
+2005-02-20  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-backend.el (howm-files-in-directory): clean up
+
+	* howm-mode.el (howm-content-from-region): new option variable
+
+2005-02-18  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-mode.el (howm-excluded-file-regexp): add (image-file-name-regexp)
+
+	* howm-backend.el (howm-fake-grep-file): check file name before search.
+	thx > Mocchan-san, Matsushita-san
+	http://www.bookshelf.jp/pukiwiki/pukiwiki.php?%BC%C1%CC%E4%BD%B8%2F42
+
+	* howm-mode.el (howm-exclude-p): fast check option
+
+	* gfunc.el (gfunc-def): Description string is supported.
+
+	* howm-backend.el: clean up
+
+	* howm-common.el (howm-sort): renamed from howm-view-sort-items
+
+	* illusion.el: renamed from proxy-buffer.el
+
+	* gfunc.el
+	(gfunc-def): args-declaration is added.
+	(gfunc-def-with): new func
+
+	* howm-backend.el: 
+	(howm-search-path-folder): howm-search-path is list of 'folders'.
+	(howm-make-folder:namazu): namazu folder
+	(howm-make-folder:rot13dir): rot13 folder/page
+
+	* proxy-buffer.el: new file

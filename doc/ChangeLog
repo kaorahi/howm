@@ -1,0 +1,279 @@
+2015-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: add commit-hash of git-head emacs
+
+2015-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: update version.
+
+	* index.html: ditto.
+
+	* index-j.html: ditto.
+
+	* TUTORIAL.ja.rd: delete obsolete link.
+
+2012-12-29  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* index-j.html: add link to howmm. fix link to howm-mode.vim.
+
+2011-01-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: support new commands.
+
+	* README.ja.rd: move old changelogs to OLD.rd
+
+2010-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: update 2ch URL. add customization examples.
+
+	* OLD.rd: ditto.
+
+	* index-j.html: delete obsolete links.
+
+	* index.html: ditto.
+
+2010-12-30  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* index-j.html: add link to QFixHowm.
+
+2010-12-29  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: update obsolete descriptions.
+
+	* OLD.rd: ditto.
+
+2009-07-23  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: update table of contents.
+
+2009-05-02  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* index-j.html: fix link.
+
+2009-01-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd:
+	add summary-match-string.
+	delete emacs19.
+	link to howm-helper.
+	remove "todo" and "bug" sections.
+	update URLs.
+
+	* index-j.html: link to howm-helper
+
+2008-12-30  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* index-j.html: delete debian package
+
+	* index.html: ditto.
+
+2008-07-16  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* index-j.html: move old announce to OLD.rd
+
+	* README.ja.rd: move old changes to OLD.rd
+
+2008-05-14  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* index.html: link to howm-1.3.5
+
+2008-04-07  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* index.html: add customization example for efficiency
+
+2007-04-11  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: add Whem.
+
+2007-03-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: update 2ch URL.
+
+2007-01-18  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: update 2ch URL.
+
+2006-09-12  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: change on 2006-09-10 is canceled.
+
+2006-09-10  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: 
+	M-x customize-variable howm-menu-todo-priority for %reminder.
+
+2006-06-13  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: 
+	link to yaswiki is removed because of error response.
+	link to BugReportFAQ is added insteadly.
+
+2006-05-15  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: 
+	description about "always howm-remember" in menu mode.
+	thx > http://pc10.2ch.net/test/read.cgi/unix/1141892764/99
+
+2006-05-11  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* index.html: 
+	link to "much kinder tutorial by Dave O'Toole san" is removed
+	because http://dto.twu.net/HowmTutorial.howm.html is not found now.
+	thx > ganba san
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?e.BBS
+
+	* README.rd: ditto.
+
+	* README.ja.rd: link to elscreen
+
+2006-02-12  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.rd: fix typo (@ ==> -) and misspelling.
+	thx > Highfly san
+	http://lists.sourceforge.jp/mailman/archives/howm-eng/2006/000018.html
+
+2006-02-08  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: 
+	mention gc-cons-threshold
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/220-236n
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/934
+
+2006-01-24  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: 
+	add thx link to http://pc8.2ch.net/test/read.cgi/unix/1077881095/42
+
+2006-01-17  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: link to BugReportFAQ
+
+2005-12-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: update link to Hidemaru porting
+
+	* index-j.html: ditto.
+
+2005-11-12  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: jump from menu to each reminder
+	thx > Kaneko Kensuke san
+	http://d.hatena.ne.jp/a666666/20051110/1131621183
+
+	* README.ja.rd: link to Hidemaru porting
+
+	* index-j.html: ditto.
+
+2005-11-11  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* CL-HOWM.ja.rd: describe merits of sort and filter.
+
+2005-10-24  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* Makefile.am (MAINTAINERCLEANFILES): 
+	move *.html from CLEANFILES to MAINTAINERCLEANFILES
+	so that users can try make clean && make without rdtool.
+
+2005-10-21  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: describe that 'configure --with-xemacs' changes
+	default lispdir to /usr/lib/xemacs/site-lisp/howm.
+	thx > 2ch 797 san
+	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+
+2005-10-18  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: explain configure --with-xemacs
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/810
+
+2005-10-13  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: remove incorrect description.
+	'd' key on date format is never implemented.
+
+2005-09-13  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.rd: 'search' is corrected to 'search for'
+
+2005-09-02  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: explain howm-en-dir and howm-ja-dir
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/501-502n
+	thx > http://www.meadowy.org/meadow/netinstall/ticket/5
+
+2005-08-29  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* index-j.html: correct RD label
+
+2005-08-17  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* index.html: email address is removed.
+
+2005-08-12  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: fix
+	- my-howm-next-hit was broken.
+	- howm-view-search-in-result-correctly doesn't affect filter-by-date.
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/779
+
+2005-08-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.rd: add alias, customization, menu editing.
+
+2005-07-27  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: update URL of howm-mode.vim
+
+2005-07-26  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: add links to wema and LesserWiki
+
+2005-07-25  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* index-j.html: correct anchor "#label:20" to "#label-20".
+	It depends on the version of rd2, perhaps.
+
+2005-07-16  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: add comment on grep-2.5 multibyte feature
+
+2005-06-07  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* Makefile.am (README.html): added to distribution.
+
+	* README.rd: 'Repeat schedule' is added.
+
+2005-05-26  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* index.html: M-x custom ==> M-x customize-group
+
+2005-05-24  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: correct description of %here; args are quoted
+
+2005-05-08  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: move old customize section to OLD.rd
+
+2005-05-06  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: key bind R = [Update Menu]
+
+2005-04-02  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* README.ja.rd: link to LinuxZaurus on howm-wiki
+
+2005-03-27  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* OLD.rd: update 2ch URL (pc5 to pc8)
+
+	* README.ja.rd: update 2ch URL (pc5 to pc8)
+
+2005-03-13  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* index-j.html: update URL of howm-mode.vim
+
+2005-02-19  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* index-j.html: add link to Meadow memo
+

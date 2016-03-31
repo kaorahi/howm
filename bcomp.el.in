@@ -1,0 +1,23 @@
+;;; -*- Emacs-Lisp -*-
+(require 'cl)
+
+(setq bcomp-files
+      '(
+	@howm_LISP@
+	))
+
+(let* ((dir (expand-file-name default-directory))
+       (load-path (cons dir load-path))
+       file)
+  (message "deleting old .elc files...")
+  (dolist (elt bcomp-files)
+    (setq file (concat dir elt "c"))
+    (if (file-exists-p file)
+	(delete-file file)))
+
+  (message "compiling...")
+  (dolist (elt bcomp-files)
+    (setq file (concat dir elt))
+    (byte-compile-file file t))
+
+  (message "done"))

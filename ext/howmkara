@@ -1,0 +1,361 @@
+#!/usr/bin/ruby -s
+# -*- coding: euc-jp -*-
+# -*- Ruby -*-
+# $Id: howmkara,v 1.7 2010-12-31 12:12:47 hira Exp $
+
+# Convert ~/howm/ to HTML or other formats.
+# Only RD format is supported unless you will give me patches. :p
+
+#############################################################
+
+require 'cgi'
+
+def usage
+  name = File::basename $0
+  print <<EOU
+#{name}: howm メモを HTML 化
+・やばい文字をエスケープ
+・キーワードをリンクに変換
+・ヘッダとフッタをつける
+(例)
+  #{name} ~/howm/ ~/converted/
+  ls ~/howm/*/*/*7-*.txt | #{name} -list ~/converted/
+  grep -rl 'ほげ' ~/howm/ | #{name} -list ~/converted/
+(オプション例)
+  -list                     → メモファイルのリストを標準入力から読む
+  -exclude='^[.]|CVS'       → 対象外のファイルを正規表現で指定
+  -home='index.html'        → 「Home」のリンク先
+  -silent または -s         → 進捗表示をしない
+  -help または -h           → このメッセージを表示
+  (-debug                   → デバッグ用出力)
+EOU
+end
+
+argv_len = $list ? 1 : 2
+if ($help || $h || ARGV.length != argv_len)
+  usage
+  exit 0
+end
+
+#############################################################
+
+$exclude ||= "^[.\#]|CVS|~$"
+$silent ||= $s
+$summary_length ||= 70
+$come_from ||= "<<< *(.+)$"
+$come_from_pos ||= 1
+
+#############################################################
+
+def notice(str)
+  STDERR.print str if !$silent
+end
+
+def ls_R(dir)
+  a = Array::new
+  Dir::open(dir){|d| d.each{|f| a.push f}}  # map doesn't work??
+  b = Array::new
+  a.each{|f|
+    next if f =~ /#$exclude/
+    path = File::expand_path f, dir
+    b.push f if FileTest::file? path
+    b += ls_R(path).map{|g| "#{f}/#{g}"} if FileTest::directory? path
+  }
+  return b
+end
+
+# FixMe :-(
+def mkdir_p(path)
+  parent = File::dirname path
+  return true if parent == path  # root dir
+  mkdir_p parent
+  if !FileTest::exist? path
+    Dir::mkdir path
+  end
+end
+
+# FixMe :-(
+def split_base(file_list)
+  fs = file_list.map{|f| File::expand_path f}
+  ds = fs.map{|f| File::dirname f}
+  common = ds[0] || ''
+  ds.each{|d|
+    while common != d
+      if common.length <= d.length
+        d = File::dirname d
+      else
+        common = File::dirname common
+      end
+    end
+  }
+  rs = fs.map{|f| f[(common.length + 1)..-1]}  # +1 for '/'
+  return [common, rs]
+end
+
+class HashList < Hash
+  def cons(key, val)
+    self[key] ||= Array::new
+    self[key].push val
+  end
+end
+
+# class Array
+#   def flatten
+#     ret = []
+#     self.each{|x| ret += x}
+#     ret
+#   end
+# end
+
+class String
+  def offsets(pattern)
+    a = Array::new
+    pos = 0
+    # necessary for use of last_match. sigh...
+    pattern = Regexp::new(Regexp::quote(pattern)) if pattern.is_a? String
+    while (i = index pattern, pos)
+      a.push Regexp.last_match.offset(0)
+      pos = i + 1
+    end
+    return a
+  end
+end
+
+module Bundle
+  def expand_readlines(f)
+    open(File::expand_path(f, base_dir), 'r'){|io| io.readlines.join}
+#     open(File::expand_path(f, base_dir), 'r'){|io| io.read}  # for ruby-1.7?
+  end
+  def first_line(f)
+    open(File::expand_path(f, base_dir), 'r'){|io| io.gets.chop}
+  end
+  def link_tag(f)  # Clean me. 何度も呼ぶのはかっこ悪い.
+    fline = first_line f
+    [:link, f + '.b', f + ': ' + fline[0, $summary_length]]
+  end
+end
+
+#############################################################
+
+class Formatter
+  attr_accessor :home
+  def initialize(home = nil)
+    @home = home
+  end
+  def newpage
+    @result = ''
+  end
+  def put(*com)
+    com.each{|c| put_one c}
+  end
+  def put_one(command)
+    type = command.shift
+    case type
+    when :pre
+      items = command.shift
+      @result += "<pre>\n"
+      put *items
+      @result += "</pre>\n"
+    when :as_is
+      @result += CGI::escapeHTML(command.shift)
+    when :link
+      link, str = command
+      url = link.is_a?(String) ? link + '.html' : link[1]
+      @result += %!<a href="#{url}">#{CGI::escapeHTML str}</a>!
+    when :list
+      items = command.shift
+      @result += "<ol>\n"
+      items.each{|i| @result += ' <li>'; put_one i; @result += "\n"}
+      @result += "</ol>\n"
+    end
+  end
+  def wrapped_result(title)
+    etitle = CGI::escapeHTML title
+    <<_EOS_
+<html>
+<head><title>#{etitle}</title></head>
+<body>
+<h1>#{etitle}</h1>
+<hr>
+#{@result}
+<hr>
+<a href="#{@home}">Home</a>
+<a href="book.h.html">Files</a>
+<a href="index.h.html">Keywords</a>
+</body>
+</html>
+_EOS_
+  end
+  def write(title, file, dir)
+    f = File::expand_path(file, dir) + '.html'
+    mkdir_p File::dirname(f)
+    open(f, 'w'){|io| io.puts wrapped_result(title)}
+  end
+end
+
+class Book
+  include Bundle
+  attr_accessor :files, :base_dir
+  def initialize(files, base_dir)
+    @files    = files
+    @base_dir = base_dir
+  end
+  def first_page
+    link_tag(@files[0])
+  end
+  def write(dest_dir, formatter)
+    index = Index::new @files, @base_dir
+    write_each  dest_dir, formatter, index
+    write_list  dest_dir, formatter
+    index.write dest_dir, formatter
+  end
+  def write_list(dest_dir, formatter)
+    formatter.newpage
+    formatter.put [:list, @files.sort.map{|f|
+      link_tag f
+#       first_line = open(File::expand_path f, @base_dir){|io| io.gets.chop}
+#       [:link, f + '.b', f + ': ' + first_line[0, $summary_length]]
+    }]
+    formatter.write 'Files', 'book.h', dest_dir
+    notice ".\n"
+  end
+  def write_each(dest_dir, formatter, index)
+    @files.each{|f|
+      formatter.newpage
+      formatter.put [:pre, interpret(expand_readlines(f), index, f)]
+      formatter.write first_line(f), f + '.b', dest_dir
+#       formatter.write f, f + '.b', dest_dir
+      notice '.'
+    }
+    notice "\n"
+  end
+  def interpret(src, index, f)
+    hit = search src, index, f
+    cursor = 0
+    ret = []
+    while !hit.empty?
+      h = hit.shift
+      b, e, key = h
+      case cursor <=> b
+      when -1  # eat until beginning of this hit, and retry
+        ret.push [:as_is, src[cursor...b]]
+        hit.unshift h
+        cursor = b
+      when 0  # expand this hit
+        s = src[b...e]
+        if key == :url
+          link = [:url, s]
+        elsif key == :decl
+          s =~ /#$come_from/
+          w = Regexp::last_match[$come_from_pos]
+          link = CGI::escape(CGI::escape(w)) + '.i'
+        else
+          decl = index.decl[key]
+          link = decl.member?(f) ? nil : decl[0] + '.b'
+        end
+        ret.push(link ? [:link, link, s] : [:as_is, s])
+        cursor = e
+      when 1  # discard this hit
+      end
+    end
+    ret.push [:as_is, src[cursor..-1]]
+    ret
+  end
+  def search(src, index, f)
+    hit = []
+    index.decl.each_key{|k|
+      offsets = src.offsets k
+      index.used.cons k, f if !offsets.empty? && !index.decl[k].member?(f)
+      hit += offsets.map{|o| o.push k}
+    }
+    hit += src.offsets(%r{http://[-!@#\$%^&*()_+|=:~/?a-zA-Z0-9.,;]*[-!@#\$%^&*()_+|=:~/?a-zA-Z0-9]+}).map{|o| o.push :url}
+    hit += src.offsets($come_from).map{|o| o.push :decl}
+    hit.sort{|h1, h2| earlier_longer h1, h2}
+  end
+  def earlier_longer(h1, h2)
+    [h1[0], - h1[1]] <=> [h2[0], - h2[1]]
+  end
+end
+
+class Index
+  include Bundle
+  attr_accessor :files, :base_dir
+  attr_reader :decl, :used
+  def initialize(files, base_dir)
+    @files    = files
+    @base_dir = base_dir
+    @decl = HashList::new
+    @used = HashList::new
+    search_decl
+  end
+  def search_decl
+    @files.each{|f|
+      expand_readlines(f).scan($come_from){|hit| @decl.cons hit[0], f}
+    }
+  end
+  def write(dest_dir, formatter)
+    write_each dest_dir, formatter
+    write_list dest_dir, formatter
+  end
+  def write_list(dest_dir, formatter)
+    formatter.newpage
+    formatter.put [
+      :list,
+      @decl.keys.sort.map{|key|
+        [:link, CGI::escape(CGI::escape(key)) + '.i', key + " (#{(@used[key]||[]).length})"]
+      }
+    ]
+    formatter.write 'Keywords', 'index.h', dest_dir
+    notice ".\n"
+  end
+  def write_each(dest_dir, formatter)
+    @decl.each_key{|key|
+      f = CGI::escape(key) + '.i'
+      to_decl = @decl[key].map{|g| link_tag g}
+      to_used = (@used[key] || []).map{|g| link_tag g}
+      to_rel  = related_keys(key).map{|g| [:link, @decl[g][0] + '.b', g]}
+#       to_decl = @decl[key].map{|g| [:link, g + '.b', g]}
+#       to_used = (@used[key] || []).map{|g| [:link, g + '.b', g]}
+#       to_rel  = related_keys(key).map{|g| [:link, @decl[g][0] + '.b', g]}
+      formatter.newpage
+      c = [
+        [:as_is, "Declared:\n"],
+        [:list, to_decl],
+        [:as_is, "Linked:\n"],
+        [:list, to_used],
+        [:as_is, "Related:\n"],
+        [:list, to_rel],
+      ]
+      formatter.put *c
+      formatter.write key, f, dest_dir
+      notice '.'
+    }
+    notice "\n"
+  end
+  def related_keys(key)
+    sub = included_keys key
+    sub.map{|k| @decl.keys.select{|x| x.include? k and x != key}}.flatten.uniq.sort
+  end
+  def included_keys(key)
+    @decl.keys.select{|k| key.include? k}
+  end
+end
+
+#############################################################
+
+if $list
+  dest_dir = ARGV.shift
+  src_dir, files = split_base(STDIN.readlines.map{|s| s.chomp})
+else
+  src_dir, dest_dir = ARGV
+  files = ls_R src_dir
+end
+notice "#{files.length} files "
+
+b = Book::new files, src_dir
+i = Index::new files, src_dir
+notice "(#{i.decl.length} entries)\n"
+
+$home ||= b.first_page[1] + '.html'
+fmt = Formatter::new $home
+b.write dest_dir, fmt

@@ -1,0 +1,20 @@
+2011-01-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* 0000-00-00-000000.txt: support new commands.
+
+2010-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* 0000-00-00-000000.txt: use %reminder instead of %schedule and %todo.
+
+2005-12-09  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* Makefile.am: no need to install 0000-00-00-000000.howm.
+
+2005-05-11  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* 0000-00-00-000000.howm: added [Preference], %recent, %random
+
+2005-05-06  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* 0000-00-00-000000.howm: bind R = [Update Menu]
+

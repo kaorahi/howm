@@ -1,0 +1,7 @@
+*.elc
+*.tar.gz
+Makefile
+config.log
+config.status
+elc-stamp
+autom4te.cache

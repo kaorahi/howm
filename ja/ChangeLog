@@ -1,0 +1,26 @@
+2011-01-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* 0000-00-00-000000.txt: support new commands.
+
+2010-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* 0000-00-00-000000.txt: use %reminder instead of %schedule and %todo.
+
+2005-12-09  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* Makefile.am (EXTRA_DIST): no need to install 0000-00-00-000000.howm.
+
+2005-11-19  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* 0000-00-00-000000.howm: add "about acceleration".
+	thx > window16 san
+	http://d.hatena.ne.jp/window16/20051118
+
+2005-05-11  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* 0000-00-00-000000.howm: added [Preference], %recent, %random
+
+2005-05-06  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* 0000-00-00-000000.howm: bind R = [Update Menu]
+	thx > http://pc8.2ch.net/test/read.cgi/unix/1077881095/672-673n

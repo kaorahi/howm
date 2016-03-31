@@ -1,0 +1,534 @@
+#!/usr/bin/ruby -s
+# -*- coding: euc-jp -*-
+# -*- Ruby -*-
+# $Id: howm2,v 1.10 2010-12-31 12:12:47 hira Exp $
+
+# Convert ~/howm/ to HTML or other formats.
+# Only RD format is supported unless you will give me patches. :p
+
+require 'cgi'
+
+def usage
+  name = File::basename $0
+  print <<EOU
+#{name}: howm メモをフォーマット
+・やばい文字をエスケープ
+・キーワードをリンクに変換
+・ヘッダとフッタをつける
+(例)
+  #{name} ~/howm/ ~/converted/
+  #{name} -type=rd ~/howm/ ~/converted/
+  ls ~/howm/*/*/*7-*.txt | #{name} -list ~/converted/
+  grep -rl 'ほげ' ~/howm/ | #{name} -list ~/converted/
+(オプション例)
+  -type=rd または -t=rd → フォーマットの種類を指定
+    html   … デフォルト
+    rd     … see http://www2.pos.to/~tosh/ruby/rdtool/ja/
+    rdbody … rd の =begin と =end がないものを入力. これらを補って生成.
+  -list                     → メモファイルのリストを標準入力から読む
+  -exclude='^[.]|CVS'       → 対象外のファイルを正規表現で指定
+  -r                        → メモ一覧を新しい順に並べる
+  -i                        → <<< で大文字小文字を区別しない
+  -title='Index'            → index ページの題名
+  -silent または -s         → 進捗表示をしない
+  -goto='>>>'               → goto link の書式
+  -comefrom='<<<'           → come-from link の書式
+  -no_alias                 → come-from キーワードの alias を無視
+  -help または -h           → このメッセージを表示
+  (-debug                   → デバッグ用出力)
+EOU
+end
+
+argv_len = $list ? 1 : 2
+if ($help || $h || ARGV.length != argv_len)
+  usage
+  exit 0
+end
+
+#####################################
+
+$type ||= $t || 'html'
+$exclude ||= "^[.\#]|CVS|~$"
+$silent ||= $s
+$title ||= 'Index'
+#$r_text_width = 40
+$progress = '.'
+$goto = '>>>'
+$comefrom = '<<<'
+$url_regexp = %r!((http|file)://\S+)!
+
+def come_go_match(str)
+  case str
+  when /#$comefrom|#$goto/
+    s = str
+    r = []
+    while s =~ /((#$comefrom|#$goto) *(.+?)) *($|(#$comefrom|#$goto).*)/
+      raw = $1
+      type = ($2 == $comefrom) ? :comefrom : :goto
+      key = $3
+      s = $4
+      r.push [type, key, raw]
+    end
+    return r
+  else
+    return false
+  end
+end
+
+def title_match(str)
+  if str =~ /^= +(.+)$/
+    return $1
+  else
+    return false
+  end
+end
+
+#####################################
+
+def empty(); lambda{|*dummy| ""}; end
+def constant(str); lambda{|*dummy| str}; end
+def appender(str); lambda{|x| x + str}; end
+def no_change(); lambda{|*x| x[0]}; end
+
+$formatter = Hash::new
+
+$formatter['html'] = {
+  :escaper => lambda{|str| CGI::escapeHTML str},
+  :unescaper => lambda{|str| CGI::unescapeHTML str},
+  # body page
+  :namer => appender('.b.html'),
+  :header => lambda{|file|
+    %!<HTML><TITLE>#{file}</TITLE><BODY><H1>#{file}</A></H1><HR><PRE>\n!
+  },
+  :come_tag => lambda{|a|
+    # Fix me.
+    %!<A NAME="#{a[:occur][0][:anch]}"></A><A HREF="#{a[:rpath]}\##{a[:anch_n]}" NAME="#{a[:anch]}">#{a[:orig]}</A>!
+  },
+  :come_jump => lambda{|a|
+    %!<A HREF="#{a[:path]}\##{a[:anch]}">#{a[:orig]}</A>!
+  },
+  :come_anchor => lambda{|a|
+    %!<A NAME="#{a[:occur][0][:anch]}"></A>!
+  },
+  :go_tag => lambda{|a|
+    %!<A NAME="#{a[:occur][0][:anch]}"></A><A HREF="#{a[:rpath]}\##{a[:anch]}" NAME="#{a[:anch]}">#{a[:orig]}</A>!
+  },
+  :go_anchor => lambda{|a|
+    %!<A NAME="#{a[:occur][0][:anch]}"></A>!
+#     %!<A NAME="#{a[:occur][0][:anch]}">#{a[:key]}</A>!
+  },
+  :url => lambda{|a|
+    %!<A HREF="#{a[:url]}">#{CGI::unescapeHTML a[:url]}</A>!
+  },
+  :footer => lambda{|file|
+    %!</PRE><HR><A HREF="#{to_index file}">index</A></BODY></HTML>\n!
+  },
+  # reference page
+  :ref_namer => appender('.r.html'),
+  :ref_header => lambda{|file|
+    "<HTML><TITLE>#{file}</TITLE><BODY><H1>References: #{file}</H1>\n"
+  },
+  :ref_itemer => lambda{|a|
+    go = a[:goto_file]
+    url = go ? "file://#{a[:goto_file]}" : "#{a[:path]}\##{a[:anch]}"
+    ocs = a[:occur]
+    %!<A HREF="#{url}" NAME="#{a[:anch]}"><H2>#{a[:key]} (#{ocs.length})</H2></A>\n<OL>\n! +
+    ocs.map{|oc|
+      %!<LI><A HREF="#{oc[:path]}\##{oc[:anch]}">#{oc[:file]}</A> #{oc[:text]}\n!
+    }.join +
+    "</OL>\n"
+  },
+  :ref_footer => constant("</BODY></HTML>\n"),
+  # index page
+  :index_namer => constant('index.html'),
+  :index_header => constant("<HTML><TITLE>#{$title}</TITLE><BODY><H1>#{$title}</H1>\n"),
+  :index_keyworder => lambda{|as|
+    "<H2>Keywords (#{as.length})</H2>\n" +
+    as.map{|a| %!<A HREF="#{a[:dest]}\##{a[:anch]}">#{a[:key]}</A>!}.join(" /\n") +
+    "\n"
+  },
+  :index_filer => lambda{|as|
+    "<H2>Files (#{as.length})</H2>\n<OL>\n" +
+    as.map{|a| %!<LI><A HREF="#{a[:dest]}">#{a[:file]}</A>: #{a[:title]}\n!}.join +
+    "</OL>\n"
+  },
+  :index_footer => constant("</BODY></HTML>\n"),
+}
+
+$formatter['rd'] = {  # RD doesn't have anchor?
+  :escaper => no_change,
+  :unescaper => no_change,
+  # body page
+  :namer => appender('.b.rd'),
+  :header => empty,
+  :come_tag => lambda{|a| %!((<"#{a[:orig]}"|URL:#{a[:rpath]}>))!},
+  :come_jump => lambda{|a| %!((<"#{a[:orig]}"|URL:#{a[:path]}>))!},
+  :come_anchor => constant(''),
+  :footer => empty,
+  :go_tag => lambda{|a| %!((<"#{a[:orig]}"|URL:#{a[:rpath]}>))!},
+  :go_anchor => constant(''),
+  :url => lambda{|a| %!((<"#{a[:url]}"|URL:#{a[:url]}>))!},
+  # reference page
+  :ref_namer => appender('.r.rd'),
+  :ref_header => lambda{|file| "=begin\n= References: #{file}\n"},
+  :ref_itemer => lambda{|a|
+    go = a[:goto_file]
+    url = go ? "file://#{go}" : "#{a[:path]}"
+    %!== ((<"#{a[:key]}"|URL:#{url}>))\n! +
+    a[:occur].map{|oc|
+      %!* ((<"#{oc[:file]}"|URL:#{oc[:path]}>)) #{oc[:text]}\n!
+    }.join +
+    "\n"
+  },
+  :ref_footer => constant("=end\n"),
+  # index page
+  :index_namer => constant('index.rd'),
+  :index_header => constant("=begin\n= #{$title}\n"),
+  :index_keyworder => lambda{|as|
+    "== Keywords (#{as.length})\n" +
+    as.map{|a| %!((<"#{a[:key]}"|URL:#{a[:dest]}>))!}.join(" /\n") +
+    "\n"
+  },
+  :index_filer => lambda{|as|
+    "== Files (#{as.length})\n" +
+    as.map{|a| %!* ((<"#{a[:file]}"|URL:#{a[:dest]}>)): #{a[:title]}\n!}.join
+  },
+  :index_footer => constant("=end\n"),
+}
+
+b = $formatter['rd'].dup
+b[:header] = constant "=begin\n"
+b[:footer] = constant "=end\n"
+$formatter['rdbody'] = b
+
+#####################################
+
+class String
+  def indices(substr)
+    a = Array::new
+    pos = 0
+    while (i = index substr, pos)
+      a.push(substr.is_a?(Regexp) ? [i, $&] : i)
+      pos = i + 1
+    end
+    return a
+  end
+end
+
+class HashList < Hash
+  def cons(key, val)
+    self[key] ||= Array::new
+    self[key].push val
+  end
+end
+
+def ls_R(dir)
+  a = Array::new
+  Dir::open(dir){|d| d.each{|f| a.push f}}  # map doesn't work??
+  b = Array::new
+  a.each{|f|
+    next if f =~ /#$exclude/
+    path = File::expand_path f, dir
+    b.push f if FileTest::file? path
+    b += ls_R(path).map{|g| "#{f}/#{g}"} if FileTest::directory? path
+  }
+  return b
+end
+
+# FixMe :-(
+def bundle(file_list)
+  fs = file_list.map{|f| File::expand_path f}
+  ds = fs.map{|f| File::dirname f}
+  common = ds[0] || ''
+  ds.each{|d|
+    while common != d
+      if common.length <= d.length
+        d = File::dirname d
+      else
+        common = File::dirname common
+      end
+    end
+  }
+  rs = fs.map{|f| f[(common.length + 1)..-1]}  # +1 for '/'
+  return [common, rs]
+end
+
+# Fixme :-(
+def mkdir_p(path)
+  parent = File::dirname path
+  return true if parent == path  # root dir
+  mkdir_p parent
+  if !FileTest::exist? path
+    Dir::mkdir path
+  end
+end
+
+# Fixme :-(
+def relative_path(target, origin)
+  return target if origin == '.'
+  sep = '/'
+  parent = '..'
+  root = origin.split(sep).map{|any| parent}.join(sep)
+  return root + sep + target
+end
+
+def to_index(origin)
+  relative_path $formatter[$type][:index_namer].call, File::dirname(origin)
+end
+
+$unique_id = ':000000'
+def unique_name(base)
+  base + $unique_id.succ!.dup
+end
+
+#####################################
+
+$titles_in_file = HashList::new  # dirty!
+def come_go_master(files, dir, formatter)
+  h = HashList::new  # key => master files
+  aliases = []
+  files.each{|f|
+    open(File::expand_path(f, dir)){|io|
+      io.each_line{|line| 
+        if (t = title_match line)
+          $titles_in_file.cons f, t
+        end
+        if (found = come_go_match line)
+          equiv_key = []
+          equiv_raw = []
+          found.each{|m|
+            type, key, raw = m
+            s = formatter[:escaper].call raw
+            k = formatter[:escaper].call key
+            g = formatter[:namer].call f
+            r = formatter[:ref_namer].call f
+            a = CGI::escape(k)
+            arg = {
+              :type => type,
+              :raw => s,
+              :key => k,
+              :occur => Array::new,
+              :file => f,
+              :dest => g,
+              :ref => r,
+              :anch => a,
+            }
+            case type
+            when :comefrom
+              h.cons s, [:come_tag, arg]
+              h.cons k, [:come_jump, arg]
+              h.cons k, [:come_anchor, arg]
+              equiv_key.push k
+              equiv_raw.push s
+            when :goto
+              h.cons s, [:go_tag, arg]
+              h.cons k, [:go_anchor, arg]
+            end
+          }
+           if equiv_key.length > 1
+             aliases += [equiv_key, equiv_raw]
+           end
+        end
+      }
+    }
+  }
+  return h, aliases
+end
+
+def format_line(line, prog)
+  match = HashList::new  # pos => key
+  prog.each{|rule|
+    regexp, func, greedy = [:regexp, :func, :greedy].map{|k| rule[k]}
+    line.indices(regexp).each{|r|
+      i, k = r
+      match.cons i, [k, func, greedy]
+    }
+  }
+  p match if $debug
+  cursor = 0
+  done = ""
+  match.keys.sort.each{|i|
+    skipping = (i < cursor)
+    if !skipping
+      done += line[cursor..(i - 1)] if i > 0 # 'foobar'[0..-1] is 'foobar'
+      cursor = i
+    end
+    match[i].each{|com|
+      key, func, greedy = com
+      next if greedy && skipping
+      done += func.call(key, line)
+      if greedy
+        cursor = i + key.length
+        break
+      end
+    }
+  }
+  if (cursor <= (len = line.length))
+    done += line[cursor..len]
+  end
+  return done
+end
+
+def format_io(input, output, prog_src, compiler, escaper)
+  a = input.readlines.map{|s| escaper.call s}
+  whole = a.join
+  matched_rules = prog_src.select{|rule|
+    whole =~ rule[:regexp]
+  }
+  prog = matched_rules.map{|r| compiler.call r}
+  a.each{|line|
+    output.print format_line(line, prog)
+  }
+end
+
+#####################################
+
+def notice(str)
+  STDERR.print str if !$silent
+end
+
+if $list
+  dest_dir = ARGV.shift
+  src_dir, files = bundle(STDIN.readlines.map{|s| s.chomp})
+else
+  src_dir, dest_dir = ARGV
+  files = ls_R src_dir
+end
+notice "#{files.length} files "
+fmt = $formatter[$type]
+k2m, aliases = come_go_master files, src_dir, fmt
+aliases = [] if $no_alias
+notice "(#{k2m.length} entries)\n"
+p k2m if $debug
+
+aliases.each{|equiv|
+  key0 = equiv.shift
+  type0, arg0 = k2m[key0][0]
+  equiv.each{|key|
+    k2m[key].each{|m|
+      type, arg = m
+      [:occur, :file, :dest, :ref].each{|x|
+        arg[x] = arg0[x]
+      }
+      arg[:anch_alias] = arg0[:anch] if type == :come_tag
+    }
+  }
+}
+
+notice 'body pages: '
+greedy = Array::new
+nongreedy = Array::new
+k2m.each_pair{|k, v|
+  v.each{|m|
+    type, arg = m
+    r = /#{Regexp::escape k}/
+    g = [:come_tag, :come_jump, :go_tag].member?(type)
+    z = g ? greedy : nongreedy
+    h = {:raw => k, :regexp => r, :type => type, :arg => arg, :greedy => g}
+    z.push h
+  }
+}
+greedy.sort!{|x, y| x[:raw].length <=> y[:raw].length}
+greedy.reverse!
+p greedy if $debug
+p nongreedy if $debug
+u = {:regexp => $url_regexp, :type => :url, :arg => Hash::new, :greedy => true}
+prog_src = nongreedy + [u] + greedy
+files.each{|f|
+  notice $progress
+  g = fmt[:namer].call f
+  r = fmt[:ref_namer].call f
+  spath = File::expand_path f, src_dir
+  dpath, rpath = [g, r].map{|x| File::expand_path x, dest_dir}
+  mkdir_p File::dirname(dpath)
+  compiler = lambda{|h|
+    func = lambda{|k, s|
+      type = h[:type]
+      arg = h[:arg]
+      if type == :url
+        arg[:url] = k
+      else
+        dir = File::dirname(f)
+        arg[:path] = relative_path arg[:dest], dir
+        arg[:rpath] = relative_path arg[:ref], dir
+        a = unique_name arg[:anch]
+        path = relative_path(g, dir)
+        occur = {
+          :file => f, :path => path, :text => s.chop,
+          :anch => a, :type => type,
+        }
+        arg[:occur].unshift occur
+        arg[:orig] = k
+        arg[:anch_n] = arg[:anch_alias] || arg[:anch]
+      end
+      fmt[type].call arg
+    }
+    reg = h[:regexp]
+    ignore_case = [:come_tag, :come_jump, :come_anchor].member?(h[:type]) && $i
+    reg = /#{reg.source}/i if ignore_case
+    {:regexp => reg, :func => func, :greedy => h[:greedy]}
+  }
+  open(spath){|input|
+    open(dpath, 'w'){|output|
+      output.print fmt[:header].call(f)
+      format_io input, output, prog_src, compiler, fmt[:escaper]
+      output.print fmt[:footer].call(f)
+    }
+  }
+}
+notice "\n"
+
+notice 'reference pages: '
+m2a = HashList::new
+k2m.each_pair{|k, v|
+  v.each{|z|
+    type, arg = z
+    next if arg[:anch_alias]
+    m2a.cons arg[:file], arg if [:come_anchor, :go_anchor].member? type
+  }
+}
+m2a.each_pair{|f, v|
+  notice $progress
+  body = fmt[:namer].call f
+  ref = fmt[:ref_namer].call f
+  rpath = File::expand_path ref, dest_dir
+  mkdir_p File::dirname(rpath)
+  open(rpath, 'w'){|output|
+    output.print fmt[:ref_header].call(f)
+    v.each{|arg|
+      g = fmt[:unescaper].call arg[:key]
+      arg[:goto_file] = g if arg[:type] == :goto && FileTest::exist?(g)
+      arg[:occur].reject!{|oc| ![:come_anchor, :go_anchor].member? oc[:type]}
+      arg[:occur].sort!{|a,b| - (a[:file] <=> b[:file])}
+      output.print fmt[:ref_itemer].call(arg)
+    }
+    output.print fmt[:ref_footer].call(f)
+  }
+}
+notice "\n"
+
+notice 'index page: '
+path = File::expand_path fmt[:index_namer].call(), dest_dir
+open(path, 'w'){|output|
+  output.print fmt[:index_header].call
+  output.print fmt[:index_keyworder].call(k2m.keys.sort.map{|k|
+    k2m[k].map{|m|
+      type, arg = m
+      [:come_anchor].member?(type) ? arg : nil
+    }.select{|a| a}
+  }.flatten)
+  # alphabet files precede numerical files
+  z = files.sort{|f, g|
+    a, b = [f, g].map{|h| (h =~ /^[0-9]/ ? 'z' : 'a') + h}
+    a <=> b
+  }
+  z.reverse! if $r
+  output.print fmt[:index_filer].call(z.map{|f|
+    g = fmt[:namer].call f
+#    ts = $titles_in_file[f].reject{|t| t =~ /^\s*$/} || []
+    ts = $titles_in_file[f] || []
+    {:file => f, :dest => g, :title => ts.join(' / ')}
+  })
+  output.print fmt[:index_footer].call
+}
+notice ".\n"
