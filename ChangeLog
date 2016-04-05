@@ -1,3 +1,9 @@
+2016-04-05  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm.el: modify header comments for MELPA
+	ref. `Info(elisp) D.8 Conventional Headers for Emacs Libraries`
+	thx > Yuki Inoue san (inouetakahiroki at gmail.com)
+
 2016-01-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
 	* configure.ac: test version
