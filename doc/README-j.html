@@ -1287,6 +1287,24 @@ make test</pre></li>
 <h3><a name="label-18" id="label-18">更新記録</a></h3><!-- RDLabel: "更新記録" -->
 <p>thx &gt; patch・改良案・指摘をくださった皆様</p>
 <ul>
+<li>スナップショット版
+<ul>
+<li>[2016-09-28]
+<ul>
+<li><p>日付入力時の動作を拡張
+      <a href="https://osdn.jp/projects/howm/lists/archive/eng/2016/000118.html">thx</a>
+      &gt; Albert-san (areiner at tph.tuwien.ac.at)</p>
+<pre>;; 「[2003-12-27]」上で RET して年や月を略したら…
+(setq howm-action-lock-date-future t) ;; 2003-12-27 より未来と解釈
+;(setq howm-action-lock-date-future 'closer) ;; 2003-12-27 に近い方で解釈</pre>
+<ul>
+<li><p>新規入力時にだけそういう動作にしたければ</p>
+<pre>;; 日付入力(C-c , d または [日↓])で年や月を略したら…
+(setq howm-insert-date-future t) ;; 「未来」と解釈
+;(setq howm-insert-date-future 'closer) ;; 今日に近い方で解釈</pre></li>
+</ul></li>
+</ul></li>
+</ul></li>
 <li>テスト版
 <ul>
 <li>[2016-01-01]

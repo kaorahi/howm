@@ -26,6 +26,7 @@
 ;; insert & action-lock
 
 (defvar howm-insert-date-pass-through nil)
+(defvar howm-action-lock-date-future nil)
 
 (defun howm-insert-date ()
   (interactive)
@@ -53,7 +54,8 @@
      ((string-match "^[-+][0-9]+$" c)
       (howm-action-lock-date-shift (string-to-number c) date))
      ((string-match "^[0-9]+$" c)
-      (howm-action-lock-date-set c date future-p))
+      (howm-action-lock-date-set c date
+                                 (or future-p howm-action-lock-date-future)))
      ((string-match "^~\\([0-9]+\\)$" c)
       (howm-action-lock-date-repeat (match-string-no-properties 1 c) date))
      ((string-match "^[.]$" c)
@@ -153,16 +155,18 @@
   (format-time-string "%a" (howm-datestr-to-time date)))
 
 (defun howm-datestr-expand (date base &optional future-p)
-  (if future-p
-      (howm-datestr-expand-future date base)
-    (howm-datestr-expand-general date base future-p)))
-
-(defun howm-datestr-expand-future (date base)
-  (let ((raw (howm-datestr-expand-general date base nil))
-        (future (howm-datestr-expand-general date base t)))
-    (when (not (string= raw future))
-      (message "Future date"))
-    future))
+  (let* ((raw (howm-datestr-expand-general date base nil))
+         (future (howm-datestr-expand-general date base t))
+         (ret
+          (cond ((eq future-p 'closer)
+                 (cl-labels ((to-f (d) (float-time (howm-datestr-to-time d)))
+                             (delta (d1 d2) (abs (- (to-f d1) (to-f d2)))))
+                   (if (< (delta raw base) (delta future base)) raw future)))
+                (future-p future)
+                (t raw))))
+    (unless (string= raw ret)
+      (message "Assume future date"))
+    ret))
 
 (defun howm-datestr-expand-general (date base &optional future-p)
   (let* ((base-ymd (howm-datestr-parse base))

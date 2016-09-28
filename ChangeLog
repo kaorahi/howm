@@ -1,3 +1,15 @@
+2016-09-28  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm-date.el: extend the option howm-insert-date-future.
+	thx > Albert-san (areiner at tph.tuwien.ac.at)
+	https://osdn.jp/projects/howm/lists/archive/eng/2016/000118.html
+	(howm-action-lock-date-future): new option
+	(howm-action-lock-date): support howm-action-lock-date-future
+	(howm-datestr-expand): new value 'closer for FUTURE-P
+
+	* howm-common.el (howm-time-difference-second):
+	support (HIGH LOW) without milliseconds for howm-datestr-expand
+
 2016-04-05  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
 	* howm.el: modify header comments for MELPA

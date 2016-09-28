@@ -126,7 +126,7 @@ STRING should be given if the last search was by `string-match' on STRING."
 (defun howm-time-difference-second (ti1 ti0)
   (let ((h (- (car ti1) (car ti0)))
         (l (- (cadr ti1) (cadr ti0)))
-        (m (- (cl-caddr ti1) (cl-caddr ti0)))
+        (m (- (or (cl-caddr ti1) 0) (or (cl-caddr ti0) 0)))
         )
     (+ (* h 65536) l
        (* m 1e-6)

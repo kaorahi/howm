@@ -923,6 +923,20 @@ Emacs で断片的なメモをどんどんとるための環境です.
 
 thx > patch・改良案・指摘をくださった皆様
 
+
+* スナップショット版
+  * [2016-09-28]
+    * 日付入力時の動作を拡張
+      ((<thx|URL:https://osdn.jp/projects/howm/lists/archive/eng/2016/000118.html>))
+      > Albert-san (areiner at tph.tuwien.ac.at)
+        ;; 「[2003-12-27]」上で RET して年や月を略したら…
+        (setq howm-action-lock-date-future t) ;; 2003-12-27 より未来と解釈
+        ;(setq howm-action-lock-date-future 'closer) ;; 2003-12-27 に近い方で解釈
+      * 新規入力時にだけそういう動作にしたければ
+          ;; 日付入力(C-c , d または [日↓])で年や月を略したら…
+          (setq howm-insert-date-future t) ;; 「未来」と解釈
+          ;(setq howm-insert-date-future 'closer) ;; 今日に近い方で解釈
+
 * テスト版
   * [2016-01-01]
     * バイトコンパイル時の警告を回避
