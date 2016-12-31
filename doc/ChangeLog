@@ -1,5 +1,13 @@
 2016-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
+	* README.ja.rd: update version.
+
+	* index-j.html: ditto.
+
+	* index.html: ditto.
+
+2016-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
 	* index-j.html: add descriptions of snapshot version (MELPA / GIT)
 	thx > Yuki Inoue san (inouetakahiroki at gmail.com)
 

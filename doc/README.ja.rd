@@ -927,26 +927,14 @@ Emacs で断片的なメモをどんどんとるための環境です.
 
 thx > patch・改良案・指摘をくださった皆様
 
-
-* スナップショット版
-  * [2016-09-28]
-    * 日付入力時の動作を拡張
-      ((<thx|URL:https://osdn.jp/projects/howm/lists/archive/eng/2016/000118.html>))
-      > Albert-san (areiner at tph.tuwien.ac.at)
-        ;; 「[2003-12-27]」上で RET して年や月を略したら…
-        (setq howm-action-lock-date-future t) ;; 2003-12-27 より未来と解釈
-        ;(setq howm-action-lock-date-future 'closer) ;; 2003-12-27 に近い方で解釈
-      * 新規入力時にだけそういう動作にしたければ
-          ;; 日付入力(C-c , d または [日↓])で年や月を略したら…
-          (setq howm-insert-date-future t) ;; 「未来」と解釈
-          ;(setq howm-insert-date-future 'closer) ;; 今日に近い方で解釈
-
-* テスト版
-  * [2016-01-01]
-    * バイトコンパイル時の警告を回避
-      * cl をやめて cl-lib を使う
-      * howm-ime-fix (howm-1.1.1 以前の canna, egg, yc, anthy 個別対策) を廃止
-      * その他こまごま
+* リリース版 howm-1.4.4 [2016-12-31]
+  * バイトコンパイル時の警告を回避
+    * cl をやめて cl-lib を使う
+    * howm-ime-fix (howm-1.1.1 以前の canna, egg, yc, anthy 個別対策) を廃止
+    * その他こまごま
+  * MELPA へのリンクを追加.
+    thx > Yuki Inoue san (inouetakahiroki at gmail.com)
+  * スナップショット版 2016-09-28 と同じ内容です
 
 * リリース版 howm-1.4.3 [2015-12-31]
   * emacs 25.1.50.1 (2015-12-27 時点の git 先端 = de88375) で起動を確認
@@ -1278,6 +1266,17 @@ thx > patch・改良案・指摘をくださった皆様
         対応するタイトル行に飛んでくれない
         * そもそも行指向で作っていたので実装が無理矢理
         * きちんと直すのはめんどう. 強い需要がなければ…
+  * 1.4.4
+    * 日付入力時の動作を拡張
+      ((<thx|URL:https://osdn.jp/projects/howm/lists/archive/eng/2016/000118.html>))
+      > Albert-san (areiner at tph.tuwien.ac.at)
+        ;; 「[2003-12-27]」上で RET して年や月を略したら…
+        (setq howm-action-lock-date-future t) ;; 2003-12-27 より未来と解釈
+        ;(setq howm-action-lock-date-future 'closer) ;; 2003-12-27 に近い方で解釈
+      * 新規入力時にだけそういう動作にしたければ
+          ;; 日付入力(C-c , d または [日↓])で年や月を略したら…
+          (setq howm-insert-date-future t) ;; 「未来」と解釈
+          ;(setq howm-insert-date-future 'closer) ;; 今日に近い方で解釈
 
 * …履歴抜粋… (((<URL:OLD.rd>)) 参照)
   * [2010-12-30] 1.3.9 微修正

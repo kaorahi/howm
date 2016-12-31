@@ -18,11 +18,11 @@
 <li><a href="#label-2">使い方</a> …
   <a href="#label-3">メモを書こう</a>／<a href="#label-4">メモを読もう</a>／<a href="#label-5">リマインダ</a></li>
 <li><a href="#label-6">導入法</a> …
-  <a href="#label-7">インストール</a>／<a href="#label-11">カスタマイズ</a>／<a href="#label-12">外部ツール</a></li>
-<li><a href="#label-13">実装</a> …
-  <a href="#label-14">実装について</a>／<a href="#label-15">動きませんよ?</a></li>
-<li><a href="#label-16">備考</a> …
-  <a href="#label-17">参考</a>／<a href="#label-18">更新記録</a>／<a href="#label-19">アドレス</a></li>
+  <a href="#label-7">インストール</a>／<a href="#label-12">カスタマイズ</a>／<a href="#label-13">外部ツール</a></li>
+<li><a href="#label-14">実装</a> …
+  <a href="#label-15">実装について</a>／<a href="#label-16">動きませんよ?</a></li>
+<li><a href="#label-17">備考</a> …
+  <a href="#label-18">参考</a>／<a href="#label-19">更新記録</a>／<a href="#label-20">アドレス</a></li>
 </ul>
 <h2><a name="label-2" id="label-2">使い方</a></h2><!-- RDLabel: "使い方" -->
 <ul>
@@ -65,7 +65,7 @@
 <li><p>正確な書式は,</p>
 <pre>(行頭)=(空白)(タイトル)(行末)</pre>
 <ul>
-<li>書式は変更可 (→<a href="#label-11">カスタマイズ</a>)</li>
+<li>書式は変更可 (→<a href="#label-12">カスタマイズ</a>)</li>
 </ul></li>
 <li><p>タイトルなしで, 単にメモの区切りとして使うだけでも OK</p>
 <pre>(… ほげほげ …)
@@ -147,8 +147,8 @@ emacs 用検索ツール?[2001-08-13]       (新しい順)
 <li><p>タイトルと兼ねるなら,</p>
 <pre>= &lt;&lt;&lt; ふがふが</pre></li>
 </ul></li>
-<li>come-from, goto とも, 大文字小文字を区別 (→<a href="#label-11">カスタマイズ</a>)</li>
-<li>書式は変更可 (→<a href="#label-11">カスタマイズ</a>)</li>
+<li>come-from, goto とも, 大文字小文字を区別 (→<a href="#label-12">カスタマイズ</a>)</li>
+<li>書式は変更可 (→<a href="#label-12">カスタマイズ</a>)</li>
 <li>以下, come-from リンクのキーワードを単に「キーワード」と表記</li>
 </ul></li>
 <li>action-lock
@@ -446,7 +446,7 @@ x → マークしたファイルたちを本当に消す</pre></li>
 </ul></li>
 <li>&gt;&gt;&gt; hoge.png なら外部 viewer で画像を開く
 <ul>
-<li>設定は<a href="#label-11">カスタマイズ</a>参照</li>
+<li>設定は<a href="#label-12">カスタマイズ</a>参照</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -474,7 +474,7 @@ x → マークしたファイルたちを本当に消す</pre></li>
 <li>メニューでは, 行頭の「&gt;」上で RET を叩くとメモに飛びます
       (それ以外の位置でも, 下線がない所なら同様)</li>
 </ul></li>
-<li>カレンダーソフト plan への export も可能 (→<a href="#label-12">外部ツール</a>)</li>
+<li>カレンダーソフト plan への export も可能 (→<a href="#label-13">外部ツール</a>)</li>
 </ul></li>
 <li>書式
 <ul>
@@ -555,7 +555,11 @@ x → マークしたファイルたちを本当に消す</pre></li>
 </ul>
 <h2><a name="label-6" id="label-6">導入法</a></h2><!-- RDLabel: "導入法" -->
 <h3><a name="label-7" id="label-7">インストール</a></h3><!-- RDLabel: "インストール" -->
-<h4><a name="label-8" id="label-8">自動インストールの場合</a></h4><!-- RDLabel: "自動インストールの場合" -->
+<h4><a name="label-8" id="label-8">MELPA でスナップショット版をインストールする場合</a></h4><!-- RDLabel: "MELPA でスナップショット版をインストールする場合" -->
+<ul>
+<li>パッケージ「howm」を <a href="https://melpa.org/#/getting-started">MELPA</a> でインストール</li>
+</ul>
+<h4><a name="label-9" id="label-9">自動インストールの場合</a></h4><!-- RDLabel: "自動インストールの場合" -->
 <ul>
 <li>インストール
 <ul>
@@ -596,7 +600,7 @@ x → マークしたファイルたちを本当に消す</pre></li>
     (メニュー起動時に自動作成)</li>
 </ul></li>
 </ul>
-<h4><a name="label-9" id="label-9">手動インストールの場合</a></h4><!-- RDLabel: "手動インストールの場合" -->
+<h4><a name="label-10" id="label-10">手動インストールの場合</a></h4><!-- RDLabel: "手動インストールの場合" -->
 <ul>
 <li>*.el を適当な場所に置く (例: ~/elisp/howm)
 <ul>
@@ -604,16 +608,16 @@ x → マークしたファイルたちを本当に消す</pre></li>
 <ul>
 <li><p>置き場に応じて, ↓のように記述</p>
 <pre>(add-to-list 'load-path "~/elisp/howm/")</pre></li>
-<li>さらに, <a href="#label-8">自動インストールの場合</a>と同様の記述を追加</li>
+<li>さらに, <a href="#label-9">自動インストールの場合</a>と同様の記述を追加</li>
 </ul></li>
 <li><p>お好みで, バイトコンパイル</p>
 <pre>cd ~/elisp/howm
 \emacs -batch -q --no-site-file --eval '(progn (add-to-list (quote load-path) ".") (byte-recompile-directory "." 0))'</pre></li>
 </ul></li>
 </ul>
-<h4><a name="label-10" id="label-10">インストールの補足</a></h4><!-- RDLabel: "インストールの補足" -->
+<h4><a name="label-11" id="label-11">インストールの補足</a></h4><!-- RDLabel: "インストールの補足" -->
 <ul>
-<li><p>お好みで, ~/.emacs に設定を追加 (→<a href="#label-11">カスタマイズ</a>)</p>
+<li><p>お好みで, ~/.emacs に設定を追加 (→<a href="#label-12">カスタマイズ</a>)</p>
 <pre>;; 設定例
 (define-key global-map [katakana] 'howm-menu) ; [カタカナ] キーでメニュー
 (setq howm-file-name-format "%Y/%m/%Y_%m_%d.txt") ; 1 日 1 ファイル
@@ -699,7 +703,7 @@ x → マークしたファイルたちを本当に消す</pre></li>
     ja/0000-00-00-000000.txt を自分でコピーするかしてください.</li>
 </ul></li>
 </ul>
-<h3><a name="label-11" id="label-11">カスタマイズ</a></h3><!-- RDLabel: "カスタマイズ" -->
+<h3><a name="label-12" id="label-12">カスタマイズ</a></h3><!-- RDLabel: "カスタマイズ" -->
 <p>基本的には M-x customize → [Applications] → [Howm] で.
 ぴんとこない項目も, [Show] でありがちな既定値から選択可能.</p>
 <p>そこにない設定については, ~/.emacs (~/.emacs.el かも)へ, 以下のように直接書く.
@@ -1003,7 +1007,7 @@ In-Reply-To: &lt;/home/hira/sawfish/rich-title/rich-title.jl&gt; ←直前ファイル
 (setq howm-congrats-command '("play" "~/sound/fanfare.wav"))</pre></li>
 <li>もっといろいろいじるには, *.el 冒頭を参照</li>
 </ul>
-<h3><a name="label-12" id="label-12">外部ツール</a></h3><!-- RDLabel: "外部ツール" -->
+<h3><a name="label-13" id="label-13">外部ツール</a></h3><!-- RDLabel: "外部ツール" -->
 <p>(同梱ツールは ext/ に)</p>
 <ul>
 <li>HTML への変換: howm2 (同梱. 要 ruby)
@@ -1063,8 +1067,8 @@ In-Reply-To: &lt;/home/hira/sawfish/rich-title/rich-title.jl&gt; ←直前ファイル
 </ul></li>
 <li><a href="http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?ExternalTool">→ howm wiki の「併用ツール」</a>も参照</li>
 </ul>
-<h2><a name="label-13" id="label-13">実装</a></h2><!-- RDLabel: "実装" -->
-<h3><a name="label-14" id="label-14">実装について</a></h3><!-- RDLabel: "実装について" -->
+<h2><a name="label-14" id="label-14">実装</a></h2><!-- RDLabel: "実装" -->
+<h3><a name="label-15" id="label-15">実装について</a></h3><!-- RDLabel: "実装について" -->
 <ul>
 <li>ファイル開くたんびにスキャンっていう安易実装
 <ul>
@@ -1237,7 +1241,7 @@ In-Reply-To: &lt;/home/hira/sawfish/rich-title/rich-title.jl&gt; ←直前ファイル
 </ul></li>
 </ul></li>
 </ul>
-<h3><a name="label-15" id="label-15">動きませんよ?</a></h3><!-- RDLabel: "動きませんよ?" -->
+<h3><a name="label-16" id="label-16">動きませんよ?</a></h3><!-- RDLabel: "動きませんよ?" -->
 <p>(バグの指摘をくださる方へ)</p>
 <ul>
 <li>以下のようにしていただくと, 調査しやすくなります
@@ -1270,8 +1274,8 @@ make test</pre></li>
 <li>M-x howm-elp で, プロファイラ elp の準備</li>
 </ul></li>
 </ul>
-<h2><a name="label-16" id="label-16">備考</a></h2><!-- RDLabel: "備考" -->
-<h3><a name="label-17" id="label-17">参考</a></h3><!-- RDLabel: "参考" -->
+<h2><a name="label-17" id="label-17">備考</a></h2><!-- RDLabel: "備考" -->
+<h3><a name="label-18" id="label-18">参考</a></h3><!-- RDLabel: "参考" -->
 <p><a href="http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?IdeaSource">元ネタ</a>参照.
 特に, Q-pocket・HashedWiki・ChangeLog メモからいっぱいまねしてます. 感謝.</p>
 <ul>
@@ -1284,30 +1288,10 @@ make test</pre></li>
 <li>6.4 章末問題の「サクサク dired」を参考にさせていただきました</li>
 </ul></li>
 </ul>
-<h3><a name="label-18" id="label-18">更新記録</a></h3><!-- RDLabel: "更新記録" -->
+<h3><a name="label-19" id="label-19">更新記録</a></h3><!-- RDLabel: "更新記録" -->
 <p>thx &gt; patch・改良案・指摘をくださった皆様</p>
 <ul>
-<li>スナップショット版
-<ul>
-<li>[2016-09-28]
-<ul>
-<li><p>日付入力時の動作を拡張
-      <a href="https://osdn.jp/projects/howm/lists/archive/eng/2016/000118.html">thx</a>
-      &gt; Albert-san (areiner at tph.tuwien.ac.at)</p>
-<pre>;; 「[2003-12-27]」上で RET して年や月を略したら…
-(setq howm-action-lock-date-future t) ;; 2003-12-27 より未来と解釈
-;(setq howm-action-lock-date-future 'closer) ;; 2003-12-27 に近い方で解釈</pre>
-<ul>
-<li><p>新規入力時にだけそういう動作にしたければ</p>
-<pre>;; 日付入力(C-c , d または [日↓])で年や月を略したら…
-(setq howm-insert-date-future t) ;; 「未来」と解釈
-;(setq howm-insert-date-future 'closer) ;; 今日に近い方で解釈</pre></li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li>テスト版
-<ul>
-<li>[2016-01-01]
+<li>リリース版 howm-1.4.4 [2016-12-31]
 <ul>
 <li>バイトコンパイル時の警告を回避
 <ul>
@@ -1315,7 +1299,9 @@ make test</pre></li>
 <li>howm-ime-fix (howm-1.1.1 以前の canna, egg, yc, anthy 個別対策) を廃止</li>
 <li>その他こまごま</li>
 </ul></li>
-</ul></li>
+<li>MELPA へのリンクを追加.
+    thx &gt; Yuki Inoue san (inouetakahiroki at gmail.com)</li>
+<li>スナップショット版 2016-09-28 と同じ内容です</li>
 </ul></li>
 <li>リリース版 howm-1.4.3 [2015-12-31]
 <ul>
@@ -1440,7 +1426,7 @@ make test</pre></li>
         <a href="http://hibari.2ch.net/test/read.cgi/unix/1141892764/519">thx</a></p>
 <pre>(setq howm-action-lock-forward-fuzziness 5) ;; 何行までずれても許すか</pre></li>
 </ul></li>
-<li><a href="#label-11">カスタマイズ</a>
+<li><a href="#label-12">カスタマイズ</a>
 <ul>
 <li>上記 %reminder や todo list 中の仕切り</li>
 <li>grep 使用時の coding system 指定
@@ -1774,6 +1760,21 @@ make test</pre></li>
 </ul></li>
 </ul></li>
 </ul></li>
+<li>1.4.4
+<ul>
+<li><p>日付入力時の動作を拡張
+      <a href="https://osdn.jp/projects/howm/lists/archive/eng/2016/000118.html">thx</a>
+      &gt; Albert-san (areiner at tph.tuwien.ac.at)</p>
+<pre>;; 「[2003-12-27]」上で RET して年や月を略したら…
+(setq howm-action-lock-date-future t) ;; 2003-12-27 より未来と解釈
+;(setq howm-action-lock-date-future 'closer) ;; 2003-12-27 に近い方で解釈</pre>
+<ul>
+<li><p>新規入力時にだけそういう動作にしたければ</p>
+<pre>;; 日付入力(C-c , d または [日↓])で年や月を略したら…
+(setq howm-insert-date-future t) ;; 「未来」と解釈
+;(setq howm-insert-date-future 'closer) ;; 今日に近い方で解釈</pre></li>
+</ul></li>
+</ul></li>
 </ul></li>
 <li>…履歴抜粋… (<a href="OLD.rd">&lt;URL:OLD.rd&gt;</a> 参照)
 <ul>
@@ -1813,7 +1814,7 @@ make test</pre></li>
 <li>[2002-05-29] 0.1 公開</li>
 </ul></li>
 </ul>
-<h3><a name="label-19" id="label-19">アドレス</a></h3><!-- RDLabel: "アドレス" -->
+<h3><a name="label-20" id="label-20">アドレス</a></h3><!-- RDLabel: "アドレス" -->
 <ul>
 <li>最新版: <a href="http://howm.sourceforge.jp/">&lt;URL:http://howm.sourceforge.jp/&gt;</a></li>
 <li>連絡先: email アドレスはソースファイル冒頭を参照ください</li>
