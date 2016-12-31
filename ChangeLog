@@ -1,3 +1,7 @@
+2016-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* configure.ac: version 1.4.4
+
 2016-09-28  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
 	* howm-date.el: extend the option howm-insert-date-future.
