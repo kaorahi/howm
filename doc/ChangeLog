@@ -1,3 +1,12 @@
+2016-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* index-j.html: add descriptions of snapshot version (MELPA / GIT)
+	thx > Yuki Inoue san (inouetakahiroki at gmail.com)
+
+	* index.html: ditto.
+
+	* README.ja.rd: ditto.
+
 2015-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
 	* README.ja.rd: add commit-hash of git-head emacs
