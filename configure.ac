@@ -1,7 +1,7 @@
 # shamelessly copied from navi2ch-cvs-0.0.20031209
 # $Id: configure.in,v 1.225 2012-12-29 00:59:48 hira Exp $
 
-AC_INIT([howm], [1.4.4-snapshot])
+AC_INIT([howm], [1.4.5-snapshot])
 AM_INIT_AUTOMAKE
 AM_MAINTAINER_MODE
 
