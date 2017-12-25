@@ -35,10 +35,10 @@ TEST_INIT = sample/dot.emacs
 
 AM_MAKEFLAGS = HOWM_MAKE=t
 
-$(srcdir)/howm-version.el: $(srcdir)/howm-version.el.in $(srcdir)/configure.ac Makefile
+$(srcdir)/%.el: $(srcdir)/%.el.in $(srcdir)/configure.ac Makefile
 	rm -f $@.tmp && \
 	sed -e 's/~\(VERSION\)~/$(VERSION)/' \
-		$(srcdir)/howm-version.el.in > $@.tmp && \
+		$< > $@.tmp && \
 	mv $@.tmp $@
 
 $(MENU_EL): $(srcdir)/howm-mkmenu.el $(MENU_SRC)
