@@ -1,6 +1,6 @@
 ;;; howm.el --- Wiki-like note-taking tool
 ;;; -*- Emacs-Lisp -*-
-;;; @configure_input@
+;;; howm.el.  Generated from howm.el.in by configure.
 
 ;; Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2015, 2016, 2017 HIRAOKA Kazuyuki
 

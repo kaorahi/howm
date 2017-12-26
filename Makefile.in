@@ -85,7 +85,8 @@ subdir = .
 DIST_COMMON = INSTALL NEWS README AUTHORS ChangeLog \
 	$(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/configure $(am__configure_deps) mkinstalldirs \
-	COPYING config.guess config.sub install-sh missing
+	$(srcdir)/howm.el.in $(srcdir)/howm-version.el.in COPYING \
+	config.guess config.sub install-sh missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/acinclude.m4 \
 	$(top_srcdir)/configure.ac
@@ -94,7 +95,7 @@ am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
-CONFIG_CLEAN_FILES =
+CONFIG_CLEAN_FILES = howm.el howm-version.el
 CONFIG_CLEAN_VPATH_FILES =
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
@@ -345,9 +346,9 @@ howm_LISP = \
 	cheat-font-lock.el
 
 EXTRA_DIST = Makefile.old bcomp.el howm-mkmenu.el $(howm_LISP) \
-	bcomp.el.in howm-version.el.in test.bat
+	bcomp.el.in howm.el.in howm-version.el.in test.bat
 
-BUILT_SOURCES = $(srcdir)/howm-version.el $(srcdir)/bcomp.el
+BUILT_SOURCES = $(srcdir)/howm.el $(srcdir)/howm-version.el $(srcdir)/bcomp.el
 SUBDIRS = doc ext en ja sample
 MENU_SRC = en/0000-00-00-000000.txt ja/0000-00-00-000000.txt
 MENU_EL = $(srcdir)/howm-menu-en.el $(srcdir)/howm-menu-ja.el
@@ -383,6 +384,10 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	$(am__cd) $(srcdir) && $(ACLOCAL) $(ACLOCAL_AMFLAGS)
 $(am__aclocal_m4_deps):
+howm.el: $(top_builddir)/config.status $(srcdir)/howm.el.in
+	cd $(top_builddir) && $(SHELL) ./config.status $@
+howm-version.el: $(top_builddir)/config.status $(srcdir)/howm-version.el.in
+	cd $(top_builddir) && $(SHELL) ./config.status $@
 
 .el.elc:
 	if test "$(EMACS)" != "no"; then \
@@ -853,12 +858,6 @@ uninstall-am: uninstall-howmLISP
 	mostlyclean-generic pdf pdf-am ps ps-am tags tags-am uninstall \
 	uninstall-am uninstall-howmLISP
 
-
-$(srcdir)/%.el: $(srcdir)/%.el.in $(srcdir)/configure.ac Makefile
-	rm -f $@.tmp && \
-	sed -e 's/~\(VERSION\)~/$(VERSION)/' \
-		$< > $@.tmp && \
-	mv $@.tmp $@
 
 $(MENU_EL): $(srcdir)/howm-mkmenu.el $(MENU_SRC)
 	$(EMACS) -q -batch -l $(srcdir)/howm-mkmenu.el

@@ -2825,7 +2825,7 @@ if test `cd ${srcdir}; pwd` != `pwd`; then
 #  AC_CONFIG_LINKS(doc/howm.info:doc/howm.info)
 fi
 
-ac_config_files="$ac_config_files Makefile doc/Makefile ext/Makefile en/Makefile ja/Makefile sample/Makefile"
+ac_config_files="$ac_config_files Makefile doc/Makefile ext/Makefile en/Makefile ja/Makefile sample/Makefile howm.el howm-version.el"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -3564,6 +3564,8 @@ do
     "en/Makefile") CONFIG_FILES="$CONFIG_FILES en/Makefile" ;;
     "ja/Makefile") CONFIG_FILES="$CONFIG_FILES ja/Makefile" ;;
     "sample/Makefile") CONFIG_FILES="$CONFIG_FILES sample/Makefile" ;;
+    "howm.el") CONFIG_FILES="$CONFIG_FILES howm.el" ;;
+    "howm-version.el") CONFIG_FILES="$CONFIG_FILES howm-version.el" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac

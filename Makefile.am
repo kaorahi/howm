@@ -25,8 +25,8 @@ howm_LISP = \
 	cheat-font-lock.el
 
 EXTRA_DIST = Makefile.old bcomp.el howm-mkmenu.el $(howm_LISP) \
-	bcomp.el.in howm-version.el.in test.bat
-BUILT_SOURCES = $(srcdir)/howm-version.el $(srcdir)/bcomp.el
+	bcomp.el.in howm.el.in howm-version.el.in test.bat
+BUILT_SOURCES = $(srcdir)/howm.el $(srcdir)/howm-version.el $(srcdir)/bcomp.el
 SUBDIRS = doc ext en ja sample
 
 MENU_SRC = en/0000-00-00-000000.txt ja/0000-00-00-000000.txt
@@ -34,12 +34,6 @@ MENU_EL = $(srcdir)/howm-menu-en.el $(srcdir)/howm-menu-ja.el
 TEST_INIT = sample/dot.emacs
 
 AM_MAKEFLAGS = HOWM_MAKE=t
-
-$(srcdir)/%.el: $(srcdir)/%.el.in $(srcdir)/configure.ac Makefile
-	rm -f $@.tmp && \
-	sed -e 's/~\(VERSION\)~/$(VERSION)/' \
-		$< > $@.tmp && \
-	mv $@.tmp $@
 
 $(MENU_EL): $(srcdir)/howm-mkmenu.el $(MENU_SRC)
 	$(EMACS) -q -batch -l $(srcdir)/howm-mkmenu.el
