@@ -12,7 +12,6 @@ howm_LISP = \
 	howm-backend.el \
 	howm-common.el \
 	howm-vars.el \
-	howm-version.el \
 	howm-lang-en.el \
 	howm-lang-ja.el \
 	howm-menu-en.el \
@@ -25,8 +24,8 @@ howm_LISP = \
 	cheat-font-lock.el
 
 EXTRA_DIST = Makefile.old bcomp.el howm-mkmenu.el $(howm_LISP) \
-	bcomp.el.in howm.el.in howm-version.el.in test.bat
-BUILT_SOURCES = $(srcdir)/howm.el $(srcdir)/howm-version.el $(srcdir)/bcomp.el
+	bcomp.el.in howm.el.in test.bat
+BUILT_SOURCES = $(srcdir)/howm.el $(srcdir)/bcomp.el
 SUBDIRS = doc ext en ja sample
 
 MENU_SRC = en/0000-00-00-000000.txt ja/0000-00-00-000000.txt

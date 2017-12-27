@@ -30,6 +30,8 @@
 ;;; See README.
 ;;; HOWM is acronym of "Hitori Otegaru Wiki Modoki".
 
+(defconst howm-version "@VERSION@")
+
 ;; Files [0]-[3] have only hierarchical dependencies,
 ;; whereas files in [5] have circular dependencies.
 ;; Each file in [5] provides itself first,
@@ -46,7 +48,6 @@
 
 ;;; [2] howm basic libraries
 
-(require 'howm-version)
 (require 'howm-vars)
 (require 'howm-common)
 
