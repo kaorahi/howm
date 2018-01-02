@@ -465,7 +465,7 @@ Emacs で断片的なメモをどんどんとるための環境です.
         thx > ((<笠原さん|URL:http://eron.info/k/diary/>))
           (setq font-lock-verbose nil)
     * Linux Zaurus:
-      ((<Wiki|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus>))
+      ((<Wiki|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus>))
       を参照ください.
       thx > ((<100|URL:http://www.bookshelf.jp/2ch/unix/1063800495.html>))
   * SKK を使う場合
@@ -486,7 +486,7 @@ Emacs で断片的なメモをどんどんとるための環境です.
           ;; 例: .emacs (howm ロードより前)に
           (setq howm-ref-header "==>") ; goto リンク
           (setq howm-keyword-header "<==") ; come-from リンク
-      * ((<→ howm wiki の「併用ツール」|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?ExternalTool>))も参照
+      * ((<→ howm wiki の「併用ツール」|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?ExternalTool>))も参照
 
 * 旧版からの移行 (必ずバックアップをとってから!) → ((<URL:OLD.rd>))
   * 新たに make install しても, 個人のメニューファイルを上書き更新はしません.
@@ -774,7 +774,7 @@ Emacs で断片的なメモをどんどんとるための環境です.
         Run grep (like this): hcal.rb -l ~/memo/*.txt
 
 * 箇条書き支援:
-  * ((<org-mode との併用|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?OrgMode>))
+  * ((<org-mode との併用|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?OrgMode>))
 
 * 簡易小遣い帳
   * キーワードを決めて, 日記中に書いておく
@@ -782,9 +782,9 @@ Emacs で断片的なメモをどんどんとるための環境です.
   * 「<<< $食費$」なり「>>> $食費$」なりで一覧を表示.
     絞り込み・ソートして範囲指定.
   * M-x yen-region で, 「◯◯円」を合計
-    → ((<yen.el|URL:http://howm.sourceforge.jp/a/yen.el>))
+    → ((<yen.el|URL:https://howm.osdn.jp/a/yen.el>))
 
-* ((<→ howm wiki の「併用ツール」|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?ExternalTool>))も参照
+* ((<→ howm wiki の「併用ツール」|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?ExternalTool>))も参照
 
 == 実装
 
@@ -893,7 +893,7 @@ Emacs で断片的なメモをどんどんとるための環境です.
     * test.bat 中の「HOWM_EMACS=…」を環境にあわせて修正
     * test.bat を実行
   * どちらも, emacs が立ちあがり, 質問票が表示されます
-  * ((<なんでわざわざ? → バグレポートFAQ|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportFAQ>))
+  * ((<なんでわざわざ? → バグレポートFAQ|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportFAQ>))
 
 * 補足: ガイシュツ上等
   * 「仕様か」「既知のバグか」のチェックって, おっくうですよねえ.
@@ -901,7 +901,7 @@ Emacs で断片的なメモをどんどんとるための環境です.
     それよりも, 気軽にどんどん指摘していただく方がありがたいです.
   * ぜひ, 作者の目が届くところ(2ch か howm wiki)にたれ込んでください.
   * cf.
-    ((<バグレポートFAQ|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportFAQ>)),
+    ((<バグレポートFAQ|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportFAQ>)),
     ((<YASWiki:オープンソースは下町気質|URL:http://web.archive.org/web/20041018232953/http://nnri.dip.jp/~yf/cgi-bin/yaswiki.cgi?name=%A5%AA%A1%BC%A5%D7%A5%F3%A5%BD%A1%BC%A5%B9%A4%CF%B2%BC%C4%AE%B5%A4%BC%C1>))
 
 * 作者覚書
@@ -913,7 +913,7 @@ Emacs で断片的なメモをどんどんとるための環境です.
 
 === 参考
 
-((<元ネタ|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?IdeaSource>))参照.
+((<元ネタ|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?IdeaSource>))参照.
 特に, Q-pocket・HashedWiki・ChangeLog メモからいっぱいまねしてます. 感謝.
 
 * 広瀬雄二著「やさしい Emacs-Lisp 講座」(カットシステム, 1999)
@@ -953,13 +953,13 @@ thx > patch・改良案・指摘をくださった皆様
     * howm-test130321 や howm-1.4.2rc1 と同じ内容です
   * 改良
     * C-c , a (howm-list-all) を高速化
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
   * fix
     * emacs 24.3.1 でバイトコンパイルせずに実行したときのエラー
       "Can't detect type of ..."
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
     * シンボリックリンク下で新規メモが howm-mode にならないバグ
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
     * バイトコンパイル時の警告
 
 * リリース版 howm-1.4.1 [2012-12-27]
@@ -1034,11 +1034,11 @@ thx > patch・改良案・指摘をくださった皆様
         ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/784>))
       * howm 関連の全バッファに共通の色設定
         ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/42>))
-        ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Idea>))
+        ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Idea>))
         > taku さん
       * todo を済ませたときに指定コマンドを実行 (howm-congrats-command)
   * fix: 2012-01-21 以降の emacs-24 でエラー (void-variable inhibit-first-line-modes-regexps)
-    ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
+    ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
     thx > 佐々木 寛 さん (sasaki at fcc.ad.jp)
 
 * 隠し機能 (experimental)
@@ -1082,7 +1082,7 @@ thx > patch・改良案・指摘をくださった皆様
           ;; 残りの引数二つは, 「予定表に表示するか」「todo リストに表示するか」.
           (howm-define-reminder "*" #'my-priority 'my-face nil t)
         * 参考: 既存の旬度関数のグラフが
-          ((<UNIX USER 誌の記事|URL:http://howm.sourceforge.jp/uu/#label:11>))
+          ((<UNIX USER 誌の記事|URL:https://howm.osdn.jp/uu/#label:11>))
           に出てます
         * バグ
           * 一部の記号はこけそう (正規表現 […] 内で特別な意味を持つ記号は×)
@@ -1116,7 +1116,7 @@ thx > patch・改良案・指摘をくださった皆様
           これはさらに手抜き
     * Minor
       * hcal.rb の「[2004-09-02]?」対応(自分専用そのばしのぎ)
-        ((<ref|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?TangledToDo>))
+        ((<ref|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?TangledToDo>))
       * M-x howm-return-to-list → 一覧表示に戻る
         ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/377>))
         * とり急ぎ超雑でっちあげ. 反響に応じてまた考えよう.
@@ -1218,7 +1218,7 @@ thx > patch・改良案・指摘をくださった皆様
         「Hide sleeping reminders」を設定してください.
     * バッファ名を, ファイル名ではなくタイトルにする.
       ((<thx|URL:http://lists.sourceforge.jp/mailman/archives/howm-eng/2006/000020.html>)) > Mielke-san (peter at exegenix.com),
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?ExternalTool>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?ExternalTool>))
         ;; emacs 上でのバッファ名を, ファイル名ではなくタイトルに.
         ;; (ファイル名自体は変更しない)
         (add-hook 'howm-mode-hook 'howm-mode-set-buffer-name)
@@ -1292,9 +1292,9 @@ thx > patch・改良案・指摘をくださった皆様
   * [2004-05-06] 1.1.2 make test
   * [2004-02-27] ((<"2ch howm スレ 2"|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/>))
   * [2004-02-21] 1.1.1 「隠し機能」制度を導入
-  * [2004-01-25] ((<"sf.jp"|URL:http://howm.sourceforge.jp/>)) へ移動
+  * [2004-01-25] ((<"sf.jp"|URL:https://howm.osdn.jp/>)) へ移動
   * [2005-01-08] ((<"UNIX USER 2004.2"|URL:http://www.unixuser.jp/magazine/2004/200402.html>))
-  * [2003-12-27] ((<howm wiki|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi>))
+  * [2003-12-27] ((<howm wiki|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi>))
   * [2003-11-22] 1.1 デフォルトの変更
     (リンク・日付・リマインダの書式, 一メモ一ファイル, メニューもメモの一種)
   * [2003-10-27] 1.0.4.2 重くなるバグを修正. よくこんなので動いてたなあ…
@@ -1316,7 +1316,7 @@ thx > patch・改良案・指摘をくださった皆様
 
 === アドレス
 
-* 最新版: ((<URL:http://howm.sourceforge.jp/>))
+* 最新版: ((<URL:https://howm.osdn.jp/>))
 * 連絡先: email アドレスはソースファイル冒頭を参照ください
 
 =end

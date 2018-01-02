@@ -117,7 +117,7 @@ ChangeLog Memo と howm memo との間で相互リンクを張ります.
 == 補足
 
 howm memo で RD 形式をお使いの方は,
-((<URL:http://howm.sourceforge.jp/a/rd-mode-plus.el>))
+((<URL:https://howm.osdn.jp/a/rd-mode-plus.el>))
 も併用すると便利かもしれません.
 上の howm-to-change-log のかわりに, 次の機能が使えます.
 

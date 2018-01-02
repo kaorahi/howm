@@ -15,7 +15,7 @@ def usage
   #{name} -i *.memo  → iCalendar 形式で出力 (作成中)
   #{name} -h または #{name} -help  → このメッセージを出力
 (項目の書式)
-  http://howm.sourceforge.jp/ 参照
+  https://howm.osdn.jp/ 参照
 EOU
 end
 

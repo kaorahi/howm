@@ -124,7 +124,7 @@
 (defalias 'howm-view-restore-window-configuration #'riffle-restore-window-configuration)
 
 ;; for howmoney.el
-;; http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?howmoney
+;; https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?howmoney
 (defun howm-view-get-buffer (name-format &optional name new)
   (let ((riffle-type ':howm)) ;; cheat
     (riffle-get-buffer name-format name new)))
@@ -686,7 +686,7 @@ But I'm not sure for multi-byte characters on other versions of emacsen."
   (let ((kw font-lock-keywords))
     (prog1
         ;; return item-list for
-        ;; http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?HidePrivateReminder
+        ;; https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?HidePrivateReminder
         (howm-view-summary-rebuild (funcall proc (howm-view-item-list) switch))
       (setq font-lock-keywords kw))))
 

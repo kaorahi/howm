@@ -20,9 +20,9 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
       * grep のデフォルトオプションを設定する前に,
         --exclude-dir が通るか確認するようにしました.
     * 大きいフレームで一覧表示をしたときの余計なウィンドウ分割を修正
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
     * howm-vars.elc ロード時の警告「old-style backqoute detected!」を回避.
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
 
 * リリース版 howm-1.3.9.1 [2011-01-02]
   * fix: emacs-24.0.50 でのエラー
@@ -59,13 +59,13 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
     * ((<yagrep|URL:http://www.kt.rim.or.jp/~kbk/yagrep/index.html>)) との
       互換性のため, grep 呼び出し時にディレクトリ名末尾の / を削除.
       ((<thx|URL:http://hibari.2ch.net/test/read.cgi/unix/1141892764/685-686n>))
-    * ((<HidePrivateReminder|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?HidePrivateReminder>))
+    * ((<HidePrivateReminder|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?HidePrivateReminder>))
       のために内部を少し掃除.
       ((<thx|URL:http://hibari.2ch.net/test/read.cgi/unix/1141892764/731>))
   * fix
     * C-c , l (howm-list-recent)時に該当ファイルが多すぎるとエラー.
       ((<thx|URL:http://hibari.2ch.net/test/read.cgi/unix/1141892764/733>))
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Windows>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Windows>))
       * howm-view-use-grep を設定している場合に発症.
         meadow だと "Spawning child process: exec format error" になるらしい.
       * grep 呼び出し時のコマンドラインが howm-command-length-limit 以上に
@@ -108,7 +108,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
             * lisp がわからない方:
               ((<2ch UNIX 板 howm スレ|URL:http://hibari.2ch.net/test/read.cgi/unix/1141892764/l50>))
               か
-              ((<howm wiki の「なんでも」|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Comment>))
+              ((<howm wiki の「なんでも」|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Comment>))
               でご相談を
         * もし旧変数をセットしたままにしておくと…
           * 単純に読みかえられそうなら, 新変数に読みかえて新処理を実行
@@ -123,7 +123,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
     * 一覧バッファ
       * 検索時の内部的な一覧バッファ再表示を抑制
       * 一覧バッファからの X (dired-x) 時に, カーソルを対応ファイル名へ置く
-        ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
+        ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
         > 797 さん
         * 1.3.2 の隠し機能を公式化 & デフォルト化.
           変数 howm-view-dired-keep-cursor は削除しました.
@@ -174,7 +174,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
         * make test 時に ~/.howm-history を汚さない
   * fix
     * howm-menu-categorized-reminder で表示されない項目があった
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
     * (setq howm-view-list-title-type 2) のとき C-c , a でエラー
       ((<thx|URL:http://hibari.2ch.net/test/read.cgi/unix/1141892764/552>))
     * タイトルのないメモが C-c , a で表示されなかった
@@ -185,9 +185,9 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
       ((<thx|URL:http://hibari.2ch.net/test/read.cgi/unix/1141892764/494>))
     * 予定表や todo リストで action-lock-mode が不本意にトグル.
     * howm2, howmkara の -exclude オプションに不具合.
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport>)) > dareka さん
-    * ((<HidePrivateReminder|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?HidePrivateReminder>))で C-c , t が「No match」に
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?HidePrivateReminder>)) > taku さん
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport>)) > dareka さん
+    * ((<HidePrivateReminder|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?HidePrivateReminder>))で C-c , t が「No match」に
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?HidePrivateReminder>)) > taku さん
       * 互換性を修復
     * howm-occur で一覧バッファの検索語がハイライトされなくなっていた
     * 「＜＜＜ テスト ＜＜＜ Test」の「Test」上で RET を叩いても「テスト」が
@@ -208,10 +208,10 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
     * メニューの「%reminder」の底に, 過ぎた予定が表示されていた.
       ((<thx|URL:http://hibari.2ch.net/test/read.cgi/unix/1141892764/149>))
     * メニュー中の「> 2006-07-26-015606 | …」の「7」上で RET を叩くとエラー.
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport>)) > na さん
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport>)) > na さん
       * 変数 howm-menu-list-regexp の定義をちょっと直しただけ
     * 異なるディレクトリの同名ファイルが一覧表示で混同されていた.
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
     * howm-view-split-horizontally が t でも nil でもないときの特別な動作を廃止.
       ((<thx|URL:http://hibari.2ch.net/test/read.cgi/unix/1141892764/591>))
       * howm-1.2 〜 1.3.7rc2 で壊れていたが, バグレポートなし.
@@ -370,10 +370,10 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
       thx > 竹村さん
     * ((<howmz.el|URL:http://noir.s7.xrea.com/archives/000136.html>))
       でエラーが出ていたそう.
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus>))
       > (TxT) さん
     * emacs20 で M-x howm-bug-shot がエラーになっていた.
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportFAQ>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportFAQ>))
       > 逃避さん
 
 * リリース版 howm-1.3.2 [2005-11-04]
@@ -383,7 +383,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
     * リリース予定版 1.3.2rc4 と同じものです
   * 変更
     * メニューの [今日] (C-c , , .) でもデフォルトでタイトルを表示.
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
       > nobu さん
       * タイトル表示したくなければ…
         * M-x customize-variable RET howm-list-title RET
@@ -394,14 +394,14 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
       日付上での RET がエラー
       ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/797-801n>))
     * xemacs だと, 一覧バッファからの X (dired-x) がエラー
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
       > 797 さん
       * ついでに, 同じファイルが何度も表示されるのを修正
     * howm-view.el に (require 'riffle) を追加
       ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/782>))
     * Makefile 以外の手順でバイトコンパイルすると M-x howm-menu がエラー
       ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/789-791n>))
-      ((<ref|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BrokenMenu>))
+      ((<ref|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BrokenMenu>))
 
 * リリース版 howm-1.3.1 [2005-08-17]
   * xemacs でやけに遅くなっていたのを修正
@@ -468,7 +468,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
   * 仕様変更
     * howm-template の値が関数だったときは,
       「universal-argument と((*直前のバッファ*))」を引数にしてそいつを呼ぶ
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Comment>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Comment>))
       * 使用例
           ;; snap.el でのリンクを入れる
           (setq howm-template #'my-howm-template)
@@ -501,7 +501,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
       * (setq howm-message-time t) すれば, 検索等に要した時間を表示
     * 1.2 から
       * come-from キーワードの alias ▲ → ((<メモを書こう>))
-        ((<ref|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?CompoundComeFrom>))
+        ((<ref|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?CompoundComeFrom>))
       * メニュー
         * メニューに「%recent」や「%random」 ▲
           ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/242>))
@@ -509,9 +509,9 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
         * メニュー中に変数や関数の値を表示
       * 一覧
         * ソート法に「random」を追加
-          ((<ref|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?OldMemo>))
+          ((<ref|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?OldMemo>))
         * 一覧表示窓の行数設定
-          ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Comment>))
+          ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Comment>))
           ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/724>))
             (setq howm-view-summary-window-size 10)
         * 「タイトル」の正規表現を, 機能ごとに変更可能
@@ -601,7 +601,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
         * M-x howm-elp で, プロファイラ elp の準備
   * その他の改良
     * M-x customize に対応 ([Applications] → [Howm])
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?RoadMap>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?RoadMap>))
       ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/668>))
     * 一覧バッファで, 同じファイル名をくり返し表示しない
       ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/754>))
@@ -630,7 +630,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
     * make 時の警告「… not known to be defined」を抑制
       ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1111816102/485>))
     * riffle.el の仕様を変更(gfunc.el を使う). ユーザーには影響ないつもり.
-      ((<howmoney|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?howmoney>))
+      ((<howmoney|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?howmoney>))
       もだいじょうぶと思うんだけど…
   * バグ修正
     * 白黒機でエラー
@@ -657,7 +657,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
       ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/685>))
     * メニューに表示される予定の範囲が一日短かかった
     * xemacs で, ファイルが少ないとメニューの %recent がエラーに
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
     * メニュー上で C-c , r したときは「メニュー更新」
       ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/696>))
     * howm-menu-list-face のデフォルトを空に
@@ -669,7 +669,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
         「howm」に直してください.
     * ((<howmz|URL:http://noir.s7.xrea.com/archives/000136.html>))
       でエラー (関数 howm-view-sort-items がない)
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus>))
       > (TxT) さん
     * リマインダ直叩きでメニューが崩れる
       ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/705>))
@@ -720,9 +720,9 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
   * 改良
     * egrep, fgrep がないけど GNU grep はある, という環境(リナザウ?)に対応
       ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/621-625n>))
-      ((<ref|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus>))
+      ((<ref|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus>))
     * contents での絞り込みも C-u に対応 (マッチしたメモを排除)
-      → ((<応用例|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?HidePrivateReminder>))
+      → ((<応用例|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?HidePrivateReminder>))
       ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/593>))
     * todo リストやメニューの %reminder でも, 旬度が同じなら文字列順ソート
       ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/571>))
@@ -757,7 +757,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
       * ついでに, howm-excluded-file-regexp のデフォルトに
         (image-file-name-regexp) 相当を追加
     * 0123-45-6789 みたな電話番号に下線を引かない (日付とみなす条件を厳しく)
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
     * 「%」を含む message のエラー
     * emacs20 でメニューを隠しバッファにすると色がつかない
       ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/541>))
@@ -765,7 +765,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
       ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/532>))
     * come-from 記法を変更した場合の手当て
       (thx > taku さん)
-      ((<ref|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
+      ((<ref|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
   * テスト版・リリース予定版の bug fix (抄)
     * >>> ~/hoge.ps や file://~/hoge.ps を RET で開こうとするとエラー
       (thx > Konstantin Levinski (kostya@pmail.ntu.edu.sg))
@@ -784,13 +784,13 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
     * Meadow 2.10 で make がエラーに
       (thx > taku さん, 「も」さん)
       ((<ref|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/638>))
-      ((<ref|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?MaxSpecpdlSize>))
+      ((<ref|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?MaxSpecpdlSize>))
     * Meadow-1.15 だと, image-file-name-regexps が未定義でエラー
       (thx > 逃避さん)
-      ((<ref|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
+      ((<ref|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
     * howm-directory が ~/.howm のようなドットディレクトリだと何も検索されず
       (thx > taku さん)
-      ((<ref|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
+      ((<ref|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
 
 * [2004-12-11] v1.2.1
   * Note
@@ -835,9 +835,9 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
     * howm-list-migemo が直接 howm-view-search を叩かないよう
     * howm-set-mode-p を howm-set-mode から分離
       ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/388>))
-      ((<ref|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?SetMode>))
+      ((<ref|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?SetMode>))
     * リマインダの action-lock を整理していじりやすく. 動作は変化ないはず.
-      ((<ref|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?TangledToDo>))
+      ((<ref|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?TangledToDo>))
       * 副作用で, howm-reminder-regexp-XXX-pos のデフォルト値がひとつずれた
   * その他
     * 一覧バッファと内容バッファを「o」で行き来
@@ -857,12 +857,12 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
     * 目玉
       * todo の新型: 保留「[2004-01-09]~100 ほげ」
         ((<thx|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/497>))
-        ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Defer>))
+        ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Defer>))
       * メニュー・予定表・todo 一覧から, -+!@~. 上で RET を直接叩ける
         ((<thx|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/506>))
         ((<thx|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/568>))
         ((<thx|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/580>))
-        ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?RepeatedToDo>))
+        ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?RepeatedToDo>))
         ((<thx|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/698>))
         ((<thx|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/732>))
     * 小改造
@@ -946,7 +946,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
       * 多文字コマンド → 続けてミニバッファから入力
     * 一覧から C-u f したときには「Reject」と表示
     * 予定表・todo 一覧に曜日を表示
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Comment>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Comment>))
     * 文書の更新
       * インストール法の説明は, make install の方をメインに
       * index-j.html に画像と UNIX USER 記事へのリンクを追加
@@ -994,7 +994,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
     * README 訂正 (howm-title-header → howm-view-title-header)
     * Meadow 用の「ドライブ名の大文字小文字」対策を
       微修正(howm-normalize-file-name). 挙動は変化ないはず.
-      ((<ref|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?DriveLetter>))
+      ((<ref|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?DriveLetter>))
     * テスト版のバグ(抄)
       * 「メニューに %recent」で対象外ファイルのチェックを忘れてた
         ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/246>))
@@ -1005,7 +1005,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
       * emacs -nw なとき, [2004-08-08]! の「!」で RET 叩くとエラー
         ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/354>))
       * 各ファイル個別に byte-compile したときの不具合
-        ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
+        ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
         * マクロがマクロ扱いされてなかった
           → ファイルまたいで使うマクロは howm-common.el に置き,
           各 howm-*.el が明示的に require
@@ -1036,7 +1036,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
         試していただけると助かります.
         見た目の動作は何も変わらないつもりですが…
       * 「come-from キーワードの alias」に向けた布石です
-        ((<ref|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?CompoundComeFrom>))
+        ((<ref|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?CompoundComeFrom>))
   * fix
     * 「<<< foo {_}」の「<<<」で RET 叩いても no match
       * grep 使用時のみ? ({}が特殊文字)
@@ -1095,7 +1095,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
       * [2004-02-23] の修正はまちがってたので再修正
     * emacs20, meadow1.x(?) で http:// に下線がつかない
       (拡張正規表現 "[htp]\\{3,5\\}")
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
     * grep 不使用時, S → foo で「Foo」がひっかからない
       ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/51-54n>))
     * README の修正
@@ -1119,14 +1119,14 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
       * ほんとはファイル冒頭と拡張子から自動判定すべきなんだけど, ひとまず.
     * 一覧のソート基準 (howm-list-normalizer)
       ((<thx|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/503>))
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?SortBy>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?SortBy>))
     * メニューの予定表の表示範囲 (howm-menu-schedule-days-before)
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Comment>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Comment>))
     * 日付の新規入力時に年や月を略したら未来と解釈 (howm-insert-date-future)
       ((<thx|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/425>))
     * howm-template を選択可能に
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?SwitchTemplate>))
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?SwitchTemplate>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport>))
     * (setq howm-list-title t) すれば, 一覧では常にタイトルを表示
       ((<thx|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/288>))
       * howm-list-recent-title, howm-list-all-title は undocumented に.
@@ -1139,11 +1139,11 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
       (thx > 'UCONNのポスドク'さん)
   * 新コマンド
     * C-c , s で固定文字列検索 howm-list-grep-fixed (C-u C-c , g と同じ)
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?KeyBinding>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?KeyBinding>))
     * C-c , SPC で howm なバッファと howm でないバッファとを切り替え.
       howm なバッファがなければメニューを開く.
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Idea>))
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?ImplementedIdea>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Idea>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?ImplementedIdea>))
     * 一覧表示・内容表示では n, p でもカーソル上下
       ((<thx|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/473>))
     * 「file://…」上で C-u RET → find-file-other-window
@@ -1169,7 +1169,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
     * メニュー
       * > で RET → 該当行へ直ジャンプ
       * 「済み」は表示しない
-        ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Comment>))
+        ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Comment>))
       * 潜伏中のリマインダは表示しない (howm-menu-todo-priority)
         ((<thx|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/620>))
       * メニューのキャッシュを設定しない限り, メモ保存時のメニュー更新はオフ
@@ -1229,10 +1229,10 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
       * いちばんひどいとこだけ修正. まだむだは残ってる.
     * meadow 向けに, ドライブレターの大文字小文字を無視
       (howm-normalize-file-name)
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?DriveLetter>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?DriveLetter>))
     * 英語メニューの [String] と [Regexp] が逆
     * xemacs canna 対策
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?CannaReturnKey>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?CannaReturnKey>))
     * split-horizontally が t なら C-x 1 後も横並べに
       (((<thx|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/634>))
       > ヽ(´ー`)ノさん)
@@ -1245,7 +1245,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
       * font-lock-defaults の大域値を変えてしまってた
     * 一覧で ! (shell) が xemacs や emacs20 でエラー
       (replace-regexp-in-string や (buffer-size buf) がない)
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Usage>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Usage>))
     * xemacs 関連:
       thx > ((<笠原さん|URL:http://www.nc.kyushu-u.ac.jp/~kasahara/diary/2004/01b.html>))
       …こっそり言及返し :p
@@ -1266,9 +1266,9 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
           (reference to free variable / bound but not referenced)
     * 「>>>」だけの行から次の行にかけて下線が引かれてた
     * howm-menu.el を iso-2022-7bit に (for Meadow)
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?WorkOn>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?WorkOn>))
     * .gz, .jpg, .gif, .png も検索対象から除外
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?ImageCapture>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?ImageCapture>))
     * 最終行に改行がないと, 内容表示でその行が出ない
       ((<thx|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/471>))
     * 一ファイル複数メモで (setq howm-list-title t) なとき,
@@ -1318,7 +1318,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
       * テスト版 2003-12-27 〜 2004-01-21 のバグ
       * テスト版 2005-01-23 で修正
     * yc 対策を柔軟に ← 結局廃止
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?WorkOn>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?WorkOn>))
       * eval-after-load だと (load "~/elisp/yc.el") がマッチしないので,
         defadvice に変更
       * ほんとは, 同様のことを egg, anthy にもやるべき
@@ -1326,7 +1326,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
     * メニューでは [2004-01-10]! 等に下線をつけない ← 「直叩き」として復活
       ((<thx|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/506>))
     * fix: メニューに旬度を表示したら > から飛べなくなってた
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Comment>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Comment>))
     * fix: anthy との併用 ← 結局廃止
       (thx > Jun Kuriyama さん <kuriyama@imgsrc.co.jp>)
     * fix: index-j.html からのリンクずれ
@@ -1347,13 +1347,13 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
       ((<ref|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/597-598n>))
       * ついでに prompt に曜日
     * ((<カスタマイズ>)) の記述ミス: howm-directory → howm-keyword-file
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Comment>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Comment>))
     * configure.in に Meadow.exe を追加
-      (((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?RoadMap>))
+      (((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?RoadMap>))
       > Meadow2使いさん)
   * 廃止
     * canna, egg, yc, anthy の個別対策
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?WorkOn>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?WorkOn>))
       * かわりに, action-lock-mode の優先度を最弱に.
       * 以前の対策に戻すには,
           (setq action-lock-bury-minor-mode-p nil)
@@ -1377,7 +1377,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
   * 「xemacs では, (setq font-lock-verbose nil) で速くなるよ」 (→((<インストール>)))
   * fix
     * xemacs canna 対策
-      ((<thx|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?CannaReturnKey>))
+      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?CannaReturnKey>))
     * 英語メニューの [String] と [Regexp] が逆
     * howm-view-call-process の戻り値チェック
     * meadow 1.15 で他バッファの font-lock が注釈・文字列のみに
@@ -2409,7 +2409,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
     * ((<Um4|URL:http://www.d4.dion.ne.jp/~usuda/emacs/index.html>))
       (臼田拓史さん): いろいろ保存メニュー
     * rd-memo
-      (拙作. 開発終了 → ((<tar.gz|URL:http://howm.sourceforge.jp/a/rd-memo.tar.gz>)))
+      (拙作. 開発終了 → ((<tar.gz|URL:https://howm.osdn.jp/a/rd-memo.tar.gz>)))
       * ((<「コンピュータ環境でのメモ」|URL:http://pub.cozmixng.org/~the-rwiki/rw-cgi.rb?cmd=view;name=%A5%B3%A5%F3%A5%D4%A5%E5%A1%BC%A5%BF%B4%C4%B6%AD%A4%C7%A4%CE%A5%E1%A5%E2>))
         (Toshさん): Wiki に注目したきっかけ
   * howm 関連
@@ -2423,7 +2423,7 @@ $Id: OLD.rd,v 1.18 2012-08-16 09:52:06 hira Exp $
         (deecay さん): xyzzy 版
       * ((<howm.mac|URL:http://mrm.seesaa.net/category/789739.html>))
         (Mr.M さん)
-        ((<＋α|URL:http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?HideMaru>)): 秀丸版
+        ((<＋α|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?HideMaru>)): 秀丸版
     * 浮沈式 todo リスト
       * ((<wikilog|URL:http://web.archive.org/web/20040308005605/http://koten.hypermart.net/wikilog_rc01.l>))
         (Gonza さん): xyzzy エディタ用の, Wiki + ChangeLog メモ

@@ -1,3 +1,7 @@
+2018-01-02  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* ChangeLog: update URL
+
 2018-01-02  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
 	* howm.el.in: update copyright years and email
@@ -168,7 +172,7 @@
 	howm-mode was not set at C-c , c (howm-create)
 	if howm-directory is placed under symbolic links.
 	thx > dareka 2013-03-20
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
 
 2013-03-18  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
@@ -177,7 +181,7 @@
 	* gfunc.el (gfunc-with): fix an error in emacs 24.3.1 without byte-compilation.
 	"Can't detect type of ((:nest /home/.../) (%menu%) t) for howm-folder-grep-internal."
 	thx > dareka 2013-03-17
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
 
 2013-01-03  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
@@ -227,7 +231,7 @@
 	(howm-entitle-items-style1): improve efficiency of howm-list-all
 	by avoiding redundant grep calls.
 	thx > dareka 2012-12-10, 2012-12-15, 2012-12-16, 2012-12-28
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
 	(howm-item-list-filter): ditto
 
 2012-12-27  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
@@ -305,7 +309,7 @@
 	are obsolete in emacs-24.
 	thx > Sasaki Kan san (sasaki at fcc.ad.jp)
 	thx > dareka 2012-02-12, 2012-02-17
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
 	(howm-if-unbound): ditto.
 
 2012-01-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
@@ -338,7 +342,7 @@
 	* riffle.el (riffle-pop-to-buffer): fix.
 	windows were split recursively if frame size is large.
 	thx > dareka
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
 
 2011-03-20  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
@@ -381,7 +385,7 @@
 	* howm-vars.el (howm-define-risky-command):
 	avoid old-style-backquotes warning when *.elc is loaded.
 	thx > dareka
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
 
 2011-01-06  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
@@ -530,7 +534,7 @@
 	"Spawning child process: exec format error" if howm-view-use-grep
 	is set and there are too many recently-changed files.
 	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/733
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Windows
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Windows
 
 	* howm-vars.el (howm-command-length-limit): new option
 
@@ -542,7 +546,7 @@
 	(howm-filter-items-by-contents):
 	splitted from howm-view-remove-by-contents for functional style.
 	it will be used in
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?HidePrivateReminder
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?HidePrivateReminder
 	thx > http://pc11.2ch.net/test/read.cgi/unix/1141892764/731
 	(howm-entitle-items-style1): use howm-view-search-folder-fi.
 	(howm-item-list-filter): ditto.
@@ -599,7 +603,7 @@
 	* howm-view.el (howm-view-summary-item): fix.
 	use full path for equivalence check
 	thx > dareka
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
 
 2008-10-07  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
@@ -651,7 +655,7 @@
 	first argument was not used, and some items were dropped
 	in howm-menu-categorized-reminder.
 	thx > taka-san
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
 
 2008-07-25  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
@@ -879,7 +883,7 @@
 
 	* howm-misc.el (howm-test): add docstring.
 	thx > dareka
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport
 
 2007-11-07  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
@@ -900,7 +904,7 @@
 	* howm-view.el (howm-view-sort/filter-doit): fix.
 	return list of items for backward compatibility.
 	thx > taku-san
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?HidePrivateReminder
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?HidePrivateReminder
 
 2007-05-28  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
@@ -1252,7 +1256,7 @@
 	http://lists.sourceforge.jp/mailman/archives/howm-eng/2006/000020.html
 	http://lists.sourceforge.jp/mailman/archives/howm-eng/2006/000022.html
 	thx > anonymous
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?ExternalTool
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?ExternalTool
 
 	* howm-vars.el (howm-menu-reminder-separators): fix.
 	"Between schedule and todo" corresponds to nil.
@@ -1379,7 +1383,7 @@
 	require howm-lang-* before it is really needed.
 	this may be necessary for howmz.
 	thx > (TxT) san
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus
 	http://noir.s7.xrea.com/archives/000136.html
 
 2006-01-23  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
@@ -1617,7 +1621,7 @@
 2005-10-25  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
 	* howm-vars.el (howm-view-dired-keep-cursor): new option.
-	thx > 797 http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+	thx > 797 https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport
 
 2005-10-24  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
@@ -1631,7 +1635,7 @@
 	* howm-view.el
 	(howm-view-dired): fix.
 	require dired-vir for xemacs, and remove duplicates.
-	thx > 797 http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+	thx > 797 https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport
 
 2005-10-16  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
@@ -1698,7 +1702,7 @@
 	* howm-vars.el (howm-list-title): add howm-action-lock-date-search
 	so that title is shown for `howm-search-today' (C-c , , .) by default.
 	thx > nobu-san
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport
 
 	* howm-date.el (howm-action-lock-date-search): add `howm-set-command'.
 
@@ -1848,7 +1852,7 @@
 	* howm-mode.el (howm-template-receive-buffer): new option.
 	By default, previous buffer is also passed to howm-template
 	when it is a function.
-	thx > http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Comment
+	thx > https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Comment
 
 2005-06-10  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
@@ -1936,7 +1940,7 @@
 	http://noir.s7.xrea.com/archives/000136.html
 	http://noir.s7.xrea.com/pub/zaurus/howmz.el
 	thx > (TxT) san
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus
 
 2005-05-27  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
@@ -2007,7 +2011,7 @@
 	It happened at %recent in menu when number of note files are small
 	or empty files exist.
 	thx > Nanashi-san
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport
 
 2005-05-17  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
@@ -2036,7 +2040,7 @@
 
 	* howm-vars.el (howm-user-font-lock-keywords): new option
 	thx > taku-san
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Idea
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Idea
 
 2005-05-15  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
@@ -2173,7 +2177,7 @@
 	* howm-vars.el: new file
 	begin to support defcustom
 	thx >
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?RoadMap
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?RoadMap
 	http://pc8.2ch.net/test/read.cgi/unix/1077881095/668
 
 	* configure.in: version 1.2.3
@@ -2224,7 +2228,7 @@
 	* howm-mode.el (howm-image-file-name-regexps): fix.
 	Meadow-1.15 doesn't have image-file-name-regexps.
 	thx > Touhi-san
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport
 
 2005-04-24  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
@@ -2234,7 +2238,7 @@
 	My previous cleaning up on this function is canceled.
 	See the comment in the source code.
 	thx > taku-san
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport
 
 2005-04-23  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
@@ -2244,13 +2248,13 @@
 	This can happen when you write (setq howm-keyword-header "<==")
 	in sample/dot.emacs and then do 'make install && make test'.
 	thx > taku-san
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport
 
 	* howm-mode.el (howm-image-file-name-regexps): fix.
 	(image-file-name-regexp) caused an error on Meadow 2.10
 	unless max-specpdl-size is increased from the default value 600.
 	thx > taku-san, Mo-san
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?MaxSpecpdlSize
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?MaxSpecpdlSize
 
 	* Makefile.am (EXTRA_DIST): test.bat was not included in tar.gz
 

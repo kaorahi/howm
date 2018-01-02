@@ -1,3 +1,7 @@
+2018-01-02  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* hcal.rb: update URL
+
 2010-12-29  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
 	* tag2plan: removed (not maintained)
@@ -7,7 +11,7 @@
 	* howm2 (ls_R): fix.
 	string =~ string is obsolete.
 	thx > dareka
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport
 
 	* howmkara
 	(ls_R): ditto.

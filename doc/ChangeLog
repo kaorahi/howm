@@ -1,3 +1,7 @@
+2018-01-02  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* index.html: update URL
+
 2016-12-31  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
 	* README.ja.rd: update version.
@@ -137,7 +141,7 @@
 	link to "much kinder tutorial by Dave O'Toole san" is removed
 	because http://dto.twu.net/HowmTutorial.howm.html is not found now.
 	thx > ganba san
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?e.BBS
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?e.BBS
 
 	* README.rd: ditto.
 
@@ -196,7 +200,7 @@
 	* README.ja.rd: describe that 'configure --with-xemacs' changes
 	default lispdir to /usr/lib/xemacs/site-lisp/howm.
 	thx > 2ch 797 san
-	http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?BugReport
+	https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReport
 
 2005-10-18  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 

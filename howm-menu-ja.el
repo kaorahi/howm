@@ -100,8 +100,8 @@ Unix 系の標準的な環境なら, たいてい問題なく使えるでしょう.
 それ以外の環境では, 何らかの準備が必要になるかもしれません.
 
 各環境で具体的にどうすればよいかは…情報をお待ちしています.
-・http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Windows
-・http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus
+・https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Windows
+・https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus
 
 grep の使用を設定するには,
   M-x customize-variable howm-view-use-grep
