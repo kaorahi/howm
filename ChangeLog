@@ -1,3 +1,9 @@
+2017-12-25  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
+
+	* howm.el.in: use @VERSION@ macro for howm-version and MELPA
+
+	* howm-version.el.in: deleted
+
 2017-01-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
 	* howm.el: update copyright years
