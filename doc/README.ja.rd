@@ -943,7 +943,7 @@ thx > patch・改良案・指摘をくださった皆様
     * git 先端 emacs でのエラー (void-function ed)
     * C-c , A (howm-list-around) で howm-list-title の設定が効いていなかった
       ((<thx|URL:http://peace.2ch.net/test/read.cgi/unix/1397477663/39>))
-    * ((<howm-recentf|URL:http://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Recentf>))などで無駄にリモートファイルのパスワードを聞いてこないように.
+    * ((<howm-recentf|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Recentf>))などで無駄にリモートファイルのパスワードを聞いてこないように.
       thx > 鯉江英隆さん (hide at koie.org)
     * ドキュメントのファイルモードの訂正
 

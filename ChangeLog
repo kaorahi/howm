@@ -132,7 +132,7 @@
 
 	* howm-common.el (howm-subdirectory-p):
 	check "local/remote" for avoiding unnecessary password prompting
-	(cf. http://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Recentf)
+	(cf. https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Recentf)
 	thx > Koie-san (hide at koie.org)
 
 	* howm-misc.el (howm-normalize-file-name): ditto.
