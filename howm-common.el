@@ -1,5 +1,5 @@
 ;;; howm-common.el --- Wiki-like note-taking tool
-;;; Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2015, 2016, 2017
+;;; Copyright (C) 2002, 2003, 2004, 2005-2018
 ;;;   HIRAOKA Kazuyuki <khi@users.sourceforge.jp>
 ;;; $Id: howm-common.el,v 1.90 2012-12-29 08:57:18 hira Exp $
 ;;;
