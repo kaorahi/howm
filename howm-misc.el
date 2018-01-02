@@ -1,6 +1,6 @@
 ;;; howm-misc.el --- Wiki-like note-taking tool
 ;;; Copyright (C) 2002, 2003, 2004, 2005-2018
-;;;   HIRAOKA Kazuyuki <khi@users.sourceforge.jp>
+;;;   HIRAOKA Kazuyuki <khi@users.osdn.me>
 ;;; $Id: howm-misc.el,v 1.96 2012-12-29 08:57:18 hira Exp $
 ;;;
 ;;; This program is free software; you can redistribute it and/or modify

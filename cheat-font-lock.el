@@ -1,6 +1,6 @@
 ;;; cheat-font-lock.el --- modify font-lock-keywords
 ;;; Copyright (C) 2002, 2003, 2004, 2005-2018
-;;;   HIRAOKA Kazuyuki <khi@users.sourceforge.jp>
+;;;   HIRAOKA Kazuyuki <khi@users.osdn.me>
 ;;; $Id: cheat-font-lock.el,v 1.24 2011-12-31 15:07:28 hira Exp $
 ;;;
 ;;; This program is free software; you can redistribute it and/or modify

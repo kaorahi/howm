@@ -4,7 +4,7 @@
 
 ;; Copyright (C) 2002, 2003, 2004, 2005-2018 HIRAOKA Kazuyuki
 
-;; Author: HIRAOKA Kazuyuki <khi@users.sourceforge.jp>
+;; Author: HIRAOKA Kazuyuki <khi@users.osdn.me>
 ;; URL: http://howm.osdn.jp
 ;; Version: 1.4.5-snapshot
 ;; Package-Requires: ((cl-lib "0.5"))
