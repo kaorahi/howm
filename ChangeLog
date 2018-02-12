@@ -1,7 +1,9 @@
 2018-02-12  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
 	* howm-lang-fr.el: added for French menu
-	thx > http://piratepad.net/ZNywUOscRL
+	thx > Yassine-san <yacinechaouche at yahoo.com>
+	https://osdn.net/projects/howm/lists/archive/eng/2018/000136.html
+	http://piratepad.net/ZNywUOscRL
 
 	* howm-vars.el (howm-menu-lang): add 'fr' for French menu
 

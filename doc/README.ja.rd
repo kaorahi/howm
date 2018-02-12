@@ -931,7 +931,9 @@ thx > patch・改良案・指摘をくださった皆様
   * [2018-02-12]
     * autotools まわりを掃除
     * フランス語メニューを追加
+      ((<thx|URL:https://osdn.net/projects/howm/lists/archive/eng/2018/000136.html>))
       ((<thx|URL:http://piratepad.net/ZNywUOscRL>))
+      > Yassine-san (yacinechaouche at yahoo.com)
 
 * リリース版 howm-1.4.4 [2016-12-31]
   * バイトコンパイル時の警告を回避
