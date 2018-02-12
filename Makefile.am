@@ -13,8 +13,10 @@ howm_LISP = \
 	howm-common.el \
 	howm-vars.el \
 	howm-lang-en.el \
+	howm-lang-fr.el \
 	howm-lang-ja.el \
 	howm-menu-en.el \
+	howm-menu-fr.el \
 	howm-menu-ja.el \
 	honest-report.el \
 	action-lock.el \
@@ -26,10 +28,14 @@ howm_LISP = \
 EXTRA_DIST = Makefile.old bcomp.el howm-mkmenu.el $(howm_LISP) \
 	bcomp.el.in howm.el.in test.bat
 BUILT_SOURCES = $(srcdir)/howm.el $(srcdir)/bcomp.el
-SUBDIRS = doc ext en ja sample
+SUBDIRS = doc ext en fr ja sample
 
-MENU_SRC = en/0000-00-00-000000.txt ja/0000-00-00-000000.txt
-MENU_EL = $(srcdir)/howm-menu-en.el $(srcdir)/howm-menu-ja.el
+MENU_SRC = en/0000-00-00-000000.txt \
+	fr/0000-00-00-000000.txt \
+	ja/0000-00-00-000000.txt
+MENU_EL = $(srcdir)/howm-menu-en.el \
+	$(srcdir)/howm-menu-fr.el \
+	$(srcdir)/howm-menu-ja.el
 TEST_INIT = sample/dot.emacs
 
 AM_MAKEFLAGS = HOWM_MAKE=t

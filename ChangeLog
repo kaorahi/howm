@@ -1,3 +1,18 @@
+2018-02-12  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* howm-lang-fr.el: added for French menu
+	thx > http://piratepad.net/ZNywUOscRL
+
+	* howm-vars.el (howm-menu-lang): add 'fr' for French menu
+
+	* howm-mkmenu.el (howm-mkmenu-rules): ditto.
+
+	* howm.el.in: ditto.
+
+	* configure.ac: ditto.
+
+	* Makefile.am: ditto.
+
 2018-01-02  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
 	* ChangeLog: update URL

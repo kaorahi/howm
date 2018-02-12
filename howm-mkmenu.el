@@ -25,6 +25,7 @@
   '(
     ;; (<var> <src> [<src-coding> <dest-coding>]) ==> <var>.el
     (howm-menu-en "en/0000-00-00-000000.txt")
+    (howm-menu-fr "fr/0000-00-00-000000.txt" utf-8-unix utf-8-unix)
     (howm-menu-ja "ja/0000-00-00-000000.txt" euc-jp iso-2022-7bit)
     ))
 

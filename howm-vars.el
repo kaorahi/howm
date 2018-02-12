@@ -240,13 +240,21 @@ A file is excluded iff this regexp matches with all the relative paths."
   :group 'howm)
 
 (defcustom howm-menu-lang
-  (if (or (and (boundp 'current-language-environment)
-               (string= current-language-environment "Japanese"))
-          (string-match "^ja" (howm-get-locale)))
-      'ja
-    'en)
+  (let ((lang-table '((fr "French" "^fr")
+                      (ja "Japanese" "^ja"))))
+    (let ((lang (or (and (boundp 'current-language-environment)
+                        current-language-environment)
+                   ""))
+          (locale (howm-get-locale))
+          (ret 'en))
+      (mapc (lambda (rule)
+              (if (or (string= lang (cadr rule))
+                      (string-match (caddr rule) locale))
+                  (setq ret (car rule))))
+            lang-table)
+      ret))
   "*Language of menu."
-  :type '(radio (const en) (const ja))
+  :type '(radio (const en) (const fr) (const ja))
   :group 'howm-menu)
 
 (howm-defcustom-risky howm-menu-file nil

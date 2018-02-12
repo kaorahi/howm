@@ -82,6 +82,7 @@
 ;;; http://noir.s7.xrea.com/pub/zaurus/howmz.el
 
 (howm-require-lang 'en)
+(howm-require-lang 'fr)
 (howm-require-lang 'ja)
 
 ;;; security fix [2006-12-16]

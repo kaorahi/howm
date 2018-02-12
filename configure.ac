@@ -166,4 +166,8 @@ if test `cd ${srcdir}; pwd` != `pwd`; then
 #  AC_CONFIG_LINKS(doc/howm.info:doc/howm.info)
 fi
 
-AC_OUTPUT([Makefile doc/Makefile ext/Makefile en/Makefile ja/Makefile sample/Makefile howm.el])
+AC_OUTPUT([
+  Makefile doc/Makefile ext/Makefile sample/Makefile
+  en/Makefile fr/Makefile ja/Makefile
+  howm.el
+])
