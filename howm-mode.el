@@ -1,7 +1,6 @@
 ;;; howm-mode.el --- Wiki-like note-taking tool
 ;;; Copyright (C) 2002, 2003, 2004, 2005-2018
 ;;;   HIRAOKA Kazuyuki <khi@users.osdn.me>
-;;; $Id: howm-mode.el,v 1.318 2012-12-29 08:57:18 hira Exp $
 ;;;
 ;;; This program is free software; you can redistribute it and/or modify
 ;;; it under the terms of the GNU General Public License as published by

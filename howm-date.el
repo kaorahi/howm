@@ -1,7 +1,6 @@
 ;;; howm-date.el --- Wiki-like note-taking tool
 ;;; Copyright (C) 2002, 2003, 2004, 2005-2018
 ;;;   HIRAOKA Kazuyuki <khi@users.osdn.me>
-;;; $Id: howm-date.el,v 1.35 2011-12-31 15:07:29 hira Exp $
 ;;;
 ;;; This program is free software; you can redistribute it and/or modify
 ;;; it under the terms of the GNU General Public License as published by

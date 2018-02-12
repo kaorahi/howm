@@ -2,7 +2,6 @@
 
 ;; Copyright (C) 2005-2018
 ;;   HIRAOKA Kazuyuki <khi@users.osdn.me>
-;; $Id: honest-report.el,v 1.13 2011-12-31 15:07:29 hira Exp $
 ;;
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by

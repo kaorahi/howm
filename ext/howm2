@@ -1,7 +1,6 @@
 #!/usr/bin/ruby -s
 # -*- coding: euc-jp -*-
 # -*- Ruby -*-
-# $Id: howm2,v 1.10 2010-12-31 12:12:47 hira Exp $
 
 # Convert ~/howm/ to HTML or other formats.
 # Only RD format is supported unless you will give me patches. :p

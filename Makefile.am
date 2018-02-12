@@ -1,5 +1,4 @@
 # shamelessly copied from navi2ch-cvs-0.0.20031209
-# $Id: Makefile.am,v 1.23 2010-12-31 12:12:48 hira Exp $
 
 howm_LISP = \
 	howm.el \
