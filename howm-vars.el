@@ -248,7 +248,7 @@ A file is excluded iff this regexp matches with all the relative paths."
           (ret 'en))
       (mapc (lambda (rule)
               (if (or (string= lang (cadr rule))
-                      (string-match (caddr rule) locale))
+                      (string-match (cl-caddr rule) locale))
                   (setq ret (car rule))))
             lang-table)
       ret))

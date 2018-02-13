@@ -1,3 +1,9 @@
+2018-02-13  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* howm-vars.el (howm-menu-lang): fix "Lisp error: (void-function caddr)"
+	thx > dareka (2018-02-13 13:51:08)
+	http://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste
+
 2018-02-12  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
 	* howm-lang-fr.el: added for French menu
