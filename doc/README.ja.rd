@@ -933,6 +933,9 @@ thx > patch・改良案・指摘をくださった皆様
       ((<thx|URL:https://osdn.net/projects/howm/lists/archive/eng/2018/000136.html>))
       ((<thx|URL:http://piratepad.net/ZNywUOscRL>))
       > Yassine-san (yacinechaouche at yahoo.com)
+  * [2018-02-22]
+    * フランス語メニューの説明文も翻訳
+      ((<thx|URL:https://osdn.net/projects/howm/lists/archive/eng/2018/000139.html>))
 
 * リリース版 howm-1.4.4 [2016-12-31]
   * バイトコンパイル時の警告を回避
