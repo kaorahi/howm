@@ -1,3 +1,8 @@
+2018-02-23  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* howm-menu-fr.el: translate menu documents to French
+	thx > Xavier Maillard san (xavier at maillard.im)
+
 2018-02-13  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
 	* howm-vars.el (howm-menu-lang): fix "Lisp error: (void-function caddr)"

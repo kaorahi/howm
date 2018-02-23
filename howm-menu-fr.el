@@ -14,94 +14,94 @@
 !deadline, +todo, -reminder, ~defer (top %tnum entries)
 %reminder
 -------------------------------------
-Recent
+Récent
 %recent
 -------------------------------------
-Random -- If you do not like this, [Editer le menu] to erase it.
+Aléatoire -- Si vous n'aimez pas, appuyez sur [Editer le menu] pour le retirer.
 %random
 -------------------------------------
 
-Format of schedule and todo (Please replace {} with []):
-{2002-10-21}@1  schedule -- (shown in schedule part. @3 = \"3 days schedule to 10-23\")
-{2002-10-21}+7  todo -- float up slowly from the date in 7 days
-{2002-10-21}!7  deadline -- float up fast from 7 days before the date
-{2002-10-21}-1  reminder -- float at the date and sink slowly one unit per 1 day
-{2002-10-21}~30 defer -- float at the date and repeat sinking and floating with 30 days period
-{2002-10-21}.   done -- sink forever
-(Numbers after marks are default values.)
+Format des RDV et tâches (Attention à remplacer les {} par des []):
+{2002-10-21}@1  RDV -- (Affiché dans la partie des RDV. @3 = \"3 days schedule to 10-23\")
+{2002-10-21}+7  tâche -- flotte lentement depuis la date dans 7 jours
+{2002-10-21}!7  deadline -- flotte rapidement à partir de 7 jours avant la date
+{2002-10-21}-1  rappel -- flotte à la date et plonge lentement de une unité par jour
+{2002-10-21}~30 report -- flotte à la date et monte et descend sur une période de 30jours
+{2002-10-21}.   done -- sombre définitivement
+(Les chiffres après la marque représentent les valeurs par défaut.)
 
-How to remember:
-* Schedule at(@) the date
-* Reminder sinks down(-).
-* Todo floats up(+).
-* Deadline needs attention!
-* Defer waves(~) up and down.
-* Done is the end(.).
+Comment se souvenir de la syntaxe:
+* On programme à(@) une date
+* Les rappels plongent(-).
+* Les todo flottent(+).
+* Les deadline ont besoin d'attention(!)
+* Les reports font des vagues(~).
+* Une tâche faite signifie la fin(.).
 
 -------------------------------------
 
-You can edit this menu itself.
+Vous pouvez éditer ce menu.
 >>> %Editing Menu%
 
 
 = <<< %Editing Menu%
-[Editer le menu] Hit RET on the left button to edit this menu.
-[Màj du Menu] Hit RET on the left button to update this menu.
+[Editer le menu] Appuyer sur RET sur le bouton à gauche pour éditer ce menu.
+[Màj du Menu] Appuyer sur RET sur le bouton à gauche pour mettre à jour ce menu.
 --------------------------------------------------------
 
-*** Format of the menu file ***
-(Please hit RET on [Editer le menu] and read the source file.)
+*** Format du fichier menu ***
+(Appuyez sur RET sur [Editer le menu] et lisez le fichier source.)
 
 == Basic format
 
-As you see...
+Comme vous pouvez le voir...
 
-* [xxx] is button.
-* %REMINDER (in small letters) is schedule and todo list.
-* %RECENT (in small letters) is list of recent entries.
-* %RANDOM (in small letters) is list of random entries.
+* [xxx] est un bouton.
+* %REMINDER (en minuscules) liste les todo et les rendez-vous.
+* %RECENT (en minuscules) liste les entrées récentes.
+* %RANDOM (en minuscules) list les entrées aléatoires.
 
-You can arrange their places as you like.
-Writing favorite files or goto links may be also convenient.
+Vous pouvez les placer comme bon vous semble.
+Ajouter vos fichiers favoris ou les liens \"goto\" peut être pratique.
 (ex) file:///etc/services   >>> wiki
 
-== Shortcut
+== Raccourci
 
 %\"foo\"[Tout]
-This is displayed as foo[Tout], and the key \"f\" executes [Tout].
-Exactly speaking, it executes the following sequence:
-(1) move to closing \", (2) move to next underline, and (3) hit it.
+S'affiche foo[Tout], et \"f\" exécute [Tout].
+Pour être plus précis, cela suit la séquence suivante:
+(1) aller sur le dernier \" , (2) move to next underline, and (3) hit it.
 
 %\"bar%\"
-If you put % at the tail like this, the key \"b\" means \"move cursor here\".
+Si vous metter un signe % en fin de mot comme ceci, le \"b\" signifie \"place le curseur ici\".
 
-== For lispers
+== Pour les amateurs de lisp
 
-Display:
+Affichage:
 %here%howm-congrats-count ;; embed value of variable howm-congrats-count
 %here%(howm-menu-search \"search\")
-;; embed result of (...), that is, search \"search\" and embed matched lines
-Functions must be registered for safety.
+;; embarque le résultat de (...), c'est à dire, rechercher \"search\" et embarquer les lines correspondant.
+Pour des raisons de sécurité, les fonctions doivent être enregistrées.
 (setq howm-menu-allow (append '(foo bar) howm-menu-allow)) ;; allow foo, bar
 
 Action:
-%eval%(message (buffer-name))  ;; evaluate S expr
-%call%find-file  ;; call function interactively
-Both are evaluated in the previous buffer before raising menu.
+%eval%(message (buffer-name))  ;; évalue la S expression
+%call%find-file  ;; appelle la fonction de manière intéractive
+L'une et l'autre sont évaluées dans le précédent buffer avant de passer sur le menu.
 
-== Hiding
+== Camouflage
 
-'%' + '|' toggles invisibility
-like this: visible%|invisible%|appear%|disappear  - until the end of line
-(Newline is removed when the end of line is invisible.)
+'%' + '|' active (et desactive) la visibilité
+comme: visible%|invisible%|apparait%|disparait  - jusqu'à la fin de la line
+(Le caractère Newline est retiré lorsque la fin de ligne est invisible.)
 
-== Multiple menus
+== Menus multiples
 
-Links to %xxx% open \"<< < %xxx%\" with menu-mode: >>> %menu%
-When you add new menu, [[%menu%]] may be more convenient because corresponding
-entry is generated automatically.
+Les liens vers %xxx% ouvrent \"<< < %xxx%\" avec le menu menu-mode: >>> %menu%
+Lorsque vous ajoutez un nouveau menu, [[%menu%]] peut être plus pratique parce que l'entrée correspondante
+est générée automatiquement.
 
-%eval%(howm-menu-open \"00000000-000000.txt\")  -- open file with menu-mode
+%eval%(howm-menu-open \"00000000-000000.txt\")  -- ouvrir le fichier avec menu-mode
 ")
 
 (provide 'howm-menu-fr)

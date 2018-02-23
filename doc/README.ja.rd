@@ -936,7 +936,7 @@ thx > patch・改良案・指摘をくださった皆様
   * [2018-02-22]
     * フランス語メニューの説明文も翻訳
       ((<thx|URL:https://osdn.net/projects/howm/lists/archive/eng/2018/000139.html>))
-
+      thx > Xavier Maillard san (xavier at maillard.im)
 * リリース版 howm-1.4.4 [2016-12-31]
   * バイトコンパイル時の警告を回避
     * cl をやめて cl-lib を使う
