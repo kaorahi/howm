@@ -2,6 +2,10 @@
 
 	* update autotools
 
+2018-03-31  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* howm-mode.el: fix wrong warning "Requiring howm-mode is obsolete"
+
 2018-02-25  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
 	* configure.ac: set version as 1.4.5-snapshot2

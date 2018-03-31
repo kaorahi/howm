@@ -25,7 +25,7 @@
 
 ;; This must be earlier than (require 'howm-common), because
 ;; howm-common needs cl, and (require 'cl) should be written in howm.el.
-(when (not (featurep 'howm-version))
+(when (not (featurep 'howm))
   (message "Warning: Requiring howm-mode is obsolete. Require howm instead.")
 ;;   (beep)
 ;;   (sit-for 1)
