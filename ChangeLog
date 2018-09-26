@@ -2,6 +2,12 @@
 
 	* update autotools
 
+2018-09-27  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* howm-mode.el
+	(howm-migemo-get-pattern, howm-migemo-client, howm-migemo-client-option):
+	support cmigemo as an alternative to migemo-client
+
 2018-03-31  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
 	* howm-mode.el: fix wrong warning "Requiring howm-mode is obsolete"

@@ -927,6 +927,11 @@ Emacs で断片的なメモをどんどんとるための環境です.
 thx > patch・改良案・指摘をくださった皆様
 
 * スナップショット版
+  * [2018-09-26]
+    * migemo-client のかわりに cmigemo も対応
+        (setq howm-migemo-client '((type . cmigemo) (command . "cmigemo")))
+        (setq howm-migemo-client-option
+              '("-q" "-d" "/usr/share/cmigemo/utf-8/migemo-dict"))
   * [2018-02-12]
     * autotools まわりを掃除
     * フランス語メニューを追加

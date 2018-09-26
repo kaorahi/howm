@@ -1292,6 +1292,13 @@ make test</pre></li>
 <ul>
 <li>スナップショット版
 <ul>
+<li>[2018-09-26]
+<ul>
+<li><p>migemo-client のかわりに cmigemo も対応</p>
+<pre>(setq howm-migemo-client '((type . cmigemo) (command . "cmigemo")))
+(setq howm-migemo-client-option
+      '("-q" "-d" "/usr/share/cmigemo/utf-8/migemo-dict"))</pre></li>
+</ul></li>
 <li>[2018-02-12]
 <ul>
 <li>autotools まわりを掃除</li>

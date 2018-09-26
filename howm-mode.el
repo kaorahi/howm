@@ -109,10 +109,19 @@ It is further registered globally if global-p is non-nil."
 
 (howm-defvar-risky howm-migemo-client nil
   "Command name of migemo-client.
-Try (setq howm-migemo-client \"migemo-client\") for howm-migemo-*.")
+Example of cmigemo:
+  (setq howm-migemo-client '((type . cmigemo) (command . \"cmigemo\")))
+Example of migemo-client (obsolete):
+  (setq howm-migemo-client \"migemo-client\")
+See also `howm-migemo-client-option`")
 (howm-defvar-risky howm-migemo-client-option nil
   "List of option for migemo-client.
-e.g. (\"-H\" \"::1\")")
+Example of cmigemo:
+  (setq howm-migemo-client-option
+        '(\"-q\" \"-d\" \"/usr/share/cmigemo/utf-8/migemo-dict\"))
+Example of migemo-client (obsolete):
+  (setq howm-migemo-client-option '(\"-H\" \"::1\")
+See also `howm-migemo-client`")
 
 ;;; --- level 2 ---
 
@@ -491,30 +500,19 @@ key	binding
 (defun howm-migemo-get-pattern (roma type)
   (when (and (null howm-migemo-client) (not howm-view-use-grep))
     (require 'migemo))
-  (if (and (featurep 'migemo) (string= type "emacs"))
-      (howm-funcall-if-defined (migemo-get-pattern roma))
-;;       (migemo-get-pattern roma)
-    (car (howm-call-process (or howm-migemo-client "migemo-client")
-                            `(,@howm-migemo-client-option "-t" ,type ,roma)
-                            0))))
-
-;; (defun howm-migemo-get-pattern (roma type)
-;;   (when (and (null (howm-migemo-client)) (not howm-view-use-grep))
-;;     (require 'migemo))
-;;   (if (and (featurep 'migemo) (string= type "emacs"))
-;;       (howm-funcall-if-defined (migemo-get-pattern roma))
-;; ;;       (migemo-get-pattern roma)
-;;     (car (howm-call-process (howm-migemo-client)
-;;                             `(,@(howm-migemo-client-option) "-t" ,type ,roma)
-;;                             0))))
-
-;; (defun howm-migemo-client ()
-;;   (if (stringp howm-migemo-client)
-;;       howm-migemo-client
-;;     (or (car howm-migemo-client) "migemo-client")))
-
-;; (defun howm-migemo-client-option ()
-;;   (cdr-safe howm-migemo-client))
+  (cl-labels ((ref (key) (cdr (assoc key howm-migemo-client))))
+    (cond ((and (featurep 'migemo) (string= type "emacs"))
+           (howm-funcall-if-defined (migemo-get-pattern roma)))
+          ((or (null howm-migemo-client) (stringp howm-migemo-client))
+           (car (howm-call-process (or howm-migemo-client "migemo-client")
+                                   `(,@howm-migemo-client-option "-t" ,type ,roma)
+                                   0)))
+          ((eq (ref 'type) 'cmigemo)
+           (car (howm-call-process (ref 'command)
+                                   `(,@howm-migemo-client-option
+                                     ,@(and (string= type "emacs") '("-e"))
+                                     "-w" ,roma))))
+          (t (error "Invalid howm-migemo-client: %s" howm-migemo-client)))))
 
 (defun howm-normalize-oldp ()
   howm-list-normalizer)
