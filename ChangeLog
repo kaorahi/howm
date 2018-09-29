@@ -1,5 +1,9 @@
 2018-09-29  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
+	* configure.ac: set version as 1.4.5-snapshot3
+
+2018-09-29  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
 	* update autotools
 
 2018-09-27  HIRAOKA Kazuyuki  <khi@users.osdn.me>
