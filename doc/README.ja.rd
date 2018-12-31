@@ -926,22 +926,20 @@ Emacs で断片的なメモをどんどんとるための環境です.
 
 thx > patch・改良案・指摘をくださった皆様
 
-* スナップショット版
-  * [2018-09-26]
-    * migemo-client のかわりに cmigemo も対応
-        (setq howm-migemo-client '((type . cmigemo) (command . "cmigemo")))
-        (setq howm-migemo-client-option
-              '("-q" "-d" "/usr/share/cmigemo/utf-8/migemo-dict"))
-  * [2018-02-12]
-    * autotools まわりを掃除
-    * フランス語メニューを追加
-      ((<thx|URL:https://osdn.net/projects/howm/lists/archive/eng/2018/000136.html>))
-      ((<thx|URL:http://piratepad.net/ZNywUOscRL>))
-      > Yassine-san (yacinechaouche at yahoo.com)
-  * [2018-02-22]
-    * フランス語メニューの説明文も翻訳
-      ((<thx|URL:https://osdn.net/projects/howm/lists/archive/eng/2018/000139.html>))
-      thx > Xavier Maillard san (xavier at maillard.im)
+* リリース版 howm-1.4.5 [2018-12-31]
+  * migemo-client のかわりに cmigemo も対応
+      (setq howm-migemo-client '((type . cmigemo) (command . "cmigemo")))
+      (setq howm-migemo-client-option
+            '("-q" "-d" "/usr/share/cmigemo/utf-8/migemo-dict"))
+  * フランス語メニューを追加
+    ((<thx|URL:https://osdn.net/projects/howm/lists/archive/eng/2018/000136.html>))
+    ((<thx|URL:http://piratepad.net/ZNywUOscRL>))
+    ((<thx|URL:https://osdn.net/projects/howm/lists/archive/eng/2018/000139.html>))
+    > Yassine san (yacinechaouche at yahoo.com),
+    Xavier Maillard san (xavier at maillard.im)
+  * autotools まわりを掃除
+  * howm-1.4.5-snapshot3 と同じ内容です
+
 * リリース版 howm-1.4.4 [2016-12-31]
   * バイトコンパイル時の警告を回避
     * cl をやめて cl-lib を使う
