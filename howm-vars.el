@@ -1,5 +1,5 @@
 ;;; howm-vars.el --- Wiki-like note-taking tool
-;;; Copyright (C) 2005-2018
+;;; Copyright (C) 2005-2019
 ;;;   HIRAOKA Kazuyuki <khi@users.osdn.me>
 ;;;
 ;;; This program is free software; you can redistribute it and/or modify
