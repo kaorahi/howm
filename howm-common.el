@@ -384,11 +384,11 @@ returns ((\"a\" \"aaa\" \"abc\") (\"x\" \"xyz\"))."
     (apply #'message `(,str ,@args))))
 
 (defun howm-decode-time (&optional specified-time)
-  "Decode SPECIFIED-TIME and remove DOW, DST, ZONE.
+  "Decode SPECIFIED-TIME and remove DOW, DST, ZONE, SUBSEC.
 When we do something like (encode-time (decode-time)), we use this function
 instead of the original `decode-time', so that we can force
 current timezone rule uniformly to avoid inconsistency."
-  (butlast (decode-time specified-time) 3))
+  (howm-first-n (decode-time specified-time) 6))
 
 (defmacro howm-with-need (&rest body)
   "Execute BODY where (need xxx) exits from this form if xxx is nil."

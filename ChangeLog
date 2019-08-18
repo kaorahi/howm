@@ -1,3 +1,10 @@
+2019-08-18  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* howm-common.el (howm-decode-time): fix for new decode-time
+	thx > U5948U5e7eU4e43
+	https://twitter.com/U5948U5e7eU4e43/status/1162732269347336193
+	http://git.savannah.gnu.org/cgit/emacs.git/commit/etc/NEWS?id=b06917a4912a60402025286d07d4a195749245c4
+
 2018-12-31  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
 	* configure.ac: version 1.4.5

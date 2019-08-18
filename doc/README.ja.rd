@@ -926,6 +926,12 @@ Emacs で断片的なメモをどんどんとるための環境です.
 
 thx > patch・改良案・指摘をくださった皆様
 
+* スナップショット版
+  * [2019-08-18]
+    * fix: C-c , : (howm-find-yesterday) が壊れていた
+      ((<thx|URL:https://twitter.com/U5948U5e7eU4e43/status/1162732269347336193>))
+      ((<ref|URL:http://git.savannah.gnu.org/cgit/emacs.git/commit/etc/NEWS?id=b06917a4912a60402025286d07d4a195749245c4>))
+
 * リリース版 howm-1.4.5 [2018-12-31]
   * migemo-client のかわりに cmigemo も対応
       (setq howm-migemo-client '((type . cmigemo) (command . "cmigemo")))
