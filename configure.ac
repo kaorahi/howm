@@ -1,6 +1,6 @@
 # shamelessly copied from navi2ch-cvs-0.0.20031209
 
-AC_INIT([howm], [1.4.6-snapshot1])
+AC_INIT([howm], [1.4.7-snapshot1])
 AM_INIT_AUTOMAKE
 AM_MAINTAINER_MODE
 
