@@ -436,7 +436,7 @@ Use `howm-view-in-background' and `howm-view-in-background-p' instead.")
   "List of arguments for last `howm-call-process'.
 This variable exists only for debug. You can reproduce the last call
 with the below code.
- (apply #'howm-call-process howm-call-process-last-command)")
+ (apply (function howm-call-process) howm-call-process-last-command)")
 
 (defmacro howm-with-coding-system (coding-system &rest body)
   "With CODING-SYSTEM, execute BODY.
