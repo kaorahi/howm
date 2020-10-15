@@ -1,3 +1,7 @@
+2020-10-15  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* configure.ac: set version as 1.4.7-snapshot2
+
 2020-09-14  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
 	* howm-common.el (howm-call-process-last-command):
