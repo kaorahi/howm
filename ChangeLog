@@ -1,3 +1,8 @@
+2020-12-29  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* cheat-font-lock.el (cheat-font-lock-fontify):
+	fix warning on font-lock-fontify-buffer in byte compiling
+
 2020-10-15  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
 	* configure.ac: set version as 1.4.7-snapshot2
