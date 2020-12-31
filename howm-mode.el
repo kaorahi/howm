@@ -917,7 +917,6 @@ is necessary.")
               (funcall disp-f arg))))
         rules))
 
-;; Use dynamic bindings dirtily!
 (defun howm-template-title (arg)
   (insert (cdr (assoc 'title arg))))
 (defun howm-template-date (arg)

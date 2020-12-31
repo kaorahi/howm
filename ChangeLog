@@ -1,5 +1,8 @@
 2020-12-29  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
+	* howm-mode.el (howm-template-title):
+	delete obsolete comment
+
 	* cheat-font-lock.el (cheat-font-lock-fontify):
 	fix warning on font-lock-fontify-buffer in byte compiling
 
