@@ -926,6 +926,12 @@ Emacs で断片的なメモをどんどんとるための環境です.
 
 thx > patch・改良案・指摘をくださった皆様
 
+* リリース版 howm-1.4.7 [2020-12-31]
+  * fix: バイトコンパイル時の警告を回避 (`font-lock-fontify-buffer' is for interactive use only; use `font-lock-ensure' or `font-lock-flush' instead.)
+  * fix: webページの文字化けを修正
+    ((<thx|URL:https://mevius.5ch.net/test/read.cgi/unix/1397477663/126>))
+  * fix: その他ごく軽微な修正・更新 (docstring, コメント, webページのリンク)
+
 * リリース版 howm-1.4.6 [2019-12-31]
   * fix: C-c , : (howm-find-yesterday) が壊れていた
     ((<thx|URL:https://twitter.com/U5948U5e7eU4e43/status/1162732269347336193>))
