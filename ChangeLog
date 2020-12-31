@@ -1,5 +1,7 @@
 2020-12-31  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
+	* configure.ac: version 1.4.7
+
 	* howm.el.in: update copyright years
 
 2020-12-29  HIRAOKA Kazuyuki  <khi@users.osdn.me>
