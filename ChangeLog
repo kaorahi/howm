@@ -1,3 +1,8 @@
+2021-02-17  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* cheat-font-lock.el (cheat-font-lock-mode, cheat-font-lock-fontify):
+	fix incomplete font-lock after save
+
 2020-12-31  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
 	* configure.ac: version 1.4.8-snapshot1

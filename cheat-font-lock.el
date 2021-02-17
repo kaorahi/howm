@@ -92,7 +92,9 @@
   ;; Without the next line, global value is changed to t. [2003-12-30]
   ;; (emacs-20.7.2 on Vine Linux 2.6)
   (make-local-variable 'font-lock-fontified)
-  (let* ((font-lock-fontified t) ;; adjourn fontify-buffer
+  (let* (;; Stop cheating font-lock in such a way. [2021-02-15]
+         ;; This seems troublesome and font-lock is not slow today.
+         ;; (font-lock-fontified t) ;; adjourn fontify-buffer
          (bname (buffer-name))
          (need-rename (eq (aref (buffer-name) 0) ?\ )))
     ;; Rename invisible buffer in order to force font-lock-mode.
@@ -105,8 +107,8 @@
   (font-lock-set-defaults))
 
 (defun cheat-font-lock-fontify (&optional dummy)
-  (if (fboundp 'font-lock-ensure)
-      (font-lock-ensure)
+  (if (and (fboundp 'font-lock-flush) (fboundp 'font-lock-ensure))
+      (progn (font-lock-flush) (font-lock-ensure))
     (with-no-warnings
       (font-lock-fontify-buffer))))
 
