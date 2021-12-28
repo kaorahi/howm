@@ -52,7 +52,7 @@ It must return non-nil value for successful case.")
   (goto-char (point-min))
   (set-buffer-modified-p nil))
 
-(easy-mmode-define-minor-mode illusion-mode
+(define-minor-mode illusion-mode
   "With no argument, this command toggles the mode.
 Non-null prefix argument turns on the mode.
 Null prefix argument turns off the mode.
@@ -64,16 +64,13 @@ key	binding
 ---	-------
 \\[illusion-submit]	Submit changes
 "
-  nil ;; default = off
-  illusion-lighter ;; mode-line
-  `(
-    (,illusion-submit-key . illusion-submit)
-    )
+  :init-value nil ;; default = off
+  :lighter illusion-lighter ;; mode-line
+  :keymap `(
+            (,illusion-submit-key . illusion-submit)
+            )
+  (use-local-map illusion-mode-map)
 )
-
-;; emacs20's easy-mmode-define-minor-mode can't have body. sigh...
-(add-hook 'illusion-mode-on-hook
-          (lambda () (use-local-map illusion-mode-map)))
 
 ;;; Example
 

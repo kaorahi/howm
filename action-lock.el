@@ -61,22 +61,21 @@
 (defvar action-lock-switch-default '("{ }" "{*}" "{-}"))  ;; any number
 (defvar action-lock-date-default '("{_}" "[%Y-%m-%d %H:%M]"))  ;; before after
 
-(easy-mmode-define-minor-mode action-lock-mode
+(define-minor-mode action-lock-mode
   "With no argument, this command toggles the mode.
 Non-null prefix argument turns on the mode.
 Null prefix argument turns off the mode.
 
 \\[action-lock-magic-return]  Envoke the action on the field
 "
-  nil ;; default = off
-  action-lock-lighter ;; mode-line
-  `(
-    (,action-lock-magic-return-key . action-lock-magic-return)
-    ))
-
-;; emacs20's easy-mmode-define-minor-mode can't have body. sigh...
-(add-hook 'action-lock-mode-on-hook 'action-lock-initialize-buffer)
-(add-hook 'action-lock-mode-off-hook 'action-lock-restore-buffer)
+  :init-value nil ;; default = off
+  :lighter action-lock-lighter ;; mode-line
+  :keymap `(
+            (,action-lock-magic-return-key . action-lock-magic-return)
+            )
+  (if action-lock-mode
+      (action-lock-initialize-buffer)
+    (action-lock-restore-buffer)))
 
 (defvar action-lock-rules nil)
 (defvar action-lock-original-font-lock-keywords nil)

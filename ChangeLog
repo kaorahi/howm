@@ -1,3 +1,14 @@
+2021-04-29  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* howm-mode.el (howm-mode): update define-minor-mode for emacs 28.1
+	thx > U5948U5e7eU4e43
+	https://twitter.com/U5948U5e7eU4e43/status/1387373441582387209
+	http://git.savannah.gnu.org/cgit/emacs.git/commit/etc/NEWS?id=2fb271ca35ff96540c0940b0ea5281bdaac953ec
+
+	* action-lock.el (action-lock-mode): ditto.
+
+	* illusion.el (illusion-mode): ditto.
+
 2021-04-28  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
 	* howm-view.el (howm-view-summary-mode): add TAB and M-TAB to docstring

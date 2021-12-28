@@ -249,7 +249,7 @@ in `howm-template'. %s is replaced with name of last file. See `format'.")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Definitions
 
-(easy-mmode-define-minor-mode howm-mode
+(define-minor-mode howm-mode
   "With no argument, this command toggles the mode. 
 Non-null prefix argument turns on the mode.
 Null prefix argument turns off the mode.
@@ -280,18 +280,16 @@ key	binding
 \\[howm-create-interactively]	Create new file interactively (not recommended)
 \\[howm-random-walk]	Browse random entries automtically
 "
-  nil ;; default = off
-  howm-lighter ;; mode-line
-  (mapcar (lambda (entry)
-            (let ((k (car entry))
-                  (f (cadr entry)))
-              (cons (concat howm-prefix k) f)))
-          howm-default-key-table)
-  )
-
-;; emacs20's easy-mmode-define-minor-mode can't have body. sigh...
-(add-hook 'howm-mode-on-hook 'howm-initialize-buffer)
-(add-hook 'howm-mode-off-hook 'howm-restore-buffer)
+  :init-value nil ;; default = off
+  :lighter howm-lighter ;; mode-line
+  :keymap (mapcar (lambda (entry)
+                    (let ((k (car entry))
+                          (f (cadr entry)))
+                      (cons (concat howm-prefix k) f)))
+                  howm-default-key-table)
+  (if howm-mode
+      (howm-initialize-buffer)
+    (howm-restore-buffer)))
 
 (defun howm-set-keymap ()
   (mapc (lambda (entry)
