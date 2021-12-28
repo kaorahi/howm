@@ -172,6 +172,8 @@ key	binding
 \\[riffle-scroll-other-window]	Scroll contents one line
 \\[riffle-scroll-other-window-down]	Scroll contents one line
 \\[riffle-summary-to-contents]	Concatenate all contents
+\\[howm-view-summary-next-section]	Next file (Skip items in the same file)
+\\[howm-view-summary-previous-section]	Previous file (Skip items in the same file)
 \\[howm-view-filter-uniq]	Remove duplication of same file
 \\[howm-view-summary-shell-command]	Execute command in inferior shell
 

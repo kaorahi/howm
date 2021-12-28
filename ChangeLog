@@ -1,3 +1,7 @@
+2021-04-28  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* howm-view.el (howm-view-summary-mode): add TAB and M-TAB to docstring
+
 2021-02-17  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
 	* configure.ac: version 1.4.8-snapshot2
