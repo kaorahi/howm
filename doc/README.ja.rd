@@ -926,6 +926,10 @@ Emacs で断片的なメモをどんどんとるための環境です.
 
 thx > patch・改良案・指摘をくださった皆様
 
+* リリース版 howm-1.4.8 [2021-12-30]
+  * fix: emacs 28.1 に対応
+    ((<thx|URL:https://twitter.com/U5948U5e7eU4e43/status/1387373441582387209>))
+
 * リリース版 howm-1.4.7 [2020-12-31]
   * fix: バイトコンパイル時の警告を回避 (`font-lock-fontify-buffer' is for interactive use only; use `font-lock-ensure' or `font-lock-flush' instead.)
   * fix: webページの文字化けを修正
