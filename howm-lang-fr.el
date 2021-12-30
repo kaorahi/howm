@@ -1,5 +1,5 @@
 ;;; howm-lang-fr.el --- Wiki-like note-taking tool
-;;; Copyright (C) 2005-2020
+;;; Copyright (C) 2005-2021
 ;;;   HIRAOKA Kazuyuki <khi@users.osdn.me>
 ;;;
 ;;; French translation by french-speaking howm users
