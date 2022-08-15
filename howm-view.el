@@ -73,7 +73,7 @@
     ("contents" . howm-view-filter-by-contents)
     ("Region" . howm-view-filter-by-region)
     ("Around" . howm-view-filter-by-around)
-;     ("uniq" . howm-view-filter-uniq))
+    ("uniq" . howm-view-filter-uniq)
   ))
 
 ;; referred only when howm-view-use-grep is nil
