@@ -582,9 +582,17 @@ But I'm not sure for multi-byte characters on other versions of emacsen."
                                    table nil t)))
     (call-interactively (cdr (assoc command table)))))
 
-(defun howm-view-filter-uniq ()
+(defalias 'howm-view-filter-uniq #'howm-view-toggle-uniq)
+(defvar howm-view-uniq-previous nil)
+(make-variable-buffer-local 'howm-view-uniq-previous)
+(defun howm-view-toggle-uniq ()
   (interactive)
-  (howm-view-filter-doit #'howm-filter-items-uniq))
+  (if howm-view-uniq-previous
+      (let ((prev howm-view-uniq-previous))
+        (setq howm-view-uniq-previous nil)
+        (howm-view-summary-rebuild prev))
+    (setq howm-view-uniq-previous (howm-view-item-list))
+    (howm-view-filter-doit #'howm-filter-items-uniq)))
 
 (defun howm-view-filter-by-name (&optional remove-p regexp)
   (interactive "P")
