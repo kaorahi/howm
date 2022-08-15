@@ -1344,10 +1344,10 @@ which simply calls howm-sort-items-by-NAME."
 (defmacro howm-sort-items (evaluator comparer item-list
                                              &optional reverse-p)
   `(let* ((howm-view-s-i-comparer ,comparer)
-          (cmp (if reverse-p
+          (cmp (if ,reverse-p
                    (lambda (a b) (funcall howm-view-s-i-comparer b a))
                  howm-view-s-i-comparer)))
-     (howm-sort ,evaluator cmp item-list)))
+     (howm-sort ,evaluator cmp ,item-list)))
 
 ;; ;; generate the below aliases for howm-test080714
 ;; (let ((methods '("random" "name" "numerical-name" "date" "reverse-date"

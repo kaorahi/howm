@@ -1,5 +1,9 @@
 2022-08-15  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
+	* howm-view.el (howm-sort-items): fix broken macro (worked accidentally)
+
+2022-08-15  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
 	* howm-view.el (howm-view-toggle-uniq): "uniq" is now togglable
 	thx > Andrei Sukhovskii san (qejep at posteo.net)
 
