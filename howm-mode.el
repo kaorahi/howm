@@ -469,11 +469,16 @@ key	binding
 (defmacro howm-with-iigrep (command-for-pattern show-what action &rest body)
   (declare (indent 3))
   `(let ((*iigrep-post-sentinel* (howm-iigrep-post-sentinel ,action))
+         (howm-view-summary-name "*howmS(preview)*")
+         (howm-view-contents-name "*howmC(preview)*")
          (howm-history-limit 0)
          (*howm-show-item-filename* nil)
          (howm-message-time nil))
-     (iigrep-with-grep ,command-for-pattern ,show-what
-       ,@body)))
+     (unwind-protect
+         (iigrep-with-grep ,command-for-pattern ,show-what
+           ,@body)
+       (mapc (lambda (b) (and (get-buffer b) (kill-buffer b)))
+             (list howm-view-summary-name howm-view-contents-name)))))
 
 (defmacro howm-iigrep-command-for-pattern (&optional fixed-p converter)
   ;; use macro due to dynamic binding. Sigh...
