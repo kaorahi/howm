@@ -61,6 +61,7 @@
 (require 'gfunc)
 (require 'riffle)
 (require 'action-lock)
+(require 'iigrep)
 (require 'honest-report)
 
 ;;; [4] howm main (this file)

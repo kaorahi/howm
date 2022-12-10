@@ -170,7 +170,7 @@ am__ELFILES = action-lock.el cheat-font-lock.el gfunc.el \
 	howm-lang-en.el howm-lang-fr.el howm-lang-ja.el \
 	howm-menu-en.el howm-menu-fr.el howm-menu-ja.el howm-menu.el \
 	howm-misc.el howm-mode.el howm-reminder.el howm-vars.el \
-	howm-view.el howm.el illusion.el riffle.el
+	howm-view.el howm.el iigrep.el illusion.el riffle.el
 am__ELCFILES = $(am__ELFILES:.el=.elc)
 ELCFILES = $(LISP:.el=.elc)
 RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
@@ -361,6 +361,7 @@ howm_LISP = \
 	riffle.el \
 	gfunc.el \
 	illusion.el \
+	iigrep.el \
 	cheat-font-lock.el
 
 EXTRA_DIST = Makefile.old bcomp.el howm-mkmenu.el $(howm_LISP) \

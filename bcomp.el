@@ -3,7 +3,7 @@
 
 (setq bcomp-files
       '(
-	"howm.el" "howm-menu.el" "howm-reminder.el" "howm-date.el" "howm-misc.el" "howm-mode.el" "howm-view.el" "howm-backend.el" "howm-common.el" "howm-vars.el" "howm-lang-en.el" "howm-lang-fr.el" "howm-lang-ja.el" "howm-menu-en.el" "howm-menu-fr.el" "howm-menu-ja.el" "honest-report.el" "action-lock.el" "riffle.el" "gfunc.el" "illusion.el" "cheat-font-lock.el" 
+	"howm.el" "howm-menu.el" "howm-reminder.el" "howm-date.el" "howm-misc.el" "howm-mode.el" "howm-view.el" "howm-backend.el" "howm-common.el" "howm-vars.el" "howm-lang-en.el" "howm-lang-fr.el" "howm-lang-ja.el" "howm-menu-en.el" "howm-menu-fr.el" "howm-menu-ja.el" "honest-report.el" "action-lock.el" "riffle.el" "gfunc.el" "illusion.el" "iigrep.el" "cheat-font-lock.el" 
 	))
 
 (let* ((dir (expand-file-name default-directory))
