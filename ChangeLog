@@ -3,7 +3,7 @@
 	* configure.ac: version 1.4.9-snapshot3
 
 	* iigrep.el: new file
-	import iigrep for interactive search messages
+	import iigrep for incremental search messages
 	http://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?IncrementalGrep
 	http://howm.sourceforge.jp/a/iigrep.el
 
