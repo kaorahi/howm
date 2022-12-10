@@ -22,6 +22,7 @@ howm_LISP = \
 	riffle.el \
 	gfunc.el \
 	illusion.el \
+	iigrep.el \
 	cheat-font-lock.el
 
 EXTRA_DIST = Makefile.old bcomp.el howm-mkmenu.el $(howm_LISP) \
