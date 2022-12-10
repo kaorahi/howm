@@ -234,7 +234,7 @@
 This value is also used for identification of iigrep processes.")
 
 (defun iigrep-process-filter (p output)
-  (let ((buf (iigrep-buffer)))
+  (let ((buf (iigrep-buffer nil t)))
     (when buf ;; Don't accept output from previous search
       (with-current-buffer buf
         (if (> (point-max) iigrep-maximum-output)
@@ -276,7 +276,7 @@ This value is also used for identification of iigrep processes.")
 
 (defun iigrep-sentinel (proc msg)
   (let ((stat (process-status proc))
-        (buf (iigrep-buffer)))
+        (buf (iigrep-buffer nil t)))
     (when (and buf (member stat '(exit signal)))
       (with-current-buffer buf
         (let* ((hits (count-lines (point-min) (point-max)))
