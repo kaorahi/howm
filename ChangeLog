@@ -1,5 +1,7 @@
 2022-12-10  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
+	* configure.ac: version 1.4.9-snapshot3
+
 	* iigrep.el: new file
 	import iigrep for interactive search messages
 	http://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?IncrementalGrep
