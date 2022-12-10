@@ -275,19 +275,18 @@ This value is also used for identification of iigrep processes.")
 (defvar *iigrep-post-sentinel* nil)
 
 (defun iigrep-sentinel (proc msg)
-  (when (member (process-status proc) '(exit signal))
-    (let ((buf (iigrep-buffer)))
-      (when buf
-        (with-current-buffer buf
-          (let* ((hits (count-lines (point-min) (point-max)))
-                 (s (format "%s" hits)))
-            (when (> hits 0)
-              (put-text-property 0 (length s) 'face (iigrep-get-counts-face hits) s)
-              (let ((message-log-max nil))
-                (message "%s hits" s))
-              (when (and *iigrep-post-sentinel*
-                         (eq (process-status proc) 'exit))
-                (funcall *iigrep-post-sentinel* hits iigrep-last-pattern)))))))))
+  (let ((stat (process-status proc))
+        (buf (iigrep-buffer)))
+    (when (and buf (member stat '(exit signal)))
+      (with-current-buffer buf
+        (let* ((hits (count-lines (point-min) (point-max)))
+               (s (format "%s" hits)))
+          (when (> hits 0)
+            (put-text-property 0 (length s) 'face (iigrep-get-counts-face hits) s)
+            (let ((message-log-max nil))
+              (message "%s hits" s))
+            (when (and *iigrep-post-sentinel* (eq stat 'exit))
+              (funcall *iigrep-post-sentinel* hits iigrep-last-pattern))))))))
 
 (defun iigrep-kill-process ()
   (mapcar (lambda (p)
