@@ -447,13 +447,13 @@ key	binding
       (howm-write-history regexp))
     (howm-search regexp completion-p)))
 
-(defun howm-search (regexp fixed-p &optional emacs-regexp filter)
+(defun howm-search (regexp fixed-p &optional emacs-regexp filter bufname)
   (if (string= regexp "")
       (howm-list-all)
     (howm-message-time "search"
       (let* ((trio (howm-call-view-search-internal regexp fixed-p emacs-regexp))
              (kw (car trio))
-             (name (cadr trio))
+             (name (or bufname (cadr trio)))
              (items (cl-caddr trio)))
         (when filter
           (setq items (funcall filter items)))
@@ -492,7 +492,7 @@ key	binding
                       (howm-migemo-get-pattern roma "egrep")
                     e-reg)))
       (if (and e-reg g-reg)
-          (howm-search g-reg nil e-reg)
+          (howm-search g-reg nil e-reg nil roma)
         (message "No response from migemo-client.")))))
 
 (defun howm-migemo-get-pattern (roma type)

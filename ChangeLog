@@ -1,3 +1,8 @@
+2022-08-23  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* howm-mode.el (howm-search, howm-list-migemo):
+	use Romaji for buffer names in migemo search
+
 2022-08-15  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
 	* configure.ac: version 1.4.9-snapshot2
