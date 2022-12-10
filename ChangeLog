@@ -1,5 +1,10 @@
 2022-12-10  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
+	* iigrep.el: new file
+	import iigrep for interactive search messages
+	http://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?IncrementalGrep
+	http://howm.sourceforge.jp/a/iigrep.el
+
 	* riffle.el (riffle-summary-update, riffle-pop-window, riffle-pop-to-buffer):
 	fix: failed to split window when minibuffer is active
 
