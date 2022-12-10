@@ -455,6 +455,15 @@ ssearch: ")
   "Call grep and parse its result.
 '((file line-number line) (file line-number line) ...)
 "
+  (let ((trio (howm-real-grep-single-command
+              str file-list fixed-p force-case-fold)))
+    (with-temp-buffer
+      (let* ((lines (apply #'howm-call-process* trio))
+             (parsed (mapcar 'howm-grep-parse-line lines)))
+        (remove nil parsed)))))
+
+(defun howm-real-grep-single-command (str file-list
+                                          &optional fixed-p force-case-fold)
   (when (listp str)
     (if (null (cdr str))
         (setq str (car str))
@@ -466,17 +475,13 @@ ssearch: ")
                    (list howm-view-grep-expr-option)))
         (case-fold (or force-case-fold
                        (not (let ((case-fold-search nil))
-                              (string-match "[A-Z]" str))))))
+                              (string-match "[A-Z]" str)))))
+        (fs (howm-expand-file-names file-list)))
     (cl-labels ((add-opt (pred x) (when (and pred x) (setq opt (cons x opt)))))
       (add-opt case-fold howm-view-grep-ignore-case-option)
       (add-opt fixed-p howm-view-grep-fixed-option)
       (add-opt (not fixed-p) howm-view-grep-extended-option))
-    (with-temp-buffer
-      (let* ((fs (howm-expand-file-names file-list))
-             (lines (howm-call-process* grep-command
-                                        `(,@opt ,@eopt ,str) fs))
-             (parsed (mapcar 'howm-grep-parse-line lines)))
-        (remove nil parsed)))))
+    (list grep-command `(,@opt ,@eopt ,str) fs)))
 
 (defun howm-real-grep-multi (str file-list &optional fixed-p force-case-fold)
   (let ((grep-command (or (and fixed-p howm-view-fgrep-command)

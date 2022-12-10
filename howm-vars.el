@@ -832,6 +832,28 @@ so that highlighting works correctly."
     :type 'boolean
     :group 'howm-grep))
 
+(defgroup howm-iigrep nil
+  "Show search results on the fly before hitting RET."
+  :group 'howm-grep)
+
+(defcustom howm-iigrep-show-what 'counts
+  "Show search results on the fly before hitting RET."
+  :type '(radio (const :tag "Off" nil)
+                (const :tag "Counts" counts)
+                (const :tag "Contents" contents)
+                (const :tag "Full" full))
+  :group 'howm-efficiency
+  :group 'howm-iigrep)
+
+(defcustom howm-iigrep-migemo-show-what 'inherit
+  "Show migemo search results on the fly before hitting RET."
+  :type '(radio (const :tag "Inherit howm-iigrep-show-what" inherit)
+                (const :tag "Counts" counts)
+                (const :tag "Contents" contents)
+                (const :tag "Full" full))
+  :group 'howm-efficiency
+  :group 'howm-iigrep)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Misc
 

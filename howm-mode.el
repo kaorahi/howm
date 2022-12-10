@@ -440,12 +440,29 @@ key	binding
   (howm-list-grep-general t))
 
 (defun howm-list-grep-general (&optional completion-p)
-  (let* ((regexp (if completion-p
-                     (howm-completing-read-keyword)
-                   (read-from-minibuffer "Search all (grep): "))))
+  (let ((regexp (howm-iigrep completion-p)))
     (when completion-p  ;; Goto link works only for fixed string at now.
       (howm-write-history regexp))
     (howm-search regexp completion-p)))
+
+(defun howm-iigrep (completion-p)
+  (iigrep-with-grep (howm-iigrep-command-for-pattern completion-p)
+      howm-iigrep-show-what
+    (if completion-p
+        (howm-completing-read-keyword)
+      (read-from-minibuffer "Search all (grep): "))))
+
+(defmacro howm-iigrep-command-for-pattern (&optional fixed-p converter)
+  ;; use macro due to dynamic binding. Sigh...
+  `(and howm-view-use-grep
+        (lambda (str)
+          (let* ((pattern (funcall (or ,converter #'identity) str))
+                 (trio (howm-real-grep-single-command
+                        pattern (list howm-directory) ,fixed-p))
+                 (com (car trio))
+                 (args (cl-second trio))
+                 (fs (cl-third trio)))
+            (append (list com) (cons "-I" args) fs)))))
 
 (defun howm-search (regexp fixed-p &optional emacs-regexp filter bufname)
   (if (string= regexp "")
@@ -486,7 +503,7 @@ key	binding
   (howm-set-command 'howm-list-migemo)
   (if completion-p
       (howm-list-grep t)
-    (let* ((roma (read-from-minibuffer "Search all (migemo): "))
+    (let* ((roma (howm-iigrep-migemo))
            (e-reg (howm-migemo-get-pattern roma "emacs"))
            (g-reg (if howm-view-use-grep
                       (howm-migemo-get-pattern roma "egrep")
@@ -494,6 +511,15 @@ key	binding
       (if (and e-reg g-reg)
           (howm-search g-reg nil e-reg nil roma)
         (message "No response from migemo-client.")))))
+
+(defun howm-iigrep-migemo ()
+  (let* ((converter (lambda (yomi) (howm-migemo-get-pattern yomi "egrep")))
+         (command-for-pattern (howm-iigrep-command-for-pattern nil converter))
+         (show-what (if (eq howm-iigrep-migemo-show-what 'inherit)
+                        howm-iigrep-show-what
+                      howm-iigrep-migemo-show-what)))
+    (iigrep-with-grep command-for-pattern show-what
+      (read-from-minibuffer "Search all (migemo): "))))
 
 (defun howm-migemo-get-pattern (roma type)
   (when (and (null howm-migemo-client) (not howm-view-use-grep))
