@@ -446,6 +446,19 @@ key	binding
       (howm-write-history regexp))
     (funcall action regexp)))
 
+(defun howm-search (regexp fixed-p &optional emacs-regexp filter bufname)
+  (if (string= regexp "")
+      (howm-list-all)
+    (howm-message-time "search"
+      (let* ((trio (howm-call-view-search-internal regexp fixed-p emacs-regexp))
+             (kw (car trio))
+             (name (or bufname (cadr trio)))
+             (items (cl-caddr trio)))
+        (when filter
+          (setq items (funcall filter items)))
+        (howm-normalize-show name items (or emacs-regexp regexp) nil nil kw)
+        (howm-record-view-window-configuration)))))
+
 (defun howm-iigrep (completion-p action)
   (howm-with-iigrep (howm-iigrep-command-for-pattern completion-p)
       howm-iigrep-show-what action
@@ -480,19 +493,6 @@ key	binding
      (when (<= hits howm-iigrep-preview-items)
        (save-selected-window
          (funcall ,action pattern)))))
-
-(defun howm-search (regexp fixed-p &optional emacs-regexp filter bufname)
-  (if (string= regexp "")
-      (howm-list-all)
-    (howm-message-time "search"
-      (let* ((trio (howm-call-view-search-internal regexp fixed-p emacs-regexp))
-             (kw (car trio))
-             (name (or bufname (cadr trio)))
-             (items (cl-caddr trio)))
-        (when filter
-          (setq items (funcall filter items)))
-        (howm-normalize-show name items (or emacs-regexp regexp) nil nil kw)
-        (howm-record-view-window-configuration)))))
 
 (defvar *howm-view-window-configuration* nil
   "For internal use")
