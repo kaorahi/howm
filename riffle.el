@@ -216,7 +216,7 @@ This function returns effective value of ITEM-LIST."
             (riffle-summary-update item force)))))))
 
 (defun riffle-summary-update (item &optional new)
-  (unless (and howm-view-keep-one-window (one-window-p))
+  (unless (and howm-view-keep-one-window (one-window-p t))
     (riffle-summary-update-subr item new)))
 (defun riffle-summary-update-subr (item &optional new)
   (let* ((*riffle-preview-p* t) ;; dirty
@@ -240,7 +240,7 @@ This function returns effective value of ITEM-LIST."
 
 (defun riffle-pop-window ()
   (interactive)
-  (let ((r (one-window-p)))
+  (let ((r (one-window-p t)))
     (when r
       (riffle-summary-check t))
     r))
@@ -453,7 +453,7 @@ snap://Info-mode/emacs#File Variables
   (if riffle-keep-window
       (switch-to-buffer buf)
     (progn
-      (when (one-window-p)
+      (when (one-window-p t)
         (split-window nil size howm-view-split-horizontally))
       (let ((even-window-heights (if size
                                      nil

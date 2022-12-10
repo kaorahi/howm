@@ -1,3 +1,8 @@
+2022-12-10  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* riffle.el (riffle-summary-update, riffle-pop-window, riffle-pop-to-buffer):
+	fix: failed to split window when minibuffer is active
+
 2022-08-23  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
 	* howm-mode.el (howm-search, howm-list-migemo):
