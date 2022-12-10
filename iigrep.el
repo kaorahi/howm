@@ -208,7 +208,7 @@
 ;; search
 
 (defvar iigrep-last-pattern nil
-  "For debug.")
+  "For internal use.")
 (defvar iigrep-last-command nil
   "For debug.")
 
@@ -272,6 +272,8 @@ This value is also used for identification of iigrep processes.")
   (iigrep-kill-process)
   (iigrep-append-output "\nSize limit exceeded."))
 
+(defvar *iigrep-post-sentinel* nil)
+
 (defun iigrep-sentinel (proc msg)
   (when (member (process-status proc) '(exit signal))
     (let ((buf (iigrep-buffer)))
@@ -282,7 +284,10 @@ This value is also used for identification of iigrep processes.")
             (when (> hits 0)
               (put-text-property 0 (length s) 'face (iigrep-get-counts-face hits) s)
               (let ((message-log-max nil))
-                (message "%s hits" s)))))))))
+                (message "%s hits" s))
+              (when (and *iigrep-post-sentinel*
+                         (eq (process-status proc) 'exit))
+                (funcall *iigrep-post-sentinel* hits iigrep-last-pattern)))))))))
 
 (defun iigrep-kill-process ()
   (mapcar (lambda (p)

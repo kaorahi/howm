@@ -440,17 +440,27 @@ key	binding
   (howm-list-grep-general t))
 
 (defun howm-list-grep-general (&optional completion-p)
-  (let ((regexp (howm-iigrep completion-p)))
+  (let* ((action (lambda (pattern) (howm-search pattern completion-p)))
+         (regexp (howm-iigrep completion-p action)))
     (when completion-p  ;; Goto link works only for fixed string at now.
       (howm-write-history regexp))
-    (howm-search regexp completion-p)))
+    (funcall action regexp)))
 
-(defun howm-iigrep (completion-p)
-  (iigrep-with-grep (howm-iigrep-command-for-pattern completion-p)
-      howm-iigrep-show-what
+(defun howm-iigrep (completion-p action)
+  (howm-with-iigrep (howm-iigrep-command-for-pattern completion-p)
+      howm-iigrep-show-what action
     (if completion-p
         (howm-completing-read-keyword)
       (read-from-minibuffer "Search all (grep): "))))
+
+(defmacro howm-with-iigrep (command-for-pattern show-what action &rest body)
+  (declare (indent 3))
+  `(let ((*iigrep-post-sentinel* (howm-iigrep-post-sentinel ,action))
+         (howm-history-limit 0)
+         (*howm-show-item-filename* nil)
+         (howm-message-time nil))
+     (iigrep-with-grep ,command-for-pattern ,show-what
+       ,@body)))
 
 (defmacro howm-iigrep-command-for-pattern (&optional fixed-p converter)
   ;; use macro due to dynamic binding. Sigh...
@@ -463,6 +473,13 @@ key	binding
                  (args (cl-second trio))
                  (fs (cl-third trio)))
             (append (list com) (cons "-I" args) fs)))))
+
+(defmacro howm-iigrep-post-sentinel (action)
+  ;; use macro due to dynamic binding. Sigh...
+  `(lambda (hits pattern)
+     (when (<= hits howm-iigrep-preview-items)
+       (save-selected-window
+         (funcall ,action pattern)))))
 
 (defun howm-search (regexp fixed-p &optional emacs-regexp filter bufname)
   (if (string= regexp "")
@@ -503,14 +520,16 @@ key	binding
   (howm-set-command 'howm-list-migemo)
   (if completion-p
       (howm-list-grep t)
-    (let* ((roma (howm-iigrep-migemo))
-           (e-reg (howm-migemo-get-pattern roma "emacs"))
-           (g-reg (if howm-view-use-grep
-                      (howm-migemo-get-pattern roma "egrep")
-                    e-reg)))
-      (if (and e-reg g-reg)
-          (howm-search g-reg nil e-reg nil roma)
-        (message "No response from migemo-client.")))))
+    (howm-list-migemo-action (howm-iigrep-migemo))))
+
+(defun howm-list-migemo-action (roma)
+  (let* ((e-reg (howm-migemo-get-pattern roma "emacs"))
+         (g-reg (if howm-view-use-grep
+                    (howm-migemo-get-pattern roma "egrep")
+                  e-reg)))
+    (if (and e-reg g-reg)
+        (howm-search g-reg nil e-reg nil roma)
+      (message "No response from migemo-client."))))
 
 (defun howm-iigrep-migemo ()
   (let* ((converter (lambda (yomi) (howm-migemo-get-pattern yomi "egrep")))
@@ -518,7 +537,8 @@ key	binding
          (show-what (if (eq howm-iigrep-migemo-show-what 'inherit)
                         howm-iigrep-show-what
                       howm-iigrep-migemo-show-what)))
-    (iigrep-with-grep command-for-pattern show-what
+    (howm-with-iigrep command-for-pattern show-what
+                      #'howm-list-migemo-action
       (read-from-minibuffer "Search all (migemo): "))))
 
 (defun howm-migemo-get-pattern (roma type)

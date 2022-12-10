@@ -836,6 +836,12 @@ so that highlighting works correctly."
   "Show search results on the fly before hitting RET."
   :group 'howm-grep)
 
+(defcustom howm-iigrep-preview-items 20
+  "Show howm search results on the fly before hitting RET when the hit counts are within this number."
+  :type 'integer
+  :group 'howm-efficiency
+  :group 'howm-iigrep)
+
 (defcustom howm-iigrep-show-what 'counts
   "Show search results on the fly before hitting RET."
   :type '(radio (const :tag "Off" nil)

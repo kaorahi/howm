@@ -102,8 +102,10 @@
   howm-view-summary-name)
 (defun riffle-contents-name-format:howm ()
   howm-view-contents-name)
+(defvar *howm-show-item-filename* t)
 (defun riffle-post-update:howm (item)
-  (howm-message-nolog "View: %s" (howm-view-item-filename item)))
+  (when *howm-show-item-filename*
+    (howm-message-nolog "View: %s" (howm-view-item-filename item))))
 
 ;;; aliases
 
