@@ -226,7 +226,7 @@
          (p (apply #'start-process iigrep-process-name nil args)))
     (setq iigrep-last-command args)
     (set-process-filter p iigrep-process-filter)
-    (set-process-sentinel p #'iigrep-silent-sentinel)
+    (set-process-sentinel p #'iigrep-sentinel)
     (set-process-query-on-exit-flag p nil)))
 
 (defvar iigrep-process-filter #'iigrep-process-filter
@@ -248,10 +248,6 @@ This value is also used for identification of iigrep processes.")
     (goto-char (point-min))
     (when (eq iigrep-show-what 'contents)
       (iigrep-hide-paths))
-    (let* ((hits (count-lines (point-min) (point-max)))
-           (s (format "%s" hits)))
-      (put-text-property 0 (length s) 'face (iigrep-get-counts-face hits) s)
-      (message "%s hits" s))
     (set-buffer-modified-p nil)))
 
 (defun iigrep-hide-paths ()
@@ -276,9 +272,16 @@ This value is also used for identification of iigrep processes.")
   (iigrep-kill-process)
   (iigrep-append-output "\nSize limit exceeded."))
 
-(defun iigrep-silent-sentinel (proc msg)
-  ; do nothing
-  )
+(defun iigrep-sentinel (proc msg)
+  (when (member (process-status proc) '(exit signal))
+    (let ((buf (iigrep-buffer)))
+      (when buf
+        (with-current-buffer buf
+          (let* ((hits (count-lines (point-min) (point-max)))
+                 (s (format "%s" hits)))
+            (when (> hits 0)
+              (put-text-property 0 (length s) 'face (iigrep-get-counts-face hits) s)
+              (message "%s hits" s))))))))
 
 (defun iigrep-kill-process ()
   (mapcar (lambda (p)
