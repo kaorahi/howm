@@ -460,7 +460,7 @@ Emacs で断片的なメモをどんどんとるための環境です.
   * コンソール (emacs -nw) の場合
     * 下線が表示されない端末なら
         (set-face-foreground 'action-lock-face "blue") ;; 下線のかわりに色つけ
-  * ((<RD|URL:http://www.ruby-lang.org/ja/man/html/RD.html>))を使う場合
+  * ((<RD|URL:https://magazine.rubyist.net/articles/0006/0006-RDIntro.html>))を使う場合
     * <<< が RD の include とかぶる
     * 対策例
       * include は使わない. 行のはじめに <<< を書かないよう注意する.
@@ -924,7 +924,7 @@ thx > patch・改良案・指摘をくださった皆様
   * 1.1.1.* 以前から
     * ソースコードの読み書きも howm で
       * ((<GNU global|URL:http://www.tamacom.com/global-j.html>))
-        (((<例|URL:http://www.tamacom.com/tour/lang/ruby/S/21.html>)))
+        (((<例|URL:https://www.tamacom.com/tour.html>)))
         もどきの on the fly 版めざして
       * まだ開発中. 味見するには…
         * 変数 howm-configuration-for-major-mode を設定
@@ -1171,10 +1171,10 @@ thx > patch・改良案・指摘をくださった皆様
   * [2005-05-02] 1.2.2 バックエンド切り離し. gfunc.el
   * [2004-08-24] 1.2 保留「~」の公式化. howm.el, riffle.el
   * [2004-05-06] 1.1.2 make test
-  * [2004-02-27] ((<"2ch howm スレ 2"|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/>))
+  * [2004-02-27] ((<"2ch howm スレ 2"|URL:https://pc8.5ch.net/test/read.cgi/unix/1077881095/>))
   * [2004-02-21] 1.1.1 「隠し機能」制度を導入
   * [2004-01-25] ((<"sf.jp"|URL:https://howm.osdn.jp/>)) へ移動
-  * [2005-01-08] ((<"UNIX USER 2004.2"|URL:http://www.unixuser.jp/magazine/2004/200402.html>))
+  * [2005-01-08] ((<"UNIX USER 2004.2"|URL:https://web.archive.org/web/20051022005814/http://www.unixuser.jp/magazine/2004/200402.html>))
   * [2003-12-27] ((<howm wiki|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi>))
   * [2003-11-22] 1.1 デフォルトの変更
     (リンク・日付・リマインダの書式, 一メモ一ファイル, メニューもメモの一種)
@@ -1182,7 +1182,7 @@ thx > patch・改良案・指摘をくださった皆様
   * [2003-10-02] 1.0.4 外部 viewer, メニューの過剰強化
   * [2003-09-23] 「テスト版」を導入
   * [2003-09-18] 1.0.2 HTML 化スクリプト howm2
-  * [2003-09-17] ((<2ch howm スレ|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/>))
+  * [2003-09-17] ((<2ch howm スレ|URL:http://pc.5ch.net/test/read.cgi/unix/1063800495/>))
   * [2003-09-17] 1.0 メモディレクトリを階層化
   * [2003-09-16] 0.9.7.1 Wiki 風リンク [[ほげ]]
   * [2003-09-14] 0.9.4.1 grep 脱却
@@ -1192,7 +1192,7 @@ thx > patch・改良案・指摘をくださった皆様
   * [2002-11-03] 0.8 メニュー, 旬度順 todo @[2003/09/20]+
   * [2002-09-17] 0.7 1 日 1 ファイル, come-from リンク <<
   * [2002-09-14] 0.6 リンク廃止(すべては「検索」)
-  * [2002-06-10] ((<"日本発の wiki クローンリスト"|URL:http://www1.neweb.ne.jp/wa/yamdas/column/technique/clonelist.html>))
+  * [2002-06-10] ((<"日本発の wiki クローンリスト"|URL:https://www.yamdas.org/column/technique/clonelist.html>))
   * [2002-05-29] 0.1 公開
 
 === アドレス

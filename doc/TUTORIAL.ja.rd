@@ -4,7 +4,7 @@
 
 これを読むよりも, ↓の方がわかりやすくておすすめです
 
-* ((<"Meadow/Emacs memo での紹介"|URL:http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=howm>))
+* ((<"Meadow/Emacs memo での紹介"|URL:https://web.archive.org/web/20160529014325/http://www.bookshelf.jp/soft/meadow_38.html#SEC563>))
 * ((<UNIX USER 誌の記事|URL:https://howm.osdn.jp/uu/>))
 
 == メモを書く
