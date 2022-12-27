@@ -842,7 +842,7 @@ so that highlighting works correctly."
   :group 'howm-efficiency
   :group 'howm-iigrep)
 
-(defcustom howm-iigrep-show-what 'counts
+(defcustom howm-iigrep-show-what nil
   "Show search results on the fly before hitting RET."
   :type '(radio (const :tag "Off" nil)
                 (const :tag "Counts" counts)
