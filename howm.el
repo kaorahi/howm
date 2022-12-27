@@ -6,7 +6,7 @@
 
 ;; Author: HIRAOKA Kazuyuki <khi@users.osdn.me>
 ;; URL: https://howm.osdn.jp
-;; Version: 1.4.9-snapshot3
+;; Version: 1.5.0
 ;; Package-Requires: ((cl-lib "0.5"))
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -30,7 +30,7 @@
 ;;; See README.
 ;;; HOWM is acronym of "Hitori Otegaru Wiki Modoki".
 
-(defconst howm-version "1.4.9-snapshot3")
+(defconst howm-version "1.5.0")
 
 ;; Files [0]-[3] have only hierarchical dependencies,
 ;; whereas files in [5] have circular dependencies.

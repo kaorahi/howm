@@ -1,5 +1,7 @@
 2022-12-27  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
+	* configure.ac: version 1.5.0
+
 	* howm-vars.el (howm-iigrep-show-what):
 	disable iigrep by default for backward compatibility
 
