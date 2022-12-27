@@ -910,6 +910,16 @@ Emacs で断片的なメモをどんどんとるための環境です.
 
 thx > patch・改良案・指摘をくださった皆様
 
+* リリース版 howm-1.5.0 [2022-12-27]
+  * インクリメンタル grep (デフォルトではオフ)
+    * 検索文字列の入力途中で (RET を押す前に) 随時 grep
+    * 次回リリースではデフォルトでオンにする予定です. テストに協力いただける方は M-x customize-group RET howm-iigrep RET で変数 howm-iigrep-show-what 等を設定ください.
+  * 検索一覧で f キー (filter) を押したあとの選択肢に「uniq」を追加
+    (一ファイルで複数回ヒットしても一つだけ表示)
+    thx > Andrei Sukhovskii san (qejep at posteo.net)
+    * ついでに, 検索一覧での u キー (uniq) をトグルに (押すたびに「uniq」をオンオフ)
+  * (内部的に手を入れたので, howm-1.4.9 はスキップして 1.5.0 に)
+
 * リリース版 howm-1.4.8 [2021-12-30]
   * fix: emacs 28.1 に対応
     ((<thx|URL:https://twitter.com/U5948U5e7eU4e43/status/1387373441582387209>))

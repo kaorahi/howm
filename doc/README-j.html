@@ -638,31 +638,7 @@ x → マークしたファイルたちを本当に消す</pre></li>
 <li>注意
 <ul>
 <li>GNU Emacs 以外の場合:
-    私はよくわからないので, 検索してください
-<ul>
-<li>meadow:
-      <a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&amp;node=meadowmemo%20edition">設定済み Meadow</a>
-      なら最初から使えます
-<ul>
-<li>cygwin + grep 使用のときは,
-        メモディレクトリとコマンドをドライブレターから指定する.
-<ul>
-<li><p>~/.emacs(.emacs.el かも) で↓のように</p>
-<pre>(setq howm-directory "c:/cygwin/home/howm/")</pre></li>
-<li>cygwin から見た / と emacs から見た / が食い違うとかいう話.</li>
-</ul></li>
-</ul></li>
-<li>xemacs:
-<ul>
-<li><p>font-lock のメッセージを抑制すると速くなるそう.
-        thx &gt; <a href="http://eron.info/k/diary/">笠原さん</a></p>
-<pre>(setq font-lock-verbose nil)</pre></li>
-</ul></li>
-<li>Linux Zaurus:
-      <a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus">Wiki</a>
-      を参照ください.
-      thx &gt; <a href="http://www.bookshelf.jp/2ch/unix/1063800495.html">100</a></li>
-</ul></li>
+    私はよくわからないので, 検索してください → <a href="OLD.rd">&lt;URL:OLD.rd&gt;</a></li>
 <li>SKK を使う場合
 <ul>
 <li><p>.emacs に以下を書いておかないと, Dired-X に C-x C-j を奪われます</p>
@@ -680,7 +656,7 @@ x → マークしたファイルたちを本当に消す</pre></li>
 <li><p>下線が表示されない端末なら</p>
 <pre>(set-face-foreground 'action-lock-face "blue") ;; 下線のかわりに色つけ</pre></li>
 </ul></li>
-<li><a href="http://www.ruby-lang.org/ja/man/html/RD.html">RD</a>を使う場合
+<li><a href="https://magazine.rubyist.net/articles/0006/0006-RDIntro.html">RD</a>を使う場合
 <ul>
 <li>&lt;&lt;&lt; が RD の include とかぶる</li>
 <li>対策例
@@ -1290,6 +1266,21 @@ make test</pre></li>
 <h3><a name="label-19" id="label-19">更新記録</a></h3><!-- RDLabel: "更新記録" -->
 <p>thx &gt; patch・改良案・指摘をくださった皆様</p>
 <ul>
+<li>リリース版 howm-1.5.0 [2022-12-27]
+<ul>
+<li>インクリメンタル grep (デフォルトではオフ)
+<ul>
+<li>検索文字列の入力途中で (RET を押す前に) 随時 grep</li>
+<li>次回リリースではデフォルトでオンにする予定です. テストに協力いただける方は M-x customize-group RET howm-iigrep RET で変数 howm-iigrep-show-what 等を設定ください.</li>
+</ul></li>
+<li>検索一覧で f キー (filter) を押したあとの選択肢に「uniq」を追加
+    (一ファイルで複数回ヒットしても一つだけ表示)
+    thx &gt; Andrei Sukhovskii san (qejep at posteo.net)
+<ul>
+<li>ついでに, 検索一覧での u キー (uniq) をトグルに (押すたびに「uniq」をオンオフ)</li>
+</ul></li>
+<li>(内部的に手を入れたので, howm-1.4.9 はスキップして 1.5.0 に)</li>
+</ul></li>
 <li>リリース版 howm-1.4.8 [2021-12-30]
 <ul>
 <li>fix: emacs 28.1 に対応
@@ -1302,178 +1293,6 @@ make test</pre></li>
     <a href="https://mevius.5ch.net/test/read.cgi/unix/1397477663/126">thx</a></li>
 <li>fix: その他ごく軽微な修正・更新 (docstring, コメント, webページのリンク)</li>
 </ul></li>
-<li>リリース版 howm-1.4.6 [2019-12-31]
-<ul>
-<li>fix: C-c , : (howm-find-yesterday) が壊れていた
-    <a href="https://twitter.com/U5948U5e7eU4e43/status/1162732269347336193">thx</a>
-    <a href="http://git.savannah.gnu.org/cgit/emacs.git/commit/etc/NEWS?id=b06917a4912a60402025286d07d4a195749245c4">ref</a></li>
-</ul></li>
-<li>リリース版 howm-1.4.5 [2018-12-31]
-<ul>
-<li><p>migemo-client のかわりに cmigemo も対応</p>
-<pre>(setq howm-migemo-client '((type . cmigemo) (command . "cmigemo")))
-(setq howm-migemo-client-option
-      '("-q" "-d" "/usr/share/cmigemo/utf-8/migemo-dict"))</pre></li>
-<li>フランス語メニューを追加
-    <a href="https://osdn.net/projects/howm/lists/archive/eng/2018/000136.html">thx</a>
-    <a href="http://piratepad.net/ZNywUOscRL">thx</a>
-    <a href="https://osdn.net/projects/howm/lists/archive/eng/2018/000139.html">thx</a>
-    &gt; Yassine san (yacinechaouche at yahoo.com),
-    Xavier Maillard san (xavier at maillard.im)</li>
-<li>autotools まわりを掃除</li>
-<li>howm-1.4.5-snapshot3 と同じ内容です</li>
-</ul></li>
-<li>リリース版 howm-1.4.4 [2016-12-31]
-<ul>
-<li>バイトコンパイル時の警告を回避
-<ul>
-<li>cl をやめて cl-lib を使う</li>
-<li>howm-ime-fix (howm-1.1.1 以前の canna, egg, yc, anthy 個別対策) を廃止</li>
-<li>その他こまごま</li>
-</ul></li>
-<li>MELPA へのリンクを追加.
-    thx &gt; Yuki Inoue san (inouetakahiroki at gmail.com)</li>
-<li>スナップショット版 2016-09-28 と同じ内容です</li>
-</ul></li>
-<li>リリース版 howm-1.4.3 [2015-12-31]
-<ul>
-<li>emacs 25.1.50.1 (2015-12-27 時点の git 先端 = de88375) で起動を確認</li>
-<li>howm-1.4.3rc1 と同じ内容です</li>
-<li>fix
-<ul>
-<li>git 先端 emacs でのエラー (void-function ed)</li>
-<li>C-c , A (howm-list-around) で howm-list-title の設定が効いていなかった
-      <a href="http://peace.2ch.net/test/read.cgi/unix/1397477663/39">thx</a></li>
-<li><a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Recentf">howm-recentf</a>などで無駄にリモートファイルのパスワードを聞いてこないように.
-      thx &gt; 鯉江英隆さん (hide at koie.org)</li>
-<li>ドキュメントのファイルモードの訂正</li>
-</ul></li>
-</ul></li>
-<li>リリース版 howm-1.4.2 [2013-12-31]
-<ul>
-<li>Note
-<ul>
-<li>emacs 24.3 に対応. 2013-12-25 時点の trunk (24.3.50.1) でも起動を確認.</li>
-<li>howm-test130321 や howm-1.4.2rc1 と同じ内容です</li>
-</ul></li>
-<li>改良
-<ul>
-<li>C-c , a (howm-list-all) を高速化
-      <a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste">thx</a></li>
-</ul></li>
-<li>fix
-<ul>
-<li>emacs 24.3.1 でバイトコンパイルせずに実行したときのエラー
-      "Can't detect type of ..."
-      <a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste">thx</a></li>
-<li>シンボリックリンク下で新規メモが howm-mode にならないバグ
-      <a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste">thx</a></li>
-<li>バイトコンパイル時の警告</li>
-</ul></li>
-</ul></li>
-<li>リリース版 howm-1.4.1 [2012-12-27]
-<ul>
-<li>~/.howm-keys が無かったら, 全メモをスキャンして再生成
-    <a href="http://sourceforge.jp/projects/howm/lists/archive/eng/2012/000099.html">thx</a>
-    &gt; Albert-san (areiner at tph.tuwien.ac.at)</li>
-<li>fix: *.txt と *.howm が混在しても一覧モードの表示がずれないように
-    <a href="http://toro.2ch.net/test/read.cgi/unix/1141892764/940">thx</a></li>
-</ul></li>
-<li>リリース版 howm-1.4.0 [2012-08-16]
-<ul>
-<li>Note
-<ul>
-<li><em>非互換変更</em>に注意!
-<ul>
-<li><p>1.3.* どおりの挙動を望むなら↓</p>
-<pre>(setq howm-compatible-to-ver1dot3 t) ;; (require 'howm) より前に!</pre></li>
-<li>個別に設定したければ, M-x customize-group RET howm-compatibility RET</li>
-</ul></li>
-<li>長いこと隠し機能だったものを公式機能にしました.</li>
-<li>emacs-24 対応</li>
-<li>howm-1.4.0rc2 と同内容です.</li>
-</ul></li>
-<li>変更
-<ul>
-<li>howm-file-name-format のデフォルトを *.howm から *.txt に変更
-<ul>
-<li>拡張子のせいで他ツールとの連携に困っているらしい事例を見かけるので</li>
-</ul></li>
-<li>一ファイル複数メモのときも, 絞り込み等をファイル単位じゃなくメモ単位に.
-      ただし, date での絞り込みはファイル単位のまま.</li>
-<li>タイトルが空のときは本文の一行目をタイトルに.</li>
-</ul></li>
-<li>こまごま改良
-<ul>
-<li><p>メニューに以下を書けば, タイムスタンプ順でなくファイル名順の上位を表示.
-      <a href="http://hibari.2ch.net/test/read.cgi/unix/1141892764/890">thx</a></p>
-<pre>%here%(howm-menu-recent identity)</pre></li>
-<li><p>ディレクトリに対してもビューアを設定できるように.
-      <a href="http://hibari.2ch.net/test/read.cgi/unix/1141892764/891">thx</a></p>
-<pre>;; 「file://…/」や「&gt;&gt;&gt; …/」は open コマンド(mac 用)で開く
-(setq howm-view-external-viewer-assoc '(("/$" . "open %s")))</pre></li>
-<li>変数 howm-normalizer のありがちな設定ミスを察するように
-      <a href="http://hibari.2ch.net/test/read.cgi/unix/1141892764/865-870n">thx</a></li>
-<li>ドキュメントの古い箇所を手直し</li>
-<li>rast まわりの試作を削除</li>
-</ul></li>
-<li>隠し機能の公式化
-<ul>
-<li>コマンド
-<ul>
-<li>C-c , e (howm-remember)
-        <a href="http://hibari.2ch.net/test/read.cgi/unix/1141892764/24-25n">thx</a>
-        <a href="http://hibari.2ch.net/test/read.cgi/unix/1141892764/61">thx</a>
-        <a href="http://hibari.2ch.net/test/read.cgi/unix/1141892764/72-75n">thx</a>
-        <a href="http://hibari.2ch.net/test/read.cgi/unix/1141892764/92-93n">thx</a>
-        <a href="http://hibari.2ch.net/test/read.cgi/unix/1141892764/99">thx</a></li>
-<li>C-c , b (howm-list-buffers)</li>
-<li>C-c , x (howm-list-mark-ring)</li>
-<li>C-c , o (howm-occur)</li>
-</ul></li>
-<li>リマインダ
-<ul>
-<li>メニューに「%reminder」と書くと, 予定と todo の統合一覧
-<ul>
-<li>予定「@」は,
-          howm-menu-schedule-days-before 日前から
-          howm-menu-schedule-days 日後までを先頭に表示
-<ul>
-<li>[2004-12-03]@5 などと書くと, 「5 日間」の意
-            (当日も含むので「12月3日から12月7日まで」).
-            一覧から消えるのがそれだけ猶予される.
-            <a href="http://pc8.2ch.net/test/read.cgi/unix/1077881095/516">thx</a></li>
-</ul></li>
-<li>〆切「!」も, 〆切日がその範囲までなら一緒に表示</li>
-<li>それより下は従来どおり</li>
-<li>従来の %schedule + %todo とくらべると, スキャンが一回ですむぶん効率的</li>
-</ul></li>
-<li>[2005-05-15 21:37]@ のような書式の予定は, 時刻順にソート
-        <a href="http://pc.2ch.net/test/read.cgi/unix/1063800495/141">thx</a>
-        <a href="http://pc.2ch.net/test/read.cgi/unix/1063800495/148">thx</a>
-        <a href="http://pc.2ch.net/test/read.cgi/unix/1063800495/597">thx</a>
-        <a href="http://pc8.2ch.net/test/read.cgi/unix/1077881095/683">thx</a></li>
-<li><p>メニューからリマインダを直叩きしたときに,
-        対応バッファの行数が多少ずれていても許す.
-        <a href="http://hibari.2ch.net/test/read.cgi/unix/1141892764/519">thx</a></p>
-<pre>(setq howm-action-lock-forward-fuzziness 5) ;; 何行までずれても許すか</pre></li>
-</ul></li>
-<li><a href="#label-12">カスタマイズ</a>
-<ul>
-<li>上記 %reminder や todo list 中の仕切り</li>
-<li>grep 使用時の coding system 指定
-        <a href="http://pc8.2ch.net/test/read.cgi/unix/1077881095/784">thx</a></li>
-<li>howm 関連の全バッファに共通の色設定
-        <a href="http://pc8.2ch.net/test/read.cgi/unix/1077881095/42">thx</a>
-        <a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Idea">thx</a>
-        &gt; taku さん</li>
-<li>todo を済ませたときに指定コマンドを実行 (howm-congrats-command)</li>
-</ul></li>
-</ul></li>
-<li>fix: 2012-01-21 以降の emacs-24 でエラー (void-variable inhibit-first-line-modes-regexps)
-    <a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste">thx</a>
-    thx &gt; 佐々木 寛 さん (sasaki at fcc.ad.jp)</li>
-</ul></li>
 <li>隠し機能 (experimental)
 <ul>
 <li>1.1.1.* 以前から
@@ -1481,7 +1300,7 @@ make test</pre></li>
 <li>ソースコードの読み書きも howm で
 <ul>
 <li><a href="http://www.tamacom.com/global-j.html">GNU global</a>
-        (<a href="http://www.tamacom.com/tour/lang/ruby/S/21.html">例</a>)
+        (<a href="https://www.tamacom.com/tour.html">例</a>)
         もどきの on the fly 版めざして</li>
 <li>まだ開発中. 味見するには…
 <ul>
@@ -1810,6 +1629,8 @@ make test</pre></li>
 </ul></li>
 <li>…履歴抜粋… (<a href="OLD.rd">&lt;URL:OLD.rd&gt;</a> 参照)
 <ul>
+<li>[2012-12-27]〜[2019-12-31] 1.4.1〜1.4.6 不具合修正, Emacs 新版への追従</li>
+<li>[2012-08-16] 1.4.0 隠し機能の公式化, 挙動やデフォルトの非互換変更</li>
 <li>[2010-12-30] 1.3.9 微修正</li>
 <li>[2009-12-31] 1.3.8 過ぎた〆切に着色</li>
 <li>[2008-12-31] 1.3.7 内部コード整理 (副作用を分離).
@@ -1821,10 +1642,10 @@ make test</pre></li>
 <li>[2005-05-02] 1.2.2 バックエンド切り離し. gfunc.el</li>
 <li>[2004-08-24] 1.2 保留「~」の公式化. howm.el, riffle.el</li>
 <li>[2004-05-06] 1.1.2 make test</li>
-<li>[2004-02-27] <a href="http://pc8.2ch.net/test/read.cgi/unix/1077881095/">2ch howm スレ 2</a></li>
+<li>[2004-02-27] <a href="https://pc8.5ch.net/test/read.cgi/unix/1077881095/">2ch howm スレ 2</a></li>
 <li>[2004-02-21] 1.1.1 「隠し機能」制度を導入</li>
 <li>[2004-01-25] <a href="https://howm.osdn.jp/">sf.jp</a> へ移動</li>
-<li>[2005-01-08] <a href="http://www.unixuser.jp/magazine/2004/200402.html">UNIX USER 2004.2</a></li>
+<li>[2005-01-08] <a href="https://web.archive.org/web/20051022005814/http://www.unixuser.jp/magazine/2004/200402.html">UNIX USER 2004.2</a></li>
 <li>[2003-12-27] <a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi">howm wiki</a></li>
 <li>[2003-11-22] 1.1 デフォルトの変更
     (リンク・日付・リマインダの書式, 一メモ一ファイル, メニューもメモの一種)</li>
@@ -1832,7 +1653,7 @@ make test</pre></li>
 <li>[2003-10-02] 1.0.4 外部 viewer, メニューの過剰強化</li>
 <li>[2003-09-23] 「テスト版」を導入</li>
 <li>[2003-09-18] 1.0.2 HTML 化スクリプト howm2</li>
-<li>[2003-09-17] <a href="http://pc.2ch.net/test/read.cgi/unix/1063800495/">2ch howm スレ</a></li>
+<li>[2003-09-17] <a href="http://pc.5ch.net/test/read.cgi/unix/1063800495/">2ch howm スレ</a></li>
 <li>[2003-09-17] 1.0 メモディレクトリを階層化</li>
 <li>[2003-09-16] 0.9.7.1 Wiki 風リンク [[ほげ]]</li>
 <li>[2003-09-14] 0.9.4.1 grep 脱却</li>
@@ -1842,7 +1663,7 @@ make test</pre></li>
 <li>[2002-11-03] 0.8 メニュー, 旬度順 todo @[2003/09/20]+</li>
 <li>[2002-09-17] 0.7 1 日 1 ファイル, come-from リンク &lt;&lt;</li>
 <li>[2002-09-14] 0.6 リンク廃止(すべては「検索」)</li>
-<li>[2002-06-10] <a href="http://www1.neweb.ne.jp/wa/yamdas/column/technique/clonelist.html">日本発の wiki クローンリスト</a></li>
+<li>[2002-06-10] <a href="https://www.yamdas.org/column/technique/clonelist.html">日本発の wiki クローンリスト</a></li>
 <li>[2002-05-29] 0.1 公開</li>
 </ul></li>
 </ul>
