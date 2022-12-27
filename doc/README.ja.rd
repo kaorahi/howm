@@ -450,23 +450,7 @@ Emacs で断片的なメモをどんどんとるための環境です.
 
 * 注意
   * GNU Emacs 以外の場合:
-    私はよくわからないので, 検索してください
-    * meadow:
-      ((<設定済み Meadow|URL:http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=meadowmemo%20edition>))
-      なら最初から使えます
-      * cygwin + grep 使用のときは,
-        メモディレクトリとコマンドをドライブレターから指定する.
-        * ~/.emacs(.emacs.el かも) で↓のように
-            (setq howm-directory "c:/cygwin/home/howm/")
-        * cygwin から見た / と emacs から見た / が食い違うとかいう話.
-    * xemacs:
-      * font-lock のメッセージを抑制すると速くなるそう.
-        thx > ((<笠原さん|URL:http://eron.info/k/diary/>))
-          (setq font-lock-verbose nil)
-    * Linux Zaurus:
-      ((<Wiki|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus>))
-      を参照ください.
-      thx > ((<100|URL:http://www.bookshelf.jp/2ch/unix/1063800495.html>))
+    私はよくわからないので, 検索してください → ((<URL:OLD.rd>))
   * SKK を使う場合
     * .emacs に以下を書いておかないと, Dired-X に C-x C-j を奪われます
         (setq dired-bind-jump nil)
@@ -936,139 +920,6 @@ thx > patch・改良案・指摘をくださった皆様
     ((<thx|URL:https://mevius.5ch.net/test/read.cgi/unix/1397477663/126>))
   * fix: その他ごく軽微な修正・更新 (docstring, コメント, webページのリンク)
 
-* リリース版 howm-1.4.6 [2019-12-31]
-  * fix: C-c , : (howm-find-yesterday) が壊れていた
-    ((<thx|URL:https://twitter.com/U5948U5e7eU4e43/status/1162732269347336193>))
-    ((<ref|URL:http://git.savannah.gnu.org/cgit/emacs.git/commit/etc/NEWS?id=b06917a4912a60402025286d07d4a195749245c4>))
-
-* リリース版 howm-1.4.5 [2018-12-31]
-  * migemo-client のかわりに cmigemo も対応
-      (setq howm-migemo-client '((type . cmigemo) (command . "cmigemo")))
-      (setq howm-migemo-client-option
-            '("-q" "-d" "/usr/share/cmigemo/utf-8/migemo-dict"))
-  * フランス語メニューを追加
-    ((<thx|URL:https://osdn.net/projects/howm/lists/archive/eng/2018/000136.html>))
-    ((<thx|URL:http://piratepad.net/ZNywUOscRL>))
-    ((<thx|URL:https://osdn.net/projects/howm/lists/archive/eng/2018/000139.html>))
-    > Yassine san (yacinechaouche at yahoo.com),
-    Xavier Maillard san (xavier at maillard.im)
-  * autotools まわりを掃除
-  * howm-1.4.5-snapshot3 と同じ内容です
-
-* リリース版 howm-1.4.4 [2016-12-31]
-  * バイトコンパイル時の警告を回避
-    * cl をやめて cl-lib を使う
-    * howm-ime-fix (howm-1.1.1 以前の canna, egg, yc, anthy 個別対策) を廃止
-    * その他こまごま
-  * MELPA へのリンクを追加.
-    thx > Yuki Inoue san (inouetakahiroki at gmail.com)
-  * スナップショット版 2016-09-28 と同じ内容です
-
-* リリース版 howm-1.4.3 [2015-12-31]
-  * emacs 25.1.50.1 (2015-12-27 時点の git 先端 = de88375) で起動を確認
-  * howm-1.4.3rc1 と同じ内容です
-  * fix
-    * git 先端 emacs でのエラー (void-function ed)
-    * C-c , A (howm-list-around) で howm-list-title の設定が効いていなかった
-      ((<thx|URL:http://peace.2ch.net/test/read.cgi/unix/1397477663/39>))
-    * ((<howm-recentf|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Recentf>))などで無駄にリモートファイルのパスワードを聞いてこないように.
-      thx > 鯉江英隆さん (hide at koie.org)
-    * ドキュメントのファイルモードの訂正
-
-* リリース版 howm-1.4.2 [2013-12-31]
-  * Note
-    * emacs 24.3 に対応. 2013-12-25 時点の trunk (24.3.50.1) でも起動を確認.
-    * howm-test130321 や howm-1.4.2rc1 と同じ内容です
-  * 改良
-    * C-c , a (howm-list-all) を高速化
-      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
-  * fix
-    * emacs 24.3.1 でバイトコンパイルせずに実行したときのエラー
-      "Can't detect type of ..."
-      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
-    * シンボリックリンク下で新規メモが howm-mode にならないバグ
-      ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
-    * バイトコンパイル時の警告
-
-* リリース版 howm-1.4.1 [2012-12-27]
-  * ~/.howm-keys が無かったら, 全メモをスキャンして再生成
-    ((<thx|URL:http://sourceforge.jp/projects/howm/lists/archive/eng/2012/000099.html>))
-    > Albert-san (areiner at tph.tuwien.ac.at)
-  * fix: *.txt と *.howm が混在しても一覧モードの表示がずれないように
-    ((<thx|URL:http://toro.2ch.net/test/read.cgi/unix/1141892764/940>))
-
-* リリース版 howm-1.4.0 [2012-08-16]
-  * Note
-    * ((*非互換変更*))に注意!
-      * 1.3.* どおりの挙動を望むなら↓
-          (setq howm-compatible-to-ver1dot3 t) ;; (require 'howm) より前に!
-      * 個別に設定したければ, M-x customize-group RET howm-compatibility RET
-    * 長いこと隠し機能だったものを公式機能にしました.
-    * emacs-24 対応
-    * howm-1.4.0rc2 と同内容です.
-  * 変更
-    * howm-file-name-format のデフォルトを *.howm から *.txt に変更
-      * 拡張子のせいで他ツールとの連携に困っているらしい事例を見かけるので
-    * 一ファイル複数メモのときも, 絞り込み等をファイル単位じゃなくメモ単位に.
-      ただし, date での絞り込みはファイル単位のまま.
-    * タイトルが空のときは本文の一行目をタイトルに.
-  * こまごま改良
-    * メニューに以下を書けば, タイムスタンプ順でなくファイル名順の上位を表示.
-      ((<thx|URL:http://hibari.2ch.net/test/read.cgi/unix/1141892764/890>))
-        %here%(howm-menu-recent identity)
-    * ディレクトリに対してもビューアを設定できるように.
-      ((<thx|URL:http://hibari.2ch.net/test/read.cgi/unix/1141892764/891>))
-        ;; 「file://…/」や「>>> …/」は open コマンド(mac 用)で開く
-        (setq howm-view-external-viewer-assoc '(("/$" . "open %s")))
-    * 変数 howm-normalizer のありがちな設定ミスを察するように
-      ((<thx|URL:http://hibari.2ch.net/test/read.cgi/unix/1141892764/865-870n>))
-    * ドキュメントの古い箇所を手直し
-    * rast まわりの試作を削除
-  * 隠し機能の公式化
-    * コマンド
-      * C-c , e (howm-remember)
-        ((<thx|URL:http://hibari.2ch.net/test/read.cgi/unix/1141892764/24-25n>))
-        ((<thx|URL:http://hibari.2ch.net/test/read.cgi/unix/1141892764/61>))
-        ((<thx|URL:http://hibari.2ch.net/test/read.cgi/unix/1141892764/72-75n>))
-        ((<thx|URL:http://hibari.2ch.net/test/read.cgi/unix/1141892764/92-93n>))
-        ((<thx|URL:http://hibari.2ch.net/test/read.cgi/unix/1141892764/99>))
-      * C-c , b (howm-list-buffers)
-      * C-c , x (howm-list-mark-ring)
-      * C-c , o (howm-occur)
-    * リマインダ
-      * メニューに「%reminder」と書くと, 予定と todo の統合一覧
-        * 予定「@」は,
-          howm-menu-schedule-days-before 日前から
-          howm-menu-schedule-days 日後までを先頭に表示
-          * [2004-12-03]@5 などと書くと, 「5 日間」の意
-            (当日も含むので「12月3日から12月7日まで」).
-            一覧から消えるのがそれだけ猶予される.
-            ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/516>))
-        * 〆切「!」も, 〆切日がその範囲までなら一緒に表示
-        * それより下は従来どおり
-        * 従来の %schedule + %todo とくらべると, スキャンが一回ですむぶん効率的
-      * [2005-05-15 21:37]@ のような書式の予定は, 時刻順にソート
-        ((<thx|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/141>))
-        ((<thx|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/148>))
-        ((<thx|URL:http://pc.2ch.net/test/read.cgi/unix/1063800495/597>))
-        ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/683>))
-      * メニューからリマインダを直叩きしたときに,
-        対応バッファの行数が多少ずれていても許す.
-        ((<thx|URL:http://hibari.2ch.net/test/read.cgi/unix/1141892764/519>))
-          (setq howm-action-lock-forward-fuzziness 5) ;; 何行までずれても許すか
-    * ((<カスタマイズ>))
-      * 上記 %reminder や todo list 中の仕切り
-      * grep 使用時の coding system 指定
-        ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/784>))
-      * howm 関連の全バッファに共通の色設定
-        ((<thx|URL:http://pc8.2ch.net/test/read.cgi/unix/1077881095/42>))
-        ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Idea>))
-        > taku さん
-      * todo を済ませたときに指定コマンドを実行 (howm-congrats-command)
-  * fix: 2012-01-21 以降の emacs-24 でエラー (void-variable inhibit-first-line-modes-regexps)
-    ((<thx|URL:https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportPaste>))
-    thx > 佐々木 寛 さん (sasaki at fcc.ad.jp)
-
 * 隠し機能 (experimental)
   * 1.1.1.* 以前から
     * ソースコードの読み書きも howm で
@@ -1307,6 +1158,8 @@ thx > patch・改良案・指摘をくださった皆様
           ;(setq howm-insert-date-future 'closer) ;; 今日に近い方で解釈
 
 * …履歴抜粋… (((<URL:OLD.rd>)) 参照)
+  * [2012-12-27]〜[2019-12-31] 1.4.1〜1.4.6 不具合修正, Emacs 新版への追従
+  * [2012-08-16] 1.4.0 隠し機能の公式化, 挙動やデフォルトの非互換変更
   * [2010-12-30] 1.3.9 微修正
   * [2009-12-31] 1.3.8 過ぎた〆切に着色
   * [2008-12-31] 1.3.7 内部コード整理 (副作用を分離).
