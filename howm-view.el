@@ -1381,7 +1381,7 @@ which simply calls howm-sort-items-by-NAME."
   (howm-sort-items #'(lambda (dummy) (random)) #'< item-list reverse-p))
 
 (defun howm-sort-items-by-name (item-list &optional reverse-p)
-  (howm-sort-items #'howm-view-item-basename #'string< reverse-p))
+  (howm-sort-items #'howm-view-item-basename #'string< item-list reverse-p))
 
 (defun howm-sort-items-by-numerical-name (item-list &optional reverse-p)
   (howm-sort-items (lambda (i)
@@ -1389,7 +1389,7 @@ which simply calls howm-sort-items-by-NAME."
                                (if (string-match "^[0-9]+$" b)
                                    (string-to-number b)
                                  howm-infinity)))
-                           #'< reverse-p))
+                           #'< item-list reverse-p))
 
 (defvar howm-view-sort-by-date-ignore-regexp "^[a-zA-Z]")
 (defun howm-sort-items-by-date (item-list &optional reverse-p)
