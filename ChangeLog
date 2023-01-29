@@ -1,3 +1,7 @@
+2023-01-29  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* configure.ac: version 1.5.1-snapshot2
+
 2023-01-28  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
 	* howm-view.el (howm-sort-items-by-name, howm-sort-items-by-numerical-name):
