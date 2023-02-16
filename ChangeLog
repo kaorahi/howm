@@ -1,3 +1,12 @@
+2023-02-16  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* howm-mkmenu.el (howm-mkmenu-rules): use UTF-8 for *-ja.el
+	ref. https://osdn.net/projects/howm/ticket/47364
+
+	* howm-lang-ja.el: converted to UTF-8
+
+	* howm-menu-ja.el: ditto.
+
 2023-01-29  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
 	* configure.ac: version 1.5.1-snapshot2

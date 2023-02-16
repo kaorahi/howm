@@ -1,166 +1,166 @@
-;;; -*- Coding: iso-2022-7bit -*-
+;;; -*- Coding: utf-8-unix -*-
 ;;; automatically generated from ja/0000-00-00-000000.txt
 ;;; by howm-mkmenu.el.
 
 (require 'howm-vars)
 
 (howm-defconst-risky howm-menu-ja "= <<< %menu%
- %\"e\"[$BB.5-(B] %\"c\"[$B?75,(B] %\"D\"[$BJ#@=(B] $B8!:w(B(%\"s\"[$B8GDj(B] %\"g\"[$B@55,(B] %\"m\"[roma] %\"o\"[$B%PFb(B]) %\":\"[$B:rF|(B] %\".\"[$B:#F|(B]
- %\"a\"[$B0lMw(B] %\"l\"[$B:G6a(B] %\"A\"[$BA08e(B] %\"h\"[$BMzNr(B] %\"y\"[$BM=Dj(B] %\"t\"[Todo] %\"b\"[$BA4%P(B] %\"x\"[mark] %\"w\"[$B?lJb(B] [$B@_Dj(B]
- %\"K\"[$BBj",(B] [$BL>",(B] %\"d\"[$BF|"-(B] %\"T\"[$B;~"-(B] %\"i\"[$B80"-(B] %\"r\"[$B99?7(B] %\"R\"[menu $B99?7(B] [menu $BJT=8(B] [$BA4>C(B]
+ %\"e\"[速記] %\"c\"[新規] %\"D\"[複製] 検索(%\"s\"[固定] %\"g\"[正規] %\"m\"[roma] %\"o\"[バ内]) %\":\"[昨日] %\".\"[今日]
+ %\"a\"[一覧] %\"l\"[最近] %\"A\"[前後] %\"h\"[履歴] %\"y\"[予定] %\"t\"[Todo] %\"b\"[全バ] %\"x\"[mark] %\"w\"[酔歩] [設定]
+ %\"K\"[題↑] [名↑] %\"d\"[日↓] %\"T\"[時↓] %\"i\"[鍵↓] %\"r\"[更新] %\"R\"[menu 更新] [menu 編集] [全消]
 -------------------------------------
-[$BM=Dj!&(BTodo] $B!D(B $BM=Dj(B@, $B!:@Z(B! $B$r(B %sdays $BF|@h$^$GI=<((B.
-$B!:@Z(B!, todo+, $B3P=q(B-, $BJ]N1(B~ $B$r>e0L(B %tnum $B8D$^$GI=<((B.
+[予定・Todo] … 予定@, 〆切! を %sdays 日先まで表示.
+〆切!, todo+, 覚書-, 保留~ を上位 %tnum 個まで表示.
 %reminder
 -------------------------------------
-$B:G6a$N%a%b(B
+最近のメモ
 %recent
 -------------------------------------
-$B%i%s%@%`%;%l%/%H(B ($BITMW$J$i(B[menu $BJT=8(B]$B$G3:Ev2U=j$r:o=|$7$F$/$@$5$$(B)
+ランダムセレクト (不要なら[menu 編集]で該当箇所を削除してください)
 %random
 -------------------------------------
 
-$BM=Dj!&(Btodo $B$N=q<0(B ($B<B:]$OH>3Q$G(B)
-[2002-10-21]$B!w(B1  $BM=Dj(B ($BM=DjI=$KI=<(!#$b$7!w(B3$B$J$i(B3$BF|4V$NM=Dj!"$D$^$j(B23$BF|$^$G$N0UL#(B)
-[2002-10-21]$B!\(B7  todo $B;XDjF|$K$J$C$F$+$i(B7$BF|4V$+$1$F=y!9$KIb$+$SB3$1$k(B
-[2002-10-21]$B!*(B7  $B!:@Z(B $B;XDjF|$N(B7$BF|A0$+$i=y!9$KIb$+$S!";XDjF|0J9_Ib$-$C$Q$J$7(B
-[2002-10-21]$B!](B1  $B3P=q(B $B;XDjF|$KIb$+$S>e$,$j!"0J9_(B1$BF|$+$1$FC10LNL$@$1=y!9$KD@$`(B
-[2002-10-21]$B!A(B30 $BJ]N1(B $B;XDjF|$KIb$+$S>e$,$j!"0J9_(B30$BF|<~4|$GIb$-D@$_$r$/$j$+$($9(B
-[2002-10-21]$B!%(B   $B:Q$_(B $B>o$KDl(B
-($B5-9f$N8e$N?t;z$O%G%U%)%k%HCM(B)
+予定・todo の書式 (実際は半角で)
+[2002-10-21]＠1  予定 (予定表に表示。もし＠3なら3日間の予定、つまり23日までの意味)
+[2002-10-21]＋7  todo 指定日になってから7日間かけて徐々に浮かび続ける
+[2002-10-21]！7  〆切 指定日の7日前から徐々に浮かび、指定日以降浮きっぱなし
+[2002-10-21]−1  覚書 指定日に浮かび上がり、以降1日かけて単位量だけ徐々に沈む
+[2002-10-21]〜30 保留 指定日に浮かび上がり、以降30日周期で浮き沈みをくりかえす
+[2002-10-21]．   済み 常に底
+(記号の後の数字はデフォルト値)
 
-$B3P$(J}(B
-$B!&M=Dj$O$=$NF|$K7k$SIU$1$i$l$F$k$+$i(B@(at)
-$B!&3P=q$OD@$s$G$$$/$+$i(B-
-$B!&(Btodo$B$OIb$+$S>e$,$C$F$/$k$+$i(B+
-$B!&!:@Z$O$=$NF|$KCm0U$7$J$1$l$P$J$i$J$$$+$i(B!
-$B!&J]N1$OGHBG$D$+$i(B~
-$B!&:Q$_$O=*$o$j$@$+$i(B.
+覚え方
+・予定はその日に結び付けられてるから@(at)
+・覚書は沈んでいくから-
+・todoは浮かび上がってくるから+
+・〆切はその日に注意しなければならないから!
+・保留は波打つから~
+・済みは終わりだから.
 
 -------------------------------------
 
-[$B!{!{(B]$B$O2?(B?                    >>> %$B%\%?%s$N@bL@(B%
-$B$3$N%a%K%e!<<+BN$rJT=8$G$-$^$9(B >>> %$B%a%K%e!<$NJT=8$K$D$$$F(B%
-$B%a%b$,A}$($F$-$?$i!D(B           >>> %$B9bB.2=$K$D$$$F(B%
+[○○]は何?                    >>> %ボタンの説明%
+このメニュー自体を編集できます >>> %メニューの編集について%
+メモが増えてきたら…           >>> %高速化について%
 
 
-= <<< %$B%\%?%s$N@bL@(B%
+= <<< %ボタンの説明%
 
-$B"!(B $B:n@.(B
+◆ 作成
 
-[$B?75,(B] $B"*(B $B?75,%a%b:n@.(B ($B8=%j!<%8%g%s$,%?%$%H%k(B)
-[$BJ#@=(B] $B"*(B $B8=%a%b$rJ#@=(B ($B=;=jO?%F%s%W%l!<%H$J$I$NMQES$rA[Dj(B)
+[新規] → 新規メモ作成 (現リージョンがタイトル)
+[複製] → 現メモを複製 (住所録テンプレートなどの用途を想定)
 
-$B"!(B $B0lMw(B
+◆ 一覧
 
-[$B0lMw(B] $B"*(B $BA4%a%b$N0lMw(B
-[$B:G6a(B] $B"*(B $B:G6a$N%a%b$NO"7kI=<((B
-[$BA08e(B] $B"*(B $BA08e$N%a%b(B ($B8+$F$?%a%b$rCf?4$KA4%a%b$NF|IU=g0lMw(B)
-* $BBP>]%U%!%$%k$r(B($BJT=8%b!<%I$G(B)$B3+$$$?>uBV$+$i%a%K%e!<$r8F$V$3$H(B
-[$BMzNr(B] $B"*(B $B8!:wMzNr(B
-[$BM=Dj(B] $B"*(B $BM=DjI=(B
-[todo] $B"*(B todo $B0lMw(B
+[一覧] → 全メモの一覧
+[最近] → 最近のメモの連結表示
+[前後] → 前後のメモ (見てたメモを中心に全メモの日付順一覧)
+* 対象ファイルを(編集モードで)開いた状態からメニューを呼ぶこと
+[履歴] → 検索履歴
+[予定] → 予定表
+[todo] → todo 一覧
 
-$B"!(B $B8!:w(B
+◆ 検索
 
-[$B@55,(B] $B"*(B $B@55,I=8=$N8!:w(B
-* $B4pK\E*$K$OBgJ8;z>.J8;z$N6hJL$J$7(B
-  * $B!V(BWiki$B!W$N$h$&$KL@<(E*$KBgJ8;z$r;XDj$7$?$H$-$O6hJL(B
-[$B8GDj(B] $B"*(B $B%-!<%o!<%I$rJd40F~NO$7$F8GDjJ8;zNs$N8!:w(B
-[roma] $B"*(B $B%m!<%^;z8!:w(B (migemo)
-[$B:#F|(B] $B"*(B $B:#F|$N%a%b(B
-[$B:rF|(B] $B"*(B $B:rF|$N%a%b(B
+[正規] → 正規表現の検索
+* 基本的には大文字小文字の区別なし
+  * 「Wiki」のように明示的に大文字を指定したときは区別
+[固定] → キーワードを補完入力して固定文字列の検索
+[roma] → ローマ字検索 (migemo)
+[今日] → 今日のメモ
+[昨日] → 昨日のメモ
 
-$B"!(B $BJT=8(B: $BBP>]%U%!%$%k$r(B($BJT=8%b!<%I$G(B)$B3+$$$?>uBV$+$i%a%K%e!<$r8F$V$3$H(B
+◆ 編集: 対象ファイルを(編集モードで)開いた状態からメニューを呼ぶこと
 
-[$B99?7(B] $B"*(B $B2<@~$r0z$-$J$*$9(B
-[$B80"-(B] $B"*(B $B%-!<%o!<%I$rJd40F~NO$7$FE=$j$D$1(B
-* Tips: M-v $B$G8uJd0lMw$K0\$C$F(B migemo $B8!:w$9$k$H3Z(B
+[更新] → 下線を引きなおす
+[鍵↓] → キーワードを補完入力して貼りつけ
+* Tips: M-v で候補一覧に移って migemo 検索すると楽
 
-[$BF|"-(B] $B"*(B $B:#F|$NF|IU(B [yyyy-mm-dd] $B$rE=$j$D$1(B
-[$B;~"-(B] $B"*(B $B:#F|$NF|;~(B [yyyy-mm-dd HH:MM] $B$rE=$j$D$1(B
-[$BBj",(B] $B"*(B $B8=%a%b$N%?%$%H%k$r(B kill ring $B$X(B (C-y $B$GE=$j$D$1(B)
-* $B%?%$%H%k$,$_$D$+$i$J$+$C$?$H$-$O%U%!%$%kL>(B
-[$BL>",(B] $B"*(B $B%U%!%$%kL>$r(B kill ring $B$X(B
+[日↓] → 今日の日付 [yyyy-mm-dd] を貼りつけ
+[時↓] → 今日の日時 [yyyy-mm-dd HH:MM] を貼りつけ
+[題↑] → 現メモのタイトルを kill ring へ (C-y で貼りつけ)
+* タイトルがみつからなかったときはファイル名
+[名↑] → ファイル名を kill ring へ
 
-$B"!(B $BFCJL(B
+◆ 特別
 
-[menu $B99?7(B] $B"*(B $B%a%K%e!<$NM=DjI=$J$I$r99?7(B
-[menu $BJT=8(B] $B"*(B $B%a%K%e!<$rJT=8(B
-[$BA4>C(B] $B"*(B howm-mode $B$J%P%C%U%!$r$9$Y$F>C$9(B ($BL$J]B8$O=|$/(B)
-[$B?lJb(B] $B"*(B $B%i%s%@%`$K%j%s%/$r$?$I$C$F<+F01\Mw(B. C-g $B$GDd;_(B.
+[menu 更新] → メニューの予定表などを更新
+[menu 編集] → メニューを編集
+[全消] → howm-mode なバッファをすべて消す (未保存は除く)
+[酔歩] → ランダムにリンクをたどって自動閲覧. C-g で停止.
 
-= <<< %$B9bB.2=$K$D$$$F(B%
+= <<< %高速化について%
 
-$B%a%b$,A}$($F8!:w$,CY$/$J$C$F$-$?$i(B, $B9bB.2=$N$?$a$N%*%W%7%g%s@_Dj$r(B
-$B8!F$$7$F$/$@$5$$(B.
+メモが増えて検索が遅くなってきたら, 高速化のためのオプション設定を
+検討してください.
 
-$B:G$b8z2L$,Bg$-$$$N$O(B, $B8!:w$K(B grep $B%3%^%s%I$r;H$&$3$H$G$9(B.
-Unix $B7O$NI8=`E*$J4D6-$J$i(B, $B$?$$$F$$LdBj$J$/;H$($k$G$7$g$&(B.
-$B$=$l0J30$N4D6-$G$O(B, $B2?$i$+$N=`Hw$,I,MW$K$J$k$+$b$7$l$^$;$s(B.
+最も効果が大きいのは, 検索に grep コマンドを使うことです.
+Unix 系の標準的な環境なら, たいてい問題なく使えるでしょう.
+それ以外の環境では, 何らかの準備が必要になるかもしれません.
 
-$B3F4D6-$G6qBNE*$K$I$&$9$l$P$h$$$+$O!D>pJs$r$*BT$A$7$F$$$^$9(B.
-$B!&(Bhttps://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Windows
-$B!&(Bhttps://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus
+各環境で具体的にどうすればよいかは…情報をお待ちしています.
+・https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?Windows
+・https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?LinuxZaurus
 
-grep $B$N;HMQ$r@_Dj$9$k$K$O(B,
+grep の使用を設定するには,
   M-x customize-variable howm-view-use-grep
-$B$HF~NO$9$k$+(B, $B=i4|2=%U%!%$%k(B(.emacs $BEy(B)$B$KD>@\(B
+と入力するか, 初期化ファイル(.emacs 等)に直接
   (setq howm-view-use-grep t)
-$B$H=q$/$+(B, $B$"$k$$$O:#$3$N2hLL$G!V(B%\"!$B!W$r2!$7$F$/$@$5$$(B.\" %| %eval%(customize-variable 'howm-view-use-grep) %|
+と書くか, あるいは今この画面で「%\"!」を押してください.\" %| %eval%(customize-variable 'howm-view-use-grep) %|
 
-$B$=$NB>$N%*%W%7%g%s$K$D$$$F$O(B,
-[$B@_Dj(B] $B$+$i!V(BHowm Efficiency$B!W$N9`L\$r;2>H$/$@$5$$(B.
+その他のオプションについては,
+[設定] から「Howm Efficiency」の項目を参照ください.
 
 
-= <<< %$B%a%K%e!<$NJT=8$K$D$$$F(B%
-[menu $BJT=8(B] $B$G$3$N%a%K%e!<$rJT=8(B
-[menu $B99?7(B] $B$G$3$N%a%K%e!<$r99?7(B
+= <<< %メニューの編集について%
+[menu 編集] でこのメニューを編集
+[menu 更新] でこのメニューを更新
 --------------------------------------------------------
 
-$B%a%K%e!<$N=q$-J}(B
-([menu $BJT=8(B] $B>e$G%j%?!<%s$rC!$-(B, $B85%U%!%$%k$rFI$s$G$/$@$5$$(B)
+メニューの書き方
+([menu 編集] 上でリターンを叩き, 元ファイルを読んでください)
 
-$B"!(B $B4pK\(B
-$B8+$l$P$o$+$k$G$7$g$&$,(B,
-$B!&(B[$B!{!{(B] $B$H=q$$$?=j$,%\%?%s(B
-$B!&!s(Breminder $B$H(B($BH>3Q$G(B)$B=q$$$?=j$,M=DjI=$H(B todo list
-$B!&!s(Brecent $B$H(B($BH>3Q$G(B)$B=q$$$?=j$,(B, $B:G6a$N%a%b0lMw(B
-$B!&!s(Brandom $B$H(B($BH>3Q$G(B)$B=q$$$?=j$,(B, $B%i%s%@%`$J%a%b0lMw(B
-$B$K$J$j$^$9(B.
-$B$I$3$K=q$$$F$b5!G=$7$^$9$+$i(B, $BJB$Y$+$($k$J$j$J$s$J$j(B, $B$*9%$-$K$I$&$>(B.
-$B$h$/;H$&%U%!%$%k$d(B goto link $B$b=q$$$F$*$1$PJXMx$+$b(B.
-($BNc(B) file:///etc/services   >>> wiki
+◆ 基本
+見ればわかるでしょうが,
+・[○○] と書いた所がボタン
+・％reminder と(半角で)書いた所が予定表と todo list
+・％recent と(半角で)書いた所が, 最近のメモ一覧
+・％random と(半角で)書いた所が, ランダムなメモ一覧
+になります.
+どこに書いても機能しますから, 並べかえるなりなんなり, お好きにどうぞ.
+よく使うファイルや goto link も書いておけば便利かも.
+(例) file:///etc/services   >>> wiki
 
-$B"!(B $B%7%g!<%H%+%C%H(B
-%\"hoge\"[$B0lMw(B]
-$B",$3$&=q$$$F$*$/$H(B, $B!V(Bhoge[$B0lMw(B]$B!W$HI=<($5$l(B, $B%-!<(B h $B$G0lMw$r5/F0(B
-($B@53N$K$O(B, (1) $BJD$8!V(B\"$B!W$X0\F0(B (2) $B<!$N2<@~$^$G?J$`(B (3) action-lock $BH/F0(B)
-%\"fuga%\" $B"+(B $B$3$s$J$U$&$K:G8e$K(B % $B$r$D$1$k$H(B, $B%-!<(B f $B$G$=$3$K%+!<%=%k0\F0(B
+◆ ショートカット
+%\"hoge\"[一覧]
+↑こう書いておくと, 「hoge[一覧]」と表示され, キー h で一覧を起動
+(正確には, (1) 閉じ「\"」へ移動 (2) 次の下線まで進む (3) action-lock 発動)
+%\"fuga%\" ← こんなふうに最後に % をつけると, キー f でそこにカーソル移動
 
-$B"!(B lisper $B8~$1(B
+◆ lisper 向け
 
-$B!&I=<((B
-%here%howm-congrats-count  $B"+(B $BJQ?t(B howm-congrats-count $B$NCM$rKd$a9~$_(B
-%here%(howm-menu-search \"$B8!:w(B\")
-$B",(B($B!D(B) $B$N7k2L(B($B!V8!:w!W$N8!:w7k2L(B)$B$rKd$a9~$_(B
-$B"((B $B$?$@$7(B, $B;H$&4X?t$OEPO?$,I,MW(B ($B$*$C$+$J$$$+$i(B)
-(setq howm-menu-allow (append '(foo bar) howm-menu-allow)) ;; foo $B$H(B bar $B$r5v2D(B
+・表示
+%here%howm-congrats-count  ← 変数 howm-congrats-count の値を埋め込み
+%here%(howm-menu-search \"検索\")
+↑(…) の結果(「検索」の検索結果)を埋め込み
+※ ただし, 使う関数は登録が必要 (おっかないから)
+(setq howm-menu-allow (append '(foo bar) howm-menu-allow)) ;; foo と bar を許可
 
-$B!&F0:n(B
-S $B<0$r(B eval: %eval%(message (buffer-name))
-$B4X?t$r(B call-interactively: %call%find-file
-$B"((B $B$$$:$l$b(B, $B%a%K%e!<$r8F$VA0$N%P%C%U%!$GI>2A$5$l$^$9(B
+・動作
+S 式を eval: %eval%(message (buffer-name))
+関数を call-interactively: %call%find-file
+※ いずれも, メニューを呼ぶ前のバッファで評価されます
 
-$B"!(B $BIT2D;k(B
-$B!V!s(B|$B!W$H(B($BH>3Q$G(B)$B=q$/$H(B, $B2D;k!&IT2D;k$r%H%0%k(B.
-$B$3$s$J$U$&$K(B $B"*(B $B8+$($k(B%|$B8+$($J$$(B%|$B2D;k(B%|$BIT2D;k!D9TKv$^$G(B
-($B9TKv$,IT2D;k$@$H(B, $B2~9T$b>C$($^$9(B)
+◆ 不可視
+「％|」と(半角で)書くと, 可視・不可視をトグル.
+こんなふうに → 見える%|見えない%|可視%|不可視…行末まで
+(行末が不可視だと, 改行も消えます)
 
-$B"!(B $BJ#?t%a%K%e!<(B
-$B!V(B%$B!{!{(B%$B!W$X$N%j%s%/$O(B, $B!V!c!c!c(B %$B!{!{(B%$B!W$r%a%K%e!<%b!<%I$G3+$-$^$9(B: >>> %menu%
-$B?75,%a%K%e!<$rDI2C$7$?$$$H$-$O(B [[%menu%]] $B$NJ}$,JXMx$G$7$g$&(B ($B<+F0@8@.$9$k$N$G(B)
-$B;XDj%U%!%$%k$r%a%K%e!<%b!<%I$G3+$/(B: %eval%(howm-menu-open \"00000000-000000.txt\")
+◆ 複数メニュー
+「%○○%」へのリンクは, 「＜＜＜ %○○%」をメニューモードで開きます: >>> %menu%
+新規メニューを追加したいときは [[%menu%]] の方が便利でしょう (自動生成するので)
+指定ファイルをメニューモードで開く: %eval%(howm-menu-open \"00000000-000000.txt\")
 ")
 
 (provide 'howm-menu-ja)
