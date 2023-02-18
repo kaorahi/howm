@@ -304,6 +304,7 @@ key	binding
                            (howm-view-in-background-p))))
     (if (null r)
         (message "No match")
+      (howm-view-expire-uniq)
       ;; We want to entry font-lock keywords even when background-p.
       (when *howm-view-font-lock-keywords*
         (setq howm-view-font-lock-keywords *howm-view-font-lock-keywords*)))
@@ -590,11 +591,14 @@ But I'm not sure for multi-byte characters on other versions of emacsen."
 (defun howm-view-toggle-uniq ()
   (interactive)
   (if howm-view-uniq-previous
-      (let ((prev howm-view-uniq-previous))
-        (setq howm-view-uniq-previous nil)
-        (howm-view-summary-rebuild prev))
-    (setq howm-view-uniq-previous (howm-view-item-list))
-    (howm-view-filter-doit #'howm-filter-items-uniq)))
+      (howm-view-summary-rebuild howm-view-uniq-previous)
+    (let ((prev (howm-view-item-list)))
+      (howm-view-filter-doit #'howm-filter-items-uniq)
+      ;; need to set howm-view-uniq-previous AFTER rebuilding of
+      ;; the summary buffer because howm-view-expire-uniq is called in it.
+      (setq howm-view-uniq-previous prev))))
+(defun howm-view-expire-uniq ()
+  (setq howm-view-uniq-previous nil))
 
 (defun howm-view-filter-by-name (&optional remove-p regexp)
   (interactive "P")
