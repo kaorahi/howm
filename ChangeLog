@@ -1,5 +1,9 @@
 2023-02-18  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
+	* configure.ac: version 1.5.1-snapshot4
+
+2023-02-18  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
 	* howm-view.el (howm-view-toggle-uniq): fix buggy "u" key
 	By "C-c , s foo RET u C-c , s bar RET u", one got the old "foo" result.
 	thx > Andrei Sukhovskii san (qojop at tuta.io)
