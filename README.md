@@ -2,6 +2,7 @@
 
 Howm is a note-taking tool on Emacs. It is similar to emacs-wiki.el; you can enjoy hyperlinks and full-text search easily. It is not similar to emacs-wiki.el; it can be combined with any format.
 
+* [Home](http://howm.sourceforge.jp/) (It may be moved to GitHub in the near future.)
 * [Introduction by Leah Neukirchen](https://leahneukirchen.org/blog/archive/2022/03/note-taking-in-emacs-with-howm.html) (thx!)
 
 ## Project history
