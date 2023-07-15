@@ -1,5 +1,7 @@
 2023-07-15  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
+	* configure.ac: version 1.5.1-snapshot5
+
 	* howm-misc.el (howm-remember-submit):
 	make the blank line removable after the input text in howm-remember
 	thx > Andrei Sukhovskii san (qojop at tuta.io)
