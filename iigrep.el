@@ -45,6 +45,9 @@
 
 ;;; Code:
 
+(provide 'iigrep)
+(require 'howm)
+
 (require 'compile)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -359,6 +362,10 @@ Use '(\"-S\" \"migemo\" \"-t\" \"egrep\") for the original migemo.")
 
 ;; copied and modified from migemo-get-pattern in migemo.el (migemo-0.32)
 
+(when (not (fboundp 'migemo-init))
+  (defun migemo-init ()
+    (howm-inhibit-warning-in-compilation)))
+
 (defun iigrep-migemo-search (word continuation)
   (migemo-init)
   (set-process-filter migemo-process
@@ -400,10 +407,5 @@ Use '(\"-S\" \"migemo\" \"-t\" \"egrep\") for the original migemo.")
 
 ;; backward compatibility for my old .emacs
 (defun iigrep-define-key-for (command &optional force map))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; provide
-
-(provide 'iigrep)
 
 ;;; iigrep.el ends here

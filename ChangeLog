@@ -1,5 +1,8 @@
 2023-07-01  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
+	* iigrep.el: avoid warning in byte-compilation
+	"... is not known to be defined."
+
 	* howm-view.el: fix issue on dired-x
 	thx > Andrei Sukhovskii san (qojop at tuta.io)
 

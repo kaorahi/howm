@@ -63,11 +63,6 @@ schedules outside the range in %reminder in the menu.")
 
 ;; Fix me: redundant (howm-date-* & howm-reminder-*)
 
-;; (defun howm-reminder-regexp-grep (types)
-;;   (howm-inhibit-warning-in-compilation))
-;; (defun howm-reminder-regexp (types)
-;;   (howm-inhibit-warning-in-compilation))
-
 (if howm-reminder-old-format
     (progn ;; old format
       (defvar howm-reminder-regexp-grep-format
