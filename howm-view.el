@@ -1526,8 +1526,9 @@ matched can be nil, single, or multi."
 (howm-defvar-risky howm-view-dired-ls-command "ls")
 (howm-defvar-risky howm-view-dired-ls-options '("-l"))
 
-(defun dired-virtual (dir)
-  (howm-inhibit-warning-in-compilation))
+(when (not (fboundp 'dired-virtual))
+  (defun dired-virtual (dir)
+    (howm-inhibit-warning-in-compilation)))
 
 (defun howm-view-dired ()
   (interactive)
