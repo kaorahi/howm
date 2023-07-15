@@ -6,7 +6,7 @@
 
 ;; Author: HIRAOKA Kazuyuki <khi@users.osdn.me>
 ;; URL: https://howm.osdn.jp
-;; Version: 1.5.1-snapshot4
+;; Version: 1.5.1-snapshot5
 ;; Package-Requires: ((cl-lib "0.5"))
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(defconst howm-version "1.5.1-snapshot4")
+(defconst howm-version "1.5.1-snapshot5")
 
 ;; Files [0]-[3] have only hierarchical dependencies,
 ;; whereas files in [5] have circular dependencies.
