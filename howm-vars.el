@@ -875,6 +875,13 @@ so that highlighting works correctly."
   :type 'number
   :group 'howm-misc)
 
+(defcustom howm-remember-insertion-format "%s\n"
+  "*Format for insertion of the input text in `howm-remember'."
+  :type '(radio (const :tag "Blank line after the text." "%s\n")
+                (const :tag "No Blank line after the text." "%s")
+                string)
+  :group 'howm-misc)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Create
 

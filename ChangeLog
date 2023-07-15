@@ -1,3 +1,12 @@
+2023-07-15  HIRAOKA Kazuyuki  <khi@users.osdn.me>
+
+	* howm-misc.el (howm-remember-submit):
+	make the blank line removable after the input text in howm-remember
+	thx > Andrei Sukhovskii san (qojop at tuta.io)
+
+	* howm-vars.el (howm-remember-insertion-format):
+	ditto
+
 2023-07-01  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
 	* iigrep.el: avoid warning in byte-compilation

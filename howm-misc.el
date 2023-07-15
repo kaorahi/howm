@@ -617,7 +617,7 @@ and replace a sub-expression, e.g.
            (s (buffer-substring-no-properties (point-min) (point-max))))
       (set-window-configuration howm-remember-wconf)
       (howm-create-file-with-title title)
-      (insert s "\n")
+      (insert (format howm-remember-insertion-format s))
       (save-buffer)
       (kill-buffer (current-buffer))))
   (howm-remember-discard))
