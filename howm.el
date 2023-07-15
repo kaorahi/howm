@@ -25,10 +25,11 @@
 ;; USA.
 ;;--------------------------------------------------------------------
 
-;;; DESCRIPTION:
-;;; 
-;;; See README.
-;;; HOWM is acronym of "Hitori Otegaru Wiki Modoki".
+;;; Commentary:
+;; See README.
+;; HOWM is acronym of "Hitori Otegaru Wiki Modoki".
+
+;;; Code:
 
 (defconst howm-version "1.5.1-snapshot4")
 
