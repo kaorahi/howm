@@ -1,7 +1,7 @@
 ;;; howm-lang-ja.el --- Wiki-like note-taking tool
 ;;; -*- Coding: utf-8 -*-
 ;;; Copyright (C) 2005-2022
-;;;   HIRAOKA Kazuyuki <khi@users.osdn.me>
+;;;   HIRAOKA Kazuyuki <kakkokakko@gmail.com>
 ;;;
 ;;; This program is free software; you can redistribute it and/or modify
 ;;; it under the terms of the GNU General Public License as published by
