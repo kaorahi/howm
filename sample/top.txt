@@ -80,7 +80,7 @@ FOO
 Foo
 foo
 http://foo/bar/baz.html
->>> ../doc/s-screen-shot.png
+>>> ../doc/screen-shot.png
 hoge >>> foo >>> bar >>> baz > qux
 >>> top.txt
 >>> /tmp/

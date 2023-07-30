@@ -1,7 +1,7 @@
 EXTRA_DIST = CL-HOWM.ja.rd OLD.rd README.ja.rd README.rd TUTORIAL.ja.rd \
 	index-j.html index.html \
 	README-j.html README.html \
-	s-cat.png s-menu.png s-screen-shot.png s-search.png \
+	cat.png menu.png screen-shot.png search.png \
 	come.png go.png updown.png todo.png 
 MAINTAINERCLEANFILES = README-j.html README.html
 
