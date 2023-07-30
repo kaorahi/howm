@@ -5,7 +5,7 @@
 ;; Copyright (C) 2002, 2003, 2004, 2005-2022 HIRAOKA Kazuyuki
 
 ;; Author: HIRAOKA Kazuyuki <kakkokakko@gmail.com>
-;; URL: https://howm.osdn.jp
+;; URL: https://kaorahi.github.io/howm/
 ;; Version: @VERSION@
 ;; Package-Requires: ((cl-lib "0.5"))
 
