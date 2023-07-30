@@ -1,0 +1,241 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>README.rd</title>
+</head>
+<body>
+<h1><a name="label-0" id="label-0">howm tutorial</a></h1><!-- RDLabel: "howm tutorial" -->
+<h2><a name="label-1" id="label-1">First day</a></h2><!-- RDLabel: "First day" -->
+<h3><a name="label-2" id="label-2">Write a note.</a></h3><!-- RDLabel: "Write a note." -->
+<ul>
+<li><p>Type Ctrl-C , , to open the menu.</p>
+<pre>[New] Search([String] [Regexp]) [Dup] [&lt;Title] [&lt;Name] [Date&gt;] [Key&gt;] [Update]
+[All] [Recent] [Schedule] [Todo] [Update Menu]</pre></li>
+<li><p>Confirm the cursor is on [New], and type [return] there to open new note.</p>
+<pre>= 
+[2002-09-16 20:08] &gt;&gt;&gt; /home/hira/elisp/howm/howm-mode.el</pre></li>
+<li><p>Write anything.</p>
+<pre>= First note
+[2002-09-16 20:08] &gt;&gt;&gt; /home/hira/elisp/howm/howm-mode.el
+foo
+bar
+baz</pre></li>
+</ul>
+<h2><a name="label-3" id="label-3">Second day</a></h2><!-- RDLabel: "Second day" -->
+<h3><a name="label-4" id="label-4">Write today's note.</a></h3><!-- RDLabel: "Write today's note." -->
+<ul>
+<li>Type Ctrl-C , , and type [return] on [New]. Then, write freely.</li>
+</ul>
+<h3><a name="label-5" id="label-5">Read notes.</a></h3><!-- RDLabel: "Read notes." -->
+<ul>
+<li><p>Type Ctrl-C , , to open the menu.</p>
+<pre>[New] Search([String] [Regexp]) [Dup] [&lt;Title] [&lt;Name] [Date&gt;] [Key&gt;] [Update]
+[All] [Recent] [Schedule] [Todo] [Update Menu]</pre></li>
+<li>Move the cursor to [All] and type [return] there to browse all notes.</li>
+<li>Move the cursor up and down to view each note.</li>
+<li>Type [space] and [backspace] to scroll the note.</li>
+<li>Type [return] to open the note.</li>
+</ul>
+<h3><a name="label-6" id="label-6">Concatenate notes.</a></h3><!-- RDLabel: "Concatenate notes." -->
+<ul>
+<li>Type Ctrl-C , , to open the menu.</li>
+<li>Move the cursor to [All] and type [return].</li>
+<li>Type @ to concatenate all notes.</li>
+<li>Type [space] and [backspace] to scroll the notes.</li>
+<li>Type @ to toggle summary-view and concatenated-view.</li>
+<li>Type [return] to open the note.</li>
+</ul>
+<h3><a name="label-7" id="label-7">Search a word in notes.</a></h3><!-- RDLabel: "Search a word in notes." -->
+<ul>
+<li>Type Ctrl-C , , to open the menu.</li>
+<li><p>Move the cursor to [String] and type [return] there to search for a string.</p>
+<pre>Keyword:</pre></li>
+<li><p>Input a string.</p>
+<pre>Keyword: foo</pre></li>
+<li>Type [return] to browse matched notes.</li>
+</ul>
+<h3><a name="label-8" id="label-8">Search a phrase in notes.</a></h3><!-- RDLabel: "Search a phrase in notes." -->
+<ul>
+<li>Type Ctrl-C , , to open the menu.</li>
+<li>Move the cursor to [String] and type [return].</li>
+<li><p>Input a string. Type Ctrl-q and [space] to input a whitespace.</p>
+<pre>Keyword: hoge fuga</pre></li>
+<li>Type [return] to browse matched notes.</li>
+</ul>
+<h2><a name="label-9" id="label-9">Third day</a></h2><!-- RDLabel: "Third day" -->
+<h3><a name="label-10" id="label-10">Try goto link.</a></h3><!-- RDLabel: "Try goto link." -->
+<ul>
+<li>Ctrl-C , , and [return] on [New] to open new note.</li>
+<li><p>Write '&gt;&gt;&gt; foo'.</p>
+<pre>= 
+[2002-09-17 20:15]
+&gt;&gt;&gt; foo</pre></li>
+<li>A line is drawn under it.
+  Move the cursor on it and type [return] to search for 'foo' in all notes.</li>
+</ul>
+<h3><a name="label-11" id="label-11">Try come-from link.</a></h3><!-- RDLabel: "Try come-from link." -->
+<ul>
+<li><p>Write '&lt;&lt;&lt; hoge' in today's note.</p>
+<pre>= 
+[2002-09-17 20:15]
+&gt;&gt;&gt; foo
+&lt;&lt;&lt; hoge</pre></li>
+<li>Move the cursor on '&lt;&lt;&lt;' and type [return] to search for 'hoge' in all notes.</li>
+<li>Select the first day's note and type [return] to open it.</li>
+<li>A line is drawn under 'hoge'.
+  Move the cursor on it and type [return] to search for 'hoge' in all notes.</li>
+<li>Remember that '&lt;&lt;&lt; hoge' is always shown first when you search for 'hoge'.
+  Others are sorted by their modification time.</li>
+</ul>
+<h3><a name="label-12" id="label-12">Search come-from keyword with completion.</a></h3><!-- RDLabel: "Search come-from keyword with completion." -->
+<ul>
+<li><p>Ctrl-C , , and [return] on [String] to search for a keyword.</p>
+<pre>Keyword:</pre></li>
+<li><p>Type 'ho' and type [space] to complete come-from keyword 'hoge'.</p>
+<pre>Keyword: hoge</pre></li>
+<li>Type [return] to search for 'hoge'.</li>
+</ul>
+<h2><a name="label-13" id="label-13">Fourth day</a></h2><!-- RDLabel: "Fourth day" -->
+<h3><a name="label-14" id="label-14">Sort notes.</a></h3><!-- RDLabel: "Sort notes." -->
+<ul>
+<li>Ctrl-C , , and [return] on [All] to browse all notes.</li>
+<li><p>Type S to sort notes.</p>
+<pre>Sort by:</pre></li>
+<li>Type [space] to show available criteria.</li>
+<li><p>Type 'da' and type [space] to complete 'date'.</p>
+<pre>Sort by: date</pre></li>
+<li>Type [return] to execute it.</li>
+</ul>
+<h3><a name="label-15" id="label-15">Filter notes.</a></h3><!-- RDLabel: "Filter notes." -->
+<ul>
+<li>Ctrl-C , , and [return] on [All] to browse all notes.</li>
+<li><p>Type f to filter notes.</p>
+<pre>Filter by:</pre></li>
+<li>Type [space] to show available criteria.</li>
+<li><p>Type 'co' and type [space] to complete 'contents'.</p>
+<pre>Filter by: contents</pre></li>
+<li><p>Type [return] and input 'foo'.</p>
+<pre>Search in result (grep): foo</pre></li>
+<li>Type [return] to execute it.</li>
+</ul>
+<h3><a name="label-16" id="label-16">Read help.</a></h3><!-- RDLabel: "Read help." -->
+<ul>
+<li>Ctrl-C , , and [return] on [All] to browse all notes.</li>
+<li>Type ? and read the help message.</li>
+</ul>
+<h3><a name="label-17" id="label-17">Use shortcut.</a></h3><!-- RDLabel: "Use shortcut." -->
+<ul>
+<li>Type Ctrl-C , c to create new note.</li>
+</ul>
+<h2><a name="label-18" id="label-18">Fifth day</a></h2><!-- RDLabel: "Fifth day" -->
+<h3><a name="label-19" id="label-19">Input todo.</a></h3><!-- RDLabel: "Input todo." -->
+<ul>
+<li>Type Ctrl-C , c to create new note.</li>
+<li><p>Write as follows.</p>
+<pre>[2003-09-10]- foo
+[2003-09-10]+ bar
+[2003-09-10]! baz
+[2003-09-10]~ qux</pre></li>
+</ul>
+<h3><a name="label-20" id="label-20">Browse todo.</a></h3><!-- RDLabel: "Browse todo." -->
+<ul>
+<li>Ctrl-C , , and [return] on [Todo] to browse all todo.</li>
+<li>Move cursor and type [return] to open the note.</li>
+<li>Type Ctrl-C , , to show the head of todo under the menu.</li>
+<li><p>Items are sorted by a magic criterion.</p>
+<pre>- sink after the date (reminder)
++ float after the date (todo)
+! float until the date (deadline)
+~ sink and float periodically after the date (defer)</pre></li>
+</ul>
+<h3><a name="label-21" id="label-21">Finish todo.</a></h3><!-- RDLabel: "Finish todo." -->
+<ul>
+<li>Ctrl-C , , and [return] on [Todo] to browse all todo.</li>
+<li><p>Move cursor and type [return] to open the note.</p>
+<pre>[2003-09-10]- foo</pre></li>
+<li><p>Move cursor on - and type [return] to show todo-menu.</p>
+<pre>RET (done), x (cancel), symbol (type), num(laziness): </pre></li>
+<li><p>Type [return] to finish this todo.</p>
+<pre>[2003-09-10]. [2003-09-10]:- foo</pre></li>
+</ul>
+<h3><a name="label-22" id="label-22">Input schedule.</a></h3><!-- RDLabel: "Input schedule." -->
+<ul>
+<li>Type Ctrl-C , c to create new note.</li>
+<li><p>Write as follows.</p>
+<pre>[2003-09-10]@ hoge</pre></li>
+</ul>
+<h3><a name="label-23" id="label-23">Browse schedule.</a></h3><!-- RDLabel: "Browse schedule." -->
+<ul>
+<li>Ctrl-C , , and [return] on [Schedule] to browse all schedule.</li>
+<li>Type [space] and [backspace] to scroll the list.</li>
+<li>Type . to jump to today.</li>
+<li>Type Ctrl-C , , to show the head of schedule under the menu.</li>
+<li>Type [return] on &gt; at the beginning of line to open the corresponding note.</li>
+</ul>
+<h3><a name="label-24" id="label-24">Input recurring tasks.</a></h3><!-- RDLabel: "Input recurring tasks." -->
+<ul>
+<li><p>move cursor to '2003-09-10' on the below form in the opened note.</p>
+<pre>[2003-09-10]@ hoge</pre></li>
+<li><p>Type [return] to show date-menu.</p>
+<pre>[Wed] RET(goto), +num(shift), yymmdd(set), ~yymmdd(repeat), .(today): </pre></li>
+<li><p>Input ~031231 [return] and then type m [return] to the below question.</p>
+<pre>Every? [RET(all), num(days) w(week), m(month), y(year)] </pre></li>
+<li><p>And monthly tasks are added automatically until 2003-12-31.</p>
+<pre>[2003-09-10]@ hoge
+[2003-10-10]@ hoge
+[2003-11-10]@ hoge
+[2003-12-10]@ hoge</pre></li>
+<li>You can use '~1231' instead of '~031231' to input same-year items.</li>
+</ul>
+<h2><a name="label-25" id="label-25">Sixth day</a></h2><!-- RDLabel: "Sixth day" -->
+<h3><a name="label-26" id="label-26">Try action-lock { }.</a></h3><!-- RDLabel: "Try action-lock { }." -->
+<ul>
+<li>Type Ctrl-C , c to create new note.</li>
+<li><p>Write { }.</p>
+<pre>{ }</pre></li>
+<li><p>Move cursor on { } and type [return].</p>
+<pre>{*}</pre></li>
+<li><p>Type [return] again.</p>
+<pre>{-}</pre></li>
+</ul>
+<h3><a name="label-27" id="label-27">Try action-lock {_}.</a></h3><!-- RDLabel: "Try action-lock {_}." -->
+<ul>
+<li>Type Ctrl-C , c to create new note.</li>
+<li><p>Write {_}.</p>
+<pre>{_}</pre></li>
+<li><p>Move cursor on {_} and type [return].</p>
+<pre>[2003-09-10 04:12]</pre></li>
+</ul>
+<h3><a name="label-28" id="label-28">Try aliases.</a></h3><!-- RDLabel: "Try aliases." -->
+<ul>
+<li><p>Write '&lt;&lt;&lt; hoge &lt;&lt;&lt; fuga &lt;&lt;&lt; piyo' in a note.</p>
+<pre>= 
+[2002-09-17 20:15]
+&lt;&lt;&lt; hoge &lt;&lt;&lt; fuga &lt;&lt;&lt; piyo</pre></li>
+<li>Write 'hoge' in another note.</li>
+<li>Write 'fuga' in yet another note.</li>
+<li>Put cursor on 'fuga' and type [return].
+  You will see all 'hoge', 'fuga', and 'piyo' are found together.</li>
+</ul>
+<h2><a name="label-29" id="label-29">Seventh day</a></h2><!-- RDLabel: "Seventh day" -->
+<h3><a name="label-30" id="label-30">Try customization.</a></h3><!-- RDLabel: "Try customization." -->
+<ul>
+<li>Type Ctrl-C , , to show the menu.</li>
+<li>Move cursor on [Preference] and type [return].</li>
+<li>Watch customization items and modify them if you like.</li>
+</ul>
+<h3><a name="label-31" id="label-31">Try editing menu.</a></h3><!-- RDLabel: "Try editing menu." -->
+<ul>
+<li>Type Ctrl-C , , to show the menu.</li>
+<li>Move cursor on [Edit Menu] and type [return].</li>
+<li>Delete the line '%random', and type Ctrl-C , , to observe its effect.</li>
+<li>Again try [Edit Menu] and write '%random' to restore it.</li>
+<li>Type Ctrl-C , , and move cursor to '%Editing Menu%' at the bottom.</li>
+<li>Type [return] and read documentation of menu syntax.</li>
+</ul>
+
+</body>
+</html>
