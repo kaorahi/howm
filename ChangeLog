@@ -1,3 +1,8 @@
+2023-12-15  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-vars.el (howm-iigrep-show-what):
+	change default value from "Off" to "Counts"
+
 2023-12-14  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-misc.el (howm-narrow-to-memo, howm-toggle-narrow):
