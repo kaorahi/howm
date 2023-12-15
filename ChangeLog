@@ -1,5 +1,7 @@
 2023-12-15  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
+	* configure.ac: version 1.5.1-snapshot6
+
 	* howm-vars.el (howm-iigrep-show-what):
 	change default value from "Off" to "Counts"
 
