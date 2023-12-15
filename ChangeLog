@@ -1,3 +1,10 @@
+2023-12-14  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-misc.el (howm-narrow-to-memo, howm-toggle-narrow):
+	add docstrings as a workaround for a possible bug of
+	disabled-command-function in emacs-29
+	thx > Andrei Sukhovskii san (qojop at tuta.io)
+
 2023-12-03  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* README.md: add link to YouTube video

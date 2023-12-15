@@ -427,10 +427,12 @@ and replace a sub-expression, e.g.
 ;;; narrowing
 
 (defun howm-narrow-to-memo ()
+  "Restrict editing in this buffer to the current memo."
   (interactive)
   (apply #'narrow-to-region (howm-view-paragraph-region t)))
 
 (defun howm-toggle-narrow ()
+  "Toggle whether to restrict editing in this buffer to the current memo."
   (interactive)
   (if (howm-narrow-p)
       (widen)
