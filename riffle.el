@@ -1,5 +1,5 @@
 ;;; riffle.el --- template of list browser with immediate preview
-;;; Copyright (C) 2004, 2005-2022
+;;; Copyright (C) 2004, 2005-2023
 ;;;   HIRAOKA Kazuyuki <kakkokakko@gmail.com>
 ;;;
 ;;; This program is free software; you can redistribute it and/or modify

@@ -1,5 +1,5 @@
 ;;; howm-view.el --- Wiki-like note-taking tool
-;;; Copyright (C) 2002, 2003, 2004, 2005-2022
+;;; Copyright (C) 2002, 2003, 2004, 2005-2023
 ;;;   HIRAOKA Kazuyuki <kakkokakko@gmail.com>
 ;;;
 ;;; This program is free software; you can redistribute it and/or modify

@@ -1,6 +1,6 @@
 ;;; honest-report.el --- make bug report with screenshot and keylog
 
-;; Copyright (C) 2005-2022
+;; Copyright (C) 2005-2023
 ;;   HIRAOKA Kazuyuki <kakkokakko@gmail.com>
 ;;
 ;; This program is free software; you can redistribute it and/or modify
