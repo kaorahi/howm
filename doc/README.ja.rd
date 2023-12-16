@@ -910,6 +910,14 @@ Emacs で断片的なメモをどんどんとるための環境です.
 
 thx > patch・改良案・指摘をくださった皆様
 
+* リリース予定版 howm-1.5.1-snapshot6 [2023-12-17]
+  * インクリメンタル grep をデフォルトでオンに
+    * 検索文字列の入力途中で (RET を押す前に) 随時 grep
+    * M-x customize-variable RET howm-view-use-grep RET が On の場合のみ発動
+    * 設定変更は M-x customize-group RET howm-iigrep RET
+  * 英語ページにリンクを追加 (ロシア語マニュアル, 紹介動画)
+  * 細かなバグを修正
+
 * リリース版 howm-1.5.0 [2022-12-27]
   * インクリメンタル grep (デフォルトではオフ)
     * 検索文字列の入力途中で (RET を押す前に) 随時 grep
