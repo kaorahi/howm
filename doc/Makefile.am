@@ -8,7 +8,7 @@ MAINTAINERCLEANFILES = README-j.html README.html
 doc_DATA = $(EXTRA_DIST)
 
 README-j.html: README.ja.rd
-	rd2 README.ja.rd > README-j.html
+	rd2 README.ja.rd | nkf -w > README-j.html
 
 README.html: README.rd
 	rd2 README.rd > README.html
