@@ -7,951 +7,951 @@
 <title>README.ja.rd</title>
 </head>
 <body>
-<h1><a name="label-0" id="label-0">howm (��ͤ���� Wiki ��ɤ�)</a></h1><!-- RDLabel: "howm (��ͤ���� Wiki ��ɤ�)" -->
-<p>Emacs ������Ū�ʥ���ɤ�ɤ�Ȥ뤿��δĶ��Ǥ�.
-ʬ�ൡǽ�Ϥ����ƤĤ��ޤ���.
-������, ��ʸ�����ȥ��֥�󥯤���ڤˤǤ���褦�ˤ��ޤ���.
-��ͳ�񼰤ʤΤǲ��������� :-)</p>
-<h2><a name="label-1" id="label-1">�ܼ�</a></h2><!-- RDLabel: "�ܼ�" -->
+<h1><a name="label-0" id="label-0">howm (一人お手軽 Wiki もどき)</a></h1><!-- RDLabel: "howm (一人お手軽 Wiki もどき)" -->
+<p>Emacs で断片的なメモをどんどんとるための環境です.
+分類機能はあえてつけません.
+かわりに, 全文検索とメモ間リンクが手軽にできるようにしました.
+自由書式なので改宗も不要 :-)</p>
+<h2><a name="label-1" id="label-1">目次</a></h2><!-- RDLabel: "目次" -->
 <ul>
-<li><a href="#label-2">�Ȥ���</a> ��
-  <a href="#label-3">����񤳤�</a>��<a href="#label-4">�����ɤ⤦</a>��<a href="#label-5">��ޥ����</a></li>
-<li><a href="#label-6">Ƴ��ˡ</a> ��
-  <a href="#label-7">���󥹥ȡ���</a>��<a href="#label-12">�������ޥ���</a>��<a href="#label-13">�����ġ���</a></li>
-<li><a href="#label-14">����</a> ��
-  <a href="#label-15">�����ˤĤ���</a>��<a href="#label-16">ư���ޤ����?</a></li>
-<li><a href="#label-17">����</a> ��
-  <a href="#label-18">����</a>��<a href="#label-19">������Ͽ</a>��<a href="#label-20">���ɥ쥹</a></li>
+<li><a href="#label-2">使い方</a> …
+  <a href="#label-3">メモを書こう</a>／<a href="#label-4">メモを読もう</a>／<a href="#label-5">リマインダ</a></li>
+<li><a href="#label-6">導入法</a> …
+  <a href="#label-7">インストール</a>／<a href="#label-12">カスタマイズ</a>／<a href="#label-13">外部ツール</a></li>
+<li><a href="#label-14">実装</a> …
+  <a href="#label-15">実装について</a>／<a href="#label-16">動きませんよ?</a></li>
+<li><a href="#label-17">備考</a> …
+  <a href="#label-18">参考</a>／<a href="#label-19">更新記録</a>／<a href="#label-20">アドレス</a></li>
 </ul>
-<h2><a name="label-2" id="label-2">�Ȥ���</a></h2><!-- RDLabel: "�Ȥ���" -->
+<h2><a name="label-2" id="label-2">使い方</a></h2><!-- RDLabel: "使い方" -->
 <ul>
-<li>�����������ꤹ���Ʋ��������
-  �� ���<a href="TUTORIAL.ja.rd">���塼�ȥꥢ��</a>��ɤ���</li>
-<li>��ͳ�٤��ꤹ���Ƥɤ��Ȥ��Ф������
-  �� <a href="index-j.html#hint">����ʤդ��˻Ȥ��ޤ�</a></li>
+<li>いろいろありすぎて何が何やら
+  → 先に<a href="TUTORIAL.ja.rd">チュートリアル</a>をどうぞ</li>
+<li>自由度ありすぎてどう使えばいいやら
+  → <a href="index-j.html#hint">こんなふうに使えます</a></li>
 </ul>
-<h3><a name="label-3" id="label-3">����񤳤�</a></h3><!-- RDLabel: "����񤳤�" -->
+<h3><a name="label-3" id="label-3">メモを書こう</a></h3><!-- RDLabel: "メモを書こう" -->
 <p>(howm-mode)</p>
 <ul>
-<li>���
+<li>手順
 <ul>
-<li>C-c , , (M-x howm-menu) �ǥ�˥塼��Ф�,
-    [����] �˥��������֤��ƥ꥿���� �� �ֺ����Υ��פ򳫤�
+<li>C-c , , (M-x howm-menu) でメニューを出し,
+    [新規] にカーソル置いてリターン → 「今日のメモ」を開く
 <ul>
-<li>�ޤ���, ľ�� C-c , c (M-x howm-create)</li>
+<li>または, 直接 C-c , c (M-x howm-create)</li>
 </ul></li>
-<li><p>����ʥƥ�ץ졼�Ȥ�ɽ�������</p>
-<pre>= �� ��(�����ȥ���)
+<li><p>こんなテンプレートが表示される</p>
+<pre>= ■ ←(タイトル欄)
 [2002-09-16 20:08] &gt;&gt;&gt; /home/hira/elisp/howm/howm-mode.el
-��(������ &amp; �������˸��Ƥ��ե�����)</pre>
+↑(作成日 &amp; その前に見てたファイル)</pre>
 <ul>
-<li>���Ƥ��ե����뤬���פʤ�, undo (C-x u ���� C-_ ����) �Ǿä�</li>
-<li>�ƥ�ץ졼�ȼ��Τ����פʤ�, ³���Ƥ⤦���� undo</li>
+<li>見てたファイルが不要なら, undo (C-x u だか C-_ だか) で消す</li>
+<li>テンプレート自体が不要なら, 続けてもう一度 undo</li>
 </ul></li>
-<li>�����ʤ��Ȥ򹥤��ʤ褦�˽�</li>
-<li>�������.</li>
+<li>好きなことを好きなように書く</li>
+<li>そんだけ.</li>
 </ul></li>
-<li>�����ȥ��� (1 �ե�����ʣ�����)
+<li>タイトル欄 (1 ファイル複数メモ)
 <ul>
-<li><p>���Τ褦�˽񤯤�, foo �� bar �������ȥ�</p>
+<li><p>次のように書くと, foo と bar がタイトル</p>
 <pre>= foo
-(�� �ۤ��ۤ� ��)
+(… ほげほげ …)
 = bar
-(�� �դ��դ� ��)</pre>
+(… ふがふが …)</pre>
 <ul>
-<li>Ϣ��ɽ���Ǥ�, (�� �ۤ��ۤ� ��) �� (�� �դ��դ� ��) ���ҤȤ����ޤ�</li>
+<li>連結表示では, (… ほげほげ …) や (… ふがふが …) がひとかたまり</li>
 </ul></li>
-<li><p>���Τʽ񼰤�,</p>
-<pre>(��Ƭ)=(����)(�����ȥ�)(����)</pre>
+<li><p>正確な書式は,</p>
+<pre>(行頭)=(空白)(タイトル)(行末)</pre>
 <ul>
-<li>�񼰤��ѹ��� (��<a href="#label-12">�������ޥ���</a>)</li>
+<li>書式は変更可 (→<a href="#label-12">カスタマイズ</a>)</li>
 </ul></li>
-<li><p>�����ȥ�ʤ���, ñ�˥��ζ��ڤ�Ȥ��ƻȤ������Ǥ� OK</p>
-<pre>(�� �ۤ��ۤ� ��)
+<li><p>タイトルなしで, 単にメモの区切りとして使うだけでも OK</p>
+<pre>(… ほげほげ …)
 = 
-(�� �դ��դ� ��)
+(… ふがふが …)
 = 
-(�� �ؤ��ؤ� ��)</pre></li>
+(… へろへろ …)</pre></li>
 </ul></li>
-<li>���Τ褦�˽񤯤ȥ��
+<li>次のように書くとリンク
 <ul>
-<li><p>goto ���: �ե�����(�ǥ��쥯�ȥ�)̾ or �ޤޤ��ʸ����</p>
+<li><p>goto リンク: ファイル(ディレクトリ)名 or 含まれる文字列</p>
 <pre>&gt;&gt;&gt; ~/.emacs
 &gt;&gt;&gt; /usr/src
-&gt;&gt;&gt; �ۤ��ۤ�</pre>
+&gt;&gt;&gt; ほげほげ</pre>
 <ul>
-<li>��ʸ��ˡ֤ۤ��ۤ��פȤ���ʸ�����ޤ���ؤΥ��</li>
+<li>本文中に「ほげほげ」という文字列を含むメモへのリンク</li>
 </ul></li>
-<li><p>come-from ���: ¾�Υ��ǡ֤դ��դ��פȤ���ʸ���󤬽ФƤ�����,
-    ����֤��Υ��ؤΥ�󥯤�</p>
-<pre>&lt;&lt;&lt; �դ��դ�</pre>
+<li><p>come-from リンク: 他のメモで「ふがふが」という文字列が出てきたら,
+    ぜんぶこのメモへのリンクに</p>
+<pre>&lt;&lt;&lt; ふがふが</pre>
 <ul>
-<li>����
+<li>参考
       <a href="http://catb.org/~esr/jargon/html/C/COME-FROM.html">Jargon: COME-FROM</a></li>
 </ul></li>
-<li><p>Wiki �����: goto ��Ʊ��. ��������&lt;&lt;&lt; �ؤ��ؤ��פ��⤷�ʤ���к��.</p>
-<pre>[[�ؤ��ؤ�]]</pre></li>
+<li><p>Wiki 風リンク: goto と同じ. ただし「&lt;&lt;&lt; へろへろ」がもしなければ作る.</p>
+<pre>[[へろへろ]]</pre></li>
 </ul></li>
-<li>��󥯤ˤϲ������������. �����˥���������äƤäƥ꥿���󥭡�!
+<li>リンクには下線が引かれる. 下線にカーソル持ってってリターンキー!
 <ul>
-<li>�����ե�����ΰ�����ɽ������� (��<a href="#label-4">�����ɤ⤦</a>)
+<li>該当ファイルの一覧が表示される (→<a href="#label-4">メモを読もう</a>)
 <ul>
-<li><p>���Ȥ���, ��&gt;&gt;&gt; emacs�פʤ餳��ʰ���</p>
-<pre>&lt;&lt;&lt; emacs             �� ���Ф�� come-from ����򤷤����
-&lt;&lt;&lt; emacs lisp        �� ��emacs�פ�ޤ� come-from ������������
-&lt;&lt;&lt; ���� emacs lisp
-grep, ruby, emacs �� regexp �ΰ㤤 �� ��ʸ��ˡ�emacs�פ�ޤ���
-emacs �Ѹ����ġ���?[2001-08-13]       (��������)
-��</pre></li>
-<li>�ɤߤ������˥������뤢�碌�ƥ꥿���󥭡�!
-      �� ���Υ��򳫤�</li>
+<li><p>たとえば, 「&gt;&gt;&gt; emacs」ならこんな一覧</p>
+<pre>&lt;&lt;&lt; emacs             ← ずばりの come-from 宣言をしたメモ
+&lt;&lt;&lt; emacs lisp        ← 「emacs」を含む come-from を宣言したメモ
+&lt;&lt;&lt; 自作 emacs lisp
+grep, ruby, emacs の regexp の違い ← 本文中に「emacs」を含むメモ
+emacs 用検索ツール?[2001-08-13]       (新しい順)
+…</pre></li>
+<li>読みたいメモにカーソルあわせてリターンキー!
+      → そのメモを開く</li>
 </ul></li>
-<li>΢��
+<li>裏技
 <ul>
-<li>come-from ��󥯤� &lt;&lt;&lt; ��ǥ꥿���� �� �ִ�Ϣ������ɡפؤΥ��
+<li>come-from リンクの &lt;&lt;&lt; 上でリターン → 「関連キーワード」へのリンク
 <ul>
-<li>��
+<li>例
 <ul>
-<li>�ּ���ס�lisp�פ� come-from ������ɤΤȤ�</li>
-<li>��&lt;&lt;&lt; ����� lisp�פξ�ǥ꥿����
-          �� �ּ���ס�lisp�פ�ޤ७����ɤ��ҥå�</li>
-</ul></li>
-</ul></li>
-<li>�����ˡ�&lt;&lt;&lt; foo &lt;&lt;&lt; bar &lt;&lt;&lt; baz�פȽ񤱤�, ��alias��
-<ul>
-<li>foo, bar, baz �Τɤ�ǥ꥿�����á���Ƥ�
-        ��foo �ޤ��� bar �ޤ��� baz�פθ����ˤʤ�ޤ�</li>
-<li>Tips: �ߤ��ˤ����ꤿ������ alias �Ǻ�����ΤϷ�, �Ȥ������ˤϡ�
-<ul>
-<li>�ɤ����ˡ�&lt;&lt;&lt; foo��</li>
-<li>�̤Τɤ����ˡ�foo &lt;&lt;&lt; bar��</li>
-<li>���������, foo��bar �ɤ���Ǹ������Ƥ��foo &lt;&lt;&lt; bar�פ���̤�</li>
+<li>「自作」「lisp」が come-from キーワードのとき</li>
+<li>「&lt;&lt;&lt; 自作の lisp」の上でリターン
+          → 「自作」「lisp」を含むキーワードがヒット</li>
 </ul></li>
 </ul></li>
-</ul></li>
-</ul></li>
-<li>��󥯤ο���
+<li>メモ中に「&lt;&lt;&lt; foo &lt;&lt;&lt; bar &lt;&lt;&lt; baz」と書けば, 「alias」
 <ul>
-<li>�¤�ñ��, ��grep �դ��դ��פΥ��硼�ȥ��åȤ��ä���</li>
-<li>come-from ��󥯤θ���
+<li>foo, bar, baz のどれでリターンを叩いても
+        「foo または bar または baz」の検索になります</li>
+<li>Tips: 互いにたぐりたいけど alias で混ぜるのは嫌, という場合には…
 <ul>
-<li>���Υ�����ɤ��ФƤ�����, ��ưŪ�˥��(= ����)�ˤ��Ƥ���</li>
-<li>���Υ�����ɤ򸡺������Ȥ���, ��Ƭ��ɽ�����Ƥ���</li>
+<li>どこかに「&lt;&lt;&lt; foo」</li>
+<li>別のどこかに「foo &lt;&lt;&lt; bar」</li>
+<li>こうすれば, foo・bar どちらで検索しても「foo &lt;&lt;&lt; bar」が上位に</li>
 </ul></li>
-<li>come-from ��󥯤ϡ�
+</ul></li>
+</ul></li>
+</ul></li>
+<li>リンクの真相
 <ul>
-<li>�ʤ��Ƥ�褷</li>
-<li>1 �ĤΥ����� 2 �� 3 �ĤȤ��äƤ�褷</li>
-<li>�̤Υ���Ʊ��������ɤ����֤äƤ�褷</li>
-<li><p>�����ȥ�ȷ�ͤ�ʤ�,</p>
-<pre>= &lt;&lt;&lt; �դ��դ�</pre></li>
+<li>実は単に, 「grep ふがふが」のショートカットだったり</li>
+<li>come-from リンクの効果
+<ul>
+<li>このキーワードが出てきたら, 自動的にリンク(= 検索)にしてくれ</li>
+<li>そのキーワードを検索したときは, 先頭に表示してくれ</li>
 </ul></li>
-<li>come-from, goto �Ȥ�, ��ʸ����ʸ������� (��<a href="#label-12">�������ޥ���</a>)</li>
-<li>�񼰤��ѹ��� (��<a href="#label-12">�������ޥ���</a>)</li>
-<li>�ʲ�, come-from ��󥯤Υ�����ɤ�ñ�ˡ֥�����ɡפ�ɽ��</li>
+<li>come-from リンクは…
+<ul>
+<li>なくてもよし</li>
+<li>1 つのメモ内に 2 個 3 個とあってもよし</li>
+<li>別のメモと同じキーワードがかぶってもよし</li>
+<li><p>タイトルと兼ねるなら,</p>
+<pre>= &lt;&lt;&lt; ふがふが</pre></li>
+</ul></li>
+<li>come-from, goto とも, 大文字小文字を区別 (→<a href="#label-12">カスタマイズ</a>)</li>
+<li>書式は変更可 (→<a href="#label-12">カスタマイズ</a>)</li>
+<li>以下, come-from リンクのキーワードを単に「キーワード」と表記</li>
 </ul></li>
 <li>action-lock
 <ul>
-<li>��ʸ�ξ�ǥ꥿���󥭡�����������ˡȯư</li>
-<li>{ } �Ƚ񤯤ȡ֥ȥ��륹���å���.
-    ����������Ӥ� { } �� {*} �� {-} �� { } �� ��</li>
-<li>{_} �Ƚ񤯤ȡ�̤������.
-    �������� {_} �� [2002-09-13 02:31]</li>
-<li>http://�� �� �֥饦����ư
+<li>呪文の上でリターンキーたたくと魔法発動</li>
+<li>{ } と書くと「トグルスイッチ」.
+    たたくたんびに { } → {*} → {-} → { } → …</li>
+<li>{_} と書くと「未処理」.
+    たたけば {_} → [2002-09-13 02:31]</li>
+<li>http://… → ブラウザ起動
 <ul>
-<li><p>browse-url �����. ɬ�פʤ�Ŭ��������.</p>
+<li><p>browse-url を使用. 必要なら適当に設定.</p>
 <pre>(setq browse-url-browser-function 'browse-url-mozilla)</pre></li>
 </ul></li>
-<li>file://�� �� �ե�����򳫤�
+<li>file://… → ファイルを開く
 <ul>
-<li>C-u RET �ʤ����ʬ�䤷�Ƴ���</li>
+<li>C-u RET なら窓を分割して開く</li>
 </ul></li>
-<li>[2002-10-18] �Τ褦�����շ����ξ�ǥ꥿���� �� minibuffer �ǡ�
+<li>[2002-10-18] のような日付形式の上でリターン → minibuffer で…
 <ul>
-<li>���Τޤޥ꥿���� �� �������դ򸡺� (goto link)</li>
-<li>��+17�� �� 17 ��������դ˽񤭤���</li>
-<li>��20030921�� �� [2003-09-21] �˽񤭤���
+<li>そのままリターン → その日付を検索 (goto link)</li>
+<li>「+17」 → 17 日後の日付に書きかえ</li>
+<li>「20030921」 → [2003-09-21] に書きかえ
 <ul>
-<li>ǯ���Ͼ�ά��ǽ
+<li>年や月は省略可能
 <ul>
-<li>��6�� �� [2002-10-06]</li>
-<li>��803�� �� [2002-08-03]</li>
-<li>��31103�� �� [2003-11-03]</li>
-</ul></li>
-</ul></li>
-<li>��~20031030�� �� ���ιԤ�ʣ���� [2003-10-30] ʬ�ޤ�����
-<ul>
-<li>ǯ���Ͼ�ά��ǽ (���Ʊ��)</li>
-<li>��Every?�פ��Ф���
-<ul>
-<li>���Τޤޥ꥿���� �� ����</li>
-<li>3 �� 3������</li>
-<li>w �� �轵</li>
-<li>m �� ���</li>
-<li>y �� ��ǯ</li>
+<li>「6」 → [2002-10-06]</li>
+<li>「803」 → [2002-08-03]</li>
+<li>「31103」 → [2003-11-03]</li>
 </ul></li>
 </ul></li>
-<li>��.�� �� ���������դ˽񤭤���</li>
-<li>���ʤߤ�, ��˥塼�� [����] �����շ��������ϤǤ��ޤ�</li>
-</ul></li>
-<li>��󥯤⤳�μ�ʸ�ΰ��
+<li>「~20031030」 → その行の複製を [2003-10-30] 分まで挿入
 <ul>
-<li>¾�ˤ��⤷���������ǥ����ä��鶵���Ƥ�������</li>
-</ul></li>
-</ul></li>
-<li>���ޥ�� (���� howm-mode �ʳ��Ǥ���ͭ��)
+<li>年や月は省略可能 (上と同様)</li>
+<li>「Every?」に対して
 <ul>
-<li>C-c , , �� ��˥塼�򳫤� ��</li>
-<li>��˥塼
-<ul>
-<li>����
-<ul>
-<li>[space] �� [backspace] �� ����������</li>
-<li>TAB (M-TAB) �� ��(��)�ι��ܤ�</li>
-<li>[����] �� &gt; �ξ�ǥ꥿���� �� �¹� (������)</li>
-<li>? �� �إ��</li>
-<li>q �� æ��</li>
-</ul></li>
-<li>�ܥ��� [����] (���ޥ��)
-<ul>
-<li>����
-<ul>
-<li>[®��] (C-c , e) �� �ѤѤäȥ��Ȥ� (C-c C-c ����¸) ��</li>
-<li>[����] (C-c , c) �� ���������� (���꡼����󤬥����ȥ�) ��</li>
-<li>[ʣ��] (C-c , D) �� ������ʣ�� (����Ͽ�ƥ�ץ졼�Ȥʤɤ����Ӥ�����)</li>
-</ul></li>
-<li>����
-<ul>
-<li>[����] (C-c , a) �� �����ΰ��� ��</li>
-<li>[�Ƕ�] (C-c , l) �� �Ƕ�Υ���Ϣ��ɽ�� ��
-<ul>
-<li>(C-u 20 C-c , l) �� �Ƕ� 20 ��ʬ�ΰ���</li>
-</ul></li>
-<li>[����] (C-c , A) �� ����Υ�� (���Ƥ������濴�����������ս����)
-<ul>
-<li>�оݥե������(�Խ��⡼�ɤ�)���������֤����˥塼��Ƥ֤���</li>
-</ul></li>
-<li>[����] (C-c , h) �� �������� ��</li>
-<li>[ͽ��] (C-c , y) �� ͽ��ɽ: <a href="#label-5">��ޥ����</a>���� ��</li>
-<li>[Todo] (C-c , t) �� todo ����: <a href="#label-5">��ޥ����</a>���� ��</li>
-<li>[����] (C-c , b) �� �Хåե����� ��</li>
-<li>[mark] (C-c , x) �� �Хåե���Υޡ������ְ��� ��</li>
-</ul></li>
-<li>����
-<ul>
-<li>[����] (C-c , g) �� ����ɽ���θ��� ��
-<ul>
-<li>����Ū�ˤ���ʸ����ʸ���ζ��̤ʤ�
-<ul>
-<li>��Wiki�פΤ褦������Ū����ʸ������ꤷ���Ȥ��϶���</li>
+<li>そのままリターン → 毎日</li>
+<li>3 → 3日ごと</li>
+<li>w → 毎週</li>
+<li>m → 毎月</li>
+<li>y → 毎年</li>
 </ul></li>
 </ul></li>
-<li>[����] (C-c , s) �� ������ɤ��䴰���Ϥ��Ƹ���ʸ����θ��� ��
+<li>「.」 → 今日の日付に書きかえ</li>
+<li>ちなみに, メニューの [日↓] で日付形式を入力できます</li>
+</ul></li>
+<li>リンクもこの呪文の一種
 <ul>
-<li>C-u C-c , g �� C-u C-c , m �Ǥ�</li>
+<li>他におもしろいアイデアあったら教えてください</li>
 </ul></li>
-<li>[roma] (C-c , m) �� �����޻����� (migemo) ��</li>
-<li>[����] (C-c , .) �� �����Υ�� ��
+</ul></li>
+<li>コマンド (★は howm-mode 以外でも常に有効)
 <ul>
-<li>(C-u 20 C-c , .) �� 20 �����Υ��</li>
-</ul></li>
-<li>[����] (C-c , :) �� �����Υ�� ��
+<li>C-c , , → メニューを開く ★</li>
+<li>メニュー
 <ul>
-<li>(C-u 20 C-c , :) �� 20 �����Υ��</li>
-</ul></li>
-<li>[����] (C-c , o) �� �Хåե��������ɽ������ ��</li>
-</ul></li>
-<li>�Խ�: �оݥե������(�Խ��⡼�ɤ�)���������֤����˥塼��Ƥ֤���
+<li>キー
 <ul>
-<li>[����] (C-c , r) �� ����������ʤ���</li>
-<li>[����] (C-c , i) �� ������ɤ��䴰���Ϥ���Ž��Ĥ� ��
+<li>[space] と [backspace] → スクロール</li>
+<li>TAB (M-TAB) → 次(前)の項目へ</li>
+<li>[○○] や &gt; の上でリターン → 実行 (ジャンプ)</li>
+<li>? → ヘルプ</li>
+<li>q → 脱出</li>
+</ul></li>
+<li>ボタン [○○] (コマンド)
 <ul>
-<li>Tips: M-v �Ǹ�������˰ܤä� migemo ��������ȳ�</li>
-</ul></li>
-<li>[����] (C-c , d) �� ���������� [yyyy-mm-dd] ��Ž��Ĥ� ��</li>
-<li>[����] (C-c , T) �� ���������� [yyyy-mm-dd HH:MM] ��Ž��Ĥ� ��</li>
-<li>[�ꢬ] (C-c , K) �� �����Υ����ȥ�� kill ring �� (C-y ��Ž��Ĥ�) ��
+<li>作成
 <ul>
-<li>�����ȥ뤬�ߤĤ���ʤ��ä��Ȥ��ϥե�����̾</li>
+<li>[速記] (C-c , e) → ぱぱっとメモとり (C-c C-c で保存) ★</li>
+<li>[新規] (C-c , c) → 新規メモ作成 (現リージョンがタイトル) ★</li>
+<li>[複製] (C-c , D) → 現メモを複製 (住所録テンプレートなどの用途を想定)</li>
 </ul></li>
-<li>[̾��] (C-u C-c , K) �� �ե�����̾�� kill ring �� ��</li>
-</ul></li>
-<li>����
+<li>一覧
 <ul>
-<li>[menu ����] (R) �� ��˥塼��ͽ��ɽ�ʤɤ򹹿�</li>
-<li>[menu �Խ�] �� ��˥塼���Խ�</li>
-<li>[����] (C-c , Q) �� howm-mode �ʥХåե��򤹤٤ƾä� (̤��¸�Ͻ���) ��</li>
-<li>[����] (C-c , w) �� ������˥�󥯤򤿤ɤäƼ�ư����. C-g �����. ��</li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li>����¾
+<li>[一覧] (C-c , a) → 全メモの一覧 ★</li>
+<li>[最近] (C-c , l) → 最近のメモの連結表示 ★
 <ul>
-<li>[return] �� ��󥯾�ʤ鳺���ե�����򳫤�. ����ʤ��в���.</li>
-<li>��ư
+<li>(C-u 20 C-c , l) → 最近 20 日分の一覧</li>
+</ul></li>
+<li>[前後] (C-c , A) → 前後のメモ (見てたメモを中心に全メモの日付順一覧)
 <ul>
-<li>C-c , n �� ���Υ�󥯤�</li>
-<li>C-c , p �� ���Υ�󥯤�</li>
-<li>��ե�����ʣ�����ΤȤ���
+<li>対象ファイルを(編集モードで)開いた状態からメニューを呼ぶこと</li>
+</ul></li>
+<li>[履歴] (C-c , h) → 検索履歴 ★</li>
+<li>[予定] (C-c , y) → 予定表: <a href="#label-5">リマインダ</a>参照 ★</li>
+<li>[Todo] (C-c , t) → todo 一覧: <a href="#label-5">リマインダ</a>参照 ★</li>
+<li>[全バ] (C-c , b) → バッファ一覧 ★</li>
+<li>[mark] (C-c , x) → バッファ内のマーク位置一覧 ★</li>
+</ul></li>
+<li>検索
 <ul>
-<li>C-c , N �� ���Υ���</li>
-<li>C-c , P �� ���Υ���</li>
-<li>C-c , H �� �ǽ�Υ���</li>
-<li>C-c , L �� �Ǹ�Υ���</li>
+<li>[正規] (C-c , g) → 正規表現の検索 ★
+<ul>
+<li>基本的には大文字小文字の区別なし
+<ul>
+<li>「Wiki」のように明示的に大文字を指定したときは区別</li>
 </ul></li>
 </ul></li>
-<li>�������
+<li>[固定] (C-c , s) → キーワードを補完入力して固定文字列の検索 ★
 <ul>
-<li>C-c , C �� ���޳����Ƥ�ե�������ɲ�
-<ul>
-<li>��˥塼�� [�ɲ�] �Ƚ񤯤�, ����ư��Υܥ���.
-          �Ѹ��˥塼�ʤ� [Add].</li>
+<li>C-u C-c , g や C-u C-c , m でも</li>
 </ul></li>
-<li>C-c , I �� �ե�����̾���ư�� (��侩)
+<li>[roma] (C-c , m) → ローマ字検索 (migemo) ★</li>
+<li>[今日] (C-c , .) → 今日のメモ ★
 <ul>
-<li>C-u C-c , I �ʤ�, �����ȥǥ��쥯�ȥ��</li>
+<li>(C-u 20 C-c , .) → 20 日前のメモ</li>
 </ul></li>
-</ul></li>
-<li>narrow (1 �ե�����ʣ�����ΤȤ�)
+<li>[昨日] (C-c , :) → 昨日のメモ ★
 <ul>
-<li>M-x howm-narrow-to-memo �� ����Υ��򱣤�. �᤹�ˤ� M-x widen</li>
-<li>M-x howm-toggle-narrow �� �ֱ����סָ�����פ�ȥ���</li>
+<li>(C-u 20 C-c , :) → 20 日前のメモ</li>
 </ul></li>
-<li>C-c , SPC �� howm �ʥХåե��� howm �Ǥʤ��Хåե��Ȥ��ڤ��ؤ� ��</li>
-<li>M-x howm-show-buffer-as-howm �� ���Хåե��Υ��ԡ��� howm-mode ��ɽ�� ��
+<li>[バ内] (C-c , o) → バッファ内を正規表現検索 ★</li>
+</ul></li>
+<li>編集: 対象ファイルを(編集モードで)開いた状態からメニューを呼ぶこと
 <ul>
-<li>���������ʤΤ��ͻҸ�[2003-09-29]</li>
+<li>[更新] (C-c , r) → 下線を引きなおす</li>
+<li>[鍵↓] (C-c , i) → キーワードを補完入力して貼りつけ ★
+<ul>
+<li>Tips: M-v で候補一覧に移って migemo 検索すると楽</li>
+</ul></li>
+<li>[日↓] (C-c , d) → 今日の日付 [yyyy-mm-dd] を貼りつけ ★</li>
+<li>[時↓] (C-c , T) → 今日の日時 [yyyy-mm-dd HH:MM] を貼りつけ ★</li>
+<li>[題↑] (C-c , K) → 現メモのタイトルを kill ring へ (C-y で貼りつけ) ★
+<ul>
+<li>タイトルがみつからなかったときはファイル名</li>
+</ul></li>
+<li>[名↑] (C-u C-c , K) → ファイル名を kill ring へ ★</li>
+</ul></li>
+<li>特別
+<ul>
+<li>[menu 更新] (R) → メニューの予定表などを更新</li>
+<li>[menu 編集] → メニューを編集</li>
+<li>[全消] (C-c , Q) → howm-mode なバッファをすべて消す (未保存は除く) ★</li>
+<li>[酔歩] (C-c , w) → ランダムにリンクをたどって自動閲覧. C-g で停止. ★</li>
 </ul></li>
 </ul></li>
 </ul></li>
-</ul>
-<h3><a name="label-4" id="label-4">�����ɤ⤦</a></h3><!-- RDLabel: "�����ɤ⤦" -->
-<p>(�����⡼��)</p>
+<li>その他
 <ul>
-<li>���ޥ��(�Ʒ�)
+<li>[return] → リンク上なら該当ファイルを開く. さもなくば改行.</li>
+<li>移動
 <ul>
-<li>C-c , , (M-x howm-menu) �� ��˥塼</li>
-<li>C-c , a (M-x howm-list-all) �� ��������</li>
-<li>C-c , g (M-x howm-list-grep) �� ����⸡�� (����ɽ��)</li>
-<li>C-c , s (M-x howm-list-grep-fixed) �� ����⸡�� (���ꥭ�����)</li>
-</ul></li>
-<li>�������󥯥����פ򤹤��, �����⡼��
+<li>C-c , n → 次のリンクへ</li>
+<li>C-c , p → 前のリンクへ</li>
+<li>一ファイル複数メモのとき…
 <ul>
-<li>�ǥե���Ȥϰ���ɽ��
-<ul>
-<li>�����Хåե� + ���ƥХåե�</li>
-<li>����������֤Υ������Ƥ�ɽ�������</li>
-</ul></li>
-<li>Ϣ��ɽ����Ǥ���
-<ul>
-<li>@ ��Ϣ��ɽ��. �⤦���� @ �ǰ���ɽ�������.</li>
-<li>�ҥåȤ����������Ƥ򤼤�֤Ĥʤ���ɽ��
-<ul>
-<li>����Ū�ʥ���ɤ�ɤ�� �� �Ĥʤ����ɤ�</li>
-</ul></li>
-<li>[tab] �� [alt]-[tab] �Ǽ�/���Υ���</li>
-<li>Tips: ����õ���Ȥ�, �����Ǥ������٤��ܤꤳ�����,
-      Ϣ��ɽ������ migemo ��������ȳ�</li>
-</ul></li>
-<li>����ɽ����
-<ul>
-<li>0 �� Ϣ��ɽ���Υȥ��� (@ ��Ʊ��)</li>
-<li>1 �� ���ƥХåե���ä�</li>
-<li>2 �� ���ƥХåե���Ф�</li>
-<li>v �� ���ƥХåե���ȥ���</li>
-<li>TAB, M-TAB �� �������Υե������</li>
-<li>T �� �����ȥ�ɽ����ȥ���</li>
-</ul></li>
-<li>�ɤ����ɽ���Ǥ�
-<ul>
-<li>n �� p �� �岼</li>
-<li>[space] �� [backspace] �� ����������</li>
-<li>j �� k �� ��ԥ���������</li>
-<li>[return] �� ����������֤Υ��򳫤�
-<ul>
-<li>C-u ���� [return] �� ���򳫤��ư�����ä�</li>
-</ul></li>
-<li>X �� Dired-X ��ư (��̾������ʤɤΥե��������)
-<ul>
-<li><p>Dired-X �λȤ�����, info dired-x ���򻲾�</p>
-<pre>v �� ��Ȥ򸫤� (q �� ���)
-d �� �־ä����ץޡ���
-x �� �ޡ��������ե����뤿���������˾ä�</pre></li>
-</ul></li>
-<li>? �� �إ��</li>
-<li>q �� æ��</li>
+<li>C-c , N → 次のメモへ</li>
+<li>C-c , P → 前のメモへ</li>
+<li>C-c , H → 最初のメモへ</li>
+<li>C-c , L → 最後のメモへ</li>
 </ul></li>
 </ul></li>
-<li>������
+<li>新規メモ
 <ul>
-<li>S �� ���ǥ����Ȥ��뤫ʹ���Ƥ��� (�䴰����)
+<li>C-c , C → いま開いてるファイルに追加
 <ul>
-<li>name: �ե�����̾</li>
-<li>name-match: ���ꤷ���ե�����̾���̤˰ܤ�</li>
-<li>date: ������</li>
-<li>mtime: ��������</li>
-<li>summary: ���ɽ����ʸ����</li>
-<li>summary-match: ���ꤷ������ɽ������ɽ�����鸡������, ��̤˰ܤ�</li>
-<li>summary-match-string: Ʊ�� + �ޥå�����ʸ�����˥�����</li>
-<li>random: �����ॷ��åե�</li>
-<li>reminder: ��ޥ������ (���ɽ����� [2023-02-10]! �ʤɤ�ʸ�����õ���Ƥ������ս�)</li>
-<li>numerical-name: �ե�����̾ (������. �᡼��Υ����Ȥ�����)</li>
-<li>reverse: ��ɽ���εս�</li>
+<li>メニューに [追加] と書くと, この動作のボタン.
+          英語メニューなら [Add].</li>
 </ul></li>
-<li>C-u S �ʤ�ǥե���Ȥεս�</li>
-<li>R �� reverse</li>
+<li>C-c , I → ファイル名を手動で (非推奨)
+<ul>
+<li>C-u C-c , I なら, カレントディレクトリに</li>
 </ul></li>
-<li>�ʤꤳ�� (and ����)
-<ul>
-<li>f �� ���ǹʤꤳ�फʹ���Ƥ��� (�䴰����)
-<ul>
-<li>name: �ե�����̾</li>
-<li>date: ������</li>
-<li>mtime: ��������</li>
-<li>summary: ���ɽ����ʸ����</li>
-<li>contents: ����</li>
-<li>reminder: ��ޥ�����������ϰ�</li>
-<li>Region: �ΰ�</li>
-<li>Around: ����������֤μ���
-<ul>
-<li>C-u 7 f �� Around �ʤ�, ���� 7 ��</li>
 </ul></li>
-<li>uniq: Ʊ���ե�������ǲ��ս�ҥåȤ��Ƥ�, �ǽ�ΰ�ս����ɽ��</li>
-</ul></li>
-<li>C-u f �ʤ�, �ޥå�������Τ������</li>
-<li>G �� contents</li>
-<li>u �� uniq</li>
-</ul></li>
-<li>howm-mode �ȶ���
+<li>narrow (1 ファイル複数メモのとき)
 <ul>
-<li>l �� �����ΰ���</li>
-<li>g �� ���� (grep)
-<ul>
-<li>C-u g �� ������ɤ��䴰���Ϥ��Ƹ���</li>
+<li>M-x howm-narrow-to-memo → 前後のメモを隠す. 戻すには M-x widen</li>
+<li>M-x howm-toggle-narrow → 「隠す」「見せる」をトグル</li>
 </ul></li>
-<li>m �� �����޻����� (migemo)
+<li>C-c , SPC → howm なバッファと howm でないバッファとを切り替え ★</li>
+<li>M-x howm-show-buffer-as-howm → 現バッファのコピーを howm-mode で表示 ★
 <ul>
-<li>C-u m �� C-u g ��Ʊ��</li>
+<li>需要不明なので様子見[2003-09-29]</li>
 </ul></li>
-<li>c �� �����ե�������� (���꡼����󤬥����ȥ�)</li>
-<li>Q �� howm-mode �ʥХåե��򤹤٤ƾä� (̤��¸�Ͻ���)</li>
-</ul></li>
-<li>����¾
-<ul>
-<li>����ɽ���� !  �� shell �ǥ��ޥ�ɼ¹�
-<ul>
-<li>�����ü���᤯�ΤƤ������, ����� mv �ʤ� rm �ʤꤷ�Ƥ�������</li>
-<li>2 ���ܤ���Ͼ���������ư�򤷤ޤ� :-)</li>
-</ul></li>
-<li>&gt;&gt;&gt; hoge.png �ʤ鳰�� viewer �ǲ����򳫤�
-<ul>
-<li>�����<a href="#label-12">�������ޥ���</a>����</li>
 </ul></li>
 </ul></li>
 </ul>
-<h3><a name="label-5" id="label-5">��ޥ����</a></h3><!-- RDLabel: "��ޥ����" -->
-<p>(ͽ��ɽ��todo)</p>
+<h3><a name="label-4" id="label-4">メモを読もう</a></h3><!-- RDLabel: "メモを読もう" -->
+<p>(一覧モード)</p>
 <ul>
-<li>��ǽ
+<li>コマンド(再掲)
 <ul>
-<li><p>������</p>
-<pre>[2002-10-20]+ �ϥ����������� �㤪��</pre>
-<p>�Τ褦�˽񤤤Ƥ�����, �����Ǹ��뤳�Ȥ��Ǥ��ޤ�</p>
-<ul>
-<li>C-c , y �� ͽ��ɽ
-<ul>
-<li>. �� ������</li>
+<li>C-c , , (M-x howm-menu) → メニュー</li>
+<li>C-c , a (M-x howm-list-all) → 全メモ一覧</li>
+<li>C-c , g (M-x howm-list-grep) → 全メモ検索 (正規表現)</li>
+<li>C-c , s (M-x howm-list-grep-fixed) → 全メモ検索 (固定キーワード)</li>
 </ul></li>
-<li>C-c , t �� todo ����
+<li>検索やリンクジャンプをすると, 一覧モード
 <ul>
-<li>������ξ岼�ɤΰ��֤�ɽ������뤫��, ���դȼ��ष����</li>
+<li>デフォルトは一覧表示
+<ul>
+<li>一覧バッファ + 内容バッファ</li>
+<li>カーソル位置のメモの内容が表示される</li>
+</ul></li>
+<li>連結表示もできる
+<ul>
+<li>@ で連結表示. もう一度 @ で一覧表示に戻る.</li>
+<li>ヒットしたメモの内容をぜんぶつなげて表示
+<ul>
+<li>断片的なメモをどんどん書く → つなげて読む</li>
+</ul></li>
+<li>[tab] と [alt]-[tab] で次/前のメモへ</li>
+<li>Tips: メモを探すとき, 検索である程度しぼりこんだら,
+      連結表示して migemo 検索すると楽</li>
+</ul></li>
+<li>一覧表示で
+<ul>
+<li>0 → 連結表示のトグル (@ と同じ)</li>
+<li>1 → 内容バッファを消す</li>
+<li>2 → 内容バッファを出す</li>
+<li>v → 内容バッファをトグル</li>
+<li>TAB, M-TAB → 次・前のファイルへ</li>
+<li>T → タイトル表示をトグル</li>
+</ul></li>
+<li>どちらの表示でも
+<ul>
+<li>n と p → 上下</li>
+<li>[space] と [backspace] → スクロール</li>
+<li>j と k → 一行スクロール</li>
+<li>[return] → カーソル位置のメモを開く
+<ul>
+<li>C-u して [return] → メモを開いて一覧を消す</li>
+</ul></li>
+<li>X → Dired-X を起動 (改名・削除などのファイル操作)
+<ul>
+<li><p>Dired-X の使い方は, info dired-x 等を参照</p>
+<pre>v → 中身を見る (q → 戻る)
+d → 「消すぞ」マーク
+x → マークしたファイルたちを本当に消す</pre></li>
+</ul></li>
+<li>? → ヘルプ</li>
+<li>q → 脱出</li>
 </ul></li>
 </ul></li>
-<li>�ֺǶ��ͽ��פȡ�todo ��Ƭ�פϥ�˥塼�ˤ�ɽ������ޤ�
-    (���Ȥ��뤴�Ȥˤ���äȸ�����Τ����פ���)
+<li>ソート
 <ul>
-<li>��˥塼�Ǥ�, ��Ƭ�Ρ�&gt;�׾�� RET ��á���ȥ������Ӥޤ�
-      (����ʳ��ΰ��֤Ǥ�, �������ʤ���ʤ�Ʊ��)</li>
+<li>S → 何でソートするか聞いてくる (補完入力)
+<ul>
+<li>name: ファイル名</li>
+<li>name-match: 指定したファイル名を上位に移す</li>
+<li>date: 作成日</li>
+<li>mtime: 更新時刻</li>
+<li>summary: 一行表示の文字列</li>
+<li>summary-match: 指定した正規表現を一行表示から検索して, 上位に移す</li>
+<li>summary-match-string: 同上 + マッチした文字列順にソート</li>
+<li>random: ランダムシャッフル</li>
+<li>reminder: リマインダ順 (一行表示内で [2023-02-10]! などの文字列を探してその日付順)</li>
+<li>numerical-name: ファイル名 (数字順. メールのソートを想定)</li>
+<li>reverse: 現表示の逆順</li>
 </ul></li>
-<li>�����������ե� plan �ؤ� export ���ǽ (��<a href="#label-13">�����ġ���</a>)</li>
+<li>C-u S ならデフォルトの逆順</li>
+<li>R → reverse</li>
 </ul></li>
-<li>��
+<li>絞りこみ (and 検索)
 <ul>
-<li><p>�н� (-)</p>
-<pre>[2002-10-20]- �ϥ����������� �㤪��</pre>
+<li>f → 何で絞りこむか聞いてくる (補完入力)
 <ul>
-<li>���������⤭������, �ʸ�Ͻ���������</li>
-<li>�������ޤǤ��������</li>
-<li><p>����Τ��٤�����ˤ�, ͱͽ�����ǻ���(�ǥե���� 1 ��)</p>
-<pre>[2002-10-20]-14 �ϥ����������� �㤪�� �� 14 ���֤��餤�ϵ��ˤ����褦</pre></li>
+<li>name: ファイル名</li>
+<li>date: 作成日</li>
+<li>mtime: 更新時刻</li>
+<li>summary: 一行表示の文字列</li>
+<li>contents: 内容</li>
+<li>reminder: リマインダの日付範囲</li>
+<li>Region: 領域</li>
+<li>Around: カーソル位置の周辺
+<ul>
+<li>C-u 7 f → Around なら, 前後 7 つ</li>
+</ul></li>
+<li>uniq: 同じファイル中で何箇所ヒットしても, 最初の一箇所だけ表示</li>
+</ul></li>
+<li>C-u f なら, マッチしたものを取り除く</li>
+<li>G → contents</li>
+<li>u → uniq</li>
+</ul></li>
+<li>howm-mode と共通
+<ul>
+<li>l → 全メモの一覧</li>
+<li>g → 検索 (grep)
+<ul>
+<li>C-u g → キーワードを補完入力して検索</li>
+</ul></li>
+<li>m → ローマ字検索 (migemo)
+<ul>
+<li>C-u m → C-u g と同じ</li>
+</ul></li>
+<li>c → 新規ファイル作成 (現リージョンがタイトル)</li>
+<li>Q → howm-mode なバッファをすべて消す (未保存は除く)</li>
+</ul></li>
+<li>その他
+<ul>
+<li>一覧表示で !  → shell でコマンド実行
+<ul>
+<li>メモを手っ取り早く捨てたければ, これで mv なり rm なりしてください</li>
+<li>2 回目からは小賢しい挙動をします :-)</li>
+</ul></li>
+<li>&gt;&gt;&gt; hoge.png なら外部 viewer で画像を開く
+<ul>
+<li>設定は<a href="#label-12">カスタマイズ</a>参照</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3><a name="label-5" id="label-5">リマインダ</a></h3><!-- RDLabel: "リマインダ" -->
+<p>(予定表・todo)</p>
+<ul>
+<li>機能
+<ul>
+<li><p>メモ中に</p>
+<pre>[2002-10-20]+ ハイウェイ惑星 買おう</pre>
+<p>のように書いておくと, 一覧で見ることができます</p>
+<ul>
+<li>C-c , y → 予定表
+<ul>
+<li>. → 今日へ</li>
+</ul></li>
+<li>C-c , t → todo 一覧
+<ul>
+<li>一覧中の上下どの位置に表示されるかは, 日付と種類しだい</li>
+</ul></li>
+</ul></li>
+<li>「最近の予定」と「todo 冒頭」はメニューにも表示されます
+    (ことあるごとにちらっと見えるのが重要かと)
+<ul>
+<li>メニューでは, 行頭の「&gt;」上で RET を叩くとメモに飛びます
+      (それ以外の位置でも, 下線がない所なら同様)</li>
+</ul></li>
+<li>カレンダーソフト plan への export も可能 (→<a href="#label-13">外部ツール</a>)</li>
+</ul></li>
+<li>書式
+<ul>
+<li><p>覚書 (-)</p>
+<pre>[2002-10-20]- ハイウェイ惑星 買おう</pre>
+<ul>
+<li>指定日に浮きあがり, 以後は徐々に沈む</li>
+<li>指定日までは底に潜伏</li>
+<li><p>沈むのを遅くするには, 猶予日数で指定(デフォルト 1 日)</p>
+<pre>[2002-10-20]-14 ハイウェイ惑星 買おう → 14 日間ぐらいは気にかけよう</pre></li>
 </ul></li>
 <li><p>todo (+)</p>
-<pre>[2002-10-20]+ �ϥ����������� �㤦�٤�</pre>
+<pre>[2002-10-20]+ ハイウェイ惑星 買うべし</pre>
 <ul>
-<li>����������, �������⤭�����äƤ���</li>
-<li>�������ޤǤ��������</li>
-<li><p>�⤭������®����, ͱͽ�����ǻ���(�ǥե���� 7 ��)</p>
-<pre>[2002-10-20]+14 �ϥ����������� �㤦�٤� �� 14 ���֤��餤�Τ�����</pre></li>
+<li>指定日から, 徐々に浮きあがってくる</li>
+<li>指定日までは底に潜伏</li>
+<li><p>浮きあがる速さは, 猶予日数で指定(デフォルト 7 日)</p>
+<pre>[2002-10-20]+14 ハイウェイ惑星 買うべし → 14 日間ぐらいのうちに</pre></li>
 </ul></li>
-<li><p>���� (!)</p>
-<pre>[2002-10-20]! �ϥ����������� ����</pre>
+<li><p>〆切 (!)</p>
+<pre>[2002-10-20]! ハイウェイ惑星 〆切</pre>
 <ul>
-<li>����������Ť���, �⤭�����äƤ���</li>
-<li>�������ʹߤ�, ���־���⤭�äѤʤ�</li>
-<li><p>�����������⤭�Ϥ���뤫��, ͱͽ�����ǻ���(�ǥե���� 7 ��)</p>
-<pre>[2002-10-20]!14 �ϥ����������� ���� �� 14 �������餤����ܤ��ܤ�</pre></li>
-<li>ͽ��ɽ(���)�ˤ�ɽ��</li>
+<li>指定日が近づくと, 浮きあがってくる</li>
+<li>指定日以降は, 一番上に浮きっぱなし</li>
+<li><p>何日前から浮きはじめるかは, 猶予日数で指定(デフォルト 7 日)</p>
+<pre>[2002-10-20]!14 ハイウェイ惑星 〆切 → 14 日前ぐらいからぼちぼち</pre></li>
+<li>予定表(後述)にも表示</li>
 </ul></li>
-<li><p>��α (~)</p>
-<pre>[2002-10-20]~ �ϥ����������� �㤪����</pre>
+<li><p>保留 (~)</p>
+<pre>[2002-10-20]~ ハイウェイ惑星 買おうか</pre>
 <ul>
-<li>����������, �⤭���ߤ򤯤꤫����</li>
-<li>�������ޤǤ��������</li>
-<li><p>�����������⤭���ߤ��뤫��, ͱͽ�����ǻ���(�ǥե���� 30 ��)</p>
-<pre>[2002-10-20]!14 �ϥ����������� �㤪���� �� 14 ������</pre></li>
+<li>指定日から, 浮き沈みをくりかえす</li>
+<li>指定日までは底に潜伏</li>
+<li><p>何日周期で浮き沈みするかは, 猶予日数で指定(デフォルト 30 日)</p>
+<pre>[2002-10-20]!14 ハイウェイ惑星 買おうか → 14 日周期</pre></li>
 </ul></li>
-<li><p>ͽ�� (@)</p>
-<pre>[2002-10-20]@ �ϥ�����������</pre>
+<li><p>予定 (@)</p>
+<pre>[2002-10-20]@ ハイウェイ惑星</pre>
 <ul>
-<li>todo �����ǤϤʤ�, ͽ��ɽ��ɽ��</li>
+<li>todo 一覧ではなく, 予定表に表示</li>
 </ul></li>
-<li><p>�� (.)</p>
-<pre>[2002-10-20]. �ϥ�����������</pre>
+<li><p>済 (.)</p>
+<pre>[2002-10-20]. ハイウェイ惑星</pre>
 <ul>
-<li>�����</li>
+<li>常に底</li>
 </ul></li>
 </ul></li>
 <li>action-lock
 <ul>
-<li><p>��</p>
-<pre>[2002-10-20]+9 �ۤ��ۤ�</pre>
-<p>�Ρ�+9�פ˥��������֤��ƥ꥿���󤿤�����, �ߥ˥Хåե��˥�˥塼���Фơ�</p>
+<li><p>例</p>
+<pre>[2002-10-20]+9 ほげほげ</pre>
+<p>の「+9」にカーソル置いてリターンたたくと, ミニバッファにメニューが出て…</p>
 <ul>
-<li><p>���Τޤޥ꥿���� �� �ֺѡ�</p>
-<pre>[2002-10-20]. [2002-10-20]:+9 �ۤ��ۤ�</pre></li>
-<li><p>x ������ �� ��cancel��</p>
-<pre>[2002-10-20]. cancel [2002-10-20]:+9 �ۤ��ۤ�</pre></li>
-<li><p>- ������ �� �����н���ѹ�</p>
-<pre>[2002-10-20]-9 �ۤ��ۤ�</pre></li>
-<li><p>14 ������ �� ͱͽ������ 14 �����ѹ�</p>
-<pre>[2002-10-20]+14 �ۤ��ۤ�</pre></li>
+<li><p>そのままリターン → 「済」</p>
+<pre>[2002-10-20]. [2002-10-20]:+9 ほげほげ</pre></li>
+<li><p>x を入力 → 「cancel」</p>
+<pre>[2002-10-20]. cancel [2002-10-20]:+9 ほげほげ</pre></li>
+<li><p>- を入力 → 種類を覚書に変更</p>
+<pre>[2002-10-20]-9 ほげほげ</pre></li>
+<li><p>14 を入力 → 猶予日数を 14 日に変更</p>
+<pre>[2002-10-20]+14 ほげほげ</pre></li>
 </ul></li>
-<li>��˥塼��ͽ��ɽ��todo ���������ľ��á���ޤ�</li>
+<li>メニュー・予定表・todo 一覧からも直接叩けます</li>
 </ul></li>
-<li>Tips (��λȤ���)
+<li>Tips (私の使い方)
 <ul>
-<li>��todo�פ�֡��ڡפ�������ɬ�פʤ�Τ���
+<li>「todo」や「〆切」は本当に必要なものだけ
 <ul>
-<li>����ʳ��ϡֳн�פ�����ˤޤ����� (�ɤ��������ϤǤ��ޤ��� :p)</li>
-<li><p>����᤿�����, ͱͽ������Ĺ���ֳн�פ�</p>
-<pre>[2002-11-10]-10 �ϥ�����������</pre></li>
+<li>それ以外は「覚書」で沈むにまかせる (どうせ全部はできません :p)</li>
+<li><p>後ろめたければ, 猶予日数の長い「覚書」に</p>
+<pre>[2002-11-10]-10 ハイウェイ惑星</pre></li>
 </ul></li>
-<li><p>�۵ޤǤϤʤ������פʤ���</p>
-<pre>[2002-11-10]-999 ���ϥ�����������</pre></li>
-<li><p>��Ω������������</p>
-<pre>[2002-11-10]! �����ϥ�����������</pre></li>
+<li><p>緊急ではないが重要なこと</p>
+<pre>[2002-11-10]-999 ●ハイウェイ惑星</pre></li>
+<li><p>目立たせたいこと</p>
+<pre>[2002-11-10]! ★★ハイウェイ惑星</pre></li>
 </ul></li>
 </ul>
-<h2><a name="label-6" id="label-6">Ƴ��ˡ</a></h2><!-- RDLabel: "Ƴ��ˡ" -->
-<h3><a name="label-7" id="label-7">���󥹥ȡ���</a></h3><!-- RDLabel: "���󥹥ȡ���" -->
-<h4><a name="label-8" id="label-8">MELPA �ǥ��ʥåץ���å��Ǥ򥤥󥹥ȡ��뤹����</a></h4><!-- RDLabel: "MELPA �ǥ��ʥåץ���å��Ǥ򥤥󥹥ȡ��뤹����" -->
+<h2><a name="label-6" id="label-6">導入法</a></h2><!-- RDLabel: "導入法" -->
+<h3><a name="label-7" id="label-7">インストール</a></h3><!-- RDLabel: "インストール" -->
+<h4><a name="label-8" id="label-8">MELPA でスナップショット版をインストールする場合</a></h4><!-- RDLabel: "MELPA でスナップショット版をインストールする場合" -->
 <ul>
-<li>�ѥå�������howm�פ� <a href="https://melpa.org/#/getting-started">MELPA</a> �ǥ��󥹥ȡ���</li>
+<li>パッケージ「howm」を <a href="https://melpa.org/#/getting-started">MELPA</a> でインストール</li>
 </ul>
-<h4><a name="label-9" id="label-9">��ư���󥹥ȡ���ξ��</a></h4><!-- RDLabel: "��ư���󥹥ȡ���ξ��" -->
+<h4><a name="label-9" id="label-9">自動インストールの場合</a></h4><!-- RDLabel: "自動インストールの場合" -->
 <ul>
-<li>���󥹥ȡ���
+<li>インストール
 <ul>
-<li>./configure ���� make ����, root �ˤʤä� make install
+<li>./configure して make して, root になって make install
 <ul>
-<li>*.el, *.elc �� /usr/share/emacs/site-lisp/howm/ ��</li>
-<li>doc/, ext/ �� /usr/local/share/howm/ ��</li>
+<li>*.el, *.elc は /usr/share/emacs/site-lisp/howm/ に</li>
+<li>doc/, ext/ は /usr/local/share/howm/ に</li>
 </ul></li>
-<li><p>xemacs �ξ��</p>
+<li><p>xemacs の場合</p>
 <pre>./configure --with-xemacs</pre>
 <ul>
-<li>*.el, *.elc �� /usr/lib/xemacs/site-lisp/howm/ ��</li>
+<li>*.el, *.elc は /usr/lib/xemacs/site-lisp/howm/ に</li>
 </ul></li>
-<li><p>���󥹥ȡ�������ѹ���</p>
+<li><p>インストール先の変更例</p>
 <pre>./configure --with-howmdir=$HOME/elisp --prefix=$HOME</pre>
 <ul>
-<li>*.el, *.elc �� ~/elisp/ ��</li>
-<li>doc/, ext/ �� ~/share/howm/ ��</li>
+<li>*.el, *.elc は ~/elisp/ に</li>
+<li>doc/, ext/ は ~/share/howm/ に</li>
 </ul></li>
-<li>����¾�Υ��ץ����� ./configure --help �򻲾�</li>
+<li>その他のオプションは ./configure --help を参照</li>
 </ul></li>
-<li>����
+<li>設定
 <ul>
-<li>~/.emacs (.emacs.el ����)���ɲ�
+<li>~/.emacs (.emacs.el かも)に追加
 <ul>
-<li><p>case 1: emacs ��ư�����ɤ߹���</p>
+<li><p>case 1: emacs 起動時に読み込む</p>
 <pre>(setq howm-menu-lang 'ja)
 (require 'howm)</pre></li>
-<li><p>case 2: �Ϥ���� C-c , , ���������ɤ߹���</p>
+<li><p>case 2: はじめて C-c , , した時に読み込む</p>
 <pre>(setq howm-menu-lang 'ja)
 (global-set-key "\C-c,," 'howm-menu)
 (autoload 'howm-menu "howm" "Hitori Otegaru Wiki Modoki" t)</pre></li>
-<li><p>�������, �⤷��Cannot open load file�פȤ����顼���Ф�ʤ�,
-      �嵭�����ˤ�����ɲ�</p>
+<li><p>いずれも, もし「Cannot open load file」とかエラーが出るなら,
+      上記の前にこれを追加</p>
 <pre>(add-to-list 'load-path "/usr/share/emacs/site-lisp/howm/")</pre></li>
 </ul></li>
-<li>~/howm/ �κ������˥塼�ե�����Υ��ԡ������פǤ�
-    (��˥塼��ư���˼�ư����)</li>
+<li>~/howm/ の作成やメニューファイルのコピーは不要です
+    (メニュー起動時に自動作成)</li>
 </ul></li>
 </ul>
-<h4><a name="label-10" id="label-10">��ư���󥹥ȡ���ξ��</a></h4><!-- RDLabel: "��ư���󥹥ȡ���ξ��" -->
+<h4><a name="label-10" id="label-10">手動インストールの場合</a></h4><!-- RDLabel: "手動インストールの場合" -->
 <ul>
-<li>*.el ��Ŭ���ʾ����֤� (��: ~/elisp/howm)
+<li>*.el を適当な場所に置く (例: ~/elisp/howm)
 <ul>
-<li>~/.emacs (.emacs.el ����)��
+<li>~/.emacs (.emacs.el かも)に
 <ul>
-<li><p>�֤���˱�����, ���Τ褦�˵���</p>
+<li><p>置き場に応じて, ↓のように記述</p>
 <pre>(add-to-list 'load-path "~/elisp/howm/")</pre></li>
-<li>�����, <a href="#label-9">��ư���󥹥ȡ���ξ��</a>��Ʊ�ͤε��Ҥ��ɲ�</li>
+<li>さらに, <a href="#label-9">自動インストールの場合</a>と同様の記述を追加</li>
 </ul></li>
-<li><p>�����ߤ�, �Х��ȥ���ѥ���</p>
+<li><p>お好みで, バイトコンパイル</p>
 <pre>cd ~/elisp/howm
 \emacs -batch -q --no-site-file --eval '(progn (add-to-list (quote load-path) ".") (byte-recompile-directory "." 0))'</pre></li>
 </ul></li>
 </ul>
-<h4><a name="label-11" id="label-11">���󥹥ȡ������­</a></h4><!-- RDLabel: "���󥹥ȡ������­" -->
+<h4><a name="label-11" id="label-11">インストールの補足</a></h4><!-- RDLabel: "インストールの補足" -->
 <ul>
-<li><p>�����ߤ�, ~/.emacs ��������ɲ� (��<a href="#label-12">�������ޥ���</a>)</p>
-<pre>;; ������
-(define-key global-map [katakana] 'howm-menu) ; [��������] �����ǥ�˥塼
-(setq howm-file-name-format "%Y/%m/%Y_%m_%d.txt") ; 1 �� 1 �ե�����
-(setq howm-keyword-case-fold-search t) ; &lt;&lt;&lt; ����ʸ����ʸ������̤��ʤ�
-(setq howm-list-title nil) ; �������˥����ȥ��ɽ�����ʤ�
-(setq howm-menu-refresh-after-save nil) ; save ���˥�˥塼��ư��������
-(setq howm-refresh-after-save nil) ; save ���˲��������ľ���ʤ�
-(setq howm-menu-expiry-hours 2) ; ��˥塼�� 2 ���֥���å���</pre></li>
-<li>�ʤ�, ������ɰ����� ~/.howm-keys �˵�Ͽ�����
+<li><p>お好みで, ~/.emacs に設定を追加 (→<a href="#label-12">カスタマイズ</a>)</p>
+<pre>;; 設定例
+(define-key global-map [katakana] 'howm-menu) ; [カタカナ] キーでメニュー
+(setq howm-file-name-format "%Y/%m/%Y_%m_%d.txt") ; 1 日 1 ファイル
+(setq howm-keyword-case-fold-search t) ; &lt;&lt;&lt; で大文字小文字を区別しない
+(setq howm-list-title nil) ; 一覧時にタイトルを表示しない
+(setq howm-menu-refresh-after-save nil) ; save 時にメニューを自動更新せず
+(setq howm-refresh-after-save nil) ; save 時に下線を引き直さない
+(setq howm-menu-expiry-hours 2) ; メニューを 2 時間キャッシュ</pre></li>
+<li>なお, キーワード一覧は ~/.howm-keys に記録される
 <ul>
-<li>�������Ƥ�, �ƹ��ۤϴ�ñ. ��ʸ����ʸ���ζ��̤˱����ơ�
+<li>万一壊れても, 再構築は簡単. 大文字小文字の区別に応じて…
 <ul>
-<li><p>���̤�����</p>
+<li><p>区別する場合</p>
 <pre>find ~/howm -name '*.txt' -print | xargs ruby -ne '$_ =~ /&lt;&lt;&lt;\s+(.+)$/ and puts $1.split(/\s*&lt;&lt;&lt;\s*/).join "\t"' | sort -u &gt; ~/.howm-keys</pre></li>
-<li><p>���̤��ʤ����</p>
+<li><p>区別しない場合</p>
 <pre>find ~/howm -name '*.txt' -print | xargs ruby -ne '$_ =~ /&lt;&lt;&lt;\s+(.+)$/ and puts $1.downcase.split(/\s*&lt;&lt;&lt;\s*/).join "\t"' | sort -u &gt; ~/.howm-keys</pre></li>
 </ul></li>
 </ul></li>
-<li>����
+<li>注意
 <ul>
-<li>GNU Emacs �ʳ��ξ��:
-    ��Ϥ褯�狼��ʤ��Τ�, �������Ƥ������� �� <a href="OLD.rd">&lt;URL:OLD.rd&gt;</a></li>
-<li>SKK ��Ȥ����
+<li>GNU Emacs 以外の場合:
+    私はよくわからないので, 検索してください → <a href="OLD.rd">&lt;URL:OLD.rd&gt;</a></li>
+<li>SKK を使う場合
 <ul>
-<li><p>.emacs �˰ʲ���񤤤Ƥ����ʤ���, Dired-X �� C-x C-j ��å���ޤ�</p>
+<li><p>.emacs に以下を書いておかないと, Dired-X に C-x C-j を奪われます</p>
 <pre>(setq dired-bind-jump nil)</pre></li>
 </ul></li>
-<li>viper-mode ��Ȥ����
+<li>viper-mode を使う場合
 <ul>
-<li>viper-mode ������ howm-mode ������ɤ��Ƥ���
+<li>viper-mode より先に howm-mode をロードしておく
 <ul>
-<li>post-command-hook �˰�������??</li>
+<li>post-command-hook に悪さする??</li>
 </ul></li>
 </ul></li>
-<li>���󥽡��� (emacs -nw) �ξ��
+<li>コンソール (emacs -nw) の場合
 <ul>
-<li><p>������ɽ������ʤ�ü���ʤ�</p>
-<pre>(set-face-foreground 'action-lock-face "blue") ;; �����Τ����˿��Ĥ�</pre></li>
+<li><p>下線が表示されない端末なら</p>
+<pre>(set-face-foreground 'action-lock-face "blue") ;; 下線のかわりに色つけ</pre></li>
 </ul></li>
-<li><a href="https://magazine.rubyist.net/articles/0006/0006-RDIntro.html">RD</a>��Ȥ����
+<li><a href="https://magazine.rubyist.net/articles/0006/0006-RDIntro.html">RD</a>を使う場合
 <ul>
-<li>&lt;&lt;&lt; �� RD �� include �Ȥ��֤�</li>
-<li>�к���
+<li>&lt;&lt;&lt; が RD の include とかぶる</li>
+<li>対策例
 <ul>
-<li>include �ϻȤ�ʤ�. �ԤΤϤ���� &lt;&lt;&lt; ��񤫤ʤ��褦���դ���.</li>
-<li>include �ϻȤ�ʤ�. rd2 �򤫤������� howm2 -type=rd ���̤�.</li>
-<li><p>��󥯵�����ѹ�����</p>
-<pre>;; ��: .emacs (howm �����ɤ����)��
-(setq howm-ref-header "==&gt;") ; goto ���
-(setq howm-keyword-header "&lt;==") ; come-from ���</pre></li>
-<li><a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?ExternalTool">�� howm wiki �Ρ�ʻ�ѥġ����</a>�⻲��</li>
+<li>include は使わない. 行のはじめに &lt;&lt;&lt; を書かないよう注意する.</li>
+<li>include は使わない. rd2 をかける前に howm2 -type=rd を通す.</li>
+<li><p>リンク記号を変更する</p>
+<pre>;; 例: .emacs (howm ロードより前)に
+(setq howm-ref-header "==&gt;") ; goto リンク
+(setq howm-keyword-header "&lt;==") ; come-from リンク</pre></li>
+<li><a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?ExternalTool">→ howm wiki の「併用ツール」</a>も参照</li>
 </ul></li>
 </ul></li>
 </ul></li>
-<li>���Ǥ���ΰܹ� (ɬ���Хå����åפ�ȤäƤ���!) �� <a href="OLD.rd">&lt;URL:OLD.rd&gt;</a>
+<li>旧版からの移行 (必ずバックアップをとってから!) → <a href="OLD.rd">&lt;URL:OLD.rd&gt;</a>
 <ul>
-<li>������ make install ���Ƥ�, �ĿͤΥ�˥塼�ե�������񤭹����Ϥ��ޤ���.
-    ɬ�פʤ�, ��˥塼��ʬ���Խ����뤫,
-    ja/0000-00-00-000000.txt ��ʬ�ǥ��ԡ����뤫���Ƥ�������.</li>
+<li>新たに make install しても, 個人のメニューファイルを上書き更新はしません.
+    必要なら, メニューを自分で編集するか,
+    ja/0000-00-00-000000.txt を自分でコピーするかしてください.</li>
 </ul></li>
 </ul>
-<h3><a name="label-12" id="label-12">�������ޥ���</a></h3><!-- RDLabel: "�������ޥ���" -->
-<p>����Ū�ˤ� M-x customize �� [Applications] �� [Howm] ��.
-�Ԥ�Ȥ��ʤ����ܤ�, [Show] �Ǥ��꤬���ʴ����ͤ��������ǽ.</p>
-<p>�����ˤʤ�����ˤĤ��Ƥ�, ~/.emacs (~/.emacs.el ����)��, �ʲ��Τ褦��ľ�ܽ�.
-(��ä�����Ū�����Ť������, <a href="OLD.rd">&lt;URL:OLD.rd&gt;</a>�򻲾�)</p>
+<h3><a name="label-12" id="label-12">カスタマイズ</a></h3><!-- RDLabel: "カスタマイズ" -->
+<p>基本的には M-x customize → [Applications] → [Howm] で.
+ぴんとこない項目も, [Show] でありがちな既定値から選択可能.</p>
+<p>そこにない設定については, ~/.emacs (~/.emacs.el かも)へ, 以下のように直接書く.
+(もっと網羅的だが古い解説は, <a href="OLD.rd">&lt;URL:OLD.rd&gt;</a>を参照)</p>
 <ul>
-<li>��
+<li>色
 <ul>
-<li><p>howm ��Ϣ�����Хåե��˶��̤ο�����</p>
-<pre>;; �֤ۤ��פȡ�[�դ�]�פ��忧
-;; ������ˡ�ξܺ٤�, �ѿ� font-lock-keywords �Υإ�פ򻲾�
-;; ��face �ΰ����� M-x list-faces-display
+<li><p>howm 関連の全バッファに共通の色設定</p>
+<pre>;; 「ほげ」と「[ふが]」に着色
+;; ・設定法の詳細は, 変数 font-lock-keywords のヘルプを参照
+;; ・face の一覧は M-x list-faces-display
 (setq howm-user-font-lock-keywords
   '(
-    ("�ۤ�" . (0 'highlight prepend))
-    ("\\[�դ�\\]" . (0 'font-lock-doc-face prepend))
+    ("ほげ" . (0 'highlight prepend))
+    ("\\[ふが\\]" . (0 'font-lock-doc-face prepend))
     ))</pre>
 <ul>
-<li>todo ��ͽ��ο��櫓�ˤǤ�ȤäƤϤ���������.</li>
+<li>todo や予定の色わけにでも使ってはいかがかと.</li>
 </ul></li>
-<li><p>���ƥХåե��� rd-mode �ʿ���Ĥ���</p>
-<pre>;; rd-mode.el ���ɤ߹��ޤ�Ƥ���Ȥ��������
+<li><p>内容バッファに rd-mode な色をつける</p>
+<pre>;; rd-mode.el が読み込まれているという前提で
 (setq howm-view-contents-font-lock-keywords rd-font-lock-keywords)</pre></li>
 </ul></li>
-<li>��������
+<li>便利キー
 <ul>
-<li><p>�֥������ʡפǥ�˥塼, ��Ctrl-�������ʡפǿ������</p>
+<li><p>「カタカナ」でメニュー, 「Ctrl-カタカナ」で新規メモ</p>
 <pre>(define-key global-map [katakana] 'howm-menu)
 (define-key global-map [(control katakana)] 'howm-create)</pre></li>
-<li><p>[tab]([alt]-[tab])�Ǽ�(��)�Υ�󥯤˰�ư</p>
+<li><p>[tab]([alt]-[tab])で次(前)のリンクに移動</p>
 <pre>(define-key howm-mode-map [tab] 'action-lock-goto-next-link)
 (define-key howm-mode-map [(meta tab)] 'action-lock-goto-previous-link)</pre>
 <ul>
-<li>����� tab �� C-i ��</li>
+<li>本来の tab は C-i で</li>
 </ul></li>
 </ul></li>
-<li>��¸���
+<li>保存場所
 <ul>
-<li><p>����֤���/ǯ/ǯ����-��ʬ��.txt ��</p>
+<li><p>メモ置き場/年/年月日-時分秒.txt に</p>
 <pre>(setq howm-file-name-format "%Y/%Y%m%d-%H%M%S.txt")</pre>
 <ul>
-<li>�ե�����̾���Τ�ǯ���������äƤ��ʤ���, filter-by-date ����ǽ���ʤ�</li>
+<li>ファイル名自体に年月日が入っていないと, filter-by-date が機能しない</li>
 </ul></li>
-<li><p>1 �� 1 �ե����� (����֤���/ǯ/��/ǯ_��_��.txt ��)</p>
+<li><p>1 日 1 ファイル (メモ置き場/年/月/年_月_日.txt に)</p>
 <pre>(setq howm-file-name-format "%Y/%m/%Y_%m_%d.txt")</pre>
 <ul>
-<li>�Դ�������������ޤ�. �����Ǥ���ͤ����ɤ���
+<li>不完全な点があります. 我慢できる人だけどうぞ
 <ul>
-<li>���ñ�̤Ǥ���٤������ΰ������ե�����ñ�̤�
-        (�����ȥ�ɽ��, ���������, ���ƤǤιʤꤳ��, uniq)</li>
+<li>メモ単位であるべき処理の一部がファイル単位に
+        (タイトル表示, 更新順一覧, 内容での絞りこみ, uniq)</li>
 </ul></li>
 </ul></li>
-<li><p>������ɰ����� ~/howm/.howm-keys ���֤�</p>
-<pre>(setq howm-keyword-file "~/howm/.howm-keys") ;; �ǥե���Ȥ� ~/.howm-keys</pre>
+<li><p>キーワード一覧を ~/howm/.howm-keys に置く</p>
+<pre>(setq howm-keyword-file "~/howm/.howm-keys") ;; デフォルトは ~/.howm-keys</pre>
 <ul>
-<li>�������Ƥ�����, �㤦�ޥ���Ǥ� ~/howm/ �ʲ��Υ��ԡ������ǺѤ�.</li>
-<li>���Ǥ˽񤤤���⤬����ʤ�, mv ~/.howm-keys ~/howm/ �򤷤Ƥ�����,
-      �ƹ��ۤ���(��<a href="#label-7">���󥹥ȡ���</a>).</li>
-<li>�ǥ��å�: �������٤��ʤ�? (�δ��Ǥ���ۤɤ���, ��äƤߤʤ�������)</li>
+<li>こうしておけば, 違うマシンでも ~/howm/ 以下のコピーだけで済む.</li>
+<li>すでに書いたメモがあるなら, mv ~/.howm-keys ~/howm/ をしておくか,
+      再構築する(→<a href="#label-7">インストール</a>).</li>
+<li>デメリット: 検索が遅くなる? (体感できるほどかは, やってみないと不明)</li>
 </ul></li>
 </ul></li>
-<li>����
+<li>一覧
 <ul>
-<li><p>�����ǡ�!�פ����Ȥ��ν�����ޥ�ɤ��ѹ�</p>
+<li><p>一覧で「!」したときの初期コマンドを変更</p>
 <pre>(setq howm-view-summary-shell-last-file "_FILE_")
 (setq howm-view-summary-shell-hist
   '("mv _FILE_ ~/gomi" "touch _FILE_" "ls -l _FILE_"))</pre>
 <ul>
-<li>������ޥ�ɤϡ�mv �ե�����̾ ~/gomi��</li>
-<li>M-p �����Ƥ�����, ��touch �ե�����̾�פ��ls -l �ե�����̾��</li>
+<li>初期コマンドは「mv ファイル名 ~/gomi」</li>
+<li>M-p 押していくと, 「touch ファイル名」や「ls -l ファイル名」</li>
 </ul></li>
-<li><p>�����Хåե��ο��Ĥ���</p>
+<li><p>一覧バッファの色つけ例</p>
 <pre>(setq howm-view-summary-font-lock-keywords '(("^2003" . 'highlight)))</pre></li>
 </ul></li>
-<li>��˥塼
+<li>メニュー
 <ul>
-<li>��˥塼���ѹ�
+<li>メニューの変更
 <ul>
-<li>��˥塼�򳫤��� [menu �Խ�] ��ǥ꥿���� �� ��ͳ���Խ�</li>
-<li>�褯�������ؤ� goto ��󥯤ʤɤ�񤤤Ƥ�������������</li>
+<li>メニューを開いて [menu 編集] 上でリターン → 自由に編集</li>
+<li>よく開くメモへの goto リンクなどを書いておけば便利かと</li>
 </ul></li>
-<li>��˥塼�ե�����ˡ�%recent�פ��%random�פȽ񤯤�,
-    �ֺǶ�Υ��פ�֥��������������פΥ����ȥ����
+<li>メニューファイルに「%recent」や「%random」と書くと,
+    「最近のメモ」や「ランダムに選んだメモ」のタイトル一覧
 <ul>
-<li><p>�������ޥ���</p>
-<pre>(setq howm-menu-recent-num 20)  ;; ɽ������Ŀ�</pre></li>
+<li><p>カスタマイズ</p>
+<pre>(setq howm-menu-recent-num 20)  ;; 表示する個数</pre></li>
 </ul></li>
-<li>��˥塼����ѿ���ؿ����ͤ�ɽ��
+<li>メニュー中に変数や関数の値を表示
 <ul>
-<li>��˥塼��ˤ����񤯤ȡ�
+<li>メニュー中にこう書くと…
 <ul>
-<li>%here%foo     �� foo ���ͤ�ɽ��</li>
-<li>%here%(foo 3) �� (foo '3) �η�̤�ɽ��
+<li>%here%foo     → foo の値を表示</li>
+<li>%here%(foo 3) → (foo '3) の結果を表示
 <ul>
-<li>��: %here%(howm-menu-search "�ۤ�") �� �֤ۤ��פθ�����̤�������</li>
-<li><p>������, ��Ͽ�����ؿ������Ȥ��ޤ��� (���ä��ʤ�����)</p>
+<li>例: %here%(howm-menu-search "ほげ") → 「ほげ」の検索結果を埋め込み</li>
+<li><p>ただし, 登録した関数しか使えません (おっかないから)</p>
 <pre>(setq howm-menu-allow
-      (append '(foo bar) howm-menu-allow)) ;; foo �� bar �����</pre></li>
+      (append '(foo bar) howm-menu-allow)) ;; foo と bar を許可</pre></li>
 </ul></li>
 </ul></li>
 </ul></li>
-<li><p>��˥塼���ⰷ�����ʤ� (���������������оݳ���)</p>
-<pre>;; mv ~/howm/0000-00-00-000000.txt ~/hoge/fuga/menu.txt ���Ȥ��ơ�
+<li><p>メニューをメモ扱いしない (メモ一覧・検索の対象外に)</p>
+<pre>;; mv ~/howm/0000-00-00-000000.txt ~/hoge/fuga/menu.txt しといて…
 (setq howm-menu-file "~/hoge/fuga/menu.txt")</pre></li>
-<li><p>%reminder �λ��ڤ���</p>
+<li><p>%reminder の仕切り例</p>
 <pre>(setq howm-menu-reminder-separators
       '(
-        (-1  . "����������������������Ķ�ᨬ������������")
-        (0   . "��������������ͽ�ꢭ��������������")
-        (3   . "����������������ä��袭��3����ޤǨ�������������")
-        (nil . "��������������todo����������������") ;ͽ���todo�ζ�
+        (-1  . "━━━━━━━今日↓↑超過━━━━━━━")
+        (0   . "━━━━━━━予定↓━━━━━━━")
+        (3   . "━━━━━━━もっと先↓↑3日後まで━━━━━━━")
+        (nil . "━━━━━━━todo↓━━━━━━━") ;予定とtodoの境
         ))</pre></li>
 </ul></li>
-<li>��äȷڤ� (cf. <a href="http://pitecan.com/fugo.html">�ٹ�Ū�ץ�����ߥ�</a>)
+<li>もっと軽く (cf. <a href="http://pitecan.com/fugo.html">富豪的プログラミング</a>)
 <ul>
-<li>��Ҥ� M-x customize �� [Howm Efficiency] �򻲾�</li>
-<li>�ä�, �ܵ��ǻȤ��ˤ� howm-view-use-grep ������򤪤����ᤷ�ޤ�
+<li>上述の M-x customize で [Howm Efficiency] を参照</li>
+<li>特に, 本気で使うには howm-view-use-grep の設定をおすすめします
 <ul>
-<li><p>grep ���ѻ��� coding system ����</p>
-<pre>(setq howm-process-coding-system 'euc-japan-unix) ;; �ɤ߽񤭶���
-(setq howm-process-coding-system '(utf-8-unix . sjis-unix)) ;; (��.��)</pre></li>
+<li><p>grep 使用時の coding system 指定</p>
+<pre>(setq howm-process-coding-system 'euc-japan-unix) ;; 読み書き共通
+(setq howm-process-coding-system '(utf-8-unix . sjis-unix)) ;; (読.書)</pre></li>
 </ul></li>
-<li><p>Tips: gc-cons-threshold ���ͤ����䤹��®���ʤ��礬����.
+<li><p>Tips: gc-cons-threshold の値を増やすと速くなる場合がある.
     ref &gt; <a href="http://www.bookshelf.jp/2ch/unix/1077881095.html">220,234-236</a></p>
 <pre>(setq gc-cons-threshold (* 4000 10000))</pre></li>
-<li>Tips: grep-2.5 �Ǥ�, �Ķ��ѿ� LANG �� C �ˤ��Ƥ�����,
-    �ޥ���Х����б������դˤʤä�®���ʤ�
+<li>Tips: grep-2.5 では, 環境変数 LANG を C にしておくと,
+    マルチバイト対応がオフになって速くなる
     <a href="http://search.luky.org/vine-users.5/msg06363.html">ref</a></li>
 </ul></li>
-<li>����
+<li>検索
 <ul>
-<li>�оݥǥ��쥯�ȥ���ɲ�
+<li>対象ディレクトリの追加
 <ul>
-<li><p>��ʸ�����ΤȤ�, ���˲ä��ƻ���ǥ��쥯�ȥ�ʲ���Ƶ�Ū��õ��</p>
+<li><p>全文検索のとき, メモに加えて指定ディレクトリ以下も再帰的に探す</p>
 <pre>(setq howm-search-path '("~/Mail" "~/News"))
-(setq howm-search-other-dir t) ;; �����Υȥ���ν���� (t �� nil)</pre></li>
-<li>M-x howm-toggle-search-other-dir ��,
-      �嵭�ǥ��쥯�ȥ�򸡺��оݤˤ��뤫���ʤ����ȥ���
+(setq howm-search-other-dir t) ;; 下記のトグルの初期値 (t か nil)</pre></li>
+<li>M-x howm-toggle-search-other-dir で,
+      上記ディレクトリを検索対象にするかしないかトグル
 <ul>
-<li>�����Х���ɤ�������гƼ��� (���󥿡��ե������Ϻ���ˤĤ���)</li>
+<li>キーバインドしたければ各自で (インターフェース模索中につき…)</li>
 </ul></li>
 </ul></li>
 </ul></li>
-<li>̤��¸�������ȰѺٹ��鷺, howm-mode �ʥХåե��򤹤٤ƶ���������륳�ޥ��
-  (�������ᤷ�ޤ���. �Ȥ�ʤ��Ǥ�������.)
+<li>未保存だろうと委細構わず, howm-mode なバッファをすべて強制削除するコマンド
+  (おすすめしません. 使わないでください.)
 <ul>
 <li>C-u C-c , Q</li>
-<li>��˥塼�˽񤯤ʤ� [��������]</li>
-<li><p>ʪ���ʤΤ�, ����񤤤Ȥ��ʤ���̵��</p>
+<li>メニューに書くなら [強制全消]</li>
+<li><p>物騒なので, ↓を書いとかないと無効</p>
 <pre>(setq howm-kill-all-enable-force t)</pre></li>
 </ul></li>
-<li>�ƥ�ץ졼�Ȥ��ѹ���
+<li>テンプレートの変更例
 <ul>
-<li><p>����ʤդ���</p>
-<pre>Subject: �����ȥ�С��˻��פ�ɽ�� ��ľ���Υ꡼����������
+<li><p>こんなふうに</p>
+<pre>Subject: タイトルバーに時計を表示 ←直前のリージョンの内容
 Date: Thu, 12 Sep 2002 15:45:59 +0900
-In-Reply-To: &lt;/home/hira/sawfish/rich-title/rich-title.jl&gt; ��ľ���ե�����
+In-Reply-To: &lt;/home/hira/sawfish/rich-title/rich-title.jl&gt; ←直前ファイル
 
-�� �� ��������</pre>
+■ ← カーソル</pre>
 <ul>
-<li><p>~/.emacs ��</p>
+<li><p>~/.emacs に</p>
 <pre>(setq howm-template "Subject: %title\nDate: %date\n%file\n%cursor")
 (setq howm-template-date-format "%a, %d %b %Y %H:%M:%S %z")
 (setq howm-template-file-format "In-Reply-To: &lt;%s&gt;\n")</pre></li>
 </ul></li>
-<li><p>�ƥ�ץ졼�Ȥ�ʣ������</p>
-<pre>;; C-u 2 C-c , c �� 2 ���ܤΥƥ�ץ졼�Ȥǿ������
-;; ��˥塼���� C-u 2 c �Ǥ�Ʊ��
+<li><p>テンプレートを複数指定</p>
+<pre>;; C-u 2 C-c , c → 2 番目のテンプレートで新規メモ
+;; メニューから C-u 2 c でも同様
 (setq howm-template
       '("= %title%cursor\n%date %file\n\n" "%date: %title%cursor"))</pre>
 <ul>
-<li>�Ĥ��Ǥ�, howm-template ���ͤ��ؿ��ʤ�
-      ��universal-argument ��ľ���ΥХåե�������ˤ��Ƥ����Ĥ�Ƥ֡�
-      �äƤ����Τ�Ź��ߤޤ���</li>
+<li>ついでに, howm-template の値が関数なら
+      「universal-argument と直前のバッファを引数にしてそいつを呼ぶ」
+      っていうのも仕込みました</li>
 </ul></li>
 </ul></li>
-<li>�񼰤��ѹ��� (howm-*.el �� load �������)
+<li>書式の変更例 (howm-*.el の load より前に)
 <ul>
-<li><p>�����ȥ�(�����ڤ�) @@@ ��</p>
+<li><p>タイトル(メモ区切り) @@@ …</p>
 <pre>(setq howm-view-title-header "@@@")</pre></li>
-<li><p>goto ��� ==&gt;��, come-from ��� &lt;==��</p>
+<li><p>goto リンク ==&gt;…, come-from リンク &lt;==…</p>
 <pre>(setq howm-ref-header "==&gt;")
 (setq howm-keyword-header "&lt;==")</pre></li>
-<li><p>goto ��� ((��ġ�)), come-from ��� ((���ġ�))</p>
-<pre>;; ��䡧��Ⱦ�Ѥ�ľ���Ƥ�������
-(setq howm-ref-regexp "((��\\([^��\r\n]+\\)��))")
+<li><p>goto リンク ((＜…＞)), come-from リンク ((：…：))</p>
+<pre>;; ＜＞：は半角に直してください
+(setq howm-ref-regexp "((＜\\([^＞\r\n]+\\)＞))")
 (setq howm-ref-regexp-pos 1)
-(setq howm-keyword-format "((��%s��))")
-(setq howm-keyword-regexp "\\(((��\\)\\([^��\r\n]+\\)��))")
-(setq howm-keyword-regexp-hilit-pos 1) ;; �ִ�Ϣ������ɡ���
+(setq howm-keyword-format "((：%s：))")
+(setq howm-keyword-regexp "\\(((：\\)\\([^：\r\n]+\\)：))")
+(setq howm-keyword-regexp-hilit-pos 1) ;; 「関連キーワード」用
 (setq howm-keyword-regexp-pos 2)
-(setq howm-keyword-regexp-format "%s") ;; M-x describe-variable ����</pre>
+(setq howm-keyword-regexp-format "%s") ;; M-x describe-variable 参照</pre>
 <ul>
-<li>��: come-from ������ɤ� alias �Ǥ�,
-      ���Τɤ��餫�������ꤷ�Ƥ��ޤ���.
+<li>注: come-from キーワードの alias では,
+      次のどちらかしか想定していません.
 <ul>
-<li>�֡Ĥ����׷�: &lt;&lt;&lt; foo &lt;&lt;&lt; bar &lt;&lt;&lt; baz</li>
-<li>�֡Ĥ���Ĥޤǡ׷�: ((��foo��)) ((��bar��)) ((��baz��))</li>
+<li>「…から後」型: &lt;&lt;&lt; foo &lt;&lt;&lt; bar &lt;&lt;&lt; baz</li>
+<li>「…から…まで」型: ((：foo：)) ((：bar：)) ((：baz：))</li>
 </ul></li>
 </ul></li>
-<li>wiki ����� [[hoge]] �β������]]�פ�����
+<li>wiki 風リンク [[hoge]] の下線を「]]」だけに
 <ul>
-<li><p>��&lt;&lt;&lt; hoge�פκ������, ��hoge�פˤⲼ��</p>
+<li><p>「&lt;&lt;&lt; hoge」の作成後は, 「hoge」にも下線</p>
 <pre>(setq howm-wiki-regexp "\\[\\[\\([^]\r\n]+\\)\\(\\]\\]\\)")
 (setq howm-wiki-regexp-hilit-pos 2)
 (setq howm-wiki-regexp-pos 1)</pre></li>
 </ul></li>
 </ul></li>
-<li>���ޤ���
+<li>こまごま
 <ul>
-<li><p>��������(C-c , d �ޤ��� [����])��ǯ����ά������, ��̤��פȲ��</p>
+<li><p>日付入力(C-c , d または [日↓])で年や月を略したら, 「未来」と解釈</p>
 <pre>(setq howm-insert-date-future t)</pre>
 <ul>
-<li>�������ϻ��ΤߤǤ�. ��[2003-12-27]�׾�� RET �����Ȥ���ư��Ͻ���ɤ���.</li>
+<li>新規入力時のみです. 「[2003-12-27]」上で RET したときの動作は従来どおり.</li>
 </ul></li>
-<li><p>��http://�פǥ꥿���󲡤�����, URL �� kill-ring ��</p>
+<li><p>「http://」でリターン押したら, URL を kill-ring へ</p>
 <pre>(setq action-lock-no-browser t)</pre></li>
 </ul></li>
-<li>ͽ��ɽ��todo ����
+<li>予定表・todo 一覧
 <ul>
-<li><p>��ޥ��������(!+-~@.)���� RET ��ȯ�ǡֺѡפ�</p>
+<li><p>リマインダ記号(!+-~@.)から RET 一発で「済」に</p>
 <pre>(setq howm-action-lock-reminder-done-default "")</pre>
 <ul>
-<li>���ξ��, C-u RET �ǽ����ư�� (����󥻥�, �����ѹ�, ��)</li>
+<li>この場合, C-u RET で従来の動作 (キャンセル, 記号変更, …)</li>
 </ul></li>
-<li><p>ͽ��ɽ��todo ���������ޥ����������ľ�� RET �����Ȥ�,
-    á������Хåե���ư save</p>
+<li><p>予定表・todo 一覧からリマインダ記号上で直接 RET したとき,
+    叩かれ先バッファを自動 save</p>
 <pre>(setq howm-action-lock-forward-save-buffer t)</pre>
 <ul>
-<li>�ּ�ư save�פ��񹳤ʤ��������ɤ���</li>
-<li>��ư�� C-x s (̤��¸�Хåե������� save)�ʤꤹ��������ƻ����</li>
+<li>「自動 save」に抵抗ない方だけどうぞ</li>
+<li>手動で C-x s (未保存バッファたちを save)なりする方が正道かと</li>
 </ul></li>
-<li><p>��α�������ϰ�</p>
-<pre>(setq howm-todo-priority-defer-init -14)  ;; ����� = ����
-(setq howm-todo-priority-defer-peak 0) ;; ���</pre></li>
-<li>!+-~. �ν��٤Υ������ޥ���
+<li><p>保留の浮沈範囲</p>
+<pre>(setq howm-todo-priority-defer-init -14)  ;; 初期値 = 下限
+(setq howm-todo-priority-defer-peak 0) ;; 上限</pre></li>
+<li>!+-~. の旬度のカスタマイズ
 <ul>
-<li><p>��: ��˥塼��, �����������ɽ���סֺѤ�ɽ����</p>
+<li><p>例: メニューで, 「潜伏中は非表示」「済は表示」</p>
 <pre>(setq howm-menu-todo-priority -50000)
 (setq howm-todo-priority-done-bottom -44444)</pre></li>
-<li>howm-todo-priority-normal-bottom ��. ������(howm-reminder.el)����.</li>
+<li>howm-todo-priority-normal-bottom 等. ソース(howm-reminder.el)参照.</li>
 </ul></li>
-<li><p>todo ����(M-x howm-list-todo)�λ��ڤ���</p>
+<li><p>todo 一覧(M-x howm-list-todo)の仕切り例</p>
 <pre>(setq howm-todo-separators
       '(
-        (0  . "����������������Ķ�ᨬ������������")
-        (nil . "�������������������梭��������������")
+        (0  . "━━━━━━━↑超過━━━━━━━")
+        (nil . "━━━━━━━潜伏中↓━━━━━━━")
         ))</pre>
 <ul>
-<li>Ϣ��ɽ���䥽���Ȥ򤹤���ˤϤ���ޤ����</li>
+<li>連結表示やソートをする場合にはじゃまかも…</li>
 </ul></li>
 </ul></li>
 <li>action-lock
 <ul>
-<li><p>{ } (�ȥ��륹���å�)���ѹ�</p>
-<pre>;; howm �� load ����
-(setq action-lock-switch-default '("{ }" "{*}" "{-}")) ;; ���ĤǤ�</pre></li>
-<li><p>{_} (̤����)���ѹ�</p>
+<li><p>{ } (トグルスイッチ)の変更</p>
+<pre>;; howm の load 前に
+(setq action-lock-switch-default '("{ }" "{*}" "{-}")) ;; 何個でも</pre></li>
+<li><p>{_} (未処理)の変更</p>
 <pre>(setq howm-dtime-format "[%a %b %d %H:%M:%S %Y]") ;; {_}
-(setq howm-template-date-format "[%Y-%m-%d %H:%M]") ;; �ƥ�ץ졼��</pre></li>
-<li><p>��file://�ġפ��http://�ġפ��ѹ� (�ޤ��������罸)
+(setq howm-template-date-format "[%Y-%m-%d %H:%M]") ;; テンプレート</pre></li>
+<li><p>「file://…」や「http://…」の変更 (ましな設定募集)
     thx &gt; <a href="http://www.bookshelf.jp/2ch/unix/1063800495.html">945</a></p>
-<pre>;; howm (���Τˤ� action-lock.el) �Υ����ɤ������.
-;; ��file://��
+<pre>;; howm (正確には action-lock.el) のロードより前に.
+;; ・file://…
 (setq action-lock-open-regexp
       "\\&lt;file://\\(localhost\\)?\\([-!@#$%^&amp;*()_+|=:~/?a-zA-Z0-9.,;]*[-!@#$%^&amp;*()_+|=:~/?a-zA-Z0-9]+\\)\\&gt;")
-(setq action-lock-open-regexp-pos 2) ;; 2 ���ܤΡ�\\(��\\)�פ��ե�����̾
-;; ��http://��
+(setq action-lock-open-regexp-pos 2) ;; 2 個目の「\\(…\\)」がファイル名
+;; ・http://…
 (setq action-lock-browse-regexp
       "\\&lt;\\([htp]\\{3,5\\}s?\\|ftp\\)://\\([-!@#$%^&amp;*()_+|=:~/?a-zA-Z0-9.,;]*[-!@#$%^&amp;*()_+|=:~/?a-zA-Z0-9]+\\)\\&gt;"
-(setq action-lock-browse-regexp-pos 0) ;; �ޥå��������Τ� URL</pre></li>
-<li><p>action-lock �ɲ���:
-    ��Message-ID: �ġפǥ꥿���󲡤�����, �����᡼��� namazu �Ǹ���</p>
-<pre>;; howm �� load �������
+(setq action-lock-browse-regexp-pos 0) ;; マッチした全体が URL</pre></li>
+<li><p>action-lock 追加例:
+    「Message-ID: …」でリターン押したら, 該当メールを namazu で検索</p>
+<pre>;; howm を load した後に
 (defun my-howm-search-message-id (id)
   (message "Searching...")
   (let* ((query (format "+message-id:%s" id))
@@ -969,133 +969,133 @@ In-Reply-To: &lt;/home/hira/sawfish/rich-title/rich-title.jl&gt; ��ľ���ե�����
                                  1)
             action-lock-default-rules))</pre></li>
 </ul></li>
-<li><a href="http://www.ruby-lang.org/ja/man/html/RD.html">RD</a>��Ȥ����:
-  ��Ƭ�� * �ǥ���ȥ�γ��Ĥ��Ǥ���褦��
-  �� <a href="http://www.bookshelf.jp/2ch/unix/1063800495.html">237-238</a></li>
-<li><p>���ޤ�</p>
+<li><a href="http://www.ruby-lang.org/ja/man/html/RD.html">RD</a>を使う場合:
+  行頭の * でエントリの開閉ができるように
+  → <a href="http://www.bookshelf.jp/2ch/unix/1063800495.html">237-238</a></li>
+<li><p>おまけ</p>
 <pre>(setq howm-congrats-format
       '(
-        "(�����ء���) %s"
-        "(�����ء���) %s"
-        ;; �İʲ�ά��
+        "(´・ω・｀) %s"
+        "(｀・ω・´) %s"
+        ;; …以下略…
         ))
 (setq howm-congrats-command '("play" "~/sound/fanfare.wav"))</pre></li>
-<li>��äȤ�������������ˤ�, *.el ��Ƭ�򻲾�</li>
+<li>もっといろいろいじるには, *.el 冒頭を参照</li>
 </ul>
-<h3><a name="label-13" id="label-13">�����ġ���</a></h3><!-- RDLabel: "�����ġ���" -->
-<p>(Ʊ���ġ���� ext/ ��)</p>
+<h3><a name="label-13" id="label-13">外部ツール</a></h3><!-- RDLabel: "外部ツール" -->
+<p>(同梱ツールは ext/ に)</p>
 <ul>
-<li>HTML �ؤ��Ѵ�: howm2 (Ʊ��. �� ruby)
+<li>HTML への変換: howm2 (同梱. 要 ruby)
 <ul>
-<li>��
+<li>例
 <ul>
-<li><p>���ǥ��쥯�ȥ� ~/howm/ ���Ѵ����� ~/converted/ ���Ǥ�</p>
+<li><p>メモディレクトリ ~/howm/ を変換して ~/converted/ に吐く</p>
 <pre>./howm2 ~/howm/ ~/converted/</pre></li>
-<li><p>&lt;&lt;&lt; ����ʸ����ʸ����̵��</p>
+<li><p>&lt;&lt;&lt; の大文字小文字を無視</p>
 <pre>./howm2 -i ~/howm/ ~/converted/</pre></li>
-<li><p>��󥯽񼰤λ���</p>
+<li><p>リンク書式の指定</p>
 <pre>./howm2 -comefrom='&lt;&lt;&lt;' -goto='&gt;&gt;&gt;' ~/howm/ ~/converted/</pre></li>
-<li><p>�֤ۤ��פ�ޤ�ե�������� HTML ��</p>
-<pre>grep -rl '�ۤ�' ~/howm/ | howm2 -list ~/converted/</pre></li>
+<li><p>「ほげ」を含むファイルだけ HTML 化</p>
+<pre>grep -rl 'ほげ' ~/howm/ | howm2 -list ~/converted/</pre></li>
 </ul></li>
-<li>���⹩�פ��Ƥʤ��Τ�, ���٤��ĥ���ɤ�����</li>
-<li>alias �ΡֺƵ�Ū�ʡ�Ÿ����̤���ݡ���</li>
+<li>何も工夫してないので, 激遅かつメモリどか食い</li>
+<li>alias の「再帰的な」展開は未サポート</li>
 </ul></li>
-<li>�������� &amp; todo ����: hcal.rb (Ʊ��. �� ruby)
+<li>カレンダー &amp; todo 一覧: hcal.rb (同梱. 要 ruby)
 <ul>
-<li><p>��������(ͽ�ꡦ���ڡ��Ѥߤΰ���)�����</p>
-<pre>hcal.rb -schedule_mark='��' -deadline_mark='��' -done_mark='��' ~/howm/*/*/*.txt</pre>
+<li><p>カレンダー(予定・〆切・済みの一覧)を出力</p>
+<pre>hcal.rb -schedule_mark='○' -deadline_mark='●' -done_mark='／' ~/howm/*/*/*.txt</pre>
 <ul>
-<li><p>����ʴ����Ǥ��餺��</p>
+<li><p>こんな感じでずらずら</p>
 <pre>----------------&lt;6&gt;---------------- 2003
 01 Sun 
-02 Mon ������������Ϣ�� ��B4�ع� ���� �����ش��ü¸� 12:40 &lt;&lt;&lt;&lt;##&gt;&gt;&gt;&gt;
-��</pre></li>
-<li>���ϡ���(@[2003-06-02]!), ����ͽ��(@[2003-06-02]@), ���Ϻ�(@[2003-06-02].)</li>
-<li>&lt;&lt;&lt;&lt;# �ϡֺ�����, #&gt;&gt;&gt;&gt; �ϡ���ǯ��Ʊ��Ʊ����
+02 Mon ●田中先生に連絡 ○B4輪講 小林 ○工学基礎実験 12:40 &lt;&lt;&lt;&lt;##&gt;&gt;&gt;&gt;
+…</pre></li>
+<li>●は〆切(@[2003-06-02]!), ○は予定(@[2003-06-02]@), ／は済(@[2003-06-02].)</li>
+<li>&lt;&lt;&lt;&lt;# は「今日」, #&gt;&gt;&gt;&gt; は「毎年の同月同日」
 <ul>
-<li><p>����ʴ����� alias ���Ȥ�������</p>
-<pre>alias hcal="hcal.rb -schedule_mark='��' -deadline_mark='��' -done_mark='��' ~/howm/*/*/*.txt | less '+/&lt;&lt;&lt;&lt;#'"</pre></li>
+<li><p>こんな感じで alias しとくと便利</p>
+<pre>alias hcal="hcal.rb -schedule_mark='○' -deadline_mark='●' -done_mark='／' ~/howm/*/*/*.txt | less '+/&lt;&lt;&lt;&lt;#'"</pre></li>
 </ul></li>
 </ul></li>
-<li>�ֽ��ٽ� todo �����פ����
-    (howm ��Ȥ��ʤ�����. ChangeLog �ɤʿͤؤΤ��ޤ��Ǥ�)
+<li>「旬度順 todo 一覧」を出力
+    (howm を使うなら不要. ChangeLog 派な人へのおまけです)
 <ul>
-<li><p>���ޥ�ɥ饤���</p>
+<li><p>コマンドラインで</p>
 <pre>hcal.rb -l memo.txt</pre></li>
-<li><p>emacs ���� M-x grep ����</p>
+<li><p>emacs から M-x grep して</p>
 <pre>Run grep (like this): hcal.rb -l ~/memo/*.txt</pre></li>
 </ul></li>
 </ul></li>
-<li>�վ�񤭻ٱ�:
+<li>箇条書き支援:
 <ul>
-<li><a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?OrgMode">org-mode �Ȥ�ʻ��</a></li>
+<li><a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?OrgMode">org-mode との併用</a></li>
 </ul></li>
-<li>�ʰ׾�����Ģ
+<li>簡易小遣い帳
 <ul>
-<li><p>������ɤ����, ������˽񤤤Ƥ���</p>
-<pre>$����$ 500�� �顼���</pre></li>
-<li>��&lt;&lt;&lt; $����$�פʤ��&gt;&gt;&gt; $����$�פʤ�ǰ�����ɽ��.
-    �ʤ���ߡ������Ȥ����ϰϻ���.</li>
-<li>M-x yen-region ��, �֢����ߡפ���
-    �� <a href="https://howm.osdn.jp/a/yen.el">yen.el</a></li>
+<li><p>キーワードを決めて, 日記中に書いておく</p>
+<pre>$食費$ 500円 ラーメン</pre></li>
+<li>「&lt;&lt;&lt; $食費$」なり「&gt;&gt;&gt; $食費$」なりで一覧を表示.
+    絞り込み・ソートして範囲指定.</li>
+<li>M-x yen-region で, 「◯◯円」を合計
+    → <a href="https://howm.osdn.jp/a/yen.el">yen.el</a></li>
 </ul></li>
-<li><a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?ExternalTool">�� howm wiki �Ρ�ʻ�ѥġ����</a>�⻲��</li>
+<li><a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?ExternalTool">→ howm wiki の「併用ツール」</a>も参照</li>
 </ul>
-<h2><a name="label-14" id="label-14">����</a></h2><!-- RDLabel: "����" -->
-<h3><a name="label-15" id="label-15">�����ˤĤ���</a></h3><!-- RDLabel: "�����ˤĤ���" -->
+<h2><a name="label-14" id="label-14">実装</a></h2><!-- RDLabel: "実装" -->
+<h3><a name="label-15" id="label-15">実装について</a></h3><!-- RDLabel: "実装について" -->
 <ul>
-<li>�ե����볫������Ӥ˥������äƤ����°׼���
+<li>ファイル開くたんびにスキャンっていう安易実装
 <ul>
-<li>~/.howm-keys �˥�����ɤΰ���</li>
-<li>�ե�����򳫤��Ȥ��ϡ�
+<li>~/.howm-keys にキーワードの一覧</li>
+<li>ファイルを開くときは…
 <ul>
-<li>.howm-keys �γƥ�����ɤˤĤ���, �и���̵ͭ�򸡺�</li>
-<li>�и�������ɤ� or �ǤĤʤ�������ɽ�������</li>
-<li>��������ɽ���� font-lock �� action-lock ������</li>
+<li>.howm-keys の各キーワードについて, 出現の有無を検索</li>
+<li>出現キーワードを or でつないだ正規表現を作成</li>
+<li>その正規表現を font-lock と action-lock に設定</li>
 </ul></li>
-<li>�ե�������¸�������Ƥ򥹥���󤷤�, ~/.howm-keys �򹹿�</li>
+<li>ファイル保存時に内容をスキャンして, ~/.howm-keys を更新</li>
 </ul></li>
-<li>����
+<li>検索
 <ul>
-<li>���ǥ��쥯�ȥ� ~/howm/ �ʲ���Ƶ�Ū��������.
-    �ե�����̾���ĥ�Ҥ� ~/howm/ �ʲ��Υǥ��쥯�ȥ깽����, �ɤ��Ǥ�褤.
+<li>メモディレクトリ ~/howm/ 以下を再帰的に全検索.
+    ファイル名も拡張子も ~/howm/ 以下のディレクトリ構成も, どうでもよい.
 <ul>
-<li>�ե�����̾�������, 
+<li>ファイル名の制約は, 
 <ul>
-<li>�ե�����̾��ǯ���������äƤ��� (filter-by-date �Τ���)</li>
-<li>string&lt;= �ǥ����Ȥ�����������ˤʤ�</li>
-</ul></li>
-</ul></li>
-<li>�ߴ��ʸ����ؿ��������Ѱ�. ����������Ȥ���.
-<ul>
-<li>real-grep (grep ��Ƥ�)</li>
-<li>fake-grep (elisp �Τ�)</li>
+<li>ファイル名に年月日が入っている (filter-by-date のため)</li>
+<li>string&lt;= でソートしたら日時順になる</li>
 </ul></li>
 </ul></li>
-<li>�ե����빽��
+<li>互換な検索関数を二本用意. 好きな方を使える.
 <ul>
-<li>howm ���ΤȤ���Ω
+<li>real-grep (grep を呼ぶ)</li>
+<li>fake-grep (elisp のみ)</li>
+</ul></li>
+</ul></li>
+<li>ファイル構成
+<ul>
+<li>howm 本体とは独立
 <ul>
 <li>bcomp.el
 <ul>
-<li>make ���˻Ȥ�����</li>
-<li>navi2ch-cvs-0.0.20031209 �������</li>
+<li>make 時に使うだけ</li>
+<li>navi2ch-cvs-0.0.20031209 から借用</li>
 </ul></li>
 <li>cheat-font-lock.el
 <ul>
-<li>font-lock-keywords ��夫���ѹ����뤿��δؿ�</li>
-<li>font-lock.el �����������˰�¸</li>
+<li>font-lock-keywords を後から変更するための関数</li>
+<li>font-lock.el の内部実装に依存</li>
 </ul></li>
 <li>action-lock.el
 <ul>
 <li>action-lock-mode (minor-mode)
 <ul>
-<li>��ʸ(����ɽ��)����ˡ(�ؿ�)���Ȥ���Ͽ</li>
-<li>�꥿���󥭡�á������
+<li>呪文(正規表現)と魔法(関数)の組を登録</li>
+<li>リターンキー叩いたら
 <ul>
-<li>��ʸ�ξ� �� ��ˡ��ȯư</li>
-<li>����ʳ� �� ����Υ꥿���󥭡�</li>
+<li>呪文の上 → 魔法が発動</li>
+<li>それ以外 → 本来のリターンキー</li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -1103,297 +1103,297 @@ In-Reply-To: &lt;/home/hira/sawfish/rich-title/rich-title.jl&gt; ��ľ���ե�����
 <ul>
 <li>riffle-{summary|contents}-mode
 <ul>
-<li>���������ƤΤѤ�Ѥ�ɽ��, ���Ƥ�Ϣ��ɽ��</li>
-<li>�����Ǥ�, post-command-hook �ǰ�ư���� �� ����ɽ���򹹿�</li>
-<li>�Хåե����������ѿ� riffle-item-list �˹��ܤ��ݻ�</li>
+<li>一覧・内容のぱらぱら表示, 内容の連結表示</li>
+<li>一覧では, post-command-hook で移動検出 → 内容表示を更新</li>
+<li>バッファローカル変数 riffle-item-list に項目を保持</li>
 </ul></li>
-<li>gfunc.el �����</li>
+<li>gfunc.el を使用</li>
 </ul></li>
 <li>gfunc.el
 <ul>
-<li>��ľ generic function</li>
+<li>安直 generic function</li>
 </ul></li>
 <li>illusion.el
 <ul>
 <li>illusion-mode (minor-mode)</li>
-<li>�դĤ��Ρ֥ե�����פǤʤ��оݤ�, �������Խ�������¸</li>
-<li>���ΤȤ������Ѥ���Ƥ��ʤ�</li>
+<li>ふつうの「ファイル」でない対象を, 開いて編集して保存</li>
+<li>今のところ活用されていない</li>
 </ul></li>
 <li>honest-report.el
 <ul>
-<li>�Х���ݡ��Ȥ�����</li>
+<li>バグレポートの生成</li>
 </ul></li>
 </ul></li>
-<li>howm ����
+<li>howm 本体
 <ul>
-<li>����
+<li>主役
 <ul>
 <li>howm-backend.el
 <ul>
-<li>�Хå�����ɤ�ʬΥ</li>
-<li>��ݲ�
+<li>バックエンドの分離</li>
+<li>抽象化
 <ul>
-<li>�ǥ��쥯�ȥ� �� folder</li>
-<li>�ե����� �� page</li>
-<li>�ޥå��ս� �� item</li>
+<li>ディレクトリ → folder</li>
+<li>ファイル → page</li>
+<li>マッチ箇所 → item</li>
 </ul></li>
 </ul></li>
 <li>howm-view.el
 <ul>
 <li>howm-view-{summary|contents}-mode (major-mode)
 <ul>
-<li>riffle-{summary|contents}-mode ��������</li>
-<li>�����μ¹�</li>
+<li>riffle-{summary|contents}-mode から派生</li>
+<li>検索の実行</li>
 </ul></li>
 </ul></li>
-<li>howm-mode.el (howm-mode-mode.el �����̾[2004-07-14])
+<li>howm-mode.el (howm-mode-mode.el から改名[2004-07-14])
 <ul>
 <li>howm-mode (minor-mode)
 <ul>
-<li>��ҤΥ������ʤ�</li>
+<li>上述のスキャンなど</li>
 </ul></li>
 </ul></li>
 </ul></li>
-<li>����
+<li>脇役
 <ul>
 <li>howm-date.el
 <ul>
-<li>�������Ϥλٱ�</li>
+<li>日付入力の支援</li>
 </ul></li>
 <li>howm-reminder.el
 <ul>
-<li>������ todo</li>
+<li>浮沈式 todo</li>
 </ul></li>
 <li>howm-menu.el
 <ul>
 <li>howm-menu-mode (major-mode)</li>
 </ul></li>
 </ul></li>
-<li>����
+<li>設定
 <ul>
 <li>howm-version.el
 <ul>
-<li>��� howm-version �����ꤹ�����</li>
+<li>定数 howm-version を設定するだけ</li>
 </ul></li>
 <li>howm-vars.el
 <ul>
-<li>defvar, defcustom, ��</li>
+<li>defvar, defcustom, 等</li>
 </ul></li>
 <li>howm-lang-*.el
 <ul>
-<li>�����¸���ѿ�</li>
+<li>言語依存の変数</li>
 </ul></li>
 <li>howm-menu-*.el
 <ul>
-<li>�����˥塼�ե���������Ƥ�ʸ��������Ȥ������</li>
+<li>初期メニューファイルの内容を文字列定数として定義</li>
 </ul></li>
 <li>howm-mkmenu.el
 <ul>
-<li>howm-menu-*.el �� ja/0000-00-00-000000.txt �������������륹����ץ�</li>
-<li>��԰ʳ��ϻȤ�ɬ�פʤ��Ϥ�</li>
+<li>howm-menu-*.el を ja/0000-00-00-000000.txt 等から生成するスクリプト</li>
+<li>作者以外は使う必要ないはず</li>
 </ul></li>
 </ul></li>
-<li>��
+<li>雑
 <ul>
 <li>howm-cl.el
 <ul>
-<li>cl �ѥå������ؤΰ�¸��ޤȤ᤿����</li>
+<li>cl パッケージへの依存をまとめただけ</li>
 </ul></li>
 <li>howm-common.el
 <ul>
-<li>howm-*.el �� require</li>
-<li>�ä�, �ե�����ޤ����ǻȤ��ޥ����Ϥ����� (�� byte-compile �к�)</li>
+<li>howm-*.el で require</li>
+<li>特に, ファイルまたいで使うマクロはここへ (∵ byte-compile 対策)</li>
 </ul></li>
 <li>howm-misc.el
 <ul>
-<li>��</li>
+<li>雑</li>
 </ul></li>
-<li>howm.el (howm-mode.el �����̾[2004-07-14])
+<li>howm.el (howm-mode.el から改名[2004-07-14])
 <ul>
-<li>�ᥤ��ե�����. require �������.</li>
+<li>メインファイル. require するだけ.</li>
 </ul></li>
 </ul></li>
 </ul></li>
 </ul></li>
 </ul>
-<h3><a name="label-16" id="label-16">ư���ޤ����?</a></h3><!-- RDLabel: "ư���ޤ����?" -->
-<p>(�Х��λ�Ŧ�򤯤���������)</p>
+<h3><a name="label-16" id="label-16">動きませんよ?</a></h3><!-- RDLabel: "動きませんよ?" -->
+<p>(バグの指摘をくださる方へ)</p>
 <ul>
-<li>�ʲ��Τ褦�ˤ��Ƥ���������, Ĵ�����䤹���ʤ�ޤ�
+<li>以下のようにしていただくと, 調査しやすくなります
 <ul>
-<li><p>�Ǥ������ make test �򤪴ꤤ���ޤ�</p>
-<pre>cd howm-��.��.��
+<li><p>できるだけ make test をお願いします</p>
+<pre>cd howm-○.○.○
 make test</pre></li>
-<li>win �ʤ�, test.bat �򤪴ꤤ���ޤ�
+<li>win なら, test.bat をお願いします
 <ul>
-<li>test.bat ��Ρ�HOWM_EMACS=�ġפ�Ķ��ˤ��碌�ƽ���</li>
-<li>test.bat ��¹�</li>
+<li>test.bat 中の「HOWM_EMACS=…」を環境にあわせて修正</li>
+<li>test.bat を実行</li>
 </ul></li>
-<li>�ɤ����, emacs ��Ω��������, ����ɼ��ɽ������ޤ�</li>
-<li><a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportFAQ">�ʤ�Ǥ虜�虜? �� �Х���ݡ���FAQ</a></li>
+<li>どちらも, emacs が立ちあがり, 質問票が表示されます</li>
+<li><a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportFAQ">なんでわざわざ? → バグレポートFAQ</a></li>
 </ul></li>
-<li>��­: ��������ľ���
+<li>補足: ガイシュツ上等
 <ul>
-<li>�ֻ��ͤ��סִ��ΤΥХ����פΥ����å��ä�, ���ä����Ǥ���ͤ�.</li>
-<li>howm �˴ؤ��Ƥ�, ���Υ����å������פǤ�.
-    �������, ���ڤˤɤ�ɤ��Ŧ���Ƥ��������������꤬�����Ǥ�.</li>
-<li>����, ��Ԥ��ܤ��Ϥ��Ȥ���(2ch �� howm wiki)�ˤ������Ǥ�������.</li>
+<li>「仕様か」「既知のバグか」のチェックって, おっくうですよねえ.</li>
+<li>howm に関しては, このチェックは不要です.
+    それよりも, 気軽にどんどん指摘していただく方がありがたいです.</li>
+<li>ぜひ, 作者の目が届くところ(2ch か howm wiki)にたれ込んでください.</li>
 <li>cf.
-    <a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportFAQ">�Х���ݡ���FAQ</a>,
-    <a href="http://web.archive.org/web/20041018232953/http://nnri.dip.jp/~yf/cgi-bin/yaswiki.cgi?name=%A5%AA%A1%BC%A5%D7%A5%F3%A5%BD%A1%BC%A5%B9%A4%CF%B2%BC%C4%AE%B5%A4%BC%C1">YASWiki:�����ץ󥽡����ϲ�Į����</a></li>
+    <a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?BugReportFAQ">バグレポートFAQ</a>,
+    <a href="http://web.archive.org/web/20041018232953/http://nnri.dip.jp/~yf/cgi-bin/yaswiki.cgi?name=%A5%AA%A1%BC%A5%D7%A5%F3%A5%BD%A1%BC%A5%B9%A4%CF%B2%BC%C4%AE%B5%A4%BC%C1">YASWiki:オープンソースは下町気質</a></li>
 </ul></li>
-<li>��Գн�
+<li>作者覚書
 <ul>
-<li>�ǥХå����ѿ� howm-call-process-last-command</li>
-<li>C-u M-x howm-bug-report �Ǵ�Ϣ�ѿ��ΰ���</li>
-<li>M-x howm-elp ��, �ץ��ե����� elp �ν���</li>
+<li>デバッグ用変数 howm-call-process-last-command</li>
+<li>C-u M-x howm-bug-report で関連変数の一覧</li>
+<li>M-x howm-elp で, プロファイラ elp の準備</li>
 </ul></li>
 </ul>
-<h2><a name="label-17" id="label-17">����</a></h2><!-- RDLabel: "����" -->
-<h3><a name="label-18" id="label-18">����</a></h3><!-- RDLabel: "����" -->
-<p><a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?IdeaSource">���ͥ�</a>����.
-�ä�, Q-pocket��HashedWiki��ChangeLog ��⤫�餤�äѤ��ޤͤ��Ƥޤ�. ����.</p>
+<h2><a name="label-17" id="label-17">備考</a></h2><!-- RDLabel: "備考" -->
+<h3><a name="label-18" id="label-18">参考</a></h3><!-- RDLabel: "参考" -->
+<p><a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?IdeaSource">元ネタ</a>参照.
+特に, Q-pocket・HashedWiki・ChangeLog メモからいっぱいまねしてます. 感謝.</p>
 <ul>
-<li>����ͺ�����֤䤵���� Emacs-Lisp �ֺ¡�(���åȥ����ƥ�, 1999)
+<li>広瀬雄二著「やさしい Emacs-Lisp 講座」(カットシステム, 1999)
   ISBN 4-906391-70-2
-  �� 
-  <a href="http://www.gentei.org/~yuuji/elisp/">����饤���� (��?)</a>
+  → 
+  <a href="http://www.gentei.org/~yuuji/elisp/">オンライン版 (抄?)</a>
 <ul>
-<li>elisp �Ϥ����ʤ鰵��Ū�ˤ�������</li>
-<li>6.4 ��������Ρ֥������� dired�פ򻲹ͤˤ����Ƥ��������ޤ���</li>
+<li>elisp はじめるなら圧倒的におすすめ</li>
+<li>6.4 章末問題の「サクサク dired」を参考にさせていただきました</li>
 </ul></li>
 </ul>
-<h3><a name="label-19" id="label-19">������Ͽ</a></h3><!-- RDLabel: "������Ͽ" -->
-<p>thx &gt; patch�����ɰơ���Ŧ�򤯤����ä�����</p>
+<h3><a name="label-19" id="label-19">更新記録</a></h3><!-- RDLabel: "更新記録" -->
+<p>thx &gt; patch・改良案・指摘をくださった皆様</p>
 <ul>
-<li>��꡼��ͽ���� howm-1.5.1-snapshot6 [2023-12-17]
+<li>リリース予定版 howm-1.5.1-snapshot6 [2023-12-17]
 <ul>
-<li>���󥯥��󥿥� grep ��ǥե���Ȥǥ����
+<li>インクリメンタル grep をデフォルトでオンに
 <ul>
-<li>����ʸ�������������� (RET �򲡤�����) ��� grep</li>
-<li>M-x customize-variable RET howm-view-use-grep RET �� On �ξ��Τ�ȯư</li>
-<li>�����ѹ��� M-x customize-group RET howm-iigrep RET</li>
+<li>検索文字列の入力途中で (RET を押す前に) 随時 grep</li>
+<li>M-x customize-variable RET howm-view-use-grep RET が On の場合のみ発動</li>
+<li>設定変更は M-x customize-group RET howm-iigrep RET</li>
 </ul></li>
-<li>�Ѹ�ڡ����˥�󥯤��ɲ� (��������ޥ˥奢��, �Ҳ�ư��)</li>
-<li>�٤��ʥХ�����</li>
+<li>英語ページにリンクを追加 (ロシア語マニュアル, 紹介動画)</li>
+<li>細かなバグを修正</li>
 </ul></li>
-<li>��꡼���� howm-1.5.0 [2022-12-27]
+<li>リリース版 howm-1.5.0 [2022-12-27]
 <ul>
-<li>���󥯥��󥿥� grep (�ǥե���ȤǤϥ���)
+<li>インクリメンタル grep (デフォルトではオフ)
 <ul>
-<li>����ʸ�������������� (RET �򲡤�����) ��� grep</li>
-<li>�����꡼���Ǥϥǥե���Ȥǥ���ˤ���ͽ��Ǥ�. �ƥ��Ȥ˶��Ϥ������������� M-x customize-group RET howm-iigrep RET ���ѿ� howm-iigrep-show-what �������꤯������.</li>
+<li>検索文字列の入力途中で (RET を押す前に) 随時 grep</li>
+<li>次回リリースではデフォルトでオンにする予定です. テストに協力いただける方は M-x customize-group RET howm-iigrep RET で変数 howm-iigrep-show-what 等を設定ください.</li>
 </ul></li>
-<li>���������� f ���� (filter) �򲡤������Ȥ������ˡ�uniq�פ��ɲ�
-    (��ե������ʣ����ҥåȤ��Ƥ��Ĥ���ɽ��)
+<li>検索一覧で f キー (filter) を押したあとの選択肢に「uniq」を追加
+    (一ファイルで複数回ヒットしても一つだけ表示)
     thx &gt; Andrei Sukhovskii san (qejep at posteo.net)
 <ul>
-<li>�Ĥ��Ǥ�, ���������Ǥ� u ���� (uniq) ��ȥ���� (�������Ӥˡ�uniq�פ򥪥󥪥�)</li>
+<li>ついでに, 検索一覧での u キー (uniq) をトグルに (押すたびに「uniq」をオンオフ)</li>
 </ul></li>
-<li>(����Ū�˼�����줿�Τ�, howm-1.4.9 �ϥ����åפ��� 1.5.0 ��)</li>
+<li>(内部的に手を入れたので, howm-1.4.9 はスキップして 1.5.0 に)</li>
 </ul></li>
-<li>��꡼���� howm-1.4.8 [2021-12-30]
+<li>リリース版 howm-1.4.8 [2021-12-30]
 <ul>
-<li>fix: emacs 28.1 ���б�
+<li>fix: emacs 28.1 に対応
     <a href="https://twitter.com/U5948U5e7eU4e43/status/1387373441582387209">thx</a></li>
 </ul></li>
-<li>��꡼���� howm-1.4.7 [2020-12-31]
+<li>リリース版 howm-1.4.7 [2020-12-31]
 <ul>
-<li>fix: �Х��ȥ���ѥ�����ηٹ����� (`font-lock-fontify-buffer' is for interactive use only; use `font-lock-ensure' or `font-lock-flush' instead.)</li>
-<li>fix: web�ڡ�����ʸ����������
+<li>fix: バイトコンパイル時の警告を回避 (`font-lock-fontify-buffer' is for interactive use only; use `font-lock-ensure' or `font-lock-flush' instead.)</li>
+<li>fix: webページの文字化けを修正
     <a href="https://mevius.5ch.net/test/read.cgi/unix/1397477663/126">thx</a></li>
-<li>fix: ����¾���������ʽ��������� (docstring, ������, web�ڡ����Υ��)</li>
+<li>fix: その他ごく軽微な修正・更新 (docstring, コメント, webページのリンク)</li>
 </ul></li>
-<li>������ǽ (experimental)
+<li>隠し機能 (experimental)
 <ul>
-<li>1.1.1.* ��������
+<li>1.1.1.* 以前から
 <ul>
-<li>�����������ɤ��ɤ߽񤭤� howm ��
+<li>ソースコードの読み書きも howm で
 <ul>
 <li><a href="http://www.tamacom.com/global-j.html">GNU global</a>
-        (<a href="https://www.tamacom.com/tour.html">��</a>)
-        ��ɤ��� on the fly �Ǥᤶ����</li>
-<li>�ޤ���ȯ��. ̣������ˤϡ�
+        (<a href="https://www.tamacom.com/tour.html">例</a>)
+        もどきの on the fly 版めざして</li>
+<li>まだ開発中. 味見するには…
 <ul>
-<li>�ѿ� howm-configuration-for-major-mode ������
+<li>変数 howm-configuration-for-major-mode を設定
 <ul>
-<li>major-mode �˱�����, come-from ������ν񼰤��Ѥ���</li>
-<li>howm-misc.el �Υ����Ȼ���</li>
+<li>major-mode に応じて, come-from リンク等の書式を変える</li>
+<li>howm-misc.el のコメント参照</li>
 </ul></li>
-<li>M-x howm-open-directory-independently ���� ~/elisp/howm �ʤɤ�����</li>
+<li>M-x howm-open-directory-independently して ~/elisp/howm などと入力</li>
 </ul></li>
-<li>���ΤϷ�� grep �ʤ������, ���ޤ긭��ư�����Ԥ��ƤϤ����ʤ�
+<li>正体は結局 grep なんだから, あまり賢い動作を期待してはいけない
 <ul>
-<li>elisp, tex �Ǥ�����������, ruby ����Ȥ���Τˤʤ餺.
+<li>elisp, tex では便利だけど, ruby じゃ使いものにならず.
 <ul>
-<li>�� elisp �δؿ�̾�� tex �Υ�٥�����Ū�˰��. ruby ����.</li>
+<li>∵ elisp の関数名や tex のラベルは大域的に一意. ruby は否.</li>
 </ul></li>
 </ul></li>
 </ul></li>
 </ul></li>
 <li>1.2
 <ul>
-<li><p>�����������ƥХåե��˥ե��������Τ�ɽ��������</p>
+<li><p>一覧時の内容バッファにファイル全体を表示させる</p>
 <pre>(setq howm-view-preview-narrow nil)</pre>
 <ul>
-<li>Ϣ����Ͻ���ɤ���(�����ڤ���ϰϤΤ�)</li>
-<li>howm-configuration-for-major-mode �ʳ��ǻȤ����̤�, �ޤ��ʤ��Ǥ��礦</li>
+<li>連結時は従来どおり(メモ区切りの範囲のみ)</li>
+<li>howm-configuration-for-major-mode 以外で使う場面は, まあないでしょう</li>
 </ul></li>
-<li>��ޥ����
+<li>リマインダ
 <ul>
-<li><p>��ޥ�����Υ������ޥ���
+<li><p>リマインダのカスタマイズ
         <a href="http://pc8.2ch.net/test/read.cgi/unix/1077881095/296">thx</a></p>
-<pre>;; ���������Υ�ޥ������*�פ����������:
-;; ��[2004-07-11]* �ۤ��פ�, �������ޤǾ徺��, ���Τ��Ȳ���.
-;; (���� = - |�٤� / ͱͽ����|. ͱͽ�����Υǥե���Ȥ� 3)
-;; 1. ���ٴؿ������ (�٤��ͱͽ����(�ȥ����ƥ�)�򿩤äƽ��٤��Ǥ�)
-;;    �٤�: ���������麣���ޤǤ�����. �ޤ��ʤ�ޥ��ʥ�.
-;;    ͱͽ: ��[2004-07-11]*8�פʤ� 8. ��[2004-07-11]*�פ����ʤ� nil.
-;;    ����: �礭���ۤɾ�. �ֳн�פʤ������ 0 ������ 1 ���ĸ���.
-;;    (�����ƥ�: �դĤ��ϻȤ�ʤ����ɤĤ��Ǥ�. howm-backend.el ����)
+<pre>;; 新しい型のリマインダ「*」を定義する例:
+;; 「[2004-07-11]* ほげ」は, 指定日まで上昇し, そのあと下降.
+;; (旬度 = - |遅れ / 猶予日数|. 猶予日数のデフォルトは 3)
+;; 1. 旬度関数を準備 (遅れと猶予日数(とアイテム)を食って旬度を吐く)
+;;    遅れ: 指定日から今日までの日数. まだならマイナス.
+;;    猶予: 「[2004-07-11]*8」なら 8. 「[2004-07-11]*」だけなら nil.
+;;    旬度: 大きいほど上. 「覚書」なら初日が 0 で毎日 1 ずつ減る.
+;;    (アイテム: ふつうは使わないけどついでに. howm-backend.el 参照)
 (defun my-priority (late lazy item)
   (let ((r (howm-todo-relative-late late lazy 3)))
-    ;; r = late / lazy. ̵������� lazy = 3.
+    ;; r = late / lazy. 無指定時は lazy = 3.
     (- (abs r))))
-;; 2. face �����
+;; 2. face を準備
 (defface my-face '((t (:foreground "cyan"))) "my face")
 (setq my-face 'my-face)
-;; 3. ����, ���ٴؿ�, face ����Ͽ.
-;; �Ĥ�ΰ�����Ĥ�, ��ͽ��ɽ��ɽ�����뤫�ס�todo �ꥹ�Ȥ�ɽ�����뤫��.
+;; 3. 記号, 旬度関数, face を登録.
+;; 残りの引数二つは, 「予定表に表示するか」「todo リストに表示するか」.
 (howm-define-reminder "*" #'my-priority 'my-face nil t)</pre>
 <ul>
-<li>����: ��¸�ν��ٴؿ��Υ���դ�
-          <a href="https://howm.osdn.jp/uu/#label:11">UNIX USER ��ε���</a>
-          �˽ФƤޤ�</li>
-<li>�Х�
+<li>参考: 既存の旬度関数のグラフが
+          <a href="https://howm.osdn.jp/uu/#label:11">UNIX USER 誌の記事</a>
+          に出てます</li>
+<li>バグ
 <ul>
-<li>�����ε���Ϥ������� (����ɽ�� [��] ������̤ʰ�̣����ĵ���ϡ�)</li>
-<li>��[2004-07-11]- �ۤ��פ����-�׾�� RET ���ơ�*�פ����Ϥ���ȥ��顼</li>
+<li>一部の記号はこけそう (正規表現 […] 内で特別な意味を持つ記号は×)</li>
+<li>「[2004-07-11]- ほげ」から「-」上で RET して「*」を入力するとエラー</li>
 </ul></li>
-<li>�Ȥꤢ����á����. ����ʤ�Ǥ�����Ǥ��礦��?</li>
+<li>とりあえず叩き台. こんなんでいいんでしょうか?</li>
 </ul></li>
 </ul></li>
-<li>���շ���
+<li>日付形式
 <ul>
-<li><p>���վ�� RET��2 ���Ƥ����</p>
-<pre>-, + �� ����, ����
-(, ) �� ����, ����
-{, } �� ����, ���
-[, ] �� ��ǯ, ��ǯ</pre>
+<li><p>日付上で RET×2 してから…</p>
+<pre>-, + → 前日, 翌日
+(, ) → 前日, 翌日
+{, } → 前月, 翌月
+[, ] → 前年, 翌年</pre>
 <ul>
-<li>C-u 20 - �� 20����</li>
-<li><p>�ҥåȤ��ʤ��ä��餽��������դ���õ��</p>
-<pre>(setq howm-date-forward-ymd-limit 90)  ;; 90����� give up</pre></li>
-<li>��äȤޤ��ʥ�������ʤ����ͤ�</li>
+<li>C-u 20 - → 20日前</li>
+<li><p>ヒットしなかったらその先の日付を順に探す</p>
+<pre>(setq howm-date-forward-ymd-limit 90)  ;; 90日先で give up</pre></li>
+<li>もっとましなキー設定ないかねえ</li>
 </ul></li>
-<li><p>�������ϡ�C-c , d�פ����Ȥ���ư��򤵤�˾�������</p>
+<li><p>日付入力「C-c , d」したときの動作をさらに小賢しく</p>
 <pre>(setq howm-insert-date-pass-through t)</pre>
 <ul>
-<li>���ե��ޥ�ɤˤĤ��Ƥϸ���Ʊ��</li>
-<li>���ե��ޥ�ɤ���ʤ��Ȥ���, ��������ȴ����.
-          C-c , d hoge �Ȥ� C-c , d C-a �Ȥ���Ф狼��ޤ�.</li>
-<li>���ޤä�. ��[2004-05-21]+�פȤ����Ϥ��褦�Ȥ���ȤȤޤɤ�.
-          ��+ RET�פǡ�+�������פˤϤ��Ƥߤ����ɡ�</li>
+<li>日付コマンドについては元と同様</li>
+<li>日付コマンドじゃないときは, ただちに抜ける.
+          C-c , d hoge とか C-c , d C-a とか試せばわかります.</li>
+<li>しまった. 「[2004-05-21]+」とか入力しようとするととまどう.
+          「+ RET」で「+を挿入」にはしてみたけど…</li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -1401,29 +1401,29 @@ make test</pre></li>
 <ul>
 <li>Major
 <ul>
-<li>howm2 �κ��ľ��? (ext/howmkara)
+<li>howm2 の作り直し? (ext/howmkara)
 <ul>
-<li>ɬ�פˤ��ޤ��ƤǤä�����. ̾����Ƥ��Ȥ�.
+<li>必要にせまられてでっちあげ. 名前もてきとう.
 <ul>
-<li>ɬ�פ��������줿����, �ޤ����֤���. ï���ɤ��ˤ����Ƥ����С�</li>
+<li>必要は満たされたから, また放置かも. 誰かどうにかしてくれれば…</li>
 </ul></li>
-<li>��ǽ���ಽ. �������������Ϥޤ�.
+<li>機能は退化. ソースは前よりはまし.
 <ul>
-<li>magic string ������ФäƤ�ΤϤ�������󤱤ɡ�</li>
+<li>magic string がちらばってるのはけしからんけど…</li>
 </ul></li>
-<li>�����ե������ʬ�䤹�� ext/hsplit.rb ��񤤤�����,
-          ����Ϥ���˼�ȴ��</li>
+<li>一メモ一ファイルに分割する ext/hsplit.rb も書いたけど,
+          これはさらに手抜き</li>
 </ul></li>
 </ul></li>
 <li>Minor
 <ul>
-<li>hcal.rb �Ρ�[2004-09-02]?���б�(��ʬ���Ѥ��ΤФ��Τ�)
+<li>hcal.rb の「[2004-09-02]?」対応(自分専用そのばしのぎ)
         <a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?TangledToDo">ref</a></li>
-<li>M-x howm-return-to-list �� ����ɽ�������
+<li>M-x howm-return-to-list → 一覧表示に戻る
         <a href="http://pc8.2ch.net/test/read.cgi/unix/1077881095/377">thx</a>
 <ul>
-<li>�Ȥ�ޤ�Ķ���Ǥä�����. ȿ���˱����Ƥޤ��ͤ��褦.</li>
-<li><p>����ɽ���ˤ���������뤳�Ȥʤ�, �����μ����ܤ�ľ�ܳ���:</p>
+<li>とり急ぎ超雑でっちあげ. 反響に応じてまた考えよう.</li>
+<li><p>一覧表示にいちいち戻ることなく, 一覧の次項目を直接開く:</p>
 <pre>(defun my-howm-next-hit (n)
   (interactive "p")
   (let ((buf (save-window-excursion
@@ -1443,245 +1443,245 @@ make test</pre></li>
 </ul></li>
 <li>1.2.2
 <ul>
-<li>�ü�ե����
+<li>特殊フォルダ
 <ul>
-<li>namazu folder ���
+<li>namazu folder 試作
 <ul>
-<li>�����ɻ�����</li>
-<li>+from: �ʤɤ�̤�б�</li>
-<li>ľ�ܸ�������ˤ� M-x howm-search-namazu</li>
+<li>コード雑すぎ</li>
+<li>+from: などに未対応</li>
+<li>直接検索するには M-x howm-search-namazu</li>
 </ul></li>
-<li>rot13 folder/page ���
+<li>rot13 folder/page 試作
         <a href="http://pc8.2ch.net/test/read.cgi/unix/1077881095/580">thx</a>
 <ul>
-<li>���켫�ΤϤ�ͷ�Ӥ�����, �֤դĤ��Ǥʤ��ڡ����פ������Ȥ���</li>
-<li>rot13:xxx �Хåե���, C-c C-c �ǡ�rot13 ������¸��
+<li>これ自体はお遊びだけど, 「ふつうでないページ」の練習として</li>
+<li>rot13:xxx バッファは, C-c C-c で「rot13 して保存」
 <ul>
-<li>rot13 �ʥե�����򳫤��ˤ�, M-x yarot13-find-file</li>
+<li>rot13 なファイルを開くには, M-x yarot13-find-file</li>
 </ul></li>
 </ul></li>
-<li><p>howm-search-path ��, �̾�Ρ֥ǥ��쥯�ȥ�װʳ���񤱤�</p>
-<pre>;; namazu folder �� rot13 folder �򸡺��оݤ��ɲ�
-;; (M-x howm-toggle-search-other-dir ��ͭ����̵�����ڤ꤫��)
-(let* ((nd "~/PATH/NMZ/Mail") ;; namazu ����ǥå����Τ���ǥ��쥯�ȥ�
-       (rd "~/g/r13") ;; ���Υǥ��쥯�ȥ�ʲ��Υե������ rot13 �����
+<li><p>howm-search-path に, 通常の「ディレクトリ」以外も書ける</p>
+<pre>;; namazu folder と rot13 folder を検索対象に追加
+;; (M-x howm-toggle-search-other-dir で有効・無効を切りかえ)
+(let* ((nd "~/PATH/NMZ/Mail") ;; namazu インデックスのあるディレクトリ
+       (rd "~/g/r13") ;; このディレクトリ以下のファイルは rot13 される
        (nf (howm-make-folder:namazu nd))
        (rf (howm-make-folder:rot13dir rd)))
   (setq howm-search-path (list nf rf)))
-(howm-toggle-search-other-dir 1) ;; 0 �ʤ������֤ϡ�̵����</pre></li>
+(howm-toggle-search-other-dir 1) ;; 0 なら初期状態は「無効」</pre></li>
 </ul></li>
-<li>[2004-12-13]_3 ��ͱͽ������3�פΰ�̣�� 1 ���餷��
+<li>[2004-12-13]_3 の猶予日数「3」の意味を 1 ずらした
 <ul>
-<li>���ޤޤǤ�, ��ά�� 0 �� 1 ��Ʊ����̣�ˤʤäƤ���</li>
-<li>�����쵤����������, ��äȤޤ���˼������ʤ�������
+<li>いままでは, 省略と 0 と 1 が同じ意味になっていた</li>
+<li>いずれ気が向いたら, もっとまじめに実装しなおすかも
         <a href="http://pc8.2ch.net/test/read.cgi/unix/1077881095/522">thx</a></li>
 </ul></li>
-<li>ext/hcal.rb �� iCalendar ���Ϥ��ɲ�, �Ĥκ���¤ΤȤä��������</li>
+<li>ext/hcal.rb に iCalendar 出力を追加, …の最低限のとっかかりだけ</li>
 </ul></li>
 <li>1.3.1
 <ul>
-<li>�������֥Х��λ�Ŧ�μ��װ�
+<li>新しい「バグの指摘の手順」案
 <ul>
-<li>make test �� emacs ��ư</li>
-<li>�Х���ȯ�ɤ�����
+<li>make test で emacs を起動</li>
+<li>バグを発症させる
 <ul>
-<li>ȯ�ɤ��ʤ����, ��ʬ�� .emacs �����Ϣ�������ʤȤ�����
-          sample/dot.emacs �إ��ԡ�����, �⤦���� make test</li>
+<li>発症しなければ, 自分の .emacs から関連しそうなところを
+          sample/dot.emacs へコピーして, もう一度 make test</li>
 </ul></li>
-<li>ȯ�ɤ����餹������ M-x howm-bug-shot
+<li>発症したらすかさず M-x howm-bug-shot
 <ul>
-<li>�С������䥹���꡼�󥷥�åȤʤɤ�ɽ������ޤ�</li>
+<li>バージョンやスクリーンショットなどが表示されます</li>
 </ul></li>
-<li>�����Ȥ�ä��� 2ch ��Ž��</li>
+<li>コメントを加えて 2ch に貼る</li>
 </ul></li>
 </ul></li>
 <li>1.3.3
 <ul>
-<li><p>�����������򤹤٤� howm-remember �ˤ���ˤϡ�</p>
-<pre>;; howm-create �򤹤٤� howm-remember �ˤ��꤫����
+<li><p>新規メモ作成をすべて howm-remember にするには…</p>
+<pre>;; howm-create をすべて howm-remember にすりかえる
 (defadvice howm-create (around remember activate)
   (if (interactive-p)
       (howm-remember)
     ad-do-it))
-(setcdr (assoc "[����]" howm-menu-command-table-ja)
-        '(howm-remember current))  ;; [2006-05-15] ����</pre>
+(setcdr (assoc "[新規]" howm-menu-command-table-ja)
+        '(howm-remember current))  ;; [2006-05-15] 修正</pre>
 <ul>
-<li>��˥塼��� c �򲡤����Ȥ�, �֥�˥塼������ɽ�����Ƥ����Хåե���
-        ��Ф��������ߤʤ�, ��current�פ��previous�פ�ľ���Ƥ�������</li>
+<li>メニュー上で c を押したとき, 「メニューの前に表示していたバッファ」
+        を出す方が好みなら, 「current」を「previous」と直してください</li>
 </ul></li>
-<li>���ƥ����̤� todo list
+<li>カテゴリ別の todo list
       <a href="http://pc8.2ch.net/test/read.cgi/unix/1077881095/885">thx</a>
       <a href="http://pc8.2ch.net/test/read.cgi/unix/1077881095/890">thx</a>
       <a href="http://pc8.2ch.net/test/read.cgi/unix/1077881095/909">thx</a>
       <a href="http://pc8.2ch.net/test/read.cgi/unix/1077881095/919">thx</a>
 <ul>
-<li>��ʬ��פ���˾�ϤĤäѤͤƤ����������, �����ϵ��ޤ���˵����������Τ�
-        ���. ������ǽ�ˤ��Ƥ������ɤ�����̤��.</li>
-<li><p>��˥塼�ˤ����񤯤�, ��foo�ס�bar�ס�baz�פ�ޤ� todo ��
-        ʬ�ष��ɽ��</p>
+<li>「分類」の要望はつっぱねてきたんだけど, 今日は気まぐれに気が向いたので
+        お試し. 正式機能にしていくかどうかは未定.</li>
+<li><p>メニューにこう書くと, 「foo」「bar」「baz」を含む todo を
+        分類して表示</p>
 <pre>%here%(howm-menu-categorized-reminder ("foo" "bar" "baz"))</pre>
 <ul>
-<li>���ʤߤ�, %here% �Ǥϥ������Ȥ����פǤ�</li>
+<li>ちなみに, %here% ではクオートは不要です</li>
 </ul></li>
-<li><p>�����, �ƹԤΡ�foo�ס�bar�ס�baz�פ�ä��������</p>
+<li><p>さらに, 各行の「foo」「bar」「baz」を消したければ</p>
 <pre>%here%(howm-menu-categorized-reminder ("foo" "bar" "baz") nil t)</pre></li>
-<li><p>��misc.�פ���ɽ���ˤ��������</p>
+<li><p>「misc.」を非表示にしたければ</p>
 <pre>%here%(howm-menu-categorized-reminder ("foo" "bar" "baz") nil nil t)</pre></li>
 </ul></li>
-<li><p>�����Хåե��Υޥå����Ƥκ��˥����ȥ��ɽ��.
-      ���ʤߤ˽���Τ�, �֥ޥå����ƤΤ����˥����ȥ��ɽ����.
-      <a href="http://lists.sourceforge.jp/mailman/archives/howm-eng/2006/000025.html">thx</a> &gt; Highfly ����</p>
-<pre>(setq howm-view-list-title-type 2) ;; �ޥå����Ƥκ��˥����ȥ��ɽ��
-(setq howm-view-summary-format "") ;; �ե�����̾��ä��������</pre></li>
-<li>C-c , M �ǡ֥ե�����̾����ꤷ�ƥ��򳫤���
-      <a href="http://lists.sourceforge.jp/mailman/archives/howm-eng/2005/000010.html">thx</a> &gt; Eduardo Ochs ����</li>
+<li><p>一覧バッファのマッチ内容の左にタイトルを表示.
+      ちなみに従来のは, 「マッチ内容のかわりにタイトルを表示」.
+      <a href="http://lists.sourceforge.jp/mailman/archives/howm-eng/2006/000025.html">thx</a> &gt; Highfly さん</p>
+<pre>(setq howm-view-list-title-type 2) ;; マッチ内容の左にタイトルを表示
+(setq howm-view-summary-format "") ;; ファイル名を消したければ</pre></li>
+<li>C-c , M で「ファイル名を指定してメモを開く」
+      <a href="http://lists.sourceforge.jp/mailman/archives/howm-eng/2005/000010.html">thx</a> &gt; Eduardo Ochs さん</li>
 </ul></li>
 <li>1.3.7
 <ul>
-<li><p>�������˥�����ɥ�ʬ�������ʤ�����.
+<li><p>一覧時にウィンドウ分割を壊さない設定.
       <a href="http://hibari.2ch.net/test/read.cgi/unix/1141892764/507">thx</a></p>
 <pre>(setq riffle-keep-window t)
 (setq riffle-window-initializer nil)</pre>
 <ul>
-<li>���ƥХåե���ɽ������ޤ���.</li>
-<li>�Ȥꤢ����á����. �����ѹ��β�ǽ������.</li>
+<li>内容バッファは表示されません.</li>
+<li>とりあえず叩き台. 今後変更の可能性あり.</li>
 </ul></li>
-<li>M-x howm-list-active-todo ��, ����ͭ����(��������Ǥʤ�) todo �Τߤ����.
+<li>M-x howm-list-active-todo で, 現在有効な(＝潜伏中でない) todo のみを一覧.
       <a href="http://hibari.2ch.net/test/read.cgi/unix/1141892764/129-131n">thx</a>
 <ul>
-<li>�Ĥ��Ǥ�, M-x howm-list-sleeping-todo ��, ������� todo �Τߤ����.</li>
-<li>�Ȥꤢ�����ؿ��������. ���󥿥ե������ΰƤ�����Ф�ʹ������������.</li>
-<li>���ʤߤ�, ��˥塼���������� todo ��ä��ˤ�,
-        M-x customize-variable RET howm-menu-todo-priority RET ��
-        ��Hide sleeping reminders�פ����ꤷ�Ƥ�������.</li>
+<li>ついでに, M-x howm-list-sleeping-todo で, 潜伏中の todo のみを一覧.</li>
+<li>とりあえず関数だけ試作. インタフェースの案があればお聞かせください.</li>
+<li>ちなみに, メニューから潜伏中 todo を消すには,
+        M-x customize-variable RET howm-menu-todo-priority RET で
+        「Hide sleeping reminders」を設定してください.</li>
 </ul></li>
-<li><p>�Хåե�̾��, �ե�����̾�ǤϤʤ������ȥ�ˤ���.
+<li><p>バッファ名を, ファイル名ではなくタイトルにする.
       <a href="http://lists.sourceforge.jp/mailman/archives/howm-eng/2006/000020.html">thx</a> &gt; Mielke-san (peter at exegenix.com),
       <a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?ExternalTool">thx</a></p>
-<pre>;; emacs ��ǤΥХåե�̾��, �ե�����̾�ǤϤʤ������ȥ��.
-;; (�ե�����̾���Τ��ѹ����ʤ�)
+<pre>;; emacs 上でのバッファ名を, ファイル名ではなくタイトルに.
+;; (ファイル名自体は変更しない)
 (add-hook 'howm-mode-hook 'howm-mode-set-buffer-name)
 (add-hook 'after-save-hook 'howm-mode-set-buffer-name)</pre>
 <ul>
-<li><p>�����ȥ�֤ۤ��פΥ��ΥХåե�̾���=�ۤ��פ�
+<li><p>タイトル「ほげ」のメモのバッファ名を「=ほげ」に
         <a href="http://hibari.2ch.net/test/read.cgi/unix/1141892764/333">thx</a></p>
-<pre>;; �����ȥ뤬 AAA �ʤ�Хåե�̾�� =AAA ��.
-;; ���� howm-mode-set-buffer-name �����ꤷ����ǡ�
+<pre>;; タイトルが AAA ならバッファ名を =AAA に.
+;; 下の howm-mode-set-buffer-name を設定した上で…
 (setq howm-buffer-name-format "=%s")</pre></li>
-<li>������ howm ����Ω�����ġ���ˤ���������������,
-        ���ä����ʤΤǤҤȤޤ�.</li>
+<li>本当は howm と独立したツールにする方がいいけど,
+        おっくうなのでひとまず.</li>
 </ul></li>
 </ul></li>
 <li>1.3.8
 <ul>
-<li>M-x howm-extend-deadlines ��,
-      ��������᤮������(!)�򤹤٤ư���������ر��.
+<li>M-x howm-extend-deadlines で,
+      指定日を過ぎた〆切(!)をすべて一定日数後へ延期.
       <a href="http://hibari.2ch.net/test/read.cgi/unix/1141892764/671">thx</a>
 <ul>
-<li>���ͤ⥤�󥿥ե�������ޤ�á����.</li>
-<li>���򾡼�˽񤭤�������������ʤΤ�, �Хå����åפ�ȤäƤ���!</li>
+<li>仕様もインタフェースもまだ叩き台.</li>
+<li>メモを勝手に書きかえる危険な操作なので, バックアップをとってから!</li>
 </ul></li>
 </ul></li>
 <li>1.3.9
 <ul>
-<li>��˥塼�ˡ�%here%(howm-menu-search "[��]��Ū" full t)�פȽ񤱤�,
-      ������Ū�פ�ޤ�����������Τ��˥塼��������.
+<li>メニューに「%here%(howm-menu-search "[断]片的" full t)」と書けば,
+      「断片的」を含むメモの内容全体をメニューに埋め込み.
       <a href="http://sourceforge.jp/projects/howm/lists/archive/eng/2010/000097.html">thx</a>
-      &gt; Morgan Veyret ���� (morgan.veyret at gmail.com).
+      &gt; Morgan Veyret さん (morgan.veyret at gmail.com).
 <ul>
-<li>ñ�� "����Ū" �Ȥ��ʤ��Τ�, ��˥塼�ե����뼫�Ȥ��ҥåȤ���Τ��򤱤뾮�ٹ�</li>
+<li>単に "断片的" としないのは, メニューファイル自身がヒットするのを避ける小細工</li>
 </ul></li>
 </ul></li>
 <li>1.4.2
 <ul>
-<li><p>�����Хåե��ǡ֥ե����� | �ޥå��ԡפΤ����ˤ����ɽ����.
-      ���ΤȤ������ȥ���Ƭ�Ρ�=�פ�ɽ�����ʤ��褦��.
+<li><p>一覧バッファで「ファイル | マッチ行」のかわりにこんな表示に.
+      このときタイトル先頭の「=」は表示しないように.
       (experimental)
       <a href="http://sourceforge.jp/projects/howm/lists/archive/eng/2012/000107.html">thx</a>
       <a href="http://sourceforge.jp/projects/howm/lists/archive/eng/2012/000111.html">thx</a>
       &gt; Albert-san (areiner at tph.tuwien.ac.at)</p>
-<pre>�����ȥ� A|
-|�ޥå��� A1
-|�ޥå��� A2
-�����ȥ� B|
-|�ޥå��� B1
-|�ޥå��� B2</pre>
+<pre>タイトル A|
+|マッチ行 A1
+|マッチ行 A2
+タイトル B|
+|マッチ行 B1
+|マッチ行 B2</pre>
 <ul>
-<li><p>����</p>
+<li><p>設定</p>
 <pre>(setq howm-view-list-title-type 2) ;; Show title before summary.
 (setq howm-view-summary-format "") ;; If you want to delete file names.
 (setq howm-entitle-items-style2-max-length 50)
 (setq howm-entitle-items-style2-format "%-0s|%s") ;; for title and summary
 (setq howm-entitle-items-style2-title-line t) ;; independent title line?</pre></li>
-<li>�����, M-x customize-variable RET howm-list-title RET �������</li>
-<li>����: ��ե�����ʣ������ C-c , a (howm-list-all) �����Ȥ���
-        �б����륿���ȥ�Ԥ�����Ǥ���ʤ�
+<li>さらに, M-x customize-variable RET howm-list-title RET も設定を</li>
+<li>制限: 一ファイル複数メモで C-c , a (howm-list-all) したときは
+        対応するタイトル行に飛んでくれない
 <ul>
-<li>���⤽��Իظ��Ǻ�äƤ����ΤǼ�����̵������</li>
-<li>�������ľ���ΤϤ��ɤ�. �������פ��ʤ���С�</li>
+<li>そもそも行指向で作っていたので実装が無理矢理</li>
+<li>きちんと直すのはめんどう. 強い需要がなければ…</li>
 </ul></li>
 </ul></li>
 </ul></li>
 <li>1.4.4
 <ul>
-<li><p>�������ϻ���ư����ĥ
+<li><p>日付入力時の動作を拡張
       <a href="https://osdn.jp/projects/howm/lists/archive/eng/2016/000118.html">thx</a>
       &gt; Albert-san (areiner at tph.tuwien.ac.at)</p>
-<pre>;; ��[2003-12-27]�׾�� RET ����ǯ����ά�������
-(setq howm-action-lock-date-future t) ;; 2003-12-27 ���̤��Ȳ��
-;(setq howm-action-lock-date-future 'closer) ;; 2003-12-27 �˶ᤤ���ǲ��</pre>
+<pre>;; 「[2003-12-27]」上で RET して年や月を略したら…
+(setq howm-action-lock-date-future t) ;; 2003-12-27 より未来と解釈
+;(setq howm-action-lock-date-future 'closer) ;; 2003-12-27 に近い方で解釈</pre>
 <ul>
-<li><p>�������ϻ��ˤ�����������ư��ˤ��������</p>
-<pre>;; ��������(C-c , d �ޤ��� [����])��ǯ����ά�������
-(setq howm-insert-date-future t) ;; ��̤��פȲ��
-;(setq howm-insert-date-future 'closer) ;; �����˶ᤤ���ǲ��</pre></li>
+<li><p>新規入力時にだけそういう動作にしたければ</p>
+<pre>;; 日付入力(C-c , d または [日↓])で年や月を略したら…
+(setq howm-insert-date-future t) ;; 「未来」と解釈
+;(setq howm-insert-date-future 'closer) ;; 今日に近い方で解釈</pre></li>
 </ul></li>
 </ul></li>
 </ul></li>
-<li>������ȴ��� (<a href="OLD.rd">&lt;URL:OLD.rd&gt;</a> ����)
+<li>…履歴抜粋… (<a href="OLD.rd">&lt;URL:OLD.rd&gt;</a> 参照)
 <ul>
-<li>[2012-12-27]��[2019-12-31] 1.4.1��1.4.6 �Զ�罤��, Emacs ���Ǥؤ��ɽ�</li>
-<li>[2012-08-16] 1.4.0 ������ǽ�θ�����, ��ư��ǥե���Ȥ���ߴ��ѹ�</li>
-<li>[2010-12-30] 1.3.9 ������</li>
-<li>[2009-12-31] 1.3.8 �᤮�����ڤ��忧</li>
-<li>[2008-12-31] 1.3.7 �������������� (�����Ѥ�ʬΥ).
-    howm-list-normalizer ���� howm-normalizer ��.</li>
-<li>[2008-05-31] 1.3.6 �忧���Զ�罤��</li>
-<li>[2007-12-09] 1.3.5 �ƻ��֤��Զ�罤��</li>
-<li>[2006-12-16] 1.3.4 �������ƥ�����</li>
-<li>[2005-08-02] 1.3.0 alias. M-x customize. �����ȥ�ɽ��.</li>
-<li>[2005-05-02] 1.2.2 �Хå�������ڤ�Υ��. gfunc.el</li>
-<li>[2004-08-24] 1.2 ��α��~�פθ�����. howm.el, riffle.el</li>
+<li>[2012-12-27]〜[2019-12-31] 1.4.1〜1.4.6 不具合修正, Emacs 新版への追従</li>
+<li>[2012-08-16] 1.4.0 隠し機能の公式化, 挙動やデフォルトの非互換変更</li>
+<li>[2010-12-30] 1.3.9 微修正</li>
+<li>[2009-12-31] 1.3.8 過ぎた〆切に着色</li>
+<li>[2008-12-31] 1.3.7 内部コード整理 (副作用を分離).
+    howm-list-normalizer から howm-normalizer へ.</li>
+<li>[2008-05-31] 1.3.6 着色の不具合修正</li>
+<li>[2007-12-09] 1.3.5 夏時間の不具合修正</li>
+<li>[2006-12-16] 1.3.4 セキュリティ修正</li>
+<li>[2005-08-02] 1.3.0 alias. M-x customize. タイトル表示.</li>
+<li>[2005-05-02] 1.2.2 バックエンド切り離し. gfunc.el</li>
+<li>[2004-08-24] 1.2 保留「~」の公式化. howm.el, riffle.el</li>
 <li>[2004-05-06] 1.1.2 make test</li>
-<li>[2004-02-27] <a href="https://pc8.5ch.net/test/read.cgi/unix/1077881095/">2ch howm ���� 2</a></li>
-<li>[2004-02-21] 1.1.1 �ֱ�����ǽ�����٤�Ƴ��</li>
-<li>[2004-01-25] <a href="https://howm.osdn.jp/">sf.jp</a> �ذ�ư</li>
+<li>[2004-02-27] <a href="https://pc8.5ch.net/test/read.cgi/unix/1077881095/">2ch howm スレ 2</a></li>
+<li>[2004-02-21] 1.1.1 「隠し機能」制度を導入</li>
+<li>[2004-01-25] <a href="https://howm.osdn.jp/">sf.jp</a> へ移動</li>
 <li>[2005-01-08] <a href="https://web.archive.org/web/20051022005814/http://www.unixuser.jp/magazine/2004/200402.html">UNIX USER 2004.2</a></li>
 <li>[2003-12-27] <a href="https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi">howm wiki</a></li>
-<li>[2003-11-22] 1.1 �ǥե���Ȥ��ѹ�
-    (��󥯡����ա���ޥ�����ν�, �����ե�����, ��˥塼����ΰ��)</li>
-<li>[2003-10-27] 1.0.4.2 �Ť��ʤ�Х�����. �褯����ʤΤ�ư���Ƥ��ʤ���</li>
-<li>[2003-10-02] 1.0.4 ���� viewer, ��˥塼�β�궯��</li>
-<li>[2003-09-23] �֥ƥ����ǡפ�Ƴ��</li>
-<li>[2003-09-18] 1.0.2 HTML ��������ץ� howm2</li>
-<li>[2003-09-17] <a href="http://pc.5ch.net/test/read.cgi/unix/1063800495/">2ch howm ����</a></li>
-<li>[2003-09-17] 1.0 ���ǥ��쥯�ȥ���ز�</li>
-<li>[2003-09-16] 0.9.7.1 Wiki ����� [[�ۤ�]]</li>
-<li>[2003-09-14] 0.9.4.1 grep æ��</li>
-<li>[2003-09-09] 0.9 ruby æ��</li>
-<li>[2003-08-31] 0.8.5 �����ȥ����</li>
-<li>[2003-06-03] 0.8.4 ��ľ�������� hcal.rb</li>
-<li>[2002-11-03] 0.8 ��˥塼, ���ٽ� todo @[2003/09/20]+</li>
-<li>[2002-09-17] 0.7 1 �� 1 �ե�����, come-from ��� &lt;&lt;</li>
-<li>[2002-09-14] 0.6 ����ѻ�(���٤Ƥϡָ�����)</li>
-<li>[2002-06-10] <a href="https://www.yamdas.org/column/technique/clonelist.html">����ȯ�� wiki ��������ꥹ��</a></li>
-<li>[2002-05-29] 0.1 ����</li>
+<li>[2003-11-22] 1.1 デフォルトの変更
+    (リンク・日付・リマインダの書式, 一メモ一ファイル, メニューもメモの一種)</li>
+<li>[2003-10-27] 1.0.4.2 重くなるバグを修正. よくこんなので動いてたなあ…</li>
+<li>[2003-10-02] 1.0.4 外部 viewer, メニューの過剰強化</li>
+<li>[2003-09-23] 「テスト版」を導入</li>
+<li>[2003-09-18] 1.0.2 HTML 化スクリプト howm2</li>
+<li>[2003-09-17] <a href="http://pc.5ch.net/test/read.cgi/unix/1063800495/">2ch howm スレ</a></li>
+<li>[2003-09-17] 1.0 メモディレクトリを階層化</li>
+<li>[2003-09-16] 0.9.7.1 Wiki 風リンク [[ほげ]]</li>
+<li>[2003-09-14] 0.9.4.1 grep 脱却</li>
+<li>[2003-09-09] 0.9 ruby 脱却</li>
+<li>[2003-08-31] 0.8.5 タイトル一覧</li>
+<li>[2003-06-03] 0.8.4 安直カレンダー hcal.rb</li>
+<li>[2002-11-03] 0.8 メニュー, 旬度順 todo @[2003/09/20]+</li>
+<li>[2002-09-17] 0.7 1 日 1 ファイル, come-from リンク &lt;&lt;</li>
+<li>[2002-09-14] 0.6 リンク廃止(すべては「検索」)</li>
+<li>[2002-06-10] <a href="https://www.yamdas.org/column/technique/clonelist.html">日本発の wiki クローンリスト</a></li>
+<li>[2002-05-29] 0.1 公開</li>
 </ul></li>
 </ul>
-<h3><a name="label-20" id="label-20">���ɥ쥹</a></h3><!-- RDLabel: "���ɥ쥹" -->
+<h3><a name="label-20" id="label-20">アドレス</a></h3><!-- RDLabel: "アドレス" -->
 <ul>
-<li>�ǿ���: <a href="https://howm.osdn.jp/">&lt;URL:https://howm.osdn.jp/&gt;</a></li>
-<li>Ϣ����: email ���ɥ쥹�ϥ������ե�������Ƭ�򻲾Ȥ�������</li>
+<li>最新版: <a href="https://howm.osdn.jp/">&lt;URL:https://howm.osdn.jp/&gt;</a></li>
+<li>連絡先: email アドレスはソースファイル冒頭を参照ください</li>
 </ul>
 
 </body>
