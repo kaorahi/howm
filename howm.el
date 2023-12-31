@@ -6,7 +6,7 @@
 
 ;; Author: HIRAOKA Kazuyuki <kakkokakko@gmail.com>
 ;; URL: https://kaorahi.github.io/howm/
-;; Version: 1.5.1-snapshot6
+;; Version: 1.5.1
 ;; Package-Requires: ((cl-lib "0.5"))
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(defconst howm-version "1.5.1-snapshot6")
+(defconst howm-version "1.5.1")
 
 ;; Files [0]-[3] have only hierarchical dependencies,
 ;; whereas files in [5] have circular dependencies.
