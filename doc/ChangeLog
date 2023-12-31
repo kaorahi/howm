@@ -1,3 +1,11 @@
+2023-12-31  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* old_changes.html: separate too old changes from index.html
+
+	* index.html: ditto.
+
+	* index-j.html: add link to English tutorial (same as index.html)
+
 2023-12-21  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* index.html: add link to English tutorial
