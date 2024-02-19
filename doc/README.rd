@@ -148,7 +148,7 @@
 * Ctrl-C , , and [return] on [Todo] to browse all todo.
 * Move cursor and type [return] to open the note.
 * Type Ctrl-C , , to show the head of todo under the menu.
-* Items are sorted by a magic criterion.
+* Items are sorted by a ((<magic criterion|URL:priority.png>)).
     - sink after the date (reminder)
     + float after the date (todo)
     ! float until the date (deadline)
