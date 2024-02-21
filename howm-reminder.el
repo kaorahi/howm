@@ -379,10 +379,73 @@ This value is passed to `format-time-string', and the result must be a regexp."
   (interactive)
   (howm-list-todo-sub #'howm-todo-sleeping-p))
 
+(defun howm-simulate-todo ()
+  (interactive)
+  (let ((howm-todo-separators nil))
+    (howm-list-todo-sub))
+  (mapc (lambda (args) (apply #'local-set-key args))
+        '((">" howm-simulate-todo-next-date)
+          ("<" howm-simulate-todo-previous-date)
+          ("=" howm-simulate-todo-reset)))
+  (howm-simulate-todo-reset))
+(defun howm-simulate-todo-next-date (n)
+  "Simulate the todo list as if today were N days after the current 'today'.
+If N is nil, reset the simulation to today's date.
+For example, to simulate 30 days later, call this function with the prefix C-u 30."
+  (interactive "p")
+  (let* ((ti (howm-increment-simulated-date n))
+         (msg (format-time-string " %Y-%m-%d (%a) <=>" ti))
+         (items (let ((howm-todo-separators nil))
+                  (howm-list-todo-sub-setup-items (howm-view-item-list)))))
+    (when items
+      (howm-save-vertical-position
+        (howm-view-summary-rebuild items)
+        (howm-list-reminder-final-setup "{sim}" items))
+      (howm-list-todo-insert-priority items)
+      (setq howm-view-mode-line-text
+            (propertize msg 'face howm-simulate-todo-mode-line-face)))))
+(defun howm-simulate-todo-previous-date (n)
+  "Simulate the todo list as if today were N days before the current 'today'.
+If N is nil, reset the simulation to today's date.
+For example, to simulate 30 days ago, call this function with the prefix C-u 30."
+  (interactive "p")
+  (howm-simulate-todo-next-date (and n (- n))))
+(defun howm-simulate-todo-reset ()
+  "Reset the simulated todo list to today's date."
+  (interactive)
+  (howm-simulate-todo-next-date nil))
+(defmacro howm-save-vertical-position (&rest body)
+  (declare (indent 0))
+  (let ((gw (cl-gensym))
+        (gc (cl-gensym)))
+    `(let ((,gw (line-number-at-pos (window-start) t))
+           (,gc (line-number-at-pos nil t)))
+       (prog1
+           (progn ,@body)
+         (howm-goto-line ,gw)
+         (recenter 0)
+         (howm-goto-line ,gc)))))
+(defun howm-list-todo-insert-priority (item-list)
+  (save-excursion
+    (let ((buffer-read-only nil))
+      (buffer-disable-undo)
+      (goto-char (point-min))
+      (mapc (lambda (item)
+              (when (search-forward howm-view-summary-sep (line-end-position) t)
+                  (insert (format "%8.1f" (howm-todo-priority item))))
+              (forward-line 1))
+            item-list))))
+
 (defun howm-list-todo-sub (&optional pred)
+  (let* ((items0 (howm-list-reminder-internal howm-todo-types))
+         (items (howm-list-todo-sub-setup-items items0 pred)))
+    (when items
+      (howm-list-reminder-final-setup howm-list-todo-name items))))
+
+(defun howm-list-todo-sub-setup-items (given-items &optional pred)
   (howm-with-need
     (howm-with-schedule-summary-format
-      (let ((items (need (howm-list-reminder-internal howm-todo-types))))
+      (let ((items (need given-items)))
         (when pred
           (setq items
                 (need (cl-remove-if-not pred items))))
@@ -391,7 +454,7 @@ This value is passed to `format-time-string', and the result must be a regexp."
           (setq items
                 (howm-todo-insert-separators items
                                              howm-todo-separators)))
-      (howm-list-reminder-final-setup howm-list-todo-name items)))))
+        items))))
 
 (defun howm-todo-menu (n limit-priority separators &optional must-show-priority)
   "Find top N todo items, or all todo items if N is nil.
@@ -486,9 +549,19 @@ Example: (howm-todo-parse-string \"abcde [2004-11-04]@ hogehoge\")
                                                                  d m y)))))))
         (list day late type lazy day-of-week description)))))
 
+(defvar howm-todo-priority-late-offset 0
+  "For internal use")
+(make-variable-buffer-local 'howm-todo-priority-late-offset)
+(defun howm-increment-simulated-date (increment)
+  (setq howm-todo-priority-late-offset
+        (if increment
+            (+ howm-todo-priority-late-offset increment)
+          0))
+  (howm-days-after (current-time) howm-todo-priority-late-offset))
+
 (defun howm-todo-priority (item)
   (let* ((p (howm-todo-parse item))
-         (late (car p))
+         (late (+ (car p) howm-todo-priority-late-offset))
          (type (cadr p))
          (lazy (cl-caddr p))
          (f (or (cdr (assoc type howm-todo-priority-func))

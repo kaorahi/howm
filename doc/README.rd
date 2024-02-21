@@ -154,6 +154,8 @@
     ! float until the date (deadline)
     ~ sink and float periodically after the date (defer)
 
+To preview how the list will appear tomorrow, you can use M-x howm-simulate-todo with < and > keys to navigate between days and = to reset. However, aim not to overmanage the exact order of inactive items as it can be unnecessarily stressful and goes beyond what this tool is designed for.
+
 === Finish todo.
 
 * Ctrl-C , , and [return] on [Todo] to browse all todo.

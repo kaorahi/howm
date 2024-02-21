@@ -1127,6 +1127,12 @@ Note: `howm-menu-font-lock-rules' overrides this variable."
   "*Face for key binding in menu."
   :group 'howm-faces)
 
+(defface howm-simulate-todo-mode-line-face
+  ;; very vivid colors for caution
+  '((t (:foreground "white" :background "red" :weight bold)))
+  "*Face for mode line of todo simulation."
+  :group 'howm-faces)
+
 (defvar howm-view-hilit-face 'howm-view-hilit-face
   "*Face for matched word.")
 (defvar howm-view-name-face  'howm-view-name-face
@@ -1163,6 +1169,9 @@ Note: `howm-menu-font-lock-rules' overrides this variable."
   "*Face for list in menu.")
 (defvar howm-menu-key-face  'howm-menu-key-face
   "*Face for key binding in menu.")
+
+(defvar howm-simulate-todo-mode-line-face 'howm-simulate-todo-mode-line-face
+  "*Face for mode line of todo simulation.")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Hook

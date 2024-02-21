@@ -1,3 +1,12 @@
+2024-02-20  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-reminder.el (howm-simulate-todo):
+	implement simulation of todo list for a specific date
+	https://github.com/kaorahi/howm/issues/4
+
+	* howm-view.el (howm-view-summary-mode):
+	modify mode line for the above simulation
+
 2024-02-18  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-reminder.el (howm-todo-menu, howm-reminder-menu):

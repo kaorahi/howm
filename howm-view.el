@@ -160,6 +160,10 @@ This is a shameful global variable and should be clearned in future.")
 (make-variable-buffer-local 'howm-view-font-lock-keywords)
 (make-variable-buffer-local 'howm-view-font-lock-first-time)
 
+(defvar howm-view-mode-line-text ""
+  "For internal use.")
+(make-variable-buffer-local 'howm-view-mode-line-text)
+
 ;;; modes
 
 (riffle-define-derived-mode howm-view-summary-mode riffle-summary-mode "HowmS"
@@ -209,6 +213,10 @@ key	binding
   ;; font-lock-set-defaults removes these local variables after 2008-02-24
   (set (make-local-variable 'font-lock-keywords-only) t)
   (set (make-local-variable 'font-lock-keywords-case-fold-search) t)
+  (setq howm-view-mode-line-text "")
+  (setq mode-line-format
+        (cons '(:eval howm-view-mode-line-text)
+              (default-value 'mode-line-format)))
   ;;     (setq font-lock-keywords-case-fold-search
   ;;           howm-view-grep-ignore-case-option)
   (cheat-font-lock-fontify)
