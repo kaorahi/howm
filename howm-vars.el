@@ -1115,6 +1115,11 @@ Note: `howm-menu-font-lock-rules' overrides this variable."
     (t ()))
   "*Face for tommorow."
   :group 'howm-faces)
+(defface howm-reminder-inactive-face
+   '((((class color)) (:foreground "#aaa" :background "#666"))
+    (t ()))
+  "*Face for inactive reminder."
+  :group 'howm-faces)
 
 (defface howm-menu-list-face ;; item header in menu-mode list (schedule, todo)
   '((t ()))
@@ -1165,6 +1170,9 @@ Note: `howm-menu-font-lock-rules' overrides this variable."
   "*Face for today.")
 (defvar howm-reminder-tomorrow-face 'howm-reminder-tomorrow-face
   "*Face for tommorow.")
+(defvar howm-reminder-inactive-face 'howm-reminder-inactive-face
+  "*Face for inactive reminder.")
+
 (defvar howm-menu-list-face 'howm-menu-list-face
   "*Face for list in menu.")
 (defvar howm-menu-key-face  'howm-menu-key-face

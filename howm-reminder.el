@@ -365,12 +365,15 @@ This value is passed to `format-time-string', and the result must be a regexp."
 
 (defun howm-list-todo ()
   (interactive)
-  (howm-list-todo-sub))
+  (howm-list-todo-sub)
+  (howm-list-todo-dim-inactive (howm-view-item-list)))
 
 ;; experimental [2006-06-26]
 (defun howm-todo-sleeping-p (item)
+  (howm-sleeping-priority-p (howm-todo-priority item)))
+(defun howm-sleeping-priority-p (priority)
   ;; (- howm-huge-) should be replaced with an appropreate variable.
-  (< (howm-todo-priority item) (- howm-huge-)))
+  (< priority  (- howm-huge-)))
 (defun howm-list-active-todo ()
   (interactive)
   (howm-list-todo-sub (lambda (item)
@@ -402,6 +405,7 @@ For example, to simulate 30 days later, call this function with the prefix C-u 3
         (howm-view-summary-rebuild items)
         (howm-list-reminder-final-setup "{sim}" items))
       (howm-list-todo-insert-priority items)
+      (howm-list-todo-dim-inactive items)
       (setq howm-view-mode-line-text
             (propertize msg 'face howm-simulate-todo-mode-line-face)))))
 (defun howm-simulate-todo-previous-date (n)
@@ -455,6 +459,17 @@ For example, to simulate 30 days ago, call this function with the prefix C-u 30.
                 (howm-todo-insert-separators items
                                              howm-todo-separators)))
         items))))
+
+(defun howm-list-todo-dim-inactive (item-list)
+  (save-excursion
+    (goto-char (point-min))
+    (mapc (lambda (item)
+            (when (and (howm-item-page item)  ;; for howm-todo-separators
+                       (howm-todo-sleeping-p item))
+              (let ((ov (make-overlay (line-beginning-position) (line-end-position))))
+                (overlay-put ov 'face howm-reminder-inactive-face)))
+            (forward-line 1))
+          item-list)))
 
 (defun howm-todo-menu (n limit-priority separators &optional must-show-priority)
   "Find top N todo items, or all todo items if N is nil.

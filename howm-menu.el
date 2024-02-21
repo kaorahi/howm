@@ -51,6 +51,10 @@
 
 (defvar howm-menu-reminder-format "> %s | %s"
   "Format to show schedule/todo list in `howm-menu-mode'.")
+(defvar howm-menu-inactive-format "< %s | %s"
+  "Format to show inactive todo in `howm-menu-mode'.")
+(defvar howm-menu-inactive-regexp "^< .* | .*$"
+  "Regexp to find inactive todo")
 (defvar howm-menu-list-format
   (let* ((path (format-time-string howm-file-name-format))
          (width (length (file-name-sans-extension
@@ -564,6 +568,8 @@ When this is nil, delete-region is used instead, and bug appears.")
 (defun howm-menu-font-lock-rules ()
   `((,howm-menu-key-regexp
      (,howm-menu-key-regexp-key-pos howm-menu-key-face t))
+    (,howm-menu-inactive-regexp
+     (0 ,howm-reminder-inactive-face prepend))
     ;; In menu-list form "> FILE-NAME | ",
     ;; I want to hide annoying long underlines drawn by action-lock.
     (,howm-menu-list-regexp
@@ -694,17 +700,23 @@ ITEM-LIST is list of items which should be shown."
 (defun howm-menu-format-reminder (item &optional day-of-week-str show-priority)
   (let* ((p (howm-todo-parse item))
          (late (floor (car p)))
+         (type (cadr p))
          (dow (cl-cadddr p))
          (dow-str (or day-of-week-str
                       (howm-day-of-week-string dow)))
+         (priority-val (howm-todo-priority item))
          (priority (if (and howm-menu-todo-priority-format
                             show-priority)
                        (format howm-menu-todo-priority-format
-                               (howm-todo-priority item))
+                               priority-val)
                      ""))
+         (fmt (if (and (howm-sleeping-priority-p priority-val)
+                       (not (equal type "@")))
+                  howm-menu-inactive-format
+                howm-menu-reminder-format))
          (h (format "%s%3s%s" dow-str late priority)))
     (howm-menu-list-format h (howm-view-item-summary item) item
-                           howm-menu-reminder-format)))
+                           fmt)))
 
 (defun howm-day-of-week-string (&optional day-of-week)
   ;; 0 = Sunday

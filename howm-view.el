@@ -313,6 +313,7 @@ key	binding
     (if (null r)
         (message "No match")
       (howm-view-expire-uniq)
+      (remove-overlays)
       ;; We want to entry font-lock keywords even when background-p.
       (when *howm-view-font-lock-keywords*
         (setq howm-view-font-lock-keywords *howm-view-font-lock-keywords*)))
