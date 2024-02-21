@@ -393,10 +393,12 @@ This value is passed to `format-time-string', and the result must be a regexp."
                                              howm-todo-separators)))
       (howm-list-reminder-final-setup howm-list-todo-name items)))))
 
-(defun howm-todo-menu (n limit-priority separators)
+(defun howm-todo-menu (n limit-priority separators &optional must-show-priority)
   "Find top N todo items, or all todo items if N is nil.
 Returned value is a sorted list of items (see `howm-make-item').
 Items whose priority is worse than LIMIT-PRIORITY are eliminated.
+If MUST-SHOW-PRIORITY is given, items whose priority is equal to
+or better than it are included, even if they are out of the top N.
 Separator strings are inserted to the returned list according to
 the rule given as SEPARATORS.
 See docstring of the variable `howm-menu-reminder-separators' for details."
@@ -404,13 +406,19 @@ See docstring of the variable `howm-menu-reminder-separators' for details."
                                       (< (howm-todo-priority item)
                                          limit-priority))
                                     (howm-reminder-search howm-todo-menu-types)))
-         (sorted (howm-todo-sort-items cutted)))
-    (howm-todo-insert-separators (if n (howm-first-n sorted n) sorted)
-                                 separators t)))
+         (sorted (howm-todo-sort-items cutted))
+         (filtered (cl-loop for item in sorted for order from 0
+                            if (or (< order n)
+                                   (and must-show-priority
+                                        (>= (howm-todo-priority item)
+                                            must-show-priority)))
+                            collect item)))
+    (howm-todo-insert-separators filtered separators t)))
 
 (defun howm-reminder-menu (n limit-priority separators)
   (howm-with-reminder-setting
-    (howm-todo-menu n limit-priority separators)))
+    (howm-todo-menu n limit-priority separators
+                    (- howm-todo-priority-schedule-top howm-huge-))))
 
 (defun howm-todo-insert-separators (item-list separators
                                               &optional relative-date-p)

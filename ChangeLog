@@ -1,3 +1,8 @@
+2024-02-18  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-reminder.el (howm-todo-menu, howm-reminder-menu):
+	never omit near-term schedules in menu even with too many overdue deadlines
+
 2023-12-31  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* configure.ac: version 1.5.1
