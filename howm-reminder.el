@@ -407,12 +407,15 @@ See docstring of the variable `howm-menu-reminder-separators' for details."
                                          limit-priority))
                                     (howm-reminder-search howm-todo-menu-types)))
          (sorted (howm-todo-sort-items cutted))
-         (filtered (cl-loop for item in sorted for order from 0
-                            if (or (< order n)
+         (count 0)
+         (filtered (cl-loop for item in sorted
+                            if (or (< count n)
                                    (and must-show-priority
                                         (>= (howm-todo-priority item)
                                             must-show-priority)))
-                            collect item)))
+                            collect (prog1 item
+                                      (unless (equal (cadr (howm-todo-parse item)) "@")
+                                        (cl-incf count))))))
     (howm-todo-insert-separators filtered separators t)))
 
 (defun howm-reminder-menu (n limit-priority separators)
