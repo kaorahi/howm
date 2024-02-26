@@ -1,4 +1,4 @@
-2024-02-20  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+2024-02-21  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-reminder.el (howm-simulate-todo):
 	implement simulation of todo list for a specific date
@@ -7,10 +7,11 @@
 	* howm-view.el (howm-view-summary-mode):
 	modify mode line for the above simulation
 
-2024-02-18  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+2024-02-21  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-reminder.el (howm-todo-menu, howm-reminder-menu):
-	never omit near-term schedules in menu even with too many overdue deadlines
+	never omit near-term schedules in menu even with too many overdue deadlines.
+	show %tnum entries for %reminder in menu even with too many schedules.
 
 2023-12-31  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
