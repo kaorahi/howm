@@ -380,6 +380,11 @@ This value is passed to `format-time-string', and the result must be a regexp."
   (howm-list-todo-sub #'howm-todo-sleeping-p))
 
 (defun howm-simulate-todo ()
+  "Start a time machine simulation of the todo list.
+Use < and > keys to navigate between the simulated dates and = to
+reset. For example, type C-u 30 > to simulate 30 days later. See also
+`howm-simulate-todo-next-date', `howm-simulate-todo-previous-date',
+and `howm-simulate-todo-reset'."
   (interactive)
   (let ((howm-todo-separators nil))
     (howm-list-todo-sub))
