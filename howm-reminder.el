@@ -270,10 +270,14 @@ This value is passed to `format-time-string', and the result must be a regexp."
     :group 'howm-faces))
 
 (defun howm-reminder-today-font-lock-keywords ()
-  (let ((today    (howm-reminder-today 0 howm-highlight-date-regexp-format))
-        (tomorrow (howm-reminder-today 1 howm-highlight-date-regexp-format)))
+  (let ((today    (howm-reminder-today-matcher 0))
+        (tomorrow (howm-reminder-today-matcher 1)))
     `((,today (0 howm-reminder-today-face prepend))
       (,tomorrow (0 howm-reminder-tomorrow-face prepend)))))
+(defun howm-reminder-today-matcher (n)
+  (let* ((n1 (+ n (howm-todo-priority-get-late-offset)))
+         (r (howm-reminder-today n1 howm-highlight-date-regexp-format)))
+    `(lambda (bound) (re-search-forward ,r bound t))))
 
 (defun howm-reminder-add-font-lock ()
   (cheat-font-lock-append-keywords (howm-reminder-add-font-lock-internal)))
