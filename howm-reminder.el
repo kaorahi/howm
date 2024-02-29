@@ -514,6 +514,16 @@ See docstring of the variable `howm-menu-reminder-separators' for details."
 (defun howm-todo-sort-by-priority ()
   (howm-view-sort-doit #'howm-todo-sort-items))
 
+(defvar howm-todo-priority-late-offset 0
+  "For internal use")
+(make-variable-buffer-local 'howm-todo-priority-late-offset)
+(defun howm-increment-simulated-date (increment)
+  (setq howm-todo-priority-late-offset
+        (if increment
+            (+ howm-todo-priority-late-offset increment)
+          0))
+  (howm-days-after (current-time) howm-todo-priority-late-offset))
+
 ;; Clean me.
 (defun howm-reminder-parse (item)
   (howm-todo-parse-string (howm-view-item-summary item)))
@@ -553,16 +563,6 @@ Example: (howm-todo-parse-string \"abcde [2004-11-04]@ hogehoge\")
                                                            (list "0" "0" "0"
                                                                  d m y)))))))
         (list day late type lazy day-of-week description)))))
-
-(defvar howm-todo-priority-late-offset 0
-  "For internal use")
-(make-variable-buffer-local 'howm-todo-priority-late-offset)
-(defun howm-increment-simulated-date (increment)
-  (setq howm-todo-priority-late-offset
-        (if increment
-            (+ howm-todo-priority-late-offset increment)
-          0))
-  (howm-days-after (current-time) howm-todo-priority-late-offset))
 
 (defun howm-todo-priority (item)
   (let* ((p (howm-todo-parse item))
