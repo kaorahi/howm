@@ -196,6 +196,9 @@ key	binding
 \\[describe-mode]	This help
 \\[riffle-kill-buffer]	Quit
 "
+  (howm-view-summary-mode-body))
+
+(defun howm-view-summary-mode-body ()
   (make-local-variable 'font-lock-keywords)
   (cheat-font-lock-mode howm-view-font-lock-silent)
   (when howm-view-font-lock-first-time

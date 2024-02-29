@@ -1,3 +1,9 @@
+2024-02-29  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-reminder.el: fix & improve howm-simulate-todo
+
+	* howm-view.el (howm-view-summary-mode-body): ditto.
+
 2024-02-21  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-reminder.el (howm-simulate-todo):

@@ -381,50 +381,79 @@ This value is passed to `format-time-string', and the result must be a regexp."
 
 (defun howm-simulate-todo ()
   "Start a time machine simulation of the todo list.
-Use < and > keys to navigate between the simulated dates and = to
-reset. For example, type C-u 30 > to simulate 30 days later. See also
+See `howm-simulate-todo-mode' for details. See also
 `howm-simulate-todo-next-date', `howm-simulate-todo-previous-date',
 and `howm-simulate-todo-reset'."
   (interactive)
-  (let ((howm-todo-separators nil))
-    (howm-list-todo-sub))
-  (mapc (lambda (args) (apply #'local-set-key args))
+  (howm-simulate-todo-reset (howm-simulate-todo-setup-items nil))
+  (goto-char (point-min))
+  (let ((keys (mapcar (lambda (f)
+                        (let ((k (car-safe (where-is-internal f))))
+                          (if k (key-description k) (format "M-x %s" f))))
+                      '(howm-simulate-todo-previous-date
+                        howm-simulate-todo-next-date
+                        howm-simulate-todo-reset))))
+    (apply #'message
+           "Time machine simulation: Type %s and %s to navigate, %s to reset."
+           keys))
+  (sit-for 5))
+(define-derived-mode howm-simulate-todo-mode howm-view-summary-mode "HowmT"
+  "Major mode for a time machine simulation of the todo list in howm.
+(Tips) Type C-u 30 \\[howm-simulate-todo-next-date] to simulate 30 days later.
+
+key	binding
+---	-------
+\\[howm-simulate-todo-next-date]	Simulate the next date
+\\[howm-simulate-todo-previous-date]	Simulate the previous date
+\\[howm-simulate-todo-reset]	Reset to today
+"
+  ;; major mode just for additional key bindings
+  (howm-view-summary-mode-body))
+(let ((m howm-simulate-todo-mode-map))
+  (mapc (lambda (args) (apply #'define-key m args))
         '((">" howm-simulate-todo-next-date)
           ("<" howm-simulate-todo-previous-date)
-          ("=" howm-simulate-todo-reset)))
-  (howm-simulate-todo-reset))
-(defun howm-simulate-todo-next-date (n)
+          ("=" howm-simulate-todo-reset))))
+(defun howm-simulate-todo-setup-items (items)
+  (let ((howm-todo-separators nil))
+    (howm-list-todo-sub-setup-items items)))
+(defun howm-simulate-todo-next-date (n &optional orig-items)
   "Simulate the todo list as if today were N days after the current 'today'.
 If N is nil, reset the simulation to today's date.
+If ORIG-ITEMS is nil, use the item list of the current buffer.
 For example, to simulate 30 days later, call this function with the prefix C-u 30."
   (interactive "p")
-  (let* ((ti (howm-increment-simulated-date n))
-         (msg (format-time-string " %Y-%m-%d (%a) <=>" ti))
-         (items (let ((howm-todo-separators nil))
-                  (howm-list-todo-sub-setup-items (howm-view-item-list)))))
-    (when items
-      (let* ((r (howm-reminder-regexp howm-todo-types))
-             (summarizer (howm-reminder-summarizer r t))
-             (f (lambda (item)
-                  (funcall summarizer 'dummy 'dummy (howm-item-summary item)))))
-        (mapc (lambda (item) (howm-item-set-summary item (funcall f item)))
-              items))
-      (howm-save-vertical-position
-        (howm-view-summary-rebuild items)
-        (howm-list-reminder-final-setup "{sim}" items))
-      (howm-list-todo-insert-priority items)
-      (setq howm-view-mode-line-text
-            (propertize msg 'face howm-simulate-todo-mode-line-face)))))
-(defun howm-simulate-todo-previous-date (n)
+  (howm-with-simulated-date
+    (let* ((ti (howm-increment-simulated-date n))
+           (msg (format-time-string " %Y-%m-%d (%a) <=>" ti))
+           (items (howm-simulate-todo-setup-items (or orig-items
+                                                      (howm-view-item-list)))))
+      (when items
+        (let* ((r (howm-reminder-regexp howm-todo-types))
+               (summarizer (howm-reminder-summarizer r t))
+               (f (lambda (item)
+                    (funcall summarizer 'dummy 'dummy (howm-item-summary item)))))
+          (mapc (lambda (item) (howm-item-set-summary item (funcall f item)))
+                items))
+        (howm-save-vertical-position
+          (howm-view-summary-rebuild items)
+          (howm-list-reminder-final-setup "{sim}" items))
+        (howm-list-todo-insert-priority items)
+        (howm-simulate-todo-mode)
+        (setq howm-view-mode-line-text
+              (propertize msg 'face howm-simulate-todo-mode-line-face))))))
+(defun howm-simulate-todo-previous-date (n &optional orig-items)
   "Simulate the todo list as if today were N days before the current 'today'.
 If N is nil, reset the simulation to today's date.
+If ORIG-ITEMS is nil, use the item list of the current buffer.
 For example, to simulate 30 days ago, call this function with the prefix C-u 30."
   (interactive "p")
-  (howm-simulate-todo-next-date (and n (- n))))
-(defun howm-simulate-todo-reset ()
-  "Reset the simulated todo list to today's date."
+  (howm-simulate-todo-next-date (and n (- n)) orig-items))
+(defun howm-simulate-todo-reset (&optional orig-items)
+  "Reset the simulated todo list to today's date.
+If ORIG-ITEMS is nil, use the item list of the current buffer."
   (interactive)
-  (howm-simulate-todo-next-date nil))
+  (howm-simulate-todo-next-date nil orig-items))
 (defmacro howm-save-vertical-position (&rest body)
   (declare (indent 0))
   (let ((gw (cl-gensym))
@@ -448,12 +477,13 @@ For example, to simulate 30 days ago, call this function with the prefix C-u 30.
             item-list))))
 
 (defun howm-list-todo-sub (&optional pred)
-  (let* ((items0 (howm-list-reminder-internal howm-todo-types))
-         (items (howm-list-todo-sub-setup-items items0 pred)))
+  (let ((items (howm-list-todo-sub-setup-items nil pred)))
     (when items
       (howm-list-reminder-final-setup howm-list-todo-name items))))
 
 (defun howm-list-todo-sub-setup-items (given-items &optional pred)
+  (when (null given-items)
+    (setq given-items (howm-list-reminder-internal howm-todo-types)))
   (howm-with-need
     (howm-with-schedule-summary-format
       (let ((items (need given-items)))
@@ -523,6 +553,17 @@ See docstring of the variable `howm-menu-reminder-separators' for details."
 (defvar howm-todo-priority-late-offset 0
   "For internal use")
 (make-variable-buffer-local 'howm-todo-priority-late-offset)
+(defvar howm-todo-priority-late-offset-enabled nil
+  "For internal use")
+(make-variable-buffer-local 'howm-todo-priority-late-offset-enabled)
+(defun howm-todo-priority-get-late-offset ()
+  (if howm-todo-priority-late-offset-enabled
+      howm-todo-priority-late-offset
+    0))
+(defmacro howm-with-simulated-date (&rest body)
+  (declare (indent 0))
+  `(let ((howm-todo-priority-late-offset-enabled t))
+     ,@body))
 (defun howm-increment-simulated-date (increment)
   (setq howm-todo-priority-late-offset
         (if increment
@@ -554,7 +595,7 @@ Example: (howm-todo-parse-string \"abcde [2004-11-04]@ hogehoge\")
           (description (substring str (match-end 0))))
       (let* ((day (howm-encode-day d m y))
              (today (howm-encode-day))
-             (late (+ (- today day) howm-todo-priority-late-offset))
+             (late (+ (- today day) (howm-todo-priority-get-late-offset)))
              (type (substring (or ty "-") 0 1)) ;; "-" for old format
              (lazy (cond ((string= type " ") nil)
                          ((null lz) nil)
