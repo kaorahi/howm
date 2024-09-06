@@ -7,6 +7,46 @@ Howm is a note-taking tool on Emacs. It is similar to emacs-wiki.el; you can enj
 * [Detailed English & Russian tutorials by Andrei Sukhovskii](https://github.com/Emacs101/howm-manual) (thx!)
 * [1-minute introduction on YouTube under Emacs Elements channel](https://www.youtube.com/watch?v=cCflzhDelvg) (thx!)
 
+## Quick start
+
+If you're using a recent version of Emacs and have enabled the [MELPA](https://melpa.org/) community package repository, you can simply place the following in your `~/.config/emacs/init.el` configuration file and restart Emacs:
+
+```emacs-lisp
+(use-package howm
+  :ensure t)
+```
+
+After that, you can press e.g. `C-c , ,` to open the main menu, `C-c , a` to see a list of all your notes, or `C-c , c` to capture a new note from anywhere. See the documentation links above for more detailed instructions on how to use Howm.
+
+By default, notes are stored as a plaintext `*.txt` format in the folder `~/howm`. It is however possible to instead integrate with e.g. [Org-mode](https://orgmode.org/) and move these files somewhere else. Here is a simple example:
+
+```emacs-lisp
+(use-package howm
+  :after org
+  :init
+  ;; Where to store the files?
+  (setq howm-directory "~/Documents/Howm")
+  (setq howm-home-directory howm-directory)
+  ;; What format to use for the files?
+  (setq howm-file-name-format "%Y-%m-%d-%H%M%S.org")
+  (setq howm-view-title-header "*")
+  (setq howm-dtime-format (format "<%s>" (cdr org-timestamp-formats))))
+```
+
+Alternatively, if you prefer writing notes in [`markdown-mode`](https://jblevins.org/projects/markdown-mode/) (must be installed separately):
+
+```emacs-lisp
+(use-package howm
+  :after markdown-mode
+  :init
+  ;; Where to store the files?
+  (setq howm-directory "~/Documents/Howm")
+  (setq howm-home-directory howm-directory)
+  ;; What format to use for the files?
+  (setq howm-file-name-format "%Y-%m-%d-%H%M%S.md")
+  (setq howm-view-title-header "#"))
+```
+
 ## Project history
 
 * 2002-05-29 initial release (v0.1) on sourceforge.jp
