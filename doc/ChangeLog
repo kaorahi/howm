@@ -1,3 +1,7 @@
+2024-09-08  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* index.html: comment out Emacs Elements channel as it seems unavailable
+
 2024-02-20  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* README.rd: add M-x howm-simulate-todo
