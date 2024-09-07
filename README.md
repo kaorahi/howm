@@ -18,26 +18,11 @@ If you're using a recent version of Emacs and have enabled the [MELPA](https://m
 
 After that, you can press e.g. `C-c , ,` to open the main menu, `C-c , a` to see a list of all your notes, or `C-c , c` to capture a new note from anywhere. See the documentation links above for more detailed instructions on how to use Howm.
 
-By default, notes are stored as a plaintext `*.txt` format in the folder `~/howm`. It is however possible to instead integrate with e.g. [Org-mode](https://orgmode.org/) and move these files somewhere else. Here is a simple example:
+By default, notes are stored in plaintext `*.txt` format in the folder `~/howm`. However, it is possible to write notes in [`markdown-mode`](https://jblevins.org/projects/markdown-mode/) (must be installed separately) and save these files elsewhere. Below is a simple example:
 
 ```emacs-lisp
 (use-package howm
-  :after org
-  :init
-  ;; Where to store the files?
-  (setq howm-directory "~/Documents/Howm")
-  (setq howm-home-directory howm-directory)
-  ;; What format to use for the files?
-  (setq howm-file-name-format "%Y-%m-%d-%H%M%S.org")
-  (setq howm-view-title-header "*")
-  (setq howm-dtime-format (format "<%s>" (cdr org-timestamp-formats))))
-```
-
-Alternatively, if you prefer writing notes in [`markdown-mode`](https://jblevins.org/projects/markdown-mode/) (must be installed separately):
-
-```emacs-lisp
-(use-package howm
-  :after markdown-mode
+  :ensure t
   :init
   ;; Where to store the files?
   (setq howm-directory "~/Documents/Howm")
@@ -45,6 +30,26 @@ Alternatively, if you prefer writing notes in [`markdown-mode`](https://jblevins
   ;; What format to use for the files?
   (setq howm-file-name-format "%Y-%m-%d-%H%M%S.md")
   (setq howm-view-title-header "#"))
+```
+
+Alternatively, if you prefer integrating with e.g. [Org-mode](https://orgmode.org/) (just replace `C-c ,` with `C-c ;` in Howm's documentation):
+
+```emacs-lisp
+(use-package howm
+  :ensure t
+  :init
+  ;; Where to store the files?
+  (setq howm-directory "~/Documents/Howm")
+  (setq howm-home-directory howm-directory)
+  ;; What format to use for the files?
+  (setq howm-file-name-format "%Y-%m-%d-%H%M%S.org")
+  (setq howm-view-title-header "*")
+  (setq howm-dtime-format "<%Y-%m-%d %a %H:%M>")
+  ;; Avoid conflicts with Org-mode by changing Howm's prefix from "C-c ,".
+  (setq howm-prefix (kbd "C-c ;"))
+  :bind*
+  ;; Conveniently open the Howm menu with "C-c ; ;".
+  ("C-c ; ;" . howm-menu))
 ```
 
 ## Project history
