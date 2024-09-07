@@ -18,7 +18,21 @@ If you're using a recent version of Emacs and have enabled the [MELPA](https://m
 
 After that, you can press e.g. `C-c , ,` to open the main menu, `C-c , a` to see a list of all your notes, or `C-c , c` to capture a new note from anywhere. See the documentation links above for more detailed instructions on how to use Howm.
 
-By default, notes are stored as a plaintext `*.txt` format in the folder `~/howm`. It is however possible to instead integrate with e.g. [Org-mode](https://orgmode.org/) and move these files somewhere else. Here is a simple example:
+By default, notes are stored in plaintext `*.txt` format in the folder `~/howm`. However, it is possible to write notes in [`markdown-mode`](https://jblevins.org/projects/markdown-mode/) (must be installed separately) and save these files elsewhere. Below is a simple example:
+
+```emacs-lisp
+(use-package howm
+  :after markdown-mode
+  :init
+  ;; Where to store the files?
+  (setq howm-directory "~/Documents/Howm")
+  (setq howm-home-directory howm-directory)
+  ;; What format to use for the files?
+  (setq howm-file-name-format "%Y-%m-%d-%H%M%S.md")
+  (setq howm-view-title-header "#"))
+```
+
+Alternatively, if you prefer integrating with e.g. [Org-mode](https://orgmode.org/):
 
 ```emacs-lisp
 (use-package howm
@@ -31,20 +45,6 @@ By default, notes are stored as a plaintext `*.txt` format in the folder `~/howm
   (setq howm-file-name-format "%Y-%m-%d-%H%M%S.org")
   (setq howm-view-title-header "*")
   (setq howm-dtime-format (format "<%s>" (cdr org-timestamp-formats))))
-```
-
-Alternatively, if you prefer writing notes in [`markdown-mode`](https://jblevins.org/projects/markdown-mode/) (must be installed separately):
-
-```emacs-lisp
-(use-package howm
-  :after markdown-mode
-  :init
-  ;; Where to store the files?
-  (setq howm-directory "~/Documents/Howm")
-  (setq howm-home-directory howm-directory)
-  ;; What format to use for the files?
-  (setq howm-file-name-format "%Y-%m-%d-%H%M%S.md")
-  (setq howm-view-title-header "#"))
 ```
 
 ## Project history
