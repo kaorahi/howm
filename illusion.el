@@ -69,7 +69,6 @@ key	binding
   :keymap `(
             (,illusion-submit-key . illusion-submit)
             )
-  (use-local-map illusion-mode-map)
 )
 
 ;;; Example
