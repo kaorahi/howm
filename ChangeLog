@@ -1,5 +1,7 @@
 2024-09-07  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
+	* README.md: comment out Emacs Elements channel as it seems unavailable
+
 	* README.md: add "quick start" section
 	https://github.com/kaorahi/howm/pull/8
 
