@@ -300,7 +300,8 @@ When this is nil, delete-region is used instead, and bug appears.")
 (defun howm-menu-set-face ()
   (set (make-local-variable 'font-lock-keywords-only) t)
   (howm-menu-add-font-lock)
-  (font-lock-fontify-buffer)
+  (font-lock-flush)
+  (font-lock-ensure)
   (when howm-menu-toggle-invisible
     (howm-menu-make-invisible)))
 
