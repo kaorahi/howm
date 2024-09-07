@@ -22,6 +22,7 @@ By default, notes are stored in plaintext `*.txt` format in the folder `~/howm`.
 
 ```emacs-lisp
 (use-package howm
+  :ensure t
   :after markdown-mode
   :init
   ;; Where to store the files?
@@ -32,10 +33,11 @@ By default, notes are stored in plaintext `*.txt` format in the folder `~/howm`.
   (setq howm-view-title-header "#"))
 ```
 
-Alternatively, if you prefer integrating with e.g. [Org-mode](https://orgmode.org/):
+Alternatively, if you prefer integrating with e.g. [Org-mode](https://orgmode.org/) (just replace `C-c ,` with `C-c ;` in Howm's documentation):
 
 ```emacs-lisp
 (use-package howm
+  :ensure t
   :after org
   :init
   ;; Where to store the files?
@@ -44,7 +46,12 @@ Alternatively, if you prefer integrating with e.g. [Org-mode](https://orgmode.or
   ;; What format to use for the files?
   (setq howm-file-name-format "%Y-%m-%d-%H%M%S.org")
   (setq howm-view-title-header "*")
-  (setq howm-dtime-format (format "<%s>" (cdr org-timestamp-formats))))
+  (setq howm-dtime-format (format "<%s>" (cdr org-timestamp-formats)))
+  ;; Avoid conflicts with Org-mode by changing Howm's prefix from "C-c ,".
+  (setq howm-prefix (kbd "C-c ;"))
+  :config
+  ;; Conveniently open the Howm menu with "C-c ; ;".
+  (define-key global-map (kbd "C-c ; ;") 'howm-menu))
 ```
 
 ## Project history
