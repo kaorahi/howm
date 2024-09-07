@@ -371,8 +371,8 @@ Use '(\"-S\" \"migemo\" \"-t\" \"egrep\") for the original migemo.")
   (set-process-filter migemo-process
                       (iigrep-migemo-filter continuation))
   (with-current-buffer (process-buffer migemo-process)
-      (delete-region (point-min) (point-max))
-      (process-send-string migemo-process (concat word "\n"))))
+    (delete-region (point-min) (point-max))
+    (process-send-string migemo-process (concat word "\n"))))
 
 (defvar iigrep-migemo-last-pattern nil
   "For internal use.")
@@ -381,22 +381,22 @@ Use '(\"-S\" \"migemo\" \"-t\" \"egrep\") for the original migemo.")
 (defun iigrep-migemo-filter (continuation)
   `(lambda (process message)
      (with-current-buffer (process-buffer process)
-         (insert message)
-         (when (and (> (point-max) 1)
-                    (eq (char-after (1- (point-max))) ?\n))
-           ;; AD HOC!
-           ;; I don't understand this.
-           ;; Observe iigrep-migemo-last-pattern and iigrep-migemo-last-buffer
-           ;; after typing keys fast.
-           (goto-char (point-min))
-           (skip-chars-forward "\n")
-           (let ((pattern (buffer-substring (point) (line-end-position))))
-             (setq iigrep-migemo-last-pattern pattern)
-             (setq iigrep-migemo-last-buffer
-                   (buffer-substring (point-min) (point-max)))
-             (erase-buffer)
-             (funcall (function ,continuation)
-                      pattern))))))
+       (insert message)
+       (when (and (> (point-max) 1)
+                  (eq (char-after (1- (point-max))) ?\n))
+         ;; AD HOC!
+         ;; I don't understand this.
+         ;; Observe iigrep-migemo-last-pattern and iigrep-migemo-last-buffer
+         ;; after typing keys fast.
+         (goto-char (point-min))
+         (skip-chars-forward "\n")
+         (let ((pattern (buffer-substring (point) (line-end-position))))
+           (setq iigrep-migemo-last-pattern pattern)
+           (setq iigrep-migemo-last-buffer
+                 (buffer-substring (point-min) (point-max)))
+           (erase-buffer)
+           (funcall (function ,continuation)
+                    pattern))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; key binding
