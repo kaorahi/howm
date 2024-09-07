@@ -370,11 +370,9 @@ Use '(\"-S\" \"migemo\" \"-t\" \"egrep\") for the original migemo.")
   (migemo-init)
   (set-process-filter migemo-process
                       (iigrep-migemo-filter continuation))
-  (let ((orig-buffer (current-buffer)))
-    (save-excursion
-      (set-buffer (process-buffer migemo-process))
+  (with-current-buffer (process-buffer migemo-process)
       (delete-region (point-min) (point-max))
-      (process-send-string migemo-process (concat word "\n")))))
+      (process-send-string migemo-process (concat word "\n"))))
 
 (defvar iigrep-migemo-last-pattern nil
   "For internal use.")
@@ -382,9 +380,7 @@ Use '(\"-S\" \"migemo\" \"-t\" \"egrep\") for the original migemo.")
   "For debug.")
 (defun iigrep-migemo-filter (continuation)
   `(lambda (process message)
-     (let ((orig-buffer (current-buffer)))
-       (save-excursion
-         (set-buffer (process-buffer process))
+     (with-current-buffer (process-buffer process)
          (insert message)
          (when (and (> (point-max) 1)
                     (eq (char-after (1- (point-max))) ?\n))
@@ -400,7 +396,7 @@ Use '(\"-S\" \"migemo\" \"-t\" \"egrep\") for the original migemo.")
                    (buffer-substring (point-min) (point-max)))
              (erase-buffer)
              (funcall (function ,continuation)
-                      pattern)))))))
+                      pattern))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; key binding
