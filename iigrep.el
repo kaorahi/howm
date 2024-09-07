@@ -334,8 +334,8 @@ This value is also used for identification of iigrep processes.")
 ;; Use continuation to avoid slow response
 
 (defun iigrep-migemo (dir)
-  (require 'migemo)
   (interactive "Ddirectory: ")
+  (require 'migemo)
   (iigrep-with-converter #'iigrep-migemo-converter "migemo: "
     (iigrep dir)))
 
