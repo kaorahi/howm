@@ -147,12 +147,12 @@ schedules outside the range in %reminder in the menu.")
     (defvar howm-reminder-regexp-laziness-pos 8)
     (defvar howm-reminder-today-format
       (format howm-insert-date-format howm-date-format))
-    (defvar howm-reminder-underline-face nil)  ;; default action-lock color
-    ;; (defvar howm-reminder-underline-face '(:underline nil))  ;; no underline
-    ;; (defvar howm-reminder-underline-face '(:underline t))  ;; inherit reminder color
+    (defvar howm-reminder-action-lock-face nil)  ;; use default action-lock face
+    ;; (defvar howm-reminder-action-lock-face '(:underline nil))  ;; no underline
+    ;; (defvar howm-reminder-action-lock-face '(:underline t))  ;; inherit reminder color
     (howm-defvar-risky howm-reminder-font-lock-keywords
-    (let ((ul `((,howm-reminder-regexp-dateonly-pos howm-reminder-underline-face prepend)
-                (,howm-reminder-regexp-type-pos howm-reminder-underline-face prepend))))
+    (let ((ul `((,howm-reminder-regexp-dateonly-pos howm-reminder-action-lock-face prepend)
+                (,howm-reminder-regexp-type-pos howm-reminder-action-lock-face prepend))))
       `(
         (,(howm-reminder-regexp "[-]") ,@ul (0 howm-reminder-normal-face prepend))
         (,(howm-reminder-regexp "[+]") ,@ul (0 howm-reminder-todo-face prepend))
