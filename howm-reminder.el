@@ -128,7 +128,7 @@ schedules outside the range in %reminder in the menu.")
     (defvar howm-reminder-regexp-grep-format
       (concat "\\[" howm-date-regexp-grep "[ :0-9]*\\]%s"))
     (defvar howm-reminder-regexp-format
-      (concat "\\(\\[" howm-date-regexp "[ :0-9]*\\]\\)\\(\\(%s\\)\\([0-9]*\\)\\)"))
+      (concat "\\(\\[\\(" howm-date-regexp "\\)[ :0-9]*\\]\\)\\(\\(%s\\)\\([0-9]*\\)\\)"))
 ;;     (defvar howm-reminder-regexp-grep-format
 ;;       (concat "\\[" howm-date-regexp-grep "\\]%s"))
 ;;     (defvar howm-reminder-regexp-format
@@ -138,25 +138,31 @@ schedules outside the range in %reminder in the menu.")
     (defun howm-reminder-regexp (types)
       (format howm-reminder-regexp-format types))
     (defvar howm-reminder-regexp-date-pos 1)
-    (defvar howm-reminder-regexp-year-pos  (+ howm-date-regexp-year-pos 1))
-    (defvar howm-reminder-regexp-month-pos (+ howm-date-regexp-month-pos 1))
-    (defvar howm-reminder-regexp-day-pos   (+ howm-date-regexp-day-pos 1))
-    (defvar howm-reminder-regexp-command-pos 5)
-    (defvar howm-reminder-regexp-type-pos 6)
-    (defvar howm-reminder-regexp-laziness-pos 7)
+    (defvar howm-reminder-regexp-dateonly-pos 2)
+    (defvar howm-reminder-regexp-year-pos  (+ howm-date-regexp-year-pos 2))
+    (defvar howm-reminder-regexp-month-pos (+ howm-date-regexp-month-pos 2))
+    (defvar howm-reminder-regexp-day-pos   (+ howm-date-regexp-day-pos 2))
+    (defvar howm-reminder-regexp-command-pos 6)
+    (defvar howm-reminder-regexp-type-pos 7)
+    (defvar howm-reminder-regexp-laziness-pos 8)
     (defvar howm-reminder-today-format
       (format howm-insert-date-format howm-date-format))
+    (defvar howm-reminder-underline-face nil)  ;; default action-lock color
+    ;; (defvar howm-reminder-underline-face '(:underline nil))  ;; no underline
+    ;; (defvar howm-reminder-underline-face '(:underline t))  ;; inherit reminder color
     (howm-defvar-risky howm-reminder-font-lock-keywords
+    (let ((ul `((,howm-reminder-regexp-dateonly-pos howm-reminder-underline-face prepend)
+                (,howm-reminder-regexp-type-pos howm-reminder-underline-face prepend))))
       `(
-        (,(howm-reminder-regexp "[-]") (0 howm-reminder-normal-face prepend))
-        (,(howm-reminder-regexp "[+]") (0 howm-reminder-todo-face prepend))
-        (,(howm-reminder-regexp "[~]") (0 howm-reminder-defer-face prepend))
-        (,(howm-reminder-regexp "[!]")
+        (,(howm-reminder-regexp "[-]") ,@ul (0 howm-reminder-normal-face prepend))
+        (,(howm-reminder-regexp "[+]") ,@ul (0 howm-reminder-todo-face prepend))
+        (,(howm-reminder-regexp "[~]") ,@ul (0 howm-reminder-defer-face prepend))
+        (,(howm-reminder-regexp "[!]") ,@ul
          (0 howm-reminder-deadline-face prepend)
          (,howm-reminder-regexp-type-pos (howm-reminder-deadline-type-face) prepend))
-        (,(howm-reminder-regexp "[@]") (0 howm-reminder-schedule-face prepend))
-        (,(howm-reminder-regexp "[.]") (0 howm-reminder-done-face prepend))
-        ))
+        (,(howm-reminder-regexp "[@]") ,@ul (0 howm-reminder-schedule-face prepend))
+        (,(howm-reminder-regexp "[.]") ,@ul (0 howm-reminder-done-face prepend))
+        )))
     (defun howm-reminder-font-lock-keywords ()
       howm-reminder-font-lock-keywords)
     (defun howm-action-lock-done-prompt ()
