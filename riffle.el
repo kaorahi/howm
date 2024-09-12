@@ -68,13 +68,19 @@ even if you delete other windows explicitly."
 (defvar riffle-type nil)
 (defvar riffle-summary-last-line nil)
 (defvar riffle-contents-end nil)
-(make-variable-buffer-local 'riffle-name)
-(make-variable-buffer-local 'riffle-item-list)
-(make-variable-buffer-local 'riffle-type)
+(defun riffle-make-variable-buffer-local (var)
+  "Make VAR buffer-local and protect it from
+`kill-all-local-variables', that is called in `fundamental-mode'. "
+  (make-variable-buffer-local var)
+  ;; See the document of `kill-all-local-variables' for this property.
+  (put var 'permanent-local t))
+(riffle-make-variable-buffer-local 'riffle-name)
+(riffle-make-variable-buffer-local 'riffle-item-list)
+(riffle-make-variable-buffer-local 'riffle-type)
 ; update contents when changed
-(make-variable-buffer-local 'riffle-summary-last-line)
+(riffle-make-variable-buffer-local 'riffle-summary-last-line)
 ; end points of items
-(make-variable-buffer-local 'riffle-contents-end)
+(riffle-make-variable-buffer-local 'riffle-contents-end)
 
 (defun riffle-name () riffle-name)
 (defun riffle-item-list () riffle-item-list)
@@ -125,24 +131,7 @@ even if you delete other windows explicitly."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; common
 
-(defcustom riffle-mode-hook nil
-  "Hook run at the end of function `riffle-mode'"
-  :type 'hook
-  :group 'howm-hook)
-
-(defvar riffle-mode-map nil)
-(put 'riffle-mode-map 'risky-local-variable t)
-(defvar riffle-mode-syntax-table (make-syntax-table))
-(defvar riffle-mode-abbrev-table nil)
-
-(defun riffle-mode ()
-  "not yet"
-  (setq major-mode 'riffle-mode
-        mode-name "Riffle")
-  (use-local-map riffle-mode-map)
-  (set-syntax-table riffle-mode-syntax-table)
-  (define-abbrev-table 'riffle-mode-abbrev-table nil)
-  (run-hooks 'riffle-mode-hook))
+(define-derived-mode riffle-mode text-mode "Riffle")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; summary
