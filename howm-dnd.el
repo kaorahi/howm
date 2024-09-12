@@ -4,7 +4,7 @@
   (let* ((target (dnd-get-local-file-name uri t)))
     (if target
         (progn
-		  (insert ">>> ~/")
+          (insert ">>> ~/")
           (insert (file-relative-name target "~")))
       (message "Failed to drag-and-drop a link to file!"))
     action))
