@@ -7,6 +7,11 @@ Howm is a note-taking tool on Emacs. It is similar to emacs-wiki.el; you can enj
 * [Detailed English & Russian tutorials by Andrei Sukhovskii](https://github.com/Emacs101/howm-manual) (thx!)
 <!-- * [1-minute introduction on YouTube under Emacs Elements channel](https://www.youtube.com/watch?v=cCflzhDelvg) (unavailable? [2024-09-07]) -->
 
+The following screenshot illustrates the Howm linking system:
+![screenshot](doc/screenshot.png)
+
+(Colorscheme: [Modus themes](https://github.com/protesilaos/modus-themes/issues/118#issuecomment-2337993946).)
+
 ## Quick start
 
 If you're using a recent version of Emacs and have enabled the [MELPA](https://melpa.org/) community package repository, you can simply place the following in your `~/.config/emacs/init.el` configuration file and restart Emacs:
