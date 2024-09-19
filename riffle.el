@@ -125,24 +125,34 @@ even if you delete other windows explicitly."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; common
 
-(defcustom riffle-mode-hook nil
-  "Hook run at the end of function `riffle-mode'"
-  :type 'hook
-  :group 'howm-hook)
+(define-derived-mode riffle-mode text-mode "Riffle")
 
-(defvar riffle-mode-map nil)
-(put 'riffle-mode-map 'risky-local-variable t)
-(defvar riffle-mode-syntax-table (make-syntax-table))
-(defvar riffle-mode-abbrev-table nil)
+(defvar riffle-protected-localvar-prefixes
+  '("font-lock-" "action-lock-" "howm-" "illusion-" "riffle-")
+  "Prefixes of buffer-local variable names that are protected from
+`kill-all-local-variables', which is called in `riffle-mode' through
+`fundamental-mode'.")
 
-(defun riffle-mode ()
-  "not yet"
-  (setq major-mode 'riffle-mode
-        mode-name "Riffle")
-  (use-local-map riffle-mode-map)
-  (set-syntax-table riffle-mode-syntax-table)
-  (define-abbrev-table 'riffle-mode-abbrev-table nil)
-  (run-hooks 'riffle-mode-hook))
+(defun riffle-mode-localvar-advice (orig &rest args)
+  "Recover buffer-local variables that match
+`riffle-protected-localvar-prefixes' after
+`kill-all-local-variables' is called in `fundamental-mode'."
+  (let ((vs (buffer-local-variables))
+        (ret (apply orig args)))
+    (mapc (lambda (pair)
+            (let* ((v (car pair))
+                   ;; See the document of `kill-all-local-variables'
+                   ;; for this property.
+                   (protected (get v 'permanent-local))
+                   (matched
+                    (cl-find-if (lambda (p) (string-prefix-p p (symbol-name v)))
+                                riffle-protected-localvar-prefixes)))
+              (when (and matched (not protected))
+                (set v (cdr pair)))))
+          vs)
+    ret))
+
+(advice-add 'riffle-mode :around #'riffle-mode-localvar-advice)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; summary
