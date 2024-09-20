@@ -166,14 +166,8 @@ Regexp R1 is replaced by T1 if T1 is a string.
 
 (defun howm-menu-mode ()
   "howm menu
-key	binding
----	-------
-\\[action-lock-magic-return]	Follow link
-\\[action-lock-goto-next-link]	Next link
-\\[action-lock-goto-previous-link]	Prev link
-\\[describe-mode]	This help
-\\[bury-buffer]	Quit
-"
+
+\\{howm-menu-mode-map}"
   (interactive)
   (setq major-mode 'howm-menu-mode
         mode-name "HM")

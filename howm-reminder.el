@@ -405,12 +405,7 @@ and `howm-simulate-todo-reset'."
   "Major mode for a time machine simulation of the todo list in howm.
 (Tips) Type C-u 30 \\[howm-simulate-todo-next-date] to simulate 30 days later.
 
-key	binding
----	-------
-\\[howm-simulate-todo-next-date]	Simulate the next date
-\\[howm-simulate-todo-previous-date]	Simulate the previous date
-\\[howm-simulate-todo-reset]	Reset to today
-"
+\\{howm-simulate-todo-mode-map}"
   ;; major mode just for additional key bindings
   (howm-view-summary-mode-body))
 (let ((m howm-simulate-todo-mode-map))

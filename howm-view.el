@@ -168,34 +168,8 @@ This is a shameful global variable and should be clearned in future.")
 
 (riffle-define-derived-mode howm-view-summary-mode riffle-summary-mode "HowmS"
   "memo viewer (summary mode)
-key	binding
----	-------
-\\[howm-view-summary-open]	Open file
-\\[next-line]	Next item
-\\[previous-line]	Previous item
-\\[riffle-pop-or-scroll-other-window]	Pop and scroll contents
-\\[scroll-other-window-down]	Scroll contents
-\\[riffle-scroll-other-window]	Scroll contents one line
-\\[riffle-scroll-other-window-down]	Scroll contents one line
-\\[riffle-summary-to-contents]	Concatenate all contents
-\\[howm-view-summary-next-section]	Next file (Skip items in the same file)
-\\[howm-view-summary-previous-section]	Previous file (Skip items in the same file)
-\\[howm-view-filter-uniq]	Remove duplication of same file
-\\[howm-view-summary-shell-command]	Execute command in inferior shell
 
-\\[delete-other-windows]	Delete contents window
-\\[riffle-pop-window]	Pop contents window
-\\[riffle-toggle-window]	Toggle contents window
-\\[howm-list-toggle-title]	Show/Hide Title
-
-\\[howm-view-filter]	Filter (by date, contents, etc.)
-\\[howm-view-filter-by-contents]	Search (= filter by contents)
-\\[howm-view-sort]	Sort (by date, summary line, etc.)
-\\[howm-view-sort-reverse]	Reverse order
-\\[howm-view-dired]	Invoke Dired-X
-\\[describe-mode]	This help
-\\[riffle-kill-buffer]	Quit
-"
+\\{howm-view-summary-mode-map}"
   (howm-view-summary-mode-body))
 
 (defun howm-view-summary-mode-body ()
@@ -227,27 +201,8 @@ key	binding
 
 (riffle-define-derived-mode howm-view-contents-mode riffle-contents-mode "HowmC"
   "memo viewer (contents mode)
-key	binding
----	-------
-\\[howm-view-contents-open]	Open file
-\\[next-line]	Next line
-\\[previous-line]	Previous line
-\\[scroll-up]	Scroll up
-\\[scroll-down]	Scroll down
-\\[riffle-scroll-up]	Scroll one line up
-\\[riffle-scroll-down]	Scroll one line down
-\\[riffle-contents-to-summary]	Summary
-\\[riffle-contents-goto-next-item]	Next item
-\\[riffle-contents-goto-previous-item]	Previous item
 
-\\[howm-view-filter]	Filter (by date, contents, etc.)
-\\[howm-view-filter-by-contents]	Search (= filter by contents)
-\\[howm-view-sort]	Sort
-\\[howm-view-sort-reverse]	Reverse order
-\\[howm-view-dired]	Invoke Dired-X
-\\[describe-mode]	This help
-\\[riffle-kill-buffer]	Quit
-"
+\\{howm-view-contents-mode-map}"
 ;   (kill-all-local-variables)
   (make-local-variable 'font-lock-keywords)
   (cheat-font-lock-mode howm-view-font-lock-silent)

@@ -258,28 +258,7 @@ When the mode is enabled, underlines are drawn on texts which match
 to titles of other files. Typing \\[action-lock-magic-return] there,
 you can jump to the corresponding file.
 
-key	binding
----	-------
-\\[action-lock-magic-return]	Follow link
-\\[howm-refresh]	Refresh buffer
-\\[howm-list-all]	List all files
-\\[howm-list-grep]	Search (grep)
-\\[howm-create]	Create new file
-\\[howm-dup]	Duplicate current file
-\\[howm-insert-keyword]	Insert keyword
-\\[howm-insert-date]	Insert date
-\\[howm-insert-dtime]	Insert date with time
-\\[howm-keyword-to-kill-ring]	Copy current keyword to kill ring
-\\[action-lock-goto-next-link]	Go to next link
-\\[action-lock-goto-previous-link]	Go to previous link
-\\[howm-next-memo]	Go to next entry in current buffer
-\\[howm-previous-memo]	Go to previous entry in current buffer
-\\[howm-first-memo]	Go to first entry in current buffer
-\\[howm-last-memo]	Go to last entry in current buffer
-\\[howm-create-here]	Add new entry to current buffer
-\\[howm-create-interactively]	Create new file interactively (not recommended)
-\\[howm-random-walk]	Browse random entries automtically
-"
+\\{howm-mode-map}"
   :init-value nil ;; default = off
   :lighter howm-lighter ;; mode-line
   :keymap (mapcar (lambda (entry)
