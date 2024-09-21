@@ -66,7 +66,7 @@
 Non-null prefix argument turns on the mode.
 Null prefix argument turns off the mode.
 
-\\[action-lock-magic-return]  Envoke the action on the field
+\\[action-lock-magic-return]  Invoke the action on the field
 "
   :init-value nil ;; default = off
   :lighter action-lock-lighter ;; mode-line

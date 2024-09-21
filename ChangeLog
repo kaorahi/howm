@@ -1,3 +1,7 @@
+2024-09-22  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* action-lock.el (action-lock-mode): fix typo in docstring
+
 2024-09-21  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-view.el (howm-view-summary-mode, howm-view-contents-mode):
