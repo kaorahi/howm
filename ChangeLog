@@ -1,5 +1,22 @@
 2024-09-22  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
+	* action-lock.el (action-lock-mode):
+	fix unintended "M-x ..." in describe-mode
+
+	* howm-menu.el (howm-menu-mode): ditto.
+
+	* howm-mode.el (howm-mode): ditto.
+
+	* howm-reminder.el (howm-simulate-todo-mode): ditto.
+
+	* howm-view.el
+	(howm-view-summary-mode, howm-view-contents-mode): ditto.
+
+	* illusion.el (illusion-mode): ditto.
+
+	* riffle.el
+	(riffle-sample-summary-mode, riffle-sample-contents-mode): ditto.
+
 	* howm-mode.el (howm-mode): fix wrong docstring
 
 	* action-lock.el (action-lock-mode): ditto.
@@ -14,7 +31,7 @@
 2024-09-21  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-view.el (howm-view-summary-mode, howm-view-contents-mode):
-	fix unintended "M-x ..." in describe-mode
+	fix unintended "M-x ..." for "Quit" in describe-mode
 
 2024-09-20  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 

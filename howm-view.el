@@ -169,7 +169,7 @@ This is a shameful global variable and should be clearned in future.")
 (riffle-define-derived-mode howm-view-summary-mode riffle-summary-mode "HowmS"
   "memo viewer (summary mode)
 key	binding
----	-------
+---	-------\\<howm-view-summary-mode-map>
 \\[howm-view-summary-open]	Open file
 \\[next-line]	Next item
 \\[previous-line]	Previous item
@@ -228,7 +228,7 @@ key	binding
 (riffle-define-derived-mode howm-view-contents-mode riffle-contents-mode "HowmC"
   "memo viewer (contents mode)
 key	binding
----	-------
+---	-------\\<howm-view-contents-mode-map>
 \\[howm-view-contents-open]	Open file
 \\[next-line]	Next line
 \\[previous-line]	Previous line

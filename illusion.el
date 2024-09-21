@@ -55,7 +55,7 @@ It must return non-nil value for successful case.")
 (define-minor-mode illusion-mode
   "Toggle Illusion mode.
 
-When the mode is enabled, \\[illusion-submit] submits the content
+When the mode is enabled, \\<illusion-mode-map>\\[illusion-submit] submits the content
 with a manner which is suitable to current buffer.
 
 key	binding

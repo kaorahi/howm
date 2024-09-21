@@ -583,7 +583,7 @@ snap://Info-mode/emacs#File Variables
                             "SampleS"
   "Sample summary mode.
 key	binding
----	-------
+---	-------\\<riffle-sample-summary-mode-map>
 \\[next-line]	Next item
 \\[previous-line]	Previous item
 \\[riffle-pop-or-scroll-other-window]	Pop and scroll contents
@@ -605,7 +605,7 @@ key	binding
                             "SampleC"
   "Sample contents mode.
 key	binding
----	-------
+---	-------\\<riffle-sample-contents-mode>
 \\[next-line]	Next line
 \\[previous-line]	Previous line
 \\[scroll-up]	Scroll up

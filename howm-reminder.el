@@ -403,7 +403,7 @@ and `howm-simulate-todo-reset'."
   (sit-for 5))
 (define-derived-mode howm-simulate-todo-mode howm-view-summary-mode "HowmT"
   "Major mode for a time machine simulation of the todo list in howm.
-(Tips) Type C-u 30 \\[howm-simulate-todo-next-date] to simulate 30 days later.
+(Tips) Type C-u 30 \\<howm-simulate-todo-mode-map>\\[howm-simulate-todo-next-date] to simulate 30 days later.
 
 key	binding
 ---	-------

@@ -168,8 +168,8 @@ Regexp R1 is replaced by T1 if T1 is a string.
   "howm menu
 key	binding
 ---	-------
-\\[action-lock-magic-return]	Follow link
-\\[action-lock-goto-next-link]	Next link
+\\<action-lock-mode-map>\\[action-lock-magic-return]	Follow link
+\\<howm-menu-mode-map>\\[action-lock-goto-next-link]	Next link
 \\[action-lock-goto-previous-link]	Prev link
 \\[describe-mode]	This help
 \\[bury-buffer]	Quit

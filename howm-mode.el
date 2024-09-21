@@ -253,13 +253,13 @@ in `howm-template'. %s is replaced with name of last file. See `format'.")
   "Toggle Howm mode.
 
 When the mode is enabled, underlines are drawn on texts which match
-to titles of other files. Typing \\[action-lock-magic-return] there,
+to titles of other files. Typing \\<action-lock-mode-map>\\[action-lock-magic-return] there,
 you can jump to the corresponding file.
 
 key	binding
 ---	-------
 \\[action-lock-magic-return]	Follow link
-\\[howm-refresh]	Refresh buffer
+\\<howm-mode-map>\\[howm-refresh]	Refresh buffer
 \\[howm-list-all]	List all files
 \\[howm-list-grep]	Search (grep)
 \\[howm-create]	Create new file

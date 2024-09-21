@@ -64,7 +64,9 @@
 (define-minor-mode action-lock-mode
   "Toggle Action Lock mode.
 
-\\[action-lock-magic-return]  Invoke the action on the field
+key	binding
+---	-------
+\\<action-lock-mode-map>\\[action-lock-magic-return]	Invoke the action on the field
 "
   :init-value nil ;; default = off
   :lighter action-lock-lighter ;; mode-line
