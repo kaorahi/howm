@@ -902,7 +902,7 @@ When DOTS-STR is non-nil, it is used instead of \"...\"."
 (defun howm-setup-change-log ()
   (setq howm-keyword-format "\t* %s")
   (setq howm-keyword-regexp "^\t\\(\\*\\)[ \t]+\\([^:\r\n]+\\)")
-  (setq howm-keyword-regexp-hilit-pos 1) ;; 「関連キーワード」用
+  (setq howm-keyword-regexp-hilit-pos 1) ;; for "related keywords"
   (setq howm-keyword-regexp-pos 2)
   (setq howm-view-title-regexp "^$")
   (setq howm-view-title-regexp-pos 0)
@@ -962,10 +962,10 @@ When DOTS-STR is non-nil, it is used instead of \"...\"."
 
 (defun howm-set-lang ()
   (set-language-environment "Japanese")
-  (set-default-coding-systems 'euc-jp)
-  (set-buffer-file-coding-system 'euc-jp-unix)
-  (set-terminal-coding-system 'euc-jp)
-  (set-keyboard-coding-system 'euc-jp)
+  (set-default-coding-systems 'utf-8)
+  (set-buffer-file-coding-system 'utf-8-unix)
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
   )
 
 (defun howm-compiled-p ()

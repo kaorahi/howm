@@ -1,3 +1,11 @@
+2024-09-19  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* top.txt: convert to UTF-8 encoding
+
+	* search.txt: ditto
+
+	* bug-report.txt: ditto
+
 2008-05-14  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
 	* dot.emacs: set inhibit-startup-message

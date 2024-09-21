@@ -6,6 +6,16 @@
 
 	* index-j.html: ditto.
 
+	* README.ja.rd: convert to UTF-8 encoding
+
+	* TUTORIAL.ja.rd: ditto
+
+	* OLD.rd: ditto
+
+	* CL-HOWM.ja.rd: ditto
+
+	* Makefile.am (README-j.html): ditto
+
 2024-09-15  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* index.html: update links etc. (quick start, tips)
