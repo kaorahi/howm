@@ -35,7 +35,6 @@
   (define-key m "\M-\C-i" 'action-lock-goto-previous-link)
   (define-key m " " 'scroll-up)
   (define-key m [backspace] 'scroll-down)
-  (define-key m "\C-h" 'scroll-down)
   (define-key m "q" 'bury-buffer)
   (define-key m "?" 'describe-mode)
   (setq howm-menu-mode-map m)

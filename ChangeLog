@@ -1,10 +1,12 @@
 2024-09-19  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
+	* riffle.el: remove obsolete C-h binding
+
+	* howm-menu.el: ditto
+
 	* howm-misc.el
 	(howm-set-lang): sample/bug-report.txt is UTF-8 now
 	(howm-setup-change-log): avoid Japanese comment
-
-2024-09-19  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-misc.el (howm-setup-change-log): avoid obsolete find-if
 
