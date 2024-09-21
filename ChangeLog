@@ -1,3 +1,8 @@
+2024-09-21  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-view.el (howm-view-summary-mode, howm-view-contents-mode):
+	fix unintended "M-x ..." in describe-mode
+
 2024-09-20  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* riffle.el: fix broken back-scrolling by BS key in terminals

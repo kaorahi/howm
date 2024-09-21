@@ -194,7 +194,7 @@ key	binding
 \\[howm-view-sort-reverse]	Reverse order
 \\[howm-view-dired]	Invoke Dired-X
 \\[describe-mode]	This help
-\\[riffle-kill-buffer]	Quit
+\\[howm-view-kill-buffer]	Quit
 "
   (howm-view-summary-mode-body))
 
@@ -246,7 +246,7 @@ key	binding
 \\[howm-view-sort-reverse]	Reverse order
 \\[howm-view-dired]	Invoke Dired-X
 \\[describe-mode]	This help
-\\[riffle-kill-buffer]	Quit
+\\[howm-view-kill-buffer]	Quit
 "
 ;   (kill-all-local-variables)
   (make-local-variable 'font-lock-keywords)
