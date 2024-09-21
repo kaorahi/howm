@@ -1,3 +1,9 @@
+2024-09-20  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* riffle.el: fix broken back-scrolling by BS key in terminals
+
+	* howm-menu.el: ditto
+
 2024-09-19  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* riffle.el: remove obsolete C-h binding
