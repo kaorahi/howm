@@ -1,5 +1,11 @@
 2024-09-22  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
+	* howm-mode.el (howm-mode): fix wrong docstring
+
+	* action-lock.el (action-lock-mode): ditto.
+
+	* illusion.el (illusion-mode): ditto.
+
 	* howm-reminder.el (howm-simulate-todo-mode):
 	disable unused action-lock-mode in howm-simulate-todo
 

@@ -62,9 +62,7 @@
 (defvar action-lock-date-default '("{_}" "[%Y-%m-%d %H:%M]"))  ;; before after
 
 (define-minor-mode action-lock-mode
-  "With no argument, this command toggles the mode.
-Non-null prefix argument turns on the mode.
-Null prefix argument turns off the mode.
+  "Toggle Action Lock mode.
 
 \\[action-lock-magic-return]  Invoke the action on the field
 "

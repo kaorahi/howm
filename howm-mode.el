@@ -250,9 +250,7 @@ in `howm-template'. %s is replaced with name of last file. See `format'.")
 ;; Definitions
 
 (define-minor-mode howm-mode
-  "With no argument, this command toggles the mode. 
-Non-null prefix argument turns on the mode.
-Null prefix argument turns off the mode.
+  "Toggle Howm mode.
 
 When the mode is enabled, underlines are drawn on texts which match
 to titles of other files. Typing \\[action-lock-magic-return] there,

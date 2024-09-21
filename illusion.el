@@ -53,9 +53,7 @@ It must return non-nil value for successful case.")
   (set-buffer-modified-p nil))
 
 (define-minor-mode illusion-mode
-  "With no argument, this command toggles the mode.
-Non-null prefix argument turns on the mode.
-Null prefix argument turns off the mode.
+  "Toggle Illusion mode.
 
 When the mode is enabled, \\[illusion-submit] submits the content
 with a manner which is suitable to current buffer.
