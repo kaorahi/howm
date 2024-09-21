@@ -1,5 +1,8 @@
 2024-09-22  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
+	* howm-reminder.el (howm-simulate-todo-mode):
+	disable unused action-lock-mode in howm-simulate-todo
+
 	* action-lock.el (action-lock-mode): fix typo in docstring
 
 2024-09-21  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>

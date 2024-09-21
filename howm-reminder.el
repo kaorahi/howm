@@ -412,7 +412,8 @@ key	binding
 \\[howm-simulate-todo-reset]	Reset to today
 "
   ;; major mode just for additional key bindings
-  (howm-view-summary-mode-body))
+  (howm-view-summary-mode-body)
+  (action-lock-mode -1))
 (let ((m howm-simulate-todo-mode-map))
   (mapc (lambda (args) (apply #'define-key m args))
         '((">" howm-simulate-todo-next-date)
