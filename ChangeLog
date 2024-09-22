@@ -2,6 +2,8 @@
 
 	* action-lock.el (action-lock-mode):
 	fix unintended "M-x ..." in describe-mode
+	thx > Chris Gerber san (chris at theGerb.com)
+	https://github.com/kaorahi/howm/pull/16
 
 	* howm-menu.el (howm-menu-mode): ditto.
 
