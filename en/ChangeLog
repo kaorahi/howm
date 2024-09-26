@@ -1,3 +1,10 @@
+2024-09-26  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* 0000-00-00-000000.txt:
+	add hint to prevent typical misuse of menu
+	thx > @termitereform san
+	https://github.com/kaorahi/howm/issues/18
+
 2011-01-01  HIRAOKA Kazuyuki  <khi@users.sourceforge.jp>
 
 	* 0000-00-00-000000.txt: support new commands.

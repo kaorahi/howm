@@ -1,3 +1,22 @@
+2024-09-26  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-menu.el (howm-menu-mode, howm-menu-refresh-note):
+	add hint to prevent typical misuse of menu
+	thx > @termitereform san
+	https://github.com/kaorahi/howm/issues/18
+
+	* howm-lang-en.el: ditto.
+
+	* howm-lang-fr.el: ditto.
+
+	* howm-lang-ja.el: ditto.
+
+	* howm-menu-en.el: ditto.
+
+	* howm-menu-fr.el: ditto.
+
+	* howm-menu-ja.el: ditto.
+
 2024-09-22  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* action-lock.el (action-lock-mode):

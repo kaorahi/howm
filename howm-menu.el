@@ -166,6 +166,9 @@ Regexp R1 is replaced by T1 if T1 is a string.
 
 (defun howm-menu-mode ()
   "howm menu
+
+Think of this menu as a \"modal dialog\" rather than a workspace. Typically, the commands listed in the menu apply to the buffer BEHIND the menu, not the menu buffer itself. In other words, they affect the buffer that was active before the menu appeared.
+
 key	binding
 ---	-------
 \\<action-lock-mode-map>\\[action-lock-magic-return]	Follow link
@@ -242,6 +245,13 @@ key	binding
   "*Non nil if 'invisible' property should be used in menu.
 This must be t at now.
 When this is nil, delete-region is used instead, and bug appears.")
+
+(defun howm-menu-refresh-note ()
+  (unless howm-mode
+    ;; warn about common misuse
+    (error "Not howm-mode. Press ? in the howm menu to see why."))
+  (howm-initialize-buffer)
+  (message "%s has been updated." (buffer-name)))
 
 (defun howm-menu-refresh (&optional file place name)
   (interactive)

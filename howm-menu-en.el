@@ -39,6 +39,8 @@ How to remember:
 
 -------------------------------------
 
+Think of this menu as a \"modal dialog\" rather than a workspace. Typically, the commands listed in the menu apply to the buffer BEHIND the menu, not the menu buffer itself. In other words, they affect the buffer that was active before the menu appeared.
+
 You can edit this menu itself.
 >>> %Editing Menu%
 

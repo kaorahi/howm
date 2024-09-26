@@ -34,6 +34,8 @@ Comment se souvenir de la syntaxe:
 
 -------------------------------------
 
+Considérez ce menu comme une "boîte de dialogue modale" plutôt qu'un espace de travail. En général, les commandes répertoriées dans le menu s'appliquent au buffer situé derrière le menu, et non au buffer du menu lui-même. Autrement dit, elles affectent le buffer qui était actif avant l'apparition du menu.
+
 Vous pouvez éditer ce menu.
 >>> %Editing Menu%
 

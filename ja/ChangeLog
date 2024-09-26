@@ -1,3 +1,10 @@
+2024-09-26  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* 0000-00-00-000000.txt:
+	add hint to prevent typical misuse of menu
+	thx > @termitereform san
+	https://github.com/kaorahi/howm/issues/18
+
 2023-02-16  HIRAOKA Kazuyuki  <khi@users.osdn.me>
 
 	* 0000-00-00-000000.txt: converted to UTF-8

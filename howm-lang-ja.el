@@ -29,7 +29,7 @@
     ("[新規]" (lambda () (howm-create ,howm-menu-action-arg)))
     ("[追加]" (lambda () (howm-create-here ,howm-menu-action-arg)))
     ("[複製]" howm-dup)
-    ("[更新]" howm-initialize-buffer previous)
+    ("[更新]" howm-menu-refresh-note previous)
     ("[正規]" howm-list-grep)
     ("[固定]" howm-list-grep-fixed)
     ("[roma]" howm-list-migemo)
