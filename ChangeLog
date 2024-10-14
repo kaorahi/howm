@@ -1,3 +1,10 @@
+2024-10-14  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* riffle.el (riffle-mode):
+	summary/contents buffers inherit from text-mode
+	thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+	https://github.com/kaorahi/howm/issues/11
+
 2024-09-26  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-menu.el (howm-menu-mode, howm-menu-refresh-note):
