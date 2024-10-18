@@ -66,6 +66,8 @@
 (howm-defvar-risky howm-view-filter-methods
   '(("name" . howm-view-filter-by-name)
     ("summary" . howm-view-filter-by-summary)
+    ("keyword" . howm-view-filter-by-keyword-in-summary)
+    ("Keyword-in-contents" . howm-view-filter-by-keyword-in-contents)
     ("mtime" . howm-view-filter-by-mtime)
 ;     ("ctime" . howm-view-filter-by-ctime) ;; needless
     ("date" . howm-view-filter-by-date)
@@ -627,6 +629,27 @@ But I'm not sure for multi-byte characters on other versions of emacsen."
          (f `(lambda (item-list rmv-p)
                (funcall #',filter item-list ,r rmv-p))))
     (howm-view-filter-doit f remove-p)))
+
+(defun howm-view-filter-by-keyword-in-summary (&optional remove-p keyword)
+  (interactive "P")
+  (howm-view-filter-by-keyword-general #'howm-view-filter-by-summary
+                                       remove-p keyword))
+
+(defun howm-view-filter-by-keyword-in-contents (&optional remove-p keyword)
+  (interactive "P")
+  (howm-view-filter-by-keyword-general #'howm-view-filter-by-contents
+                                       remove-p keyword))
+
+(defun howm-view-filter-by-keyword-general (f &optional remove-p keyword)
+  (let* ((k (or keyword (howm-completing-read-keyword)))
+         (aliases (if (howm-support-aliases-p)
+                      (howm-keyword-aliases k)
+                    k))
+         (regexp (if (listp aliases)
+                     (mapconcat 'regexp-quote aliases "\\|")
+                   (regexp-quote aliases)))
+         (howm-view-use-grep nil))  ;; necessary for "\\|"
+    (funcall f remove-p regexp)))
 
 (defun howm-view-filter-by-date (&optional remove-p)
   (interactive "P")
