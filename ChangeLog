@@ -1,3 +1,13 @@
+2024-11-02  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-view.el
+	(howm-view-filter-methods): add filter-by-keyword to support aliases
+	(howm-view-filter-by-keyword-in-summary): ditto
+	(howm-view-filter-by-keyword-in-contents): ditto
+	(howm-view-filter-by-keyword-general): ditto
+	thx > @bitic san
+	https://github.com/kaorahi/howm/issues/19
+
 2024-10-14  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* riffle.el (riffle-mode):
