@@ -1,3 +1,9 @@
+2024-11-21  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* README.md: update colorscheme link
+	thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+	https://github.com/kaorahi/howm/pull/20
+
 2024-11-02  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-view.el
