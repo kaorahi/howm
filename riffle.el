@@ -470,7 +470,8 @@ snap://Info-mode/emacs#File Variables
                                    even-window-heights))
             ;; Don't split windows further even when
             ;; riffle-pop-to-buffer is called twice.
-            (pop-up-windows nil))
+            (pop-up-windows nil)
+            (display-buffer-base-action nil))
         (pop-to-buffer buf)))))
 
 ;; 'Place' is line number at now
