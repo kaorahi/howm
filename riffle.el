@@ -468,6 +468,8 @@ snap://Info-mode/emacs#File Variables
       (let ((even-window-heights (if size
                                      nil
                                    even-window-heights))
+            ;; Skip all user options and force the default behavior.
+            (display-buffer-overriding-action display-buffer-fallback-action)
             ;; Don't split windows further even when
             ;; riffle-pop-to-buffer is called twice.
             (pop-up-windows nil))
