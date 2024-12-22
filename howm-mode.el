@@ -365,7 +365,8 @@ key	binding
   (let* ((d (or days howm-list-recent-days))
          (now (current-time))
          (from (howm-days-before now d))
-         (item-list (howm-folder-items howm-directory t)))
+         (item-list (howm-recent-items-filter
+                     (howm-folder-items howm-directory t))))
     (howm-normalize-show "" (howm-filter-items-by-mtime item-list from now))
     ;; clean me [2003-11-30]
     (cond ((howm-list-title-p) t)  ;; already done in howm-normalize-show
