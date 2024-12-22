@@ -1,3 +1,25 @@
+2024-12-22  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* riffle.el (riffle-pop-to-buffer):
+	avoid double-splitting windows when display-buffer-base-action is non-nil
+	thx > Kevin Fleming san (kvnflm at gmail.com)
+	https://github.com/kaorahi/howm/pull/21
+
+	* riffle.el (riffle-protected-localvar-prefixes): fix faces issue
+	thx > @mmarshall540 san
+	https://github.com/kaorahi/howm/issues/22
+
+	* howm-vars.el (howm-recent-excluded-files-regexp):
+	add a user-option to exclude certain files from the recent-note lists
+	thx > @mmarshall540 san
+	https://github.com/kaorahi/howm/pull/23
+
+	* howm-mode.el (howm-list-recent): ditto.
+
+	* howm-menu.el (howm-recent-menu): ditto.
+
+	* howm-common.el (howm-recent-items-filter): ditto.
+
 2024-11-21  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* README.md: update colorscheme link
