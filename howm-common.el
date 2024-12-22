@@ -31,6 +31,19 @@
                               (funcall comparer (car x) (car y))))))
     (mapcar #'cdr sorted)))
 
+(defun howm-recent-items-filter (folder-items)
+  "Remove objects from FOLDER-ITEMS.
+The objects removed are those matching
+`howm-menu-recent-excluded-files-regexp'."
+  (if howm-recent-excluded-files-regexp
+      (seq-remove
+       (lambda (x)
+         (string-match-p
+          howm-recent-excluded-files-regexp
+          (car x)))
+       folder-items)
+    folder-items))
+
 (defun howm-subdirectory-p (dir target &optional strict)
   "For the directory DIR, check whether TARGET is under it.
 When TARGET and DIR are same, (not STRICT) is returned."

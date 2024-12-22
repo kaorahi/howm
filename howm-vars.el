@@ -575,6 +575,15 @@ if `howm-list-normalizer' is non-nil."
   :type 'boolean
   :group 'howm-sort)
 
+(defcustom howm-recent-excluded-files-regexp nil
+  "Regexp matching names of files to exclude from recents.
+This affects the files shown in the recents section of the
+Howm-menu, as well as the files listed by `howm-list-recent'."
+  :type '(radio (const :tag "Default" nil)
+                regexp)
+  :group 'howm-menu-reminder
+  :group 'howm-files)
+
 ;;
 ;; Title
 ;;
