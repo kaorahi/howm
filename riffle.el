@@ -128,7 +128,7 @@ even if you delete other windows explicitly."
 (define-derived-mode riffle-mode text-mode "Riffle")
 
 (defvar riffle-protected-localvar-prefixes
-  '("font-lock-" "action-lock-" "howm-" "illusion-" "riffle-")
+  '("action-lock-" "howm-" "illusion-" "riffle-")
   "Prefixes of buffer-local variable names that are protected from
 `kill-all-local-variables', which is called in `riffle-mode' through
 `fundamental-mode'.")
