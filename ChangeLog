@@ -1,3 +1,7 @@
+2024-12-31  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* configure.ac: version 1.5.2
+
 2024-12-22  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* riffle.el (riffle-pop-to-buffer):
