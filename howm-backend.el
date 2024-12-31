@@ -863,11 +863,11 @@ STR can be list of strings. They are regarded as \"or\" pattern of all elements.
         (funcall previewer page)
       (howm-viewer-indicator-gen "(%S %S)" func page))))
 
-(defadvice action-lock-find-file (around external-viewer (f u) activate)
+(define-advice action-lock-find-file (:around (orig-fun f u) external-viewer)
   (let ((viewer (howm-page-viewer f)))
     (if viewer
         (howm-viewer-call viewer (expand-file-name f))
-      ad-do-it)))
+      (funcall orig-fun f u))))
 
 ;; For backward compatibility. Don't use them any more.
 (defalias 'howm-view-external-viewer      #'howm-page-viewer)

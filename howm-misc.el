@@ -858,20 +858,20 @@ When DOTS-STR is non-nil, it is used instead of \"...\"."
 ;; xemacs canna doesn't use minor-mode. [2004-01-30]
 (defvar action-lock-mode-before-canna nil)
 (make-variable-buffer-local 'action-lock-mode-before-canna)
-(defadvice canna:enter-canna-mode (around action-lock-fix activate)
+(define-advice canna:enter-canna-mode (:around (orig-fun &rest args) action-lock-fix)
   (setq action-lock-mode-before-canna action-lock-mode)
   (setq action-lock-mode nil)
-  ad-do-it)
-(defadvice canna:quit-canna-mode (around action-lock-fix activate)
+  (apply orig-fun args))
+(define-advice canna:quit-canna-mode (:around (orig-fun &rest args) action-lock-fix)
   (setq action-lock-mode action-lock-mode-before-canna)
-  ad-do-it)
+  (apply orig-fun args))
  
 ;; for mcomplete.el [2003-12-17]
 ;; http://homepage1.nifty.com/bmonkey/emacs/elisp/mcomplete.el
 ;; error when this-command is (lambda () (interactive) ...)
-(defadvice mcomplete-p (around symbol-check activate)
+(define-advice mcomplete-p (:around (orig-fun &rest args) symbol-check)
   (and (symbolp this-command)
-       ad-do-it))
+       (apply orig-fun args)))
 
 ;; for auto-save-buffers.el [2004-01-10]
 ;; http://www.namazu.org/~satoru/auto-save/
@@ -893,10 +893,10 @@ When DOTS-STR is non-nil, it is used instead of \"...\"."
   (setq howm-refresh-after-save nil)
   (setq howm-auto-save-buffers-disposed t)
   (message "howm: Automatic refresh is disabled when auto-save-buffers is called."))
-(defadvice auto-save-buffers (around howm-dispose activate)
+(define-advice auto-save-buffers (:around (orig-fun &rest args) howm-dispose)
   (if (or howm-auto-save-buffers-disposed
           (not (howm-auto-save-buffers-p)))
-      ad-do-it
+      (apply orig-fun args)
     (howm-auto-save-buffers-dispose)))
 
 ;; howm on ChangeLog Memo
@@ -910,20 +910,19 @@ When DOTS-STR is non-nil, it is used instead of \"...\"."
   (setq howm-view-title-regexp-grep 'sorry-not-yet)
   (setq howm-use-color nil)
   (setq howm-menu-top nil)
-  (defadvice howm-exclude-p (around change-log (filename) activate)
-    (setq ad-return-value
+  (define-advice howm-exclude-p (:around (orig-fun filename) change-log)
           (not (cl-find-if (lambda (dir)
                              (string= (howm-file-name)
                                       (file-relative-name filename dir)))
-                           (howm-search-path)))))
-  (defadvice howm-create-file-with-title (around change-log (title) activate)
+                           (howm-search-path))))
+  (define-advice howm-create-file-with-title (:around (orig-fun title) change-log)
     (howm-create-file)
     (when (string-match howm-keyword-regexp title)
       (setq title (match-string-no-properties howm-keyword-regexp-pos
                                               title)))
     (insert title))
-  (defadvice howm-create-file (around change-log
-                                      (&optional keep-cursor-p) activate)
+  (define-advice howm-create-file
+      (:around (orig-fun title &optional keep-cursor-p) change-log)
     (let* ((default (howm-file-name))
            (file (expand-file-name default howm-directory))
            (dir (file-name-directory file))
