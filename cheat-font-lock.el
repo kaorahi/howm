@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: nil; -*-
 ;;; cheat-font-lock.el --- modify font-lock-keywords
 ;;; Copyright (C) 2002, 2003, 2004, 2005-2024
 ;;;   HIRAOKA Kazuyuki <kakkokakko@gmail.com>

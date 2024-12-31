@@ -1,4 +1,4 @@
-;;; -*- Coding: utf-8-unix -*-
+;;; -*- lexical-binding: nil; Coding: utf-8-unix -*-
 ;;; automatically generated from ja/0000-00-00-000000.txt
 ;;; by howm-mkmenu.el.
 

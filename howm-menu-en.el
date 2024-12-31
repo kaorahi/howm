@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: nil; -*-
 ;;; automatically generated from en/0000-00-00-000000.txt
 ;;; by howm-mkmenu.el.
 

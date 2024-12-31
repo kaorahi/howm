@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: nil; -*-
 ;;; howm-mkmenu.el --- Wiki-like note-taking tool
 ;;; Copyright (C) 2005-2024
 ;;;   HIRAOKA Kazuyuki <kakkokakko@gmail.com>
@@ -54,10 +55,13 @@
           ;; write to dest
           (find-file dest)
           (delete-region (point-min) (point-max))
-          (when dest-coding
-            (set-buffer-file-coding-system dest-coding)
+          (if dest-coding
+              (progn
+                (set-buffer-file-coding-system dest-coding)
+                (howm-mkmenu-insert
+                 (";;; -*- lexical-binding: nil; Coding: %s -*-" dest-coding)))
             (howm-mkmenu-insert
-              (";;; -*- Coding: %s -*-" dest-coding)))
+             (";;; -*- lexical-binding: nil; -*-")))
           (howm-mkmenu-insert
             (";;; automatically generated from %s" src)
             (";;; by %s.\n" (file-name-nondirectory load-file-name))

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: nil; -*-
 ;;; howm-misc.el --- Wiki-like note-taking tool
 ;;; Copyright (C) 2002, 2003, 2004, 2005-2024
 ;;;   HIRAOKA Kazuyuki <kakkokakko@gmail.com>

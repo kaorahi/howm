@@ -1,5 +1,5 @@
+;;; -*- lexical-binding: nil; -*-
 ;;; howm.el --- Wiki-like note-taking tool
-;;; -*- Emacs-Lisp -*-
 ;;; howm.el.  Generated from howm.el.in by configure.
 
 ;; Copyright (C) 2002, 2003, 2004, 2005-2024 HIRAOKA Kazuyuki

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: nil; -*-
 ;;; gfunc.el --- support for generic function
 ;;; Copyright (C) 2005-2024
 ;;;   HIRAOKA Kazuyuki <kakkokakko@gmail.com>

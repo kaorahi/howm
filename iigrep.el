@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: nil; -*-
 ;;; iigrep.el - incremental interactive grep
 ;;; Copyright (C) 2004, 2005-2024
 ;;;   HIRAOKA Kazuyuki <kakkokakko@gmail.com>

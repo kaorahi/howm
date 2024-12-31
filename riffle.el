@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: nil; -*-
 ;;; riffle.el --- template of list browser with immediate preview
 ;;; Copyright (C) 2004, 2005-2024
 ;;;   HIRAOKA Kazuyuki <kakkokakko@gmail.com>

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: nil; -*-
 ;;; illusion.el --- load, edit, and submit something which is not pure file
 ;;; Copyright (C) 2005-2024
 ;;;   HIRAOKA Kazuyuki <kakkokakko@gmail.com>
