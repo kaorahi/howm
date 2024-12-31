@@ -59,7 +59,7 @@
 (defvar iigrep-option "-nIe")
 (defvar iigrep-recursive-option "-r")
 (defvar iigrep-default-show-what 'full
-  "One of 'full, 'contents, 'counts, or nil.")
+  "One of \\='full, \\='contents, \\='counts, or nil.")
 
 (defvar iigrep-counts-face-rules
   '(
@@ -345,7 +345,7 @@ This value is also used for identification of iigrep processes.")
 (defvar iigrep-migemo-options '("-q")
   "*Options for migemo command for iigrep.
 The default value is for cmigemo.
-Use '(\"-S\" \"migemo\" \"-t\" \"egrep\") for the original migemo.")
+Use \\='(\"-S\" \"migemo\" \"-t\" \"egrep\") for the original migemo.")
 (defmacro iigrep-with-our-migemo (&rest body)
   (declare (indent 0))
   `(let ((iigrep-original-migemo-process migemo-process)

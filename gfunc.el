@@ -76,7 +76,7 @@ BASE-NAME is name of generic function.
 ARGS-DECLARATION has no effect; it is merely note for programmers.
 DISPATCHERS-VAR is name of variable whose value is list of type-detectors.
 Type-detector receives arguments to the function BASE-NAME, and returns
-its 'type' symbol.
+its \"type\" symbol.
 Then, BASE-NAME + type is the name of real function.
 Type detector must return nil if it cannot determine the type, so that
 the task is chained to next detector."

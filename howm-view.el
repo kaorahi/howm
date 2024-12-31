@@ -1105,12 +1105,12 @@ in ITEM-LIST belongs."
                                         &optional remove-match)
   "Select items in ITEM-LIST according to REFERENCE-ITEM-LIST.
 When REMOVE-MATCH is nil, return value is list of items i in ITEM-LIST
-which satisfy the condition \"there exists i' in REFERENCE-ITEM-LIST
-such that i and i' belong to same paragraph\" (case 1).
-When REMOVE-MATCH is non-nil and not the symbol 'with-rest',
+which satisfy the condition \"there exists i\\=' in REFERENCE-ITEM-LIST
+such that i and i\\=' belong to same paragraph\" (case 1).
+When REMOVE-MATCH is non-nil and not the symbol \\='with-rest\\=',
 return value is complement of the above list;
 list of items in ITEM-LIST which do not satisfy the above condition (case 2).
-When REMOVE-MATCH is the symbol 'with-rest',
+When REMOVE-MATCH is the symbol \\='with-rest\\=',
 return value is (A . B), where A is the return value of case 1 and
 B is items in REFERENCE-ITEM-LIST that do not match in case 1."
   ;; 

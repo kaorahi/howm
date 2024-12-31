@@ -424,8 +424,8 @@ key	binding
   (let ((howm-todo-separators nil))
     (howm-list-todo-sub-setup-items items)))
 (defun howm-simulate-todo-next-date (n &optional orig-items)
-  "Simulate the todo list as if today were N days after the current 'today'.
-If N is nil, reset the simulation to today's date.
+  "Simulate the todo list as if today were N days after the current \\='today\\='.
+If N is nil, reset the simulation to today\\='s date.
 If ORIG-ITEMS is nil, use the item list of the current buffer.
 For example, to simulate 30 days later, call this function with the prefix C-u 30."
   (interactive "p")
@@ -449,8 +449,8 @@ For example, to simulate 30 days later, call this function with the prefix C-u 3
         (setq howm-view-mode-line-text
               (propertize msg 'face howm-simulate-todo-mode-line-face))))))
 (defun howm-simulate-todo-previous-date (n &optional orig-items)
-  "Simulate the todo list as if today were N days before the current 'today'.
-If N is nil, reset the simulation to today's date.
+  "Simulate the todo list as if today were N days before the current \\='today\\='.
+If N is nil, reset the simulation to today\\='s date.
 If ORIG-ITEMS is nil, use the item list of the current buffer.
 For example, to simulate 30 days ago, call this function with the prefix C-u 30."
   (interactive "p")
@@ -1017,8 +1017,8 @@ or TODO is t."
   "Modify variable VAR whose value is \"[...]\".
 Example:
  (setq foo \"[abc]\")
- (howm-modify-reminder-types 'foo \"d\" t)  foo ==> \"[abcd]\"
- (howm-modify-reminder-types 'foo \"b\" nil)  foo ==> \"[acd]\"
+ (howm-modify-reminder-types \\='foo \"d\" t)  foo ==> \"[abcd]\"
+ (howm-modify-reminder-types \\='foo \"b\" nil)  foo ==> \"[acd]\"
 "
   (let ((val (symbol-value var)))
     (when (not (string-match "^\\[\\(.*\\)\\]$" val))

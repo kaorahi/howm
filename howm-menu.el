@@ -243,7 +243,7 @@ key	binding
 (howm-defvar-risky howm-menu-shortcut-assoc nil)
 (make-variable-buffer-local 'howm-menu-shortcut-assoc)
 (howm-defvar-risky howm-menu-invisible t
-  "*Non nil if 'invisible' property should be used in menu.
+  "*Non nil if \"invisible\" property should be used in menu.
 This must be t at now.
 When this is nil, delete-region is used instead, and bug appears.")
 
@@ -677,8 +677,8 @@ When this is nil, delete-region is used instead, and bug appears.")
 LABEL is only used for message.
 FORMATTER is a function which receives an item and returns an output string
  (without newline).
-FORMATTER can be nil for standard style, 'todo for todo style,
-'schedule for schedule style, or 'full for full note.
+FORMATTER can be nil for standard style, \\='todo for todo style,
+\\='schedule for schedule style, or \\='full for full note.
 ITEM-LIST is list of items which should be shown."
   (let ((f (cond ((null formatter) #'howm-menu-format-item)
                  ((eq 'todo formatter) #'howm-menu-format-todo)

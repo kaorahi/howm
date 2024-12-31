@@ -111,7 +111,7 @@ It is further registered globally if global-p is non-nil."
 (howm-defvar-risky howm-migemo-client nil
   "Command name of migemo-client.
 Example of cmigemo:
-  (setq howm-migemo-client '((type . cmigemo) (command . \"cmigemo\")))
+  (setq howm-migemo-client \\='((type . cmigemo) (command . \"cmigemo\")))
 Example of migemo-client (obsolete):
   (setq howm-migemo-client \"migemo-client\")
 See also `howm-migemo-client-option`")
@@ -119,9 +119,9 @@ See also `howm-migemo-client-option`")
   "List of option for migemo-client.
 Example of cmigemo:
   (setq howm-migemo-client-option
-        '(\"-q\" \"-d\" \"/usr/share/cmigemo/utf-8/migemo-dict\"))
+        \\='(\"-q\" \"-d\" \"/usr/share/cmigemo/utf-8/migemo-dict\"))
 Example of migemo-client (obsolete):
-  (setq howm-migemo-client-option '(\"-H\" \"::1\")
+  (setq howm-migemo-client-option \\='(\"-H\" \"::1\")
 See also `howm-migemo-client`")
 
 ;;; --- level 2 ---
