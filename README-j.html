@@ -1271,6 +1271,36 @@ make test</pre></li>
 <h3><a name="label-19" id="label-19">更新記録</a></h3><!-- RDLabel: "更新記録" -->
 <p>thx &gt; patch・改良案・指摘をくださった皆様</p>
 <ul>
+<li>リリース版 howm-1.5.2 [2024-12-31]
+<ul>
+<li>改良
+<ul>
+<li>M-x howm-simulate-todo の追加 → <a href="#label-5">リマインダ</a></li>
+<li>検索一覧で f キー (filter) を押したあとの選択肢に「keyword」「keyword-in-contents」を追加 (alias も効くように)
+      thx &gt; Pere Quintana san (@bitic)</li>
+<li>「最近のメモ一覧」からの除外設定を追加 (howm-recent-excluded-files-regexp)
+      thx &gt; @mmarshall540 san</li>
+<li>スクリーンショットや英語ドキュメントの改良
+      thx &gt; Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)</li>
+<li>メニューの細かな改良
+      thx &gt; @termitereform san</li>
+</ul></li>
+<li>修正
+<ul>
+<li>一覧・内容バッファは text-mode を引き継ぐように
+      thx &gt; Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no), @mmarshall540 san</li>
+<li>C-h でふつうにヘルプが呼べるように
+      thx &gt; Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)</li>
+<li>ターミナル上でのバックスペースキーによる逆スクロールを修正
+      thx &gt; Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)</li>
+<li>M-x describe-mode の表示を修正
+      thx &gt; Chris Gerber san (chris at theGerb.com)</li>
+<li>display-buffer-base-action を設定した場合の不具合を修正
+      thx &gt; Kevin Fleming san (kvnflm at gmail.com)</li>
+<li>docstring の細かな修正</li>
+<li>バイトコンパイル時の警告を回避</li>
+</ul></li>
+</ul></li>
 <li>リリース版 howm-1.5.1 [2023-12-31]
 <ul>
 <li>インクリメンタル grep をデフォルトでオンに
