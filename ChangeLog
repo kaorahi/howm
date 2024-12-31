@@ -102,12 +102,16 @@
 2024-09-20  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* riffle.el: fix broken back-scrolling by BS key in terminals
+	thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+	https://github.com/kaorahi/howm/issues/15
 
 	* howm-menu.el: ditto
 
 2024-09-19  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* riffle.el: remove obsolete C-h binding
+	thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+	https://github.com/kaorahi/howm/issues/15
 
 	* howm-menu.el: ditto
 
