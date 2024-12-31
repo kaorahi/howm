@@ -235,14 +235,14 @@
          (c 0))
     (when (catch :found
             (while (progn
-                   (when (howm-action-lock-date-search new-date)
-                     (throw :found t))
-                   (< c howm-date-forward-ymd-limit))
-            (setq new-date (howm-datestr-shift new-date 0 0 step))
-            (setq c (1+ c))
-            (when howm-date-forward-ymd-msg
-              (message howm-date-forward-ymd-msg new-date)))
-          (error "Not found within %d days." howm-date-forward-ymd-limit))
+                     (when (howm-action-lock-date-search new-date)
+                       (throw :found t))
+                     (< c howm-date-forward-ymd-limit))
+              (setq new-date (howm-datestr-shift new-date 0 0 step))
+              (setq c (1+ c))
+              (when howm-date-forward-ymd-msg
+                (message howm-date-forward-ymd-msg new-date)))
+            (error "Not found within %d days." howm-date-forward-ymd-limit))
       (when (not (eq (current-buffer) b))
         (with-current-buffer b
           (howm-view-kill-buffer)))
