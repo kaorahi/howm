@@ -847,7 +847,8 @@ so that highlighting works correctly."
   :group 'howm-grep)
 
 (defcustom howm-iigrep-preview-items 20
-  "Show howm search results on the fly before hitting RET when the hit counts are within this number."
+  "Show howm search results on the fly before hitting RET when the hit
+counts are within this number."
   :type 'integer
   :group 'howm-efficiency
   :group 'howm-iigrep)

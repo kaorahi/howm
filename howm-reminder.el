@@ -424,10 +424,11 @@ key	binding
   (let ((howm-todo-separators nil))
     (howm-list-todo-sub-setup-items items)))
 (defun howm-simulate-todo-next-date (n &optional orig-items)
-  "Simulate the todo list as if today were N days after the current \\='today\\='.
-If N is nil, reset the simulation to today\\='s date.
-If ORIG-ITEMS is nil, use the item list of the current buffer.
-For example, to simulate 30 days later, call this function with the prefix C-u 30."
+  "Simulate the todo list as if today were N days after the current
+\\='today\\='.  If N is nil, reset the simulation to today\\='s date.
+If ORIG-ITEMS is nil, use the item list of the current buffer.  For
+example, to simulate 30 days later, call this function with the prefix
+C-u 30."
   (interactive "p")
   (howm-with-simulated-date
     (let* ((ti (howm-increment-simulated-date n))

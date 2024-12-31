@@ -168,7 +168,10 @@ Regexp R1 is replaced by T1 if T1 is a string.
 (defun howm-menu-mode ()
   "howm menu
 
-Think of this menu as a \"modal dialog\" rather than a workspace. Typically, the commands listed in the menu apply to the buffer BEHIND the menu, not the menu buffer itself. In other words, they affect the buffer that was active before the menu appeared.
+Think of this menu as a \"modal dialog\" rather than a workspace.
+Typically, the commands listed in the menu apply to the buffer BEHIND
+the menu, not the menu buffer itself.  In other words, they affect the
+buffer that was active before the menu appeared.
 
 key	binding
 ---	-------
