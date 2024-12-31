@@ -915,6 +915,31 @@ Emacs で断片的なメモをどんどんとるための環境です.
 
 thx > patch・改良案・指摘をくださった皆様
 
+* リリース版 howm-1.5.2 [2024-12-31]
+  * 改良
+    * M-x howm-simulate-todo の追加 → ((<リマインダ>))
+    * 検索一覧で f キー (filter) を押したあとの選択肢に「keyword」「keyword-in-contents」を追加 (alias も効くように)
+      thx > Pere Quintana san (@bitic)
+    * 「最近のメモ一覧」からの除外設定を追加 (howm-recent-excluded-files-regexp)
+      thx > @mmarshall540 san
+    * スクリーンショットや英語ドキュメントの改良
+      thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+    * メニューの細かな改良
+      thx > @termitereform san
+  * 修正
+    * 一覧・内容バッファは text-mode を引き継ぐように
+      thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no), @mmarshall540 san
+    * C-h でふつうにヘルプが呼べるように
+      thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+    * ターミナル上でのバックスペースキーによる逆スクロールを修正
+      thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+    * M-x describe-mode の表示を修正
+      thx > Chris Gerber san (chris at theGerb.com)
+    * display-buffer-base-action を設定した場合の不具合を修正
+      thx > Kevin Fleming san (kvnflm at gmail.com)
+    * docstring の細かな修正
+    * バイトコンパイル時の警告を回避
+
 * リリース版 howm-1.5.1 [2023-12-31]
   * インクリメンタル grep をデフォルトでオンに
     * 検索文字列の入力途中で (RET を押す前に) 随時 grep

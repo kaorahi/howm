@@ -113,7 +113,41 @@ You can keep your favorite style. :-)
 
 For customization, try 'M-x customize-group RET howm RET'.
 
-<h2><a name="changes"></a>Update from old version</h2>
+<h2><a name="changes"></a>Updates</h2>
+
+<h3>1.5.1 to 1.5.2</h3>
+
+<p>
+Improvements:
+<ul>
+ <li>Added simulation for the todo list on a specific date (M-x howm-simulate-todo).
+      <a href="https://github.com/kaorahi/howm/issues/4">ref</a></li>
+ <li>Added filter-by-keyword to support aliases.
+      <a href="https://github.com/kaorahi/howm/issues/19">thx</a></li>
+ <li>Added a user-option to exclude certain files from the recent-note lists (howm-recent-excluded-files-regexp).
+      <a href="https://github.com/kaorahi/howm/pull/23">thx</a></li>
+ <li>Improved screenshots and English documents.
+      <a href="https://github.com/kaorahi/howm/pull/8">thx</a>
+      <a href="https://github.com/kaorahi/howm/issues/13#issuecomment-2358456865">thx</a>
+      <a href="https://github.com/kaorahi/howm/pull/20">thx</a></li>
+ <li>Added a hint to avoid typical misuse of the menu.
+      <a href="https://github.com/kaorahi/howm/issues/18">thx</a></li>
+</ul>
+Fixes:
+<ul>
+ <li>The summary/contents buffers now inherit from text-mode.
+      <a href="https://github.com/kaorahi/howm/issues/11">thx</a></li>
+      <a href="">thx</a></li>
+ <li>Removed obsolete C-h binding.
+      <a href="https://github.com/kaorahi/howm/issues/15">thx</a></li>
+ <li>Fixed broken back-scrolling by BS key in terminals.
+      <a href="https://github.com/kaorahi/howm/issues/15">thx</a></li>
+ <li>Fixed unintended "M-x ..." in describe-mode.
+      <a href="https://github.com/kaorahi/howm/pull/16">thx</a></li>
+ <li>Prevented double-splitting windows when display-buffer-base-action is non-nil.
+      <a href="https://github.com/kaorahi/howm/pull/21">thx</a></li>
+</ul>
+</p>
 
 <h3>1.5.0 to 1.5.1</h3>
 
@@ -122,15 +156,6 @@ For customization, try 'M-x customize-group RET howm RET'.
  <li>The incremental search is enabled by default. See M-x customize-group RET howm-iigrep RET. This feature only works if M-x customize-variable RET howm-view-use-grep RET is set to "On".</li>
  <li>Added links. (English &amp; Russian tutorials, introduction video)</li>
  <li>Fixed several minor bugs.</li>
-</ul>
-</p>
-
-<h3>1.4.8 to 1.5.0</h3>
-
-<p>
-<ul>
- <li>"u" key (uniq) in summary buffer is now togglable. You can hit "u" again to cancel "uniq".</li>
- <li>If you are interested in the incremental search, try M-x customize-group RET howm-iigrep RET and set howm-iigrep-show-what. It will be turned on by default in the next release.</li>
 </ul>
 </p>
 
