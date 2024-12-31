@@ -241,7 +241,7 @@
             (setq new-date (howm-datestr-shift new-date 0 0 step))
             (setq c (1+ c))
             (when howm-date-forward-ymd-msg
-              (format howm-date-forward-ymd-msg new-date)))
+              (message howm-date-forward-ymd-msg new-date)))
           (error "Not found within %d days." howm-date-forward-ymd-limit))
       (when (not (eq (current-buffer) b))
         (with-current-buffer b
