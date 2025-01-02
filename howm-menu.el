@@ -509,7 +509,7 @@ When this is nil, delete-region is used instead, and bug appears.")
 (defun howm-open-today ()
   (interactive)
   (and (howm-create-file t)
-       (howm-insert-template ""))
+       (howm-insert-template "" (howm-template-string)))
   (howm-set-mode))
 
 (defun howm-open-past (&optional days-before)

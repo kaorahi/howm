@@ -881,18 +881,20 @@ We need entire-match in order to
   (howm-create which-template t))
 
 (defun howm-create-file-with-title (title &optional
-                                    which-template not-use-file here content)
+                                          which-template not-use-file here content)
   (let ((b (current-buffer)))
     (when (not here)
       (howm-create-file))
     (cond ((howm-buffer-empty-p) nil)
           ((and here howm-create-here-just) (beginning-of-line))
           (t (howm-create-newline)))
-    (let ((p (point))
-          (insert-f (lambda (switch)
-                      (howm-insert-template (if switch title "")
-                                            b which-template (not switch))))
-          (use-file (not not-use-file)))
+    (let* ((p (point))
+           (template-string (howm-template-string which-template b))
+           (insert-f (lambda (switch)
+                       (howm-insert-template (if switch title "")
+                                             template-string
+                                             b (not switch))))
+           (use-file (not not-use-file)))
       ;; second candidate which appears when undo is called
       (let ((end (funcall insert-f not-use-file)))
         (save-excursion
@@ -921,12 +923,12 @@ We need entire-match in order to
     (insert "\n"))
   (insert "\n"))
 
-(defun howm-insert-template (title &optional
-                                   previous-buffer which-template not-use-file)
+(defun howm-insert-template (title template-string &optional
+                                   previous-buffer not-use-file)
   (let* ((beg (point))
          (f (buffer-file-name previous-buffer))
          (af (and f (howm-abbreviate-file-name f))))
-    (insert (howm-template-string which-template previous-buffer))
+    (insert template-string)
     (let* ((date (format-time-string howm-template-date-format))
            (use-file (not not-use-file))
            (file (cond ((not use-file) "")
@@ -944,7 +946,7 @@ when howm-template is a function.
 Set this option to nil if backward compatibility with howm-1.2.4 or earlier
 is necessary.")
 
-(defun howm-template-string (which-template previous-buffer)
+(defun howm-template-string (&optional which-template previous-buffer)
   ;; which-template should be 1, 2, 3, ...
   (setq which-template (or which-template 1))
   (cond ((stringp howm-template) howm-template)

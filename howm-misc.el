@@ -554,9 +554,9 @@ and replace a sub-expression, e.g.
 
 ;; named note
 
-(defun howm-open-named-file ()
+(defun howm-open-named-file (which-template)
   "Ask a file name and open it as howm note if it is under howm directory."
-  (interactive)
+  (interactive "p")
   (let* ((item-dir (lambda (item) (file-name-directory (howm-item-name item))))
          (dir (cond ((eq major-mode 'howm-view-summary-mode)
                      (funcall item-dir (howm-view-summary-current-item)))
@@ -569,7 +569,7 @@ and replace a sub-expression, e.g.
     (if (file-exists-p fname)
         (howm-set-mode)
       (progn
-        (howm-insert-template "")
+        (howm-insert-template "" (howm-template-string which-template))
         (howm-create-finish)))))
 
 ;; imitation of remember.el
