@@ -1,3 +1,10 @@
+2025-01-03  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-mode.el (howm-insert-template-string):
+	fix double calls to howm-template-string
+	thx > Nicolai Singh san (nicolaisingh at pm.me)
+	https://github.com/kaorahi/howm/pull/26
+
 2024-12-31  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* configure.ac: version 1.5.2
