@@ -890,11 +890,12 @@ We need entire-match in order to
     (cond ((howm-buffer-empty-p) nil)
           ((and here howm-create-here-just) (beginning-of-line))
           (t (howm-create-newline)))
-    (let ((p (point))
-          (insert-f (lambda (switch)
-                      (howm-insert-template (if switch title "")
-                                            b which-template (not switch))))
-          (use-file (not not-use-file)))
+    (let* ((p (point))
+           (template-string (howm-template-string which-template b))
+           (insert-f (lambda (switch)
+                       (howm-insert-template-string template-string (if switch title "")
+                                                    b (not switch))))
+           (use-file (not not-use-file)))
       ;; second candidate which appears when undo is called
       (let ((end (funcall insert-f not-use-file)))
         (save-excursion
@@ -925,10 +926,16 @@ We need entire-match in order to
 
 (defun howm-insert-template (title &optional
                                    previous-buffer which-template not-use-file)
+  (let ((template-string (howm-template-string which-template previous-buffer)))
+    (howm-insert-template-string template-string title
+                                 previous-buffer not-use-file)))
+
+(defun howm-insert-template-string (template-string title &optional
+                                                    previous-buffer not-use-file)
   (let* ((beg (point))
          (f (buffer-file-name previous-buffer))
          (af (and f (howm-abbreviate-file-name f))))
-    (insert (howm-template-string which-template previous-buffer))
+    (insert template-string)
     (let* ((date (format-time-string howm-template-date-format))
            (use-file (not not-use-file))
            (file (cond ((not use-file) "")
