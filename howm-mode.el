@@ -654,8 +654,8 @@ key	binding
             (wiki-reg (regexp-quote (howm-make-wiki-string keyword)))
             (file-reg (and
                        (stringp keyword)
-                       (format "^%s$"
-                               (regexp-quote (expand-file-name keyword)))))
+                       (format "%s"
+                               (regexp-quote keyword))))
             (case-fold-search howm-keyword-case-fold-search))
         (cl-labels ((check (tag flag reg &optional tag-when-multi-hits)
                         (when flag
