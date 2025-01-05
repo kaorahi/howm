@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: nil; -*-
 ;;; howm-lang-fr.el --- Wiki-like note-taking tool
-;;; Copyright (C) 2005-2024
+;;; Copyright (C) 2005-2025
 ;;;   HIRAOKA Kazuyuki <kakkokakko@gmail.com>
 ;;;
 ;;; French translation by french-speaking howm users

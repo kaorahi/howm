@@ -2,7 +2,7 @@
 ;;; howm.el --- Wiki-like note-taking tool
 ;;; howm.el.  Generated from howm.el.in by configure.
 
-;; Copyright (C) 2002, 2003, 2004, 2005-2024 HIRAOKA Kazuyuki
+;; Copyright (C) 2002, 2003, 2004, 2005-2025 HIRAOKA Kazuyuki
 
 ;; Author: HIRAOKA Kazuyuki <kakkokakko@gmail.com>
 ;; URL: https://kaorahi.github.io/howm/

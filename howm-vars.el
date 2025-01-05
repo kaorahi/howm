@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: nil; -*-
 ;;; howm-vars.el --- Wiki-like note-taking tool
-;;; Copyright (C) 2005-2024
+;;; Copyright (C) 2005-2025
 ;;;   HIRAOKA Kazuyuki <kakkokakko@gmail.com>
 ;;;
 ;;; This program is free software; you can redistribute it and/or modify
