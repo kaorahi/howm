@@ -1,3 +1,11 @@
+2025-01-05  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-view.el (howm-view-summary-mode-body):
+	delete howm-view-font-lock-first-time to fix #27
+	I can't remember why this variable was needed. Only for efficiency?
+	thx > @rhstanton san
+	https://github.com/kaorahi/howm/issues/27
+
 2025-01-03  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-mode.el (howm-insert-template-string):

@@ -158,10 +158,7 @@
 This is a shameful global variable and should be clearned in future.")
 (howm-defvar-risky howm-view-font-lock-keywords nil
   "For internal use.")
-(defvar howm-view-font-lock-first-time t
-  "For internal use.")
 (make-variable-buffer-local 'howm-view-font-lock-keywords)
-(make-variable-buffer-local 'howm-view-font-lock-first-time)
 
 (defvar howm-view-mode-line-text ""
   "For internal use.")
@@ -204,12 +201,10 @@ key	binding
 (defun howm-view-summary-mode-body ()
   (make-local-variable 'font-lock-keywords)
   (cheat-font-lock-mode howm-view-font-lock-silent)
-  (when howm-view-font-lock-first-time
-    (setq howm-view-font-lock-first-time nil)
-    (cheat-font-lock-merge-keywords howm-user-font-lock-keywords
-                                    howm-view-summary-font-lock-keywords
-                                    ;; dirty! Clean dependency between files.
-                                    (howm-reminder-today-font-lock-keywords)))
+  (cheat-font-lock-merge-keywords howm-user-font-lock-keywords
+                                  howm-view-summary-font-lock-keywords
+                                  ;; dirty! Clean dependency between files.
+                                  (howm-reminder-today-font-lock-keywords))
   (when *howm-view-font-lock-keywords*
     (setq howm-view-font-lock-keywords *howm-view-font-lock-keywords*))
   (when howm-view-font-lock-keywords
