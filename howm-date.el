@@ -83,10 +83,11 @@
 
 (defun howm-action-lock-date-search (date)
   (howm-set-command 'howm-action-lock-date-search)
-  (prog1
-      (howm-search date t)
+  (let ((items (howm-search date t)))
     (howm-action-lock-forward-escape)
-    (setq howm-date-current date)))
+    (when items
+      (setq howm-date-current date))
+    items))
 
 (defun howm-search-today ()
   (interactive)

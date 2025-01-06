@@ -456,9 +456,9 @@ key	binding
              (items (cl-caddr trio)))
         (when filter
           (setq items (funcall filter items)))
-        (prog1
-            (howm-normalize-show name items (or emacs-regexp regexp) nil nil kw)
-          (howm-record-view-window-configuration))))))
+        (howm-normalize-show name items (or emacs-regexp regexp) nil nil kw)
+        (howm-record-view-window-configuration)
+        items))))
 
 (defun howm-iigrep (completion-p action)
   (howm-with-iigrep (howm-iigrep-command-for-pattern completion-p)
