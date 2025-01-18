@@ -312,7 +312,7 @@ key	binding
          (r (riffle-summary name item-list ':howm
                            (howm-view-in-background-p))))
     (if (null r)
-        (message "No match")
+        (message "No match: %s" name)
       (howm-view-expire-uniq)
       ;; We want to entry font-lock keywords even when background-p.
       (when *howm-view-font-lock-keywords*
