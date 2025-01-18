@@ -285,8 +285,9 @@ A file is excluded iff this regexp matches with all the relative paths."
   :group 'howm-menu)
 
 (defcustom howm-menu-footer nil
-  "Footer string for each menu. Nil means no footer."
-  :type '(radio (const :tag "Off" nil)
+  "Footer string for each menu."
+  :type '(radio (const :tag "Default (function `howm-menu-footer')" nil)
+                (const :tag "No footer" "")
                 string)
   :group 'howm-menu)
 
