@@ -542,7 +542,7 @@ When this is nil, delete-region is used instead, and bug appears.")
   (howm-find-past (or days-before 0)))
 
 (defun howm-find-yesterday (&optional days-before)
-  (interactive)
+  (interactive "P")
   (howm-find-past (or days-before 1)))
 
 (defun howm-one-file-one-day-p ()
