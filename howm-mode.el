@@ -1246,8 +1246,7 @@ KEYWORD itself is always at the head of the returneded list.
 (defun howm-keyword-add-current-buffer ()
   (save-excursion
     (goto-char (point-min))
-    (let ((m (current-message))
-          (keyword-list nil))
+    (let ((keyword-list nil))
       (while (re-search-forward howm-keyword-regexp nil t)
         (let ((key-str (if howm-keyword-list-alias-sep
                            (mapconcat #'identity
@@ -1255,8 +1254,7 @@ KEYWORD itself is always at the head of the returneded list.
                                       howm-keyword-list-alias-sep)
                          (match-string-no-properties howm-keyword-regexp-pos))))
           (setq keyword-list (cons key-str keyword-list))))
-      (howm-keyword-add keyword-list)
-      (message "%s" m))))
+      (howm-keyword-add keyword-list))))
 (defun howm-keyword-add-items (items)
   (let ((files (mapcar #'howm-view-item-filename items)))
     (with-temp-buffer
