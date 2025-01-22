@@ -1,5 +1,10 @@
 2025-01-22  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
+	* howm-mode.el (howm-list-all, howm-list-recent):
+	add message for empty list to help beginners
+	thx > @rhstanton san
+	https://github.com/kaorahi/howm/issues/28
+
 	* howm-menu.el (howm-find-yesterday):
 	Fix howm-find-yesterday prefix arg handling
 	thx > Nicolai Singh san (nicolaisingh at pm.me)
