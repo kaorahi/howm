@@ -312,20 +312,11 @@ If PASS-RET-THROUGH is non-nil, RET is unread and nil is returned.
 
 (defun howm-basic-save-buffer ()
   "Silent version of `basic-save-buffer' without \"Wrote ...\" message."
-  (let ((original-write-region (symbol-function 'write-region)))
-    ;; make silent `write-region', which doesn't say "Wrote ...".
-    ;; I borrowed the idea from Okuyama's auto-save-buffers. thx.
-    ;; http://homepage3.nifty.com/oatu/emacs/misc.html
-    (cl-flet ((write-region (start end filename
-                                &optional append visit lockname must)
-                         (funcall original-write-region
-                                  start end filename append
-                                  'dont-say-wrote-foobar
-                                  lockname must)))
-      (basic-save-buffer)))
-  ;; As a side effect, basic-save-buffer does not update buffer-modified-p.
-  (set-visited-file-modtime)
-  (set-buffer-modified-p nil))
+  (let ((m (current-message)))
+    (let ((inhibit-message t))
+      (basic-save-buffer))
+    (unless (equal m (current-message))
+      (message "%s" m))))
 
 (defvar howm-log-buffer-name-format " *howm-log:%s*")
 (defun howm-write-log (message fmt file &optional limit remove-fmt)
