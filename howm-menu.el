@@ -539,10 +539,14 @@ When this is nil, delete-region is used instead, and bug appears.")
 
 (defun howm-find-today (&optional days-before)
   (interactive "P")
-  (howm-find-past (or days-before 0)))
+  (let ((d (cond ((null days-before) 0)
+                 ((listp days-before) (car days-before))
+                 ((eq '- days-before) -1)
+                 (t days-before))))
+    (howm-find-past d)))
 
 (defun howm-find-yesterday (&optional days-before)
-  (interactive "P")
+  (interactive "p")
   (howm-find-past (or days-before 1)))
 
 (defun howm-one-file-one-day-p ()
