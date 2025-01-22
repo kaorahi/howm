@@ -1,3 +1,35 @@
+2025-01-22  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-menu.el (howm-find-yesterday):
+	Fix howm-find-yesterday prefix arg handling
+	thx > Nicolai Singh san (nicolaisingh at pm.me)
+	https://github.com/kaorahi/howm/pull/32
+
+	* howm-vars.el (howm-menu-footer):
+	Fix howm-menu-footer documentation
+	thx > Nicolai Singh san (nicolaisingh at pm.me)
+	https://github.com/kaorahi/howm/pull/32
+
+	* howm-mode.el (howm-keyword-add-current-buffer):
+	Don't message twice when saving buffer
+	thx > Nicolai Singh san (nicolaisingh at pm.me)
+	https://github.com/kaorahi/howm/pull/32
+
+	* howm-view.el (howm-view-summary):
+	Include search term when showing "No match"
+	thx > Nicolai Singh san (nicolaisingh at pm.me)
+	https://github.com/kaorahi/howm/pull/32
+
+2025-01-06  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-date.el (howm-action-lock-date-search):
+	fix "search for next/previous date" correctly (ref. afb4135)
+	thx > Nicolai Singh san (nicolaisingh at pm.me)
+	for pointing out the issue
+	https://github.com/kaorahi/howm/pull/31
+
+	* howm-mode.el (howm-search): ditto.
+
 2025-01-05  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-view.el (howm-view-summary-mode-body):
