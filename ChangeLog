@@ -1,3 +1,13 @@
+2025-01-26  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-mode.el
+	(howm-initialize-buffer, howm-before-save, howm-after-save):
+	fix duplicated "Wrote ..." message
+	thx > Nicolai Singh san (nicolaisingh at pm.me)
+	https://github.com/kaorahi/howm/pull/32#issuecomment-2607371907
+
+	* howm-common.el (howm-basic-save-buffer): ditto.
+
 2025-01-22  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-mode.el (howm-list-all, howm-list-recent):

@@ -331,13 +331,18 @@ key	binding
       (howm-mode-add-font-lock)
       (howm-reminder-add-font-lock)
       (cheat-font-lock-fontify)
-      ;; make-local-hook is obsolete for emacs >= 21.1.
-      (howm-funcall-if-defined (make-local-hook 'after-save-hook))
+      (add-hook 'before-save-hook 'howm-before-save t t)
       (add-hook 'after-save-hook 'howm-after-save t t))))
+
+(defun howm-before-save ()
+  ;; Update the keyword list BEFORE saving the note
+  ;; so that the "Wrote ..." message is not overshadowed.
+  ;; https://github.com/kaorahi/howm/pull/32#issuecomment-2607371907
+  (when howm-mode
+    (howm-keyword-add-current-buffer)))
 
 (defun howm-after-save ()
   (when howm-mode
-    (howm-keyword-add-current-buffer)
     (when howm-refresh-after-save
       (howm-initialize-buffer))
     (when (and howm-menu-refresh-after-save

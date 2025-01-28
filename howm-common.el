@@ -312,11 +312,8 @@ If PASS-RET-THROUGH is non-nil, RET is unread and nil is returned.
 
 (defun howm-basic-save-buffer ()
   "Silent version of `basic-save-buffer' without \"Wrote ...\" message."
-  (let ((m (current-message)))
-    (let ((inhibit-message t))
-      (basic-save-buffer))
-    (unless (equal m (current-message))
-      (message "%s" m))))
+  (let ((inhibit-message t))
+    (basic-save-buffer)))
 
 (defvar howm-log-buffer-name-format " *howm-log:%s*")
 (defun howm-write-log (message fmt file &optional limit remove-fmt)
