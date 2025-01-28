@@ -357,13 +357,13 @@ key	binding
   (interactive)
   (howm-set-command 'howm-list-all)
   (let ((all-items (howm-all-items)))
-    (when (null all-items)
-      ;; (howm-menu)  ;; for beginners' convenience
-      (error "No notes yet."))
-    (howm-normalize-show "" all-items))
-  ;; for backward compatibility
-  (cond ((howm-list-title-p) t)  ;; already done in howm-normalize-show
-        (howm-list-all-title (howm-list-title-internal))))
+    (if (null all-items)
+        (when (y-or-n-p "No notes yet. Create?")
+          (howm-create))
+      (howm-normalize-show "" all-items)
+      ;; for backward compatibility
+      (cond ((howm-list-title-p) t)  ;; already done in howm-normalize-show
+            (howm-list-all-title (howm-list-title-internal))))))
 
 (defun howm-all-items ()
   "Returns list of all items in the first search path."
@@ -378,14 +378,14 @@ key	binding
          (item-list (howm-recent-items-filter
                      (howm-folder-items howm-directory t)))
          (recent-items (howm-filter-items-by-mtime item-list from now)))
-    (when (null recent-items)
-      ;; (howm-menu)  ;; for beginners' convenience
-      (error "No recent notes."))
-    (howm-normalize-show "" recent-items)
-    ;; clean me [2003-11-30]
-    (cond ((howm-list-title-p) t)  ;; already done in howm-normalize-show
-          (howm-list-recent-title (howm-list-title-internal))
-          ((not days) (howm-view-summary-to-contents)))))
+    (if (null recent-items)
+        (when (y-or-n-p "No recent notes. Create?")
+          (howm-create))
+      (howm-normalize-show "" recent-items)
+      ;; clean me [2003-11-30]
+      (cond ((howm-list-title-p) t)  ;; already done in howm-normalize-show
+            (howm-list-recent-title (howm-list-title-internal))
+            ((not days) (howm-view-summary-to-contents))))))
 
 ;; clean me: direct access to howm-view-* is undesirable.
 

@@ -1,3 +1,10 @@
+2025-01-28  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-mode.el (howm-list-all, howm-list-recent):
+	create new notes when the list is empty
+	https://github.com/kaorahi/howm/issues/35
+	thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+
 2025-01-26  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-mode.el
