@@ -915,6 +915,10 @@ Emacs で断片的なメモをどんどんとるための環境です.
 
 thx > patch・改良案・指摘をくださった皆様
 
+* リリース版 howm-1.5.3 [2025-01-30]
+  * 着色などの細かな((<バグ修正|URL:https://github.com/kaorahi/howm/commits/master?since=2025-01-01T00:00:00Z&until=2025-01-29T23:59:59Z>))
+    thx > Nicolai Singh san (nicolaisingh at pm.me), @rhstanton san, Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+
 * リリース版 howm-1.5.2 [2024-12-31]
   * 改良
     * M-x howm-simulate-todo の追加 → ((<リマインダ>))
