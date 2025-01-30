@@ -1,3 +1,7 @@
+2025-01-30  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* configure.ac: version 1.5.3
+
 2025-01-28  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-mode.el (howm-list-all, howm-list-recent):
