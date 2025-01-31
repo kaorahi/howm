@@ -31,7 +31,6 @@ By default, notes are stored in plaintext `*.txt` format in the folder `~/howm`.
   :init
   ;; Where to store the files?
   (setq howm-directory "~/Documents/Howm")
-  (setq howm-home-directory howm-directory)
   ;; What format to use for the files?
   (setq howm-file-name-format "%Y-%m-%d-%H%M%S.md")
   (setq howm-view-title-header "#"))
@@ -45,7 +44,6 @@ Alternatively, if you prefer integrating with e.g. [Org-mode](https://orgmode.or
   :init
   ;; Where to store the files?
   (setq howm-directory "~/Documents/Howm")
-  (setq howm-home-directory howm-directory)
   ;; What format to use for the files?
   (setq howm-file-name-format "%Y-%m-%d-%H%M%S.org")
   (setq howm-view-title-header "*")
