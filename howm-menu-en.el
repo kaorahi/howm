@@ -31,16 +31,19 @@ Format of schedule and todo (Please replace {} with []):
 (Numbers after marks are default values.)
 
 How to remember:
-* Schedule at(@) the date
-* Reminder sinks down(-).
-* Todo floats up(+).
-* Deadline needs attention!
-* Defer waves(~) up and down.
-* Done is the end(.).
+- Schedule at(@) the date
+- Reminder sinks down(-).
+- Todo floats up(+).
+- Deadline needs attention!
+- Defer waves(~) up and down.
+- Done is the end(.).
 
 -------------------------------------
 
-Think of this menu as a \"modal dialog\" rather than a workspace. Typically, the commands listed in the menu apply to the buffer BEHIND the menu, not the menu buffer itself. In other words, they affect the buffer that was active before the menu appeared.
+Think of this menu as a \"modal dialog\" rather than a
+workspace. Typically, the commands listed in the menu apply to the
+buffer BEHIND the menu, not the menu buffer itself. In other words,
+they affect the buffer that was active before the menu appeared.
 
 You can edit this menu itself.
 >>> %Editing Menu%
@@ -51,17 +54,17 @@ You can edit this menu itself.
 [Update Menu] Hit RET on the left button to update this menu.
 --------------------------------------------------------
 
-*** Format of the menu file ***
+Format of the menu file
 (Please hit RET on [Edit Menu] and read the source file.)
 
 == Basic format
 
 As you see...
 
-* [xxx] is button.
-* %REMINDER (in small letters) is schedule and todo list.
-* %RECENT (in small letters) is list of recent entries.
-* %RANDOM (in small letters) is list of random entries.
+- [xxx] is button.
+- %REMINDER (in small letters) is schedule and todo list.
+- %RECENT (in small letters) is list of recent entries.
+- %RANDOM (in small letters) is list of random entries.
 
 You can arrange their places as you like.
 Writing favorite files or goto links may be also convenient.

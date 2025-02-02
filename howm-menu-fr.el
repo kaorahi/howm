@@ -31,16 +31,20 @@ Format des RDV et tâches (Attention à remplacer les {} par des []):
 (Les chiffres après la marque représentent les valeurs par défaut.)
 
 Comment se souvenir de la syntaxe:
-* On programme à(@) une date
-* Les rappels plongent(-).
-* Les todo flottent(+).
-* Les deadline ont besoin d'attention(!)
-* Les reports font des vagues(~).
-* Une tâche faite signifie la fin(.).
+- On programme à(@) une date
+- Les rappels plongent(-).
+- Les todo flottent(+).
+- Les deadline ont besoin d'attention(!)
+- Les reports font des vagues(~).
+- Une tâche faite signifie la fin(.).
 
 -------------------------------------
 
-Considérez ce menu comme une \"boîte de dialogue modale\" plutôt qu'un espace de travail. En général, les commandes répertoriées dans le menu s'appliquent au buffer situé derrière le menu, et non au buffer du menu lui-même. Autrement dit, elles affectent le buffer qui était actif avant l'apparition du menu.
+Considérez ce menu comme une \"boîte de dialogue modale\" plutôt qu'un
+espace de travail. En général, les commandes répertoriées dans le menu
+s'appliquent au buffer situé derrière le menu, et non au buffer du
+menu lui-même. Autrement dit, elles affectent le buffer qui était
+actif avant l'apparition du menu.
 
 Vous pouvez éditer ce menu.
 >>> %Editing Menu%
@@ -51,17 +55,17 @@ Vous pouvez éditer ce menu.
 [Màj du Menu] Appuyer sur RET sur le bouton à gauche pour mettre à jour ce menu.
 --------------------------------------------------------
 
-*** Format du fichier menu ***
+Format du fichier menu
 (Appuyez sur RET sur [Editer le menu] et lisez le fichier source.)
 
 == Basic format
 
 Comme vous pouvez le voir...
 
-* [xxx] est un bouton.
-* %REMINDER (en minuscules) liste les todo et les rendez-vous.
-* %RECENT (en minuscules) liste les entrées récentes.
-* %RANDOM (en minuscules) list les entrées aléatoires.
+- [xxx] est un bouton.
+- %REMINDER (en minuscules) liste les todo et les rendez-vous.
+- %RECENT (en minuscules) liste les entrées récentes.
+- %RANDOM (en minuscules) list les entrées aléatoires.
 
 Vous pouvez les placer comme bon vous semble.
 Ajouter vos fichiers favoris ou les liens \"goto\" peut être pratique.
