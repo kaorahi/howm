@@ -1,6 +1,13 @@
 2025-02-02  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* 0000-00-00-000000.txt:
+	avoid too long lines in the default menu
+	thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+	https://github.com/kaorahi/howm/issues/38#issuecomment-2629329827
+
+2025-02-02  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* 0000-00-00-000000.txt:
 	avoid "*" in the default menu for org users
 	thx > @rhstanton san, @mmarshall540 san, Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
 	https://github.com/kaorahi/howm/issues/42
