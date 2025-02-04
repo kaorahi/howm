@@ -9,5 +9,9 @@
 ;(setq howm-menu-lang 'ja)
 (setq howm-history-limit nil)  ;; Don't erase my ~/.howm-history.
 
+;; for experiments
+;(setq howm-file-format 'markdown)
+(setq howm-file-format 'org)
+
 (require 'howm)
 (howm-test)
