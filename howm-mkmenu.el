@@ -29,6 +29,17 @@
     (howm-menu-ja "ja/0000-00-00-000000.txt" utf-8-unix utf-8-unix)
     ))
 
+(defvar howm-mkmenu-replace-rules
+  `(
+    ("^= " . ,(format "%s " howm-view-title-header))
+    ))
+
+(defun howm-mkmenu-replace-string (str rules)
+  (with-temp-buffer
+    (insert str)
+    (howm-menu-replace rules)
+    (buffer-substring-no-properties (point-min) (point-max))))
+
 (defmacro howm-mkmenu-insert (&rest clauses)
   (declare (indent 0))
   (let ((commands (mapcar (lambda (c)
@@ -51,7 +62,9 @@
         (prefer-coding-system src-coding))
       (with-temp-buffer
         (insert-file-contents src)
-        (let ((str (buffer-substring-no-properties (point-min) (point-max))))
+        (let ((str (howm-mkmenu-replace-string
+                    (buffer-substring-no-properties (point-min) (point-max))
+                    howm-mkmenu-replace-rules)))
           ;; write to dest
           (find-file dest)
           (delete-region (point-min) (point-max))
