@@ -9,5 +9,9 @@
 ;(setq howm-menu-lang 'ja)
 (setq howm-history-limit nil)  ;; Don't erase my ~/.howm-history.
 
+;; for experiments
+(add-hook 'howm-mode-hook #'howm-themed-minor-mode)
+(load-theme 'manoj-dark t)
+
 (require 'howm)
 (howm-test)
