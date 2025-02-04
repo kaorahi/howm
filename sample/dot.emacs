@@ -10,6 +10,7 @@
 (setq howm-history-limit nil)  ;; Don't erase my ~/.howm-history.
 
 ;; for experiments
+(require 'org)
 ;(setq howm-file-format 'markdown)
 (setq howm-file-format 'org)
 
