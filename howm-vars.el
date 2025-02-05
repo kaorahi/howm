@@ -143,7 +143,7 @@ Example:
 (defun howm-setup-org-as-file-format ()
   (setq howm-file-name-format "%Y-%m-%d-%H%M%S.org")
   (setq howm-view-title-header "*")
-  (setq howm-dtime-format "<%Y-%m-%d %a %H:%M>")
+  (setq howm-dtime-format "[%Y-%m-%d %a %H:%M]")
   (add-hook 'howm-view-contents-mode-hook #'howm-org-font-lock-minor-mode)
   ;; Avoid conflicts with Org-mode by changing Howm's prefix from "C-c ,".
   (setq howm-prefix (kbd "C-c ;"))
