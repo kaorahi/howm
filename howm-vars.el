@@ -131,9 +131,9 @@ this variable is set before loading howm. Supported values are
 Example:
 (use-package howm
   :ensure
-  :custom
-  (howm-directory \"~/Documents/Howm\")
-  (howm-file-format \\='org))
+  :init
+  (setq howm-file-format \\='org)
+  (setq howm-directory \"~/Documents/Howm\"))
 ")
 
 (defun howm-setup-markdown-as-file-format ()
