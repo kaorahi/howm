@@ -908,11 +908,18 @@ If you don't like misc. category, try
     (howm-view-kill-buffer)
     (howm-menu nil t)))
 
+(defvar howm-menu-skel-replace-rules
+  `(
+    ("^= " . ,(format "%s " howm-view-title-header))
+    ))
+
+(defvar howm-menu-file-extension ".txt")
+
 (defun howm-menu-copy-skel (contents)
-  (let ((menu-file (or howm-menu-file
-                       (expand-file-name "0000-00-00-000000.txt"
-                                         howm-directory)))
-        (r "^="))
+  (let* ((default-name (format "0000-00-00-000000%s" howm-menu-file-extension))
+         (menu-file (or howm-menu-file
+                        (expand-file-name default-name
+                                          howm-directory))))
     (if (file-exists-p menu-file)
         ;; I have no courage to erase existing file.
         (progn
@@ -921,9 +928,7 @@ If you don't like misc. category, try
       (progn
         (find-file menu-file)
         (insert contents)
-        (goto-char (point-min))
-        (while (re-search-forward r nil t)
-          (replace-match howm-view-title-header nil nil))
+        (howm-menu-replace howm-menu-skel-replace-rules)
         (howm-mode 1)
         (save-buffer)))))
 
