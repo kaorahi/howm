@@ -1,4 +1,4 @@
-;;; -*- lexical-binding: nil; -*-
+;;; -*- lexical-binding: nil; Coding: utf-8-unix -*-
 ;;; howm-menu.el --- Wiki-like note-taking tool
 ;;; Copyright (C) 2002, 2003, 2004, 2005-2025
 ;;;   HIRAOKA Kazuyuki <kakkokakko@gmail.com>
@@ -958,7 +958,47 @@ If you don't like misc. category, try
   (string= major-mode "howm-menu-mode"))
 
 (defun howm-menu-name (file)
+  (howm-menu-warn-invisible-name)
   (format howm-menu-name-format file))
+
+(defvar howm-menu-warned-invisible-name-p nil)
+(defun howm-menu-warn-invisible-name ()
+  (let* ((hidden-p (eq (aref howm-menu-name-format 0) ?\ ))
+         (warn-p (and hidden-p (not howm-menu-warned-invisible-name-p))))
+    (when warn-p
+      (let ((buf (get-buffer-create "*howm-menu-warning*")))
+        (save-window-excursion
+          (with-current-buffer buf
+            (erase-buffer)
+            (insert "===== Warning =====
+
+The feature that hides howm menus from the buffer list will be removed
+in the future.  To disable this feature, either remove the setting
+like:
+    (setq howm-menu-name-format \" *howmM:%s*\")
+or reset it by running:
+    M-x customize-variable RET howm-menu-name-format RET
+If you strongly believe this feature is necessary, please share your
+thoughts in GitHub issues.
+    https://github.com/kaorahi/howm/issues
+
+＝＝＝＝＝警告＝＝＝＝＝
+
+「howm のメニューをバッファ一覧から隠す機能」は今後廃止されます.
+この機能の使用をやめるには,
+    (setq howm-menu-name-format \" *howmM:%s*\")
+のような設定を削除するか,
+    M-x customize-variable RET howm-menu-name-format RET
+を入力して設定を戻してください.
+なお, もしどうしてもこの機能が必要だと思われる場合は,
+Github のイシューでご意見をお聞かせください.
+    https://github.com/kaorahi/howm/issues
+")
+            (goto-char (point-min))
+            (pop-to-buffer buf)
+            (read-string "Push RET key: ")
+            (kill-buffer buf)))
+        (setq howm-menu-warned-invisible-name-p t)))))
 
 (defun howm-buffer-alive-p (buf)
   (and buf (buffer-name buf)))
