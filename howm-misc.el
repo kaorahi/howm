@@ -952,6 +952,7 @@ When DOTS-STR is non-nil, it is used instead of \"...\"."
 
 (define-minor-mode howm-org-font-lock-minor-mode
   ;; copied from https://github.com/kaorahi/howm/issues/29#issuecomment-2625076294
+  ;; (fixed version of https://github.com/kaorahi/howm/issues/29#issuecomment-2571306675)
   "Minor mode to apply org-mode font locking to a buffer."
   :lighter " orgFL"
   (if howm-org-font-lock-minor-mode
