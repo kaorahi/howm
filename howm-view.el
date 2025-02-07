@@ -145,8 +145,6 @@
 
 ;;; variables
 
-(defvar howm-view-font-lock-silent t
-  "Inhibit font-lock-verbose if non-nil.")
 (howm-defvar-risky howm-view-summary-font-lock-keywords
   `((,(concat "\\(^[^ \t\r\n].*?\\)" (regexp-quote howm-view-summary-sep))
      1 howm-view-name-face)
@@ -200,7 +198,7 @@ key	binding
 
 (defun howm-view-summary-mode-body ()
   (make-local-variable 'font-lock-keywords)
-  (cheat-font-lock-mode howm-view-font-lock-silent)
+  (cheat-font-lock-mode)
   (cheat-font-lock-merge-keywords howm-user-font-lock-keywords
                                   howm-view-summary-font-lock-keywords
                                   ;; dirty! Clean dependency between files.
@@ -248,7 +246,7 @@ key	binding
 "
 ;   (kill-all-local-variables)
   (make-local-variable 'font-lock-keywords)
-  (cheat-font-lock-mode howm-view-font-lock-silent)
+  (cheat-font-lock-mode)
   (let ((ck `((,howm-view-header-regexp (0 howm-view-hilit-face))))
         (sk (or (howm-view-font-lock-keywords)
                 *howm-view-font-lock-keywords*)))
