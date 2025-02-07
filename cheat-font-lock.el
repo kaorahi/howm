@@ -81,7 +81,24 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(defvar cheat-font-lock-warned-old-mode-p nil)
+
 (defun cheat-font-lock-mode ()
+  (let* ((hidden-p (eq (aref (buffer-name) 0) ?\ ))
+         (warn-p (and hidden-p (not cheat-font-lock-warned-old-mode-p))))
+    (when warn-p
+      (message "Cheat-font-lock will no longer support invisible buffers.")
+      (setq cheat-font-lock-warned-old-mode-p t))
+    (if hidden-p
+        (cheat-font-lock-mode-old)
+      (cheat-font-lock-mode-new))))
+
+(defun cheat-font-lock-mode-new ()
+  "Just enable font-lock-mode."
+  (font-lock-mode 1))
+
+;; will be removed in the future
+(defun cheat-font-lock-mode-old ()
   "Enable font-lock-mode without calling fontify-buffer."
   ;; font-lock-defaults seems necessary for "C-c , a" (howm-list-all) [2025-02-07]
   (when (null font-lock-defaults)
