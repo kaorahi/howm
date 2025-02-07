@@ -150,9 +150,7 @@ Example:
   (setq howm-menu-skel-replace-rules '(("^= " . "* ") ("^== " . "** ")))
   (add-hook 'howm-view-contents-mode-hook #'howm-org-font-lock-minor-mode)
   ;; Avoid conflicts with Org-mode by changing Howm's prefix from "C-c ,".
-  (setq howm-prefix (kbd "C-c ;"))
-  ;; Conveniently open the Howm menu with "C-c ; ;".
-  (global-set-key (kbd "C-c ; ;") 'howm-menu))
+  (setq howm-prefix (kbd "C-c ;")))
 
 (defvar howm-rules-for-file-format
   '((markdown . howm-setup-markdown-as-file-format)

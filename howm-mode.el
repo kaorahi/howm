@@ -79,6 +79,9 @@ If it is a function, it is called to get template string with the argument <n>."
     ("c" howm-create t t)
     ("e" howm-remember t t)
     ("," howm-menu t t)
+    ;; "C-c ; ;" for org
+    ;; https://github.com/kaorahi/howm/issues/38#issuecomment-2640020651
+    (";" howm-menu t t)
     ("." howm-find-today nil t)
     (":" howm-find-yesterday nil t)
     ("A" howm-list-around)
