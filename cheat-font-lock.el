@@ -81,7 +81,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun cheat-font-lock-mode ()
+(defun cheat-font-lock-mode (&optional dummy)
+  ;; keep dummy arg for backward compatibility with outside code
   "Just enable font-lock-mode."
   ;; font-lock-defaults seems necessary for "C-c , a" (howm-list-all) [2025-02-07]
   (when (null font-lock-defaults)
@@ -90,6 +91,7 @@
   (font-lock-set-defaults))
 
 (defun cheat-font-lock-fontify (&optional dummy)
+  ;; keep dummy arg for backward compatibility with outside code
   (font-lock-flush)
   (font-lock-ensure))
 
