@@ -121,46 +121,6 @@ Byte-compiler says \"not known to be defined\" even for codes like
   :group 'applications)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Format
-
-(defvar howm-file-format nil
-  "Apply recommended configurations based on the specified format if
-this variable is set before loading howm. Supported values are
-\\='markdown, \\='org, or nil.
-
-Example:
-(use-package howm
-  :ensure
-  :init
-  (setq howm-file-format \\='org)
-  (setq howm-directory \"~/Documents/Howm\"))
-")
-
-(defun howm-setup-markdown-as-file-format ()
-  (setq howm-file-name-format "%Y-%m-%d-%H%M%S.md")
-  (setq howm-view-title-header "#")
-  (setq howm-menu-file-extension ".md")
-  (setq howm-menu-skel-replace-rules '(("^= " . "# ") ("^== " . "## "))))
-
-(defun howm-setup-org-as-file-format ()
-  (setq howm-file-name-format "%Y-%m-%d-%H%M%S.org")
-  (setq howm-view-title-header "*")
-  (setq howm-dtime-format "[%Y-%m-%d %a %H:%M]")
-  (setq howm-menu-file-extension ".org")
-  (setq howm-menu-skel-replace-rules '(("^= " . "* ") ("^== " . "** ")))
-  (add-hook 'howm-view-contents-mode-hook #'howm-org-font-lock-minor-mode)
-  ;; Avoid conflicts with Org-mode by changing Howm's prefix from "C-c ,".
-  (setq howm-prefix (kbd "C-c ;")))
-
-(defvar howm-rules-for-file-format
-  '((markdown . howm-setup-markdown-as-file-format)
-    (org . howm-setup-org-as-file-format)))
-
-(let ((f (cdr (assoc howm-file-format howm-rules-for-file-format))))
-  (when f
-    (funcall f)))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Compatibility
 
 (defvar howm-compatible-to-ver1dot3 nil

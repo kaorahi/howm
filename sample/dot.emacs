@@ -11,8 +11,11 @@
 
 ;; for experiments
 (require 'org)
-;(setq howm-file-format 'markdown)
-(setq howm-file-format 'org)
+(require 'howm-org-defaults)
+(setq howm-file-name-format "%Y-%m-%d.org")  ;; overwrite
+
+;(require 'howm-markdown-defaults)
+;(setq howm-file-name-format "%Y-%m-%d.md")  ;; overwrite
 
 (require 'howm)
 (howm-test)
