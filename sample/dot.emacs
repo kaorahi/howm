@@ -10,7 +10,7 @@
 (setq howm-history-limit nil)  ;; Don't erase my ~/.howm-history.
 
 ;; for experiments
-(add-hook 'howm-mode-hook #'howm-themed-minor-mode)
+(setq howm-follow-theme t)
 (load-theme 'manoj-dark t)
 
 (require 'howm)

@@ -44,20 +44,9 @@
    '(howm-view-hilit-face ((t :inherit isearch)))
    '(howm-view-name-face ((t :inherit org-document-title)))))
 
-(define-minor-mode howm-themed-minor-mode
-  ;; cf. pdf-view-themed-minor-mode
-  ;; https://github.com/vedang/pdf-tools/blob/30b50544e55b8dbf683c2d932d5c33ac73323a16/lisp/pdf-view.el#L1329-L1345
-  "Apply the current theme by borrowing the Org-mode colors."
-  :init-value nil ;; default = off
-  :lighter " Thm" ;; mode-line
-  (cond
-   (howm-themed-minor-mode
-    (add-hook 'enable-theme-functions #'howm-auto-theme)
-    (howm-auto-theme))
-   (t
-    (remove-hook 'enable-theme-functions #'howm-auto-theme)
-    ;; How to cancel howm-auto-theme?
-    )))
+(when howm-follow-theme
+  (add-hook 'enable-theme-functions #'howm-auto-theme)
+  (howm-auto-theme))
 
 (provide 'howm-theme)
 
