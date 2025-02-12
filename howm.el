@@ -78,7 +78,6 @@
 (require 'howm-date)
 (require 'howm-reminder)
 (require 'howm-menu)
-(require 'howm-theme)
 
 ;;; for howmz.el [2006-02-02]
 ;;; http://noir.s7.xrea.com/archives/000136.html
