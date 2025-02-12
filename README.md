@@ -29,11 +29,9 @@ By default, notes are stored in plaintext `*.txt` format in the folder `~/howm`.
 (use-package howm
   :ensure t
   :init
+  (require 'howm-markdown)
   ;; Where to store the files?
-  (setq howm-directory "~/Documents/Howm")
-  ;; What format to use for the files?
-  (setq howm-file-name-format "%Y-%m-%d-%H%M%S.md")
-  (setq howm-view-title-header "#"))
+  (setq howm-directory "~/Documents/Howm"))
 ```
 
 Alternatively, if you prefer integrating with e.g. [Org-mode](https://orgmode.org/) (just replace `C-c ,` with `C-c ;` in Howm's documentation):
@@ -42,17 +40,9 @@ Alternatively, if you prefer integrating with e.g. [Org-mode](https://orgmode.or
 (use-package howm
   :ensure t
   :init
+  (require 'howm-org)
   ;; Where to store the files?
-  (setq howm-directory "~/Documents/Howm")
-  ;; What format to use for the files?
-  (setq howm-file-name-format "%Y-%m-%d-%H%M%S.org")
-  (setq howm-view-title-header "*")
-  (setq howm-dtime-format "<%Y-%m-%d %a %H:%M>")
-  ;; Avoid conflicts with Org-mode by changing Howm's prefix from "C-c ,".
-  (setq howm-prefix (kbd "C-c ;"))
-  :bind*
-  ;; Conveniently open the Howm menu with "C-c ; ;".
-  ("C-c ; ;" . howm-menu))
+  (setq howm-directory "~/Documents/Howm"))
 ```
 
 ## Project history
