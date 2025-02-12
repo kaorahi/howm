@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: nil; -*-
-;;; howm-markdown-defaults.el --- Wiki-like note-taking tool
+;;; howm-markdown.el --- Wiki-like note-taking tool
 ;;; Copyright (C) 2005-2025
 ;;;   HIRAOKA Kazuyuki <kakkokakko@gmail.com>
 ;;;
@@ -21,7 +21,7 @@
 
 ;; [example 1]
 ;;
-;; (require 'howm-markdown-defaults)  ;; before loading howm
+;; (require 'howm-markdown)  ;; before loading howm
 ;; ;; (setq howm-file-name-format "%Y-%m-%d.md")  ;; overwrite
 ;; (require 'howm)
 
@@ -29,7 +29,7 @@
 ;;
 ;; (use-package howm
 ;;   :init
-;;   (require 'howm-markdown-defaults)
+;;   (require 'howm-markdown)
 ;;   ;; (setq howm-file-name-format "%Y-%m-%d.md")  ;; overwrite
 ;;   )
 
@@ -46,6 +46,6 @@
 (add-hook 'howm-mode-hook
           (lambda () (set-face-italic 'howm-mode-ref-face nil)))
 
-(provide 'howm-markdown-defaults)
+(provide 'howm-markdown)
 
-;;; howm-markdown-defaults.el ends here
+;;; howm-markdown.el ends here

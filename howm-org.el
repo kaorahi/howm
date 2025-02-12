@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: nil; -*-
-;;; howm-org-defaults.el --- Wiki-like note-taking tool
+;;; howm-org.el --- Wiki-like note-taking tool
 ;;; Copyright (C) 2005-2025
 ;;;   HIRAOKA Kazuyuki <kakkokakko@gmail.com>
 ;;;
@@ -21,7 +21,7 @@
 
 ;; [example 1]
 ;;
-;; (require 'howm-org-defaults)  ;; before loading howm
+;; (require 'howm-org)  ;; before loading howm
 ;; ;; (setq howm-file-name-format "%Y-%m-%d.org")  ;; overwrite
 ;; (require 'howm)
 
@@ -29,7 +29,7 @@
 ;;
 ;; (use-package howm
 ;;   :init
-;;   (require 'howm-org-defaults)
+;;   (require 'howm-org)
 ;;   ;; (setq howm-file-name-format "%Y-%m-%d.org")  ;; overwrite
 ;;   )
 
@@ -46,6 +46,6 @@
 ;; Avoid conflicts with Org-mode by changing Howm's prefix from "C-c ,".
 (setq howm-prefix (kbd "C-c ;"))
 
-(provide 'howm-org-defaults)
+(provide 'howm-org)
 
-;;; howm-org-defaults.el ends here
+;;; howm-org.el ends here
