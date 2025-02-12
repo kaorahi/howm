@@ -37,6 +37,10 @@
 ;; https://github.com/kaorahi/howm/issues/38
 ;; https://github.com/kaorahi/howm/issues/38#issuecomment-2642585171
 
+;; https://github.com/kaorahi/howm/issues/38#issuecomment-2651112556
+(when (featurep 'howm)
+  (warn "`howm-org' should be loaded before `howm'!"))
+
 (setq howm-file-name-format "%Y-%m-%d-%H%M%S.org")
 (setq howm-view-title-header "*")
 (setq howm-dtime-format "[%Y-%m-%d %a %H:%M]")

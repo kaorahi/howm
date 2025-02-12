@@ -37,6 +37,10 @@
 ;; https://github.com/kaorahi/howm/issues/38
 ;; https://github.com/kaorahi/howm/issues/38#issuecomment-2642585171
 
+;; https://github.com/kaorahi/howm/issues/38#issuecomment-2651112556
+(when (featurep 'howm)
+  (warn "`howm-markdown' should be loaded before `howm'!"))
+
 (setq howm-file-name-format "%Y-%m-%d-%H%M%S.md")
 (setq howm-view-title-header "#")
 (setq howm-menu-file-extension ".md")
