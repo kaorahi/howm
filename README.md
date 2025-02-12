@@ -34,7 +34,7 @@ By default, notes are stored in plaintext `*.txt` format in the folder `~/howm`.
   (setq howm-directory "~/Documents/Howm"))
 ```
 
-Alternatively, if you prefer integrating with e.g. [Org-mode](https://orgmode.org/) (just replace `C-c ,` with `C-c ;` in Howm's documentation):
+Alternatively, if you prefer integrating with e.g. [Org-mode](https://orgmode.org/) (just replace `C-c ,` with `C-c ;` in Howm's documentation, including that `C-c ; ;` opens the menu):
 
 ```emacs-lisp
 (use-package howm
