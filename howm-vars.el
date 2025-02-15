@@ -759,12 +759,15 @@ If it is nil, alias of come-from keyword is disabled."
   :group 'howm-efficiency
   :group 'howm-search)
 
-(howm-defcustom-risky howm-view-use-grep nil
-  "*If non-nil, use external grep command for search.
+(howm-defcustom-risky howm-view-use-grep 'auto
+  "*If this is t, use external grep command for search.
 Performance must be improved greatly if you set this.
+If this is the symbol `auto', use external grep command unless it
+causes an error.
 When the value is elisp function, it is used instead of `howm-fake-grep'."
   :type '(radio (const :tag "On" t)
                 (const :tag "Off" nil)
+                (const :tag "Auto" auto)
                 function)
   :group 'howm-grep)
 

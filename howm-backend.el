@@ -433,11 +433,17 @@ ssearch: ")
   (when (stringp file-list)
     (setq file-list (list file-list)))
   (let ((grep-func (cond ((eq howm-view-use-grep t) 'howm-real-grep)
+                         ((eq howm-view-use-grep 'auto) 'howm-real-grep-maybe)
                          ((null howm-view-use-grep) 'howm-fake-grep)
                          ((functionp howm-view-use-grep) howm-view-use-grep)
                          (t (error "No function %s." howm-view-use-grep)))))
     (funcall grep-func
              str file-list fixed-p *howm-view-force-case-fold-search*)))
+
+(defun howm-real-grep-maybe (&rest args)
+  (condition-case nil
+      (apply #'howm-real-grep args)
+    (error (apply #'howm-fake-grep args))))
 
 (defun howm-real-grep (str file-list &optional fixed-p force-case-fold)
   "Call grep and parse its result.
