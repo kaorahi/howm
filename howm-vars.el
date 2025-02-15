@@ -769,9 +769,10 @@ When the value is elisp function, it is used instead of `howm-fake-grep'."
   :group 'howm-grep)
 
 ;; These variables should be renamed: howm-view-xxx ==> howm-xxx.
-(howm-defcustom-risky howm-view-grep-command "grep"
-  "*Command name for grep."
-  :type 'string
+(howm-defcustom-risky howm-view-grep-command nil
+  "*Command name for grep. If it is nil, `grep-program' is used."
+  :type '(radio (const :tag "Default (grep-program)" nil)
+                string)
   :group 'howm-grep)
 (howm-defvar-risky howm-view-fgrep-command nil
   "*Command name for fgrep.
@@ -780,7 +781,7 @@ This variable is obsolete and may be removed in future.")
   ;; "labels" causes a trouble in git-head emacs (d5e3922) [2015-01-31]
   (let* ((ed (lambda (d) (concat "--exclude-dir=" d)))
          (has-ed (condition-case nil
-                     (eq 0 (call-process howm-view-grep-command nil nil nil
+                     (eq 0 (call-process (howm-grep-command) nil nil nil
                                          (apply ed "/") "--version"))
                      (error nil)))
          (opts (cons "-Hnr" (and has-ed (mapcar ed howm-excluded-dirs)))))
