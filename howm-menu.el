@@ -91,6 +91,7 @@ in `howm-menu-mode'.")
     howm-menu-random
     howm-menu-search
     howm-menu-categorized-reminder
+    howm-menu-last-update
     ))
 
 (howm-defvar-risky howm-menu-display-rules
@@ -103,6 +104,7 @@ in `howm-menu-mode'.")
     ("%reminder" . "%here%(howm-menu-reminder)")
     ("%recent"   . "%here%(howm-menu-recent)")
     ("%random"   . "%here%(howm-menu-random)")
+    ("%last-update" . "%here%(howm-menu-last-update)")
     ;; dynamic
     ("%here%" . howm-menu-here)
     (,howm-menu-key-regexp . howm-menu-shortcut)
@@ -268,6 +270,7 @@ When this is nil, delete-region is used instead, and bug appears.")
                                         howm-menu-buffer-file-place
                                         1))
   (setq howm-menu-shortcut-assoc nil)
+  (setq howm-menu-last-time (current-time))
   ;; main
   (howm-rewrite-read-only-buffer
     (howm-menu-insert-paragraph howm-menu-buffer-file
@@ -276,7 +279,6 @@ When this is nil, delete-region is used instead, and bug appears.")
     (howm-menu-set-face))
   ;; postprocess
   (goto-char (point-min))
-  (setq howm-menu-last-time (current-time))
   (setq howm-menu-next-expiry-time
         (howm-days-after (current-time) 0
                          howm-menu-expiry-hours))
@@ -338,6 +340,11 @@ When this is nil, delete-region is used instead, and bug appears.")
   (let ((b (current-buffer)))
     (howm-menu t)
     (switch-to-buffer b)))
+
+;; https://github.com/kaorahi/howm/issues/44#issuecomment-2648850457
+(defun howm-menu-last-update ()
+  "Return when the menu was last updated."
+  (format-time-string howm-dtime-body-format howm-menu-last-time))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; action-lock
