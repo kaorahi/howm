@@ -344,7 +344,7 @@ When this is nil, delete-region is used instead, and bug appears.")
 ;; https://github.com/kaorahi/howm/issues/44#issuecomment-2648850457
 (defun howm-menu-last-update ()
   "Return when the menu was last updated."
-  (format-time-string howm-dtime-body-format howm-menu-last-time))
+  (format-time-string howm-dtime-format howm-menu-last-time))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; action-lock
