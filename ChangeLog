@@ -1,3 +1,11 @@
+2025-02-17  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-date.el (howm-action-lock-date-quickshift)
+	(howm-action-lock-date, howm-action-lock-date-shift):
+	allow shifting dates using square bracket keys
+	thx > Nicolai Singh san (nicolaisingh at pm.me)
+	https://github.com/kaorahi/howm/pull/51
+
 2025-01-30  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* configure.ac: version 1.5.3
