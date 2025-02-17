@@ -67,8 +67,17 @@
      (t (error (format "Can't understand %s." c))))))
 
 (defun howm-action-lock-date-quickshift (n date)
-  (let ((new-date (howm-action-lock-date-shift n date)))
-    (howm-action-lock-date new-date)))
+  ;; We should provide an official way to exit quick-shift other than
+  ;; C-g, ensuring the list is updated when we hit RET on dates in the
+  ;; todo list.
+  ;; See howm-action-lock-forward in howm-reminder.el.
+  (let* ((new-date (howm-action-lock-date-shift n date))
+         (dow (howm-datestr-day-of-week new-date))
+         (prompt (format "%s [%s] RET(ok), [(-1), ](+1): " new-date dow))
+         (c (howm-read-string prompt "[]" nil t nil)))
+    (cond
+     ((string= c "[") (howm-action-lock-date-quickshift -1 new-date))
+     ((string= c "]") (howm-action-lock-date-quickshift +1 new-date)))))
 
 (defun howm-action-lock-date-prompt (date new pass-through)
   (let* ((dow (howm-datestr-day-of-week date))
@@ -83,7 +92,7 @@
                       (concat "RET(list), " common-help today-help shift-help))
                      (t
                       (error "Can't happen.")))))
-    (format "[%s] %s: " dow help)))
+    (format "%s [%s] %s: " date dow help)))
 
 (defvar howm-date-current nil)
 (make-variable-buffer-local 'howm-date-current)
