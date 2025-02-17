@@ -60,15 +60,15 @@
       (howm-action-lock-date-repeat (match-string-no-properties 1 c) date))
      ((string-match "^[.]$" c)
       (howm-datestr-replace (howm-time-to-datestr)))
-     ((string-match "^[]]$" c)
-      (howm-action-lock-date-shift 1 date)
-      (howm-action-lock-date (match-string 0)))
-     ((string-match "^[[]$" c)
-      (howm-action-lock-date-shift -1 date)
-      (howm-action-lock-date (match-string 0)))
+     ((string= c "[") (howm-action-lock-date-quickshift -1 date))
+     ((string= c "]") (howm-action-lock-date-quickshift +1 date))
      ((and (string-match "^[-+~]$" c) pass-through)
       (insert c))
      (t (error (format "Can't understand %s." c))))))
+
+(defun howm-action-lock-date-quickshift (n date)
+  (let ((new-date (howm-action-lock-date-shift n date)))
+    (howm-action-lock-date new-date)))
 
 (defun howm-action-lock-date-prompt (date new pass-through)
   (let* ((dow (howm-datestr-day-of-week date))
@@ -108,7 +108,9 @@
     (howm-action-lock-date-search target)))
 
 (defun howm-action-lock-date-shift (n date)
-  (howm-datestr-replace (howm-datestr-shift date 0 0 n)))
+  (let ((new-date (howm-datestr-shift date 0 0 n)))
+    (howm-datestr-replace new-date)
+    new-date))
 
 (defun howm-action-lock-date-set (val date &optional future-p)
   (howm-datestr-replace (howm-datestr-expand val date future-p)))
