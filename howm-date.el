@@ -74,7 +74,7 @@
   (let* ((dow (howm-datestr-day-of-week date))
          (common-help "+num(shift), yymmdd(set), ~yymmdd(repeat)")
          (today-help ", .(today)")
-         (shift-help ", [(adjust +1), ](adjust -1)")
+         (shift-help ", [(-1), ](+1)")
          (help (cond ((and new pass-through)
                       common-help)
                      ((and new (not pass-through))
