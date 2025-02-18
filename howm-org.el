@@ -51,6 +51,10 @@
 (setq howm-menu-file-extension ".org")
 (setq howm-menu-skel-replace-rules '(("^= " . "* ") ("^== " . "** ")))
 (add-hook 'howm-view-contents-mode-hook #'howm-org-font-lock-minor-mode)
+
+;; Disable wiki link [[...]] for syntax compatibility.
+(setq howm-wiki-regexp nil)
+
 ;; Avoid conflicts with Org-mode by changing Howm's prefix from "C-c ,".
 (setq howm-prefix (kbd "C-c ;"))
 

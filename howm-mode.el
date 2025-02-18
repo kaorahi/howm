@@ -148,7 +148,8 @@ See also `howm-migemo-client`")
 (howm-defvar-risky howm-ref-regexp-pos 2
   "Position of search string in `howm-ref-regexp'")
 (howm-defvar-risky howm-wiki-regexp "\\[\\[\\([^]\r\n]+\\)\\]\\]"
-  "Regexp for explicit link.")
+  "Regexp for explicit link. Set this to nil to disable the feature
+  entirely.")
 (howm-defvar-risky howm-wiki-regexp-hilit-pos 1
   "Position of hilight in `howm-wiki-regexp'")
 (howm-defvar-risky howm-wiki-regexp-pos 1
@@ -221,10 +222,11 @@ in `howm-template'. %s is replaced with name of last file. See `format'.")
          ;;           (mapconcat #'howm-action-lock-quote-keyword ks "\\|"))
          ;;          (t
          ;;           (regexp-opt ks (and howm-check-word-break 'word)))))
-         (wiki (howm-action-lock-search howm-wiki-regexp
-                                        howm-wiki-regexp-pos
-                                        howm-wiki-regexp-hilit-pos
-                                        t))
+         (wiki (and howm-wiki-regexp
+                    (list (howm-action-lock-search howm-wiki-regexp
+                                                   howm-wiki-regexp-pos
+                                                   howm-wiki-regexp-hilit-pos
+                                                   t))))
          (explicit (howm-action-lock-search howm-ref-regexp
                                             howm-ref-regexp-pos
                                             howm-ref-regexp-hilit-pos))
@@ -238,7 +240,7 @@ in `howm-template'. %s is replaced with name of last file. See `format'.")
                 ,explicit
                 ,rev
                 ,@(if ks (list implicit) nil)
-                ,wiki
+                ,@wiki
                 ,@(if (howm-menu-p) nil (list date done))
                 ))
          )
