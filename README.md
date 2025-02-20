@@ -58,6 +58,8 @@ For a more extensive overview of how you can customize Howm, you can use the Cus
 
 ### How does Howm compare to Org-roam?
 
+TL;DR: Balanced simplicity, clever linking system, UI for contextual reading.
+
 Most things you can do in Howm are probably possible in Org-roam as well. But Howm is more minimalistic and loose in every way. It is designed on the belief that not aiming for perfect organization is the key to maintaining long-term note-taking without becoming unmanageable. Users seem to appreciate its balance between simplicity and functionality, as well as its smooth navigation UI. The UI, along with the search-based link/backlink system, helps with reading many fragmentary notes collectively.
 
 ### I've heard Howm is unbearably slow, actually?
