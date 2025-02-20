@@ -149,7 +149,7 @@ even if you delete other windows explicitly."
                     (cl-find-if (lambda (p) (string-prefix-p p (symbol-name v)))
                                 riffle-protected-localvar-prefixes)))
               (when (and matched (not protected))
-                (set v (cdr pair)))))
+                (set (make-local-variable v) (cdr pair)))))
           vs)
     ret))
 
