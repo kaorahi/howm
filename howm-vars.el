@@ -1038,6 +1038,13 @@ Note: `howm-menu-font-lock-rules' overrides this variable."
   :type 'boolean
   :group 'howm-faces)
 
+(defcustom howm-follow-theme nil
+  "*If non-nil, use colors that fit the currently active theme.
+This variable should be set before loading howm.  When you modify its
+value, you need to restart Emacs to apply it."
+  :type 'boolean
+  :group 'howm-faces)
+
 (defface howm-view-hilit-face
   '((((class color)) (:foreground "red"))
     (t ()))

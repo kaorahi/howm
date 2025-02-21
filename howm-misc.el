@@ -703,6 +703,37 @@ When DOTS-STR is non-nil, it is used instead of \"...\"."
                                    howm-view-title-regexp
                                    howm-view-title-regexp-pos))
 
+;; Automatic theming
+;; https://github.com/kaorahi/howm/issues/34
+
+(defun howm-auto-theme (&rest _)
+  ;; copied from https://github.com/kaorahi/howm/issues/34#issue-2815035530
+  "Adjust to the current theme by borrowing the Org-mode colors."
+  (when custom-enabled-themes
+    (custom-set-faces
+     '(action-lock-face ((t :inherit button)))
+     '(howm-mode-keyword-face ((t :inherit org-keyword)))
+     '(howm-mode-ref-face ((t :inherit org-link)))
+     '(howm-mode-title-face ((t :inherit org-level-1)))
+     '(howm-mode-wiki-face ((t :inherit org-link)))
+     '(howm-reminder-deadline-face ((t :inherit org-scheduled-today)))
+     '(howm-reminder-late-deadline-face ((t :inherit bold :inherit org-deadline-overdue)))
+     '(howm-reminder-defer-face ((t :inherit org-scheduled)))
+     '(howm-reminder-scheduled-face ((t :inherit org-scheduled)))
+     '(howm-reminder-done-face ((t :inherit org-done)))
+     '(howm-reminder-todo-face ((t :inherit org-todo)))
+     '(howm-reminder-normal-face ((t :inherit org-default)))
+     '(howm-reminder-today-face ((t :inherit bold :inherit org-scheduled-today)))
+     '(howm-reminder-tomorrow-face ((t :inherit bold :inherit org-scheduled)))
+     '(howm-simulate-todo-mode-line-face ((t :inherit bold)))
+     '(howm-view-empty-face ((t :inherit shadow)))
+     '(howm-view-hilit-face ((t :inherit isearch)))
+     '(howm-view-name-face ((t :inherit org-document-title))))))
+
+(when howm-follow-theme
+  (add-hook 'enable-theme-functions #'howm-auto-theme)
+  (howm-auto-theme))
+
 ;; memoize: used in howm-bayesian-set
 
 (defun howm-memoize-put (fname value)

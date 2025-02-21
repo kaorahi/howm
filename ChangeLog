@@ -1,3 +1,10 @@
+2025-02-21  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-misc.el (howm-auto-theme):
+	add automatic theming feature
+	thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+	https://github.com/kaorahi/howm/issues/34
+
 2025-02-17  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-date.el (howm-action-lock-date-quickshift)
