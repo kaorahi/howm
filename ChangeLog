@@ -1,3 +1,11 @@
+2025-02-23  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* riffle.el (riffle-mode-localvar-advice):
+	ensure the variables are buffer-local.
+	This might be the correct fix for the faces issue #22.
+	https://github.com/kaorahi/howm/issues/22
+	https://github.com/kaorahi/howm/issues/29#issuecomment-2625076294
+
 2025-02-21  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-misc.el (howm-auto-theme):
