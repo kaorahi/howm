@@ -5,10 +5,12 @@
 (require 'howm-vars)
 
 (howm-defconst-risky howm-menu-fr "= <<< %menu%
+%last-update %\"R\"[Màj du Menu]
+
  %\"e\"[Se souvenir] %\"c\"[Nouveau] %\"D\"[Dup] Search(%\"s\"[Chaine] %\"g\"[Regexp] %\"o\"[Occurences])
  %\"a\"[Tout] %\"l\"[Récent] %\"A\"[Autour] %\"y\"[Programme] %\"t\"[A faire] %\"b\"[Fichiers tampons] %\"x\"[Repères]
  %\"K\"[<Titre] [<Nom] %\"d\"[Date>] %\"i\"[Clé>] %\"r\"[Màj] %\"w\"[Parcours aléatoire] [Tout tuer]
- %\".\"[Aujourd'hui] %\":\"[Hier] %\"h\"[Historique] %\"R\"[Màj du Menu] [Editer le menu] [Préferences]
+ %\".\"[Aujourd'hui] %\":\"[Hier] %\"h\"[Historique] [Editer le menu] [Préferences]
 -------------------------------------
 [Schedule, Todo] -- @schedule, !deadline (until %sdays days from now)
 !deadline, +todo, -reminder, ~defer (top %tnum entries)

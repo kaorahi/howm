@@ -1,5 +1,10 @@
 2025-02-24  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
+	* howm-menu.el (howm-menu-last-update):
+	show last update time in menu
+	https://github.com/kaorahi/howm/issues/44#issuecomment-2648850457
+	thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+
 	* howm-vars.el (howm-view-use-grep):
 	disable grep for windows by default
 	https://github.com/kaorahi/howm/issues/6
