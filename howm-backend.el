@@ -470,7 +470,7 @@ ssearch: ")
         (setq str (car str))
       (error "Multiple patterns are not supported: %s" str)))
   (let ((grep-command (or (and fixed-p howm-view-fgrep-command)
-                          howm-view-grep-command))
+                          (howm-grep-command)))
         (opt (split-string howm-view-grep-option))
         (eopt (and howm-view-grep-expr-option
                    (list howm-view-grep-expr-option)))
@@ -486,7 +486,7 @@ ssearch: ")
 
 (defun howm-real-grep-multi (str file-list &optional fixed-p force-case-fold)
   (let ((grep-command (or (and fixed-p howm-view-fgrep-command)
-                          howm-view-grep-command))
+                          (howm-grep-command)))
         (opt (split-string howm-view-grep-option))
         (eopt (split-string howm-view-grep-file-stdin-option)))
     (let* ((str-list (cond ((stringp str) (list str))
@@ -507,6 +507,9 @@ ssearch: ")
                                           nil pat))
                (parsed (mapcar 'howm-grep-parse-line lines)))
           (remove nil parsed))))))
+
+(defun howm-grep-command ()
+  (or howm-view-grep-command grep-program))
 
 (defun howm-fake-grep (str file-list &optional fixed-p force-case-fold)
   "Search STR in files.

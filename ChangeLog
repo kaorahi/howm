@@ -1,3 +1,10 @@
+2025-02-24  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-vars.el (howm-view-grep-command):
+	use grep-program as the default value
+	https://github.com/kaorahi/howm/issues/44#issuecomment-2646208314
+	thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+
 2025-02-23  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* riffle.el (riffle-mode-localvar-advice):

@@ -1029,7 +1029,7 @@ When DOTS-STR is non-nil, it is used instead of \"...\"."
        (format "grep: %s - %s\n"
                (cl-mapcan (lambda (d)
                                  (let ((f (expand-file-name
-                                           howm-view-grep-command d)))
+                                           (howm-grep-command) d)))
                                    (and (file-executable-p f)
                                         (list f))))
                                exec-path)
