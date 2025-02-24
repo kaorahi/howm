@@ -782,7 +782,7 @@ This variable is obsolete and may be removed in future.")
   (let* ((ed (lambda (d) (concat "--exclude-dir=" d)))
          (has-ed (condition-case nil
                      (eq 0 (call-process (howm-grep-command) nil nil nil
-                                         (apply ed "/") "--version"))
+                                         (funcall ed "/") "--version"))
                      (error nil)))
          (opts (cons "-Hnr" (and has-ed (mapcar ed howm-excluded-dirs)))))
     (mapconcat #'identity opts " ")))
