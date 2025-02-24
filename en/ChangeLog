@@ -1,3 +1,10 @@
+2025-02-25  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* 0000-00-00-000000.txt:
+	fix warning (Multiple definitions for key(s): "R")
+	thx > Bob Nadler san (@rnadler)
+	https://github.com/kaorahi/howm/issues/38#issuecomment-2679087779
+
 2025-02-24  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* 0000-00-00-000000.txt:

@@ -10,7 +10,7 @@
  Change: %"r"[Update]     [Killall]
  Howm:   %"h"[History]    [Preference]
  Other:  %"b"[Buffers]   %"x"[Marks]
- Menu:   %"m"[Edit Menu] %"R"[Update Menu]
+ Menu:   %"m"[Edit Menu]  [Update Menu]
 
 -------------------------------------
 [Schedule, Todo] -- @schedule, !deadline (until %sdays days from now)
