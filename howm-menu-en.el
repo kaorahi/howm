@@ -7,10 +7,17 @@
 (howm-defconst-risky howm-menu-en "= <<< %menu%
 %last-update %\"R\"[Update Menu]
 
- %\"e\"[Remember] %\"c\"[New] %\"D\"[Dup] Search(%\"s\"[String] %\"g\"[Regexp] %\"o\"[Occur])
- %\"a\"[All] %\"l\"[Recent] %\"A\"[Around] %\"y\"[Schedule] %\"t\"[Todo] %\"b\"[Buffers] %\"x\"[Marks]
- %\"K\"[<Title] [<Name] %\"d\"[Date>] %\"i\"[Key>] %\"r\"[Update] %\"w\"[Random Walk] [Killall]
- %\".\"[Today] %\":\"[Yesterday] %\"h\"[History] [Edit Menu] [Preference]
+ Create: %\"e\"[Remember]  %\"c\"[New]    %\"D\"[Dup]
+ Search: %\"s\"[String]    %\"g\"[Regexp] %\"o\"[Occur]
+ Notes:  %\"a\"[All]       %\"l\"[Recent] %\"A\"[Around] %\"w\"[Random Walk]
+ Dates:  %\"y\"[Schedule]  %\"t\"[Todo]   %\".\"[Today]  %\":\"[Yesterday]
+ Copy:   %\"K\"[<Title]     [<Name]
+ Insert: %\"d\"[Date>]     %\"i\"[Key>]
+ Change: %\"r\"[Update]     [Killall]
+ Howm:   %\"h\"[History]    [Preference]
+ Other:  %\"b\"[Buffers]   %\"x\"[Marks]
+ Menu:   %\"m\"[Edit Menu] %\"R\"[Update Menu]
+
 -------------------------------------
 [Schedule, Todo] -- @schedule, !deadline (until %sdays days from now)
 !deadline, +todo, -reminder, ~defer (top %tnum entries)
