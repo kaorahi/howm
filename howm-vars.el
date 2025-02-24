@@ -759,7 +759,13 @@ If it is nil, alias of come-from keyword is disabled."
   :group 'howm-efficiency
   :group 'howm-search)
 
-(howm-defcustom-risky howm-view-use-grep 'auto
+(howm-defcustom-risky howm-view-use-grep
+  ;; disabled for windows by default
+  ;; https://github.com/kaorahi/howm/issues/6
+  (cdr (assoc system-type
+              '((gnu/linux . auto)
+                (darwin . auto)
+                (windows-nt . nil))))
   "*If this is t, use external grep command for search.
 Performance must be improved greatly if you set this.
 If this is the symbol `auto', use external grep command unless it
