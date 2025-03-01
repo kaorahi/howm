@@ -50,6 +50,9 @@
 (setq howm-menu-file-extension ".md")
 (setq howm-menu-skel-replace-rules '(("^= " . "# ") ("^== " . "## ")))
 
+;; Disable wiki link [[...]] for syntax compatibility.
+(setq howm-wiki-regexp nil)
+
 ;; https://github.com/kaorahi/howm/issues/38#issuecomment-2640020651
 (add-hook 'howm-mode-hook
           (lambda () (set-face-italic 'howm-mode-ref-face nil)))

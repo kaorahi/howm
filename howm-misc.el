@@ -405,8 +405,9 @@ and replace a sub-expression, e.g.
        (,howm-keyword-regexp-hilit-pos howm-mode-keyword-face prepend))
       (,howm-ref-regexp
        (,howm-ref-regexp-hilit-pos howm-mode-ref-face prepend))
-      (,howm-wiki-regexp
-       (,howm-wiki-regexp-pos howm-mode-wiki-face prepend))
+      ,@(and howm-wiki-regexp
+             `((,howm-wiki-regexp
+                (,howm-wiki-regexp-pos howm-mode-wiki-face prepend))))
       )))
 
 ;;; unofficial. may be removed if no one needs them.
