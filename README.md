@@ -1,4 +1,4 @@
-# howm: Write fragmentarily and read collectively.
+# Howm: Write fragmentarily and read collectively.
 
 Howm is a note-taking tool on Emacs. It is similar to emacs-wiki.el; you can enjoy hyperlinks and full-text search easily. It is not similar to emacs-wiki.el; it can be combined with any format.
 
@@ -53,6 +53,18 @@ Alternatively, here is a configurable snippet. If you want to change the note fo
 * (*5) Howm doesn't regenerate the menu if you save a file either, only if it's been more than 1 hour since the last menu update. If you want to update it more frequently, you have to manually refresh it (keybinding `R`).
 
 For a more extensive overview of how you can customize Howm, you can use the Customize system (`M-x customize-group RET howm RET`). See also [Emacs Wiki](https://www.emacswiki.org/emacs/HowmMode) for various tips.
+
+## FAQ
+
+### How does Howm compare to Org-roam?
+
+TL;DR: Balanced simplicity, clever linking system, UI for contextual reading.
+
+Most things you can do in Howm are probably possible in Org-roam as well. But Howm is more minimalistic and loose in every way. It is designed on the belief that not aiming for perfect organization is the key to maintaining long-term note-taking without becoming unmanageable. Users seem to appreciate its balance between simplicity and functionality, as well as its smooth navigation UI. The UI, along with the search-based link/backlink system, helps with reading many fragmentary notes collectively.
+
+### I've heard Howm is unbearably slow, actually?
+
+There are a few performance options. Once enabled, searches are usually instant, even for [20 years of notes](https://github.com/kaorahi/howm/issues/44#issuecomment-2639467999).
 
 ## Project history
 
