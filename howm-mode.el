@@ -132,16 +132,20 @@ See also `howm-migemo-client`")
 ;; Be careful to keep consistency.
 
 (howm-defvar-risky howm-keyword/ref-regexp-format
-  "\\(%s\\)[ \t]*\\([^ \t\r\n].*\\)")
+  "\\(%s\\)[ \t]*\\(%s\\)")
 (howm-defvar-risky howm-keyword-format
   (format "%s %%s" howm-keyword-header)
   "Format for declaration of keyword. See `format'.")
+(howm-defvar-risky howm-keyword-body-regexp "[^ \t\r\n].*")
 (howm-defvar-risky howm-keyword-regexp
-  (format howm-keyword/ref-regexp-format (regexp-quote howm-keyword-header)))
+  (format howm-keyword/ref-regexp-format
+          (regexp-quote howm-keyword-header) howm-keyword-body-regexp))
 (howm-defvar-risky howm-keyword-regexp-hilit-pos 1)
 (howm-defvar-risky howm-keyword-regexp-pos 2)
+(howm-defvar-risky howm-ref-body-regexp howm-keyword-body-regexp)
 (howm-defvar-risky howm-ref-regexp
-  (format howm-keyword/ref-regexp-format (regexp-quote howm-ref-header))
+  (format howm-keyword/ref-regexp-format
+          (regexp-quote howm-ref-header) howm-ref-body-regexp)
   "Regexp for explicit link.")
 (howm-defvar-risky howm-ref-regexp-hilit-pos 0
   "Position of search string in `howm-ref-regexp'")

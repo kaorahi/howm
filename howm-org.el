@@ -52,6 +52,9 @@
 (setq howm-menu-skel-replace-rules '(("^= " . "* ") ("^== " . "** ")))
 (add-hook 'howm-view-contents-mode-hook #'howm-org-font-lock-minor-mode)
 
+(setq howm-keyword-body-regexp "[^>=]+")
+(setq howm-ref-body-regexp "[^=]+")
+
 ;; Disable wiki link [[...]] for syntax compatibility.
 (setq howm-wiki-regexp nil)
 
