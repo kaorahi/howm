@@ -41,6 +41,10 @@
 (when (featurep 'howm)
   (warn "`howm-markdown' should be loaded before `howm'!"))
 
+;; https://github.com/kaorahi/howm/issues/34#issuecomment-2653782506
+(when (featurep 'howm-org)
+  (warn "You should choose either howm-org or howm-markdown but not both."))
+
 (setq howm-file-name-format "%Y-%m-%d-%H%M%S.md")
 (setq howm-view-title-header "#")
 (setq howm-menu-file-extension ".md")
