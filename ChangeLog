@@ -1,3 +1,49 @@
+2025-03-01  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* README.md: add FAQ
+	thx > Xavier Maillard san (@xmailla),
+	Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no),
+	Sukhovskii san (@Emacs101),
+	https://github.com/kaorahi/howm/issues/47
+
+	* README.md: update "Quick start"
+	thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+	https://github.com/kaorahi/howm/issues/34
+	https://github.com/kaorahi/howm/issues/38
+	https://github.com/kaorahi/howm/issues/44
+	https://github.com/kaorahi/howm/issues/50
+
+	* howm-org.el: add the feature for easier integration
+	thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+	https://github.com/kaorahi/howm/issues/38#issuecomment-2627659624
+	https://github.com/kaorahi/howm/issues/38#issuecomment-2629329827
+	https://github.com/kaorahi/howm/issues/38#issuecomment-2634792606
+	https://github.com/kaorahi/howm/issues/38#issuecomment-2640020651
+	https://github.com/kaorahi/howm/issues/38#issuecomment-2642585171
+	https://github.com/kaorahi/howm/issues/38#issuecomment-2651112556
+	https://github.com/kaorahi/howm/issues/34#issuecomment-2653782506
+	https://github.com/kaorahi/howm/issues/50
+
+	* howm-markdown.el: ditto.
+
+	* howm-misc.el (howm-org-font-lock-minor-mode):
+	add minor mode to apply org-mode font locking to a buffer
+	thx > Nicolai Singh san (nicolaisingh at pm.me), @mmarshall540 san
+	https://github.com/kaorahi/howm/issues/29#issuecomment-2571306675
+	https://github.com/kaorahi/howm/issues/29#issuecomment-2625076294
+
+	* howm-mode.el (howm-default-key-table):
+	fix "C-c ; ;" for org
+	thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+	https://github.com/kaorahi/howm/issues/38#issuecomment-2640020651
+
+	* howm-menu.el (howm-menu-skel-replace-rules):
+	adjust default menu if howm-view-title-header was set in advance
+	thx > @mmarshall540 san,
+	Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+	https://github.com/kaorahi/howm/issues/42#issuecomment-2629077533
+	https://github.com/kaorahi/howm/issues/38#issuecomment-2629162409
+
 2025-02-24  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-menu.el (howm-menu-last-update):
