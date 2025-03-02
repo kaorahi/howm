@@ -1,3 +1,10 @@
+2025-03-02  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+       * iigrep.el (iigrep-exclude):
+       fix: exclude backup files from hit count
+       thx > Sukhovskii san (@Emacs101)
+       https://github.com/kaorahi/howm/issues/55
+
 2025-03-01  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* README.md: add FAQ

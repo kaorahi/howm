@@ -250,9 +250,40 @@ This value is also used for identification of iigrep processes.")
     (goto-char (point-max))
     (insert output)
     (goto-char (point-min))
+    (iigrep-exclude-lines)
     (when (eq iigrep-show-what 'contents)
       (iigrep-hide-paths))
     (set-buffer-modified-p nil)))
+
+(defun iigrep-exclude-lines ()
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward howm-grep-parse-regexp nil t)
+      (when (and (iigrep-excluded-line-p)
+                 (iigrep-complete-line-p))
+        (delete-region (line-beginning-position)
+                       (line-beginning-position 2))))))
+
+(defun iigrep-excluded-line-p ()
+  (save-excursion
+    (forward-line 0)
+    (and (looking-at howm-grep-parse-regexp)
+         (let ((path (buffer-substring-no-properties
+                      (match-beginning howm-grep-parse-file-pos)
+                      (match-end howm-grep-parse-file-pos))))
+           (howm-exclude-p path)))))
+
+(defun iigrep-excluded-last-line-p ()
+  (save-excursion
+    (goto-char (point-max))
+    (forward-line 0)
+    (iigrep-excluded-line-p)))
+
+(defun iigrep-complete-line-p ()
+  (save-excursion
+    (end-of-line)
+    (and (not (eobp))
+         (eq (char-after) ?\n))))
 
 (defun iigrep-hide-paths ()
   (font-lock-mode -1)
@@ -287,7 +318,10 @@ This value is also used for identification of iigrep processes.")
         (buf (iigrep-buffer nil t)))
     (when (and buf (member stat '(exit signal)))
       (with-current-buffer buf
-        (let* ((hits (count-lines (point-min) (point-max)))
+        (let* ((raw-hits (count-lines (point-min) (point-max)))
+               (hits (if (iigrep-excluded-last-line-p)
+                         (- raw-hits 1)
+                       raw-hits))
                (s (format "%s" hits)))
           (when (> hits 0)
             (put-text-property 0 (length s) 'face (iigrep-get-counts-face hits) s)
