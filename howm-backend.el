@@ -566,12 +566,17 @@ STR can be list of strings. They are regarded as \"or\" pattern of all elements.
                       found)))
         found))))
 
+(defvar howm-grep-parse-regexp "^\\(\\([a-zA-Z]:/\\)?[^:]*\\):\\([0-9]*\\):\\(.*\\)$")
+(defvar howm-grep-parse-file-pos 1)
+(defvar howm-grep-parse-line-pos 3)
+(defvar howm-grep-parse-content-pos 4)
+
 (defun howm-grep-parse-line (line)
-  (if (string-match "^\\(\\([a-zA-Z]:/\\)?[^:]*\\):\\([0-9]*\\):\\(.*\\)$"
+  (if (string-match howm-grep-parse-regexp
                     line)
-      (let ((file (match-string 1 line))
-            (line (string-to-number (match-string 3 line)))
-            (content (match-string 4 line)))
+      (let ((file (match-string howm-grep-parse-file-pos line))
+            (line (string-to-number (match-string howm-grep-parse-line-pos line)))
+            (content (match-string howm-grep-parse-content-pos line)))
         (list file line content))
     nil))
 
