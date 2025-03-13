@@ -17,8 +17,7 @@
  Settings: %\"m\"[Edit Menu]  [Preference]
 
 -------------------------------------
-[Schedule, Todo] -- @schedule, !deadline (until %sdays days from now)
-!deadline, +todo, -reminder, ~defer (top %tnum entries)
+%here%(howm-menu-legend-en)
 %reminder
 -------------------------------------
 Recent

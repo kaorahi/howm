@@ -92,6 +92,9 @@ in `howm-menu-mode'.")
     howm-menu-search
     howm-menu-categorized-reminder
     howm-menu-last-update
+    howm-menu-legend-en
+    howm-menu-legend-fr
+    howm-menu-legend-ja
     ))
 
 (howm-defvar-risky howm-menu-display-rules

@@ -11,8 +11,7 @@ Insérer:    %"d"[Date>]       %"i"[Clé>]
 Paramètres: %"m"[Editer le menu]          [Préferences]
 
 -------------------------------------
-[Schedule, Todo] -- @schedule, !deadline (until %sdays days from now)
-!deadline, +todo, -reminder, ~defer (top %tnum entries)
+%here%(howm-menu-legend-fr)
 %reminder
 -------------------------------------
 Récent

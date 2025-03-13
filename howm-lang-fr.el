@@ -59,6 +59,25 @@
     ("[Parcours aléatoire]" howm-random-walk previous)
     ))
 
+;; based on https://github.com/kaorahi/howm/issues/57
+(defun howm-menu-legend-fr ()
+  (cl-labels ((p (text face) (propertize text 'font-lock-face face)))
+    (concat
+     ;; first line
+     "[Programme, À faire] -- "
+     (p "@programme" howm-reminder-schedule-face) ", "
+     (p "!échéance" howm-reminder-deadline-face) " "
+     (format "(jusqu'à %sj dès aujourd'hui)" howm-menu-schedule-days) "\n"
+     ;; second line
+     (p "!échéance" howm-reminder-deadline-face) ", "
+     (p "+tâche" howm-reminder-todo-face) ", "
+     (p "-rappel" howm-reminder-normal-face) ", "
+     (p "~report" howm-reminder-defer-face) " "
+     (format "(%s entrées max)" howm-menu-todo-num) " "
+     "[" (p "aujourd'hui" howm-reminder-today-face) "] "
+     "[" (p "demain" howm-reminder-tomorrow-face) "]"
+     )))
+
 (provide 'howm-lang-fr)
 
 ;;; howm-lang-fr.el ends here

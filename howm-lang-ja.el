@@ -58,6 +58,25 @@
     ("[酔歩]" howm-random-walk previous)
     ))
 
+;; based on https://github.com/kaorahi/howm/issues/57
+(defun howm-menu-legend-ja ()
+  (cl-labels ((p (text face) (propertize text 'font-lock-face face)))
+    (concat
+     ;; first line
+     "[予定・Todo] … "
+     (p "予定@" howm-reminder-schedule-face) ", "
+     (p "〆切!" howm-reminder-deadline-face) " "
+     (format "を %s 日先まで表示." howm-menu-schedule-days) "\n"
+     ;; second line
+     (p "〆切!" howm-reminder-deadline-face) ", "
+     (p "todo+" howm-reminder-todo-face) ", "
+     (p "覚書-" howm-reminder-normal-face) ", "
+     (p "保留~" howm-reminder-defer-face) " "
+     (format "を上位 %s 個まで表示." howm-menu-todo-num) " "
+     "[" (p "本日" howm-reminder-today-face) "] "
+     "[" (p "明日" howm-reminder-tomorrow-face) "]"
+     )))
+
 (provide 'howm-lang-ja)
 
 ;;; howm-lang-ja.el ends here

@@ -1,3 +1,14 @@
+2025-03-13  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-lang-en.el (howm-menu-legend-en):
+	add colors to menu legend
+	thx > Mark Butala san (@butala), Sukhovskii san (@Emacs101)
+	https://github.com/kaorahi/howm/issues/57
+
+	* howm-lang-fr.el (howm-menu-legend-fr): ditto.
+
+	* howm-lang-ja.el (howm-menu-legend-ja): ditto.
+
 2025-03-02  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
        * iigrep.el (iigrep-exclude):

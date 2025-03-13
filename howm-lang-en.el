@@ -57,6 +57,25 @@
     ("[Random Walk]" howm-random-walk previous)
     ))
 
+;; based on https://github.com/kaorahi/howm/issues/57
+(defun howm-menu-legend-en ()
+  (cl-labels ((p (text face) (propertize text 'font-lock-face face)))
+    (concat
+     ;; first line
+     "[Schedule, Todo] -- "
+     (p "@schedule" howm-reminder-schedule-face) ", "
+     (p "!deadline" howm-reminder-deadline-face) " "
+     (format "(until %s days from now)" howm-menu-schedule-days) "\n"
+     ;; second line
+     (p "!deadline" howm-reminder-deadline-face) ", "
+     (p "+todo" howm-reminder-todo-face) ", "
+     (p "-reminder" howm-reminder-normal-face) ", "
+     (p "~defer" howm-reminder-defer-face) " "
+     (format "(top %s entries)" howm-menu-todo-num) " "
+     "[" (p "today" howm-reminder-today-face) "] "
+     "[" (p "tomorrow" howm-reminder-tomorrow-face) "]"
+     )))
+
 (provide 'howm-lang-en)
 
 ;;; howm-lang-en.el ends here
