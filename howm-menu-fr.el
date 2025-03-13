@@ -8,15 +8,13 @@
 %last-update %\"R\"[Màj du Menu]
 
 Créer:      %\"e\"[Se souvenir] %\"c\"[Nouveau] %\"D\"[Dup]
-Rechercher: %\"s\"[Chaine]      %\"g\"[Regexp]  %\"o\"[Occurences]
-Notes:      %\"a\"[Tout]        %\"l\"[Récent]  %\"A\"[Autour]     %\"w\"[Parcours aléatoire]
-Dates:      %\"y\"[Programme]   %\"t\"[A faire] %\":\"[Hier]       %\".\"[Aujourd'hui]
+Rechercher: %\"s\"[Chaine]      %\"g\"[Regexp]  %\"o\"[Occurences]  %\"h\"[Historique]
+Liste:      %\"a\"[Tout]        %\"l\"[Récent]  %\"A\"[Autour]      %\"w\"[Parcours aléatoire]
+Dates:      %\"y\"[Programme]   %\"t\"[A faire] %\".\"[Aujourd'hui] %\":\"[Hier]       
+Tampons:    %\"b\"[Fichiers tampons]       %\"x\"[Repères]     %\"r\"[Màj]  [Tout tuer]
 Copier:     %\"K\"[<Titre]       [<Nom]
 Insérer:    %\"d\"[Date>]       %\"i\"[Clé>]
-Modifier:   %\"r\"[Màj]          [Tout tuer]
-Howm:       %\"h\"[Historique]   [Préferences]
-Autre:      %\"b\"[Fichiers tampons]       %\"x\"[Repères]
-Menu:       %\"m\"[Editer le menu]          [Màj du Menu]
+Paramètres: %\"m\"[Editer le menu]          [Préferences]
 
 -------------------------------------
 [Schedule, Todo] -- @schedule, !deadline (until %sdays days from now)
