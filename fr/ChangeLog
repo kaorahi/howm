@@ -1,6 +1,13 @@
 2025-03-13  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* 0000-00-00-000000.txt:
+	add shortcut key "Q" for howm-kill-all
+	thx > Bob Nadler san (@rnadler)
+	https://github.com/kaorahi/howm/issues/38#issuecomment-2692309445
+
+2025-03-13  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* 0000-00-00-000000.txt:
 	arrange items
 	thx > Sukhovskii san (@Emacs101)
 	https://github.com/kaorahi/howm/issues/38#issuecomment-2679442439

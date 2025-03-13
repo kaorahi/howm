@@ -5,7 +5,7 @@
  Search:   %"s"[String]    %"g"[Regexp] %"o"[Occur]  %"h"[History]
  List:     %"a"[All]       %"l"[Recent] %"A"[Around] %"w"[Random Walk]
  Dates:    %"y"[Schedule]  %"t"[Todo]   %"."[Today]  %":"[Yesterday]
- Buffers:  %"b"[Buffers]   %"x"[Marks]  %"r"[Update]  [Killall]
+ Buffers:  %"b"[Buffers]   %"x"[Marks]  %"r"[Update] %"Q"[Killall]
  Copy:     %"K"[<Title]     [<Name]
  Insert:   %"d"[Date>]     %"i"[Key>]
  Settings: %"m"[Edit Menu]  [Preference]
