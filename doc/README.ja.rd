@@ -140,6 +140,7 @@ Emacs で断片的なメモをどんどんとるための環境です.
         * m → 毎月
         * y → 毎年
     * 「.」 → 今日の日付に書きかえ
+    * 「[」「]」 → 前日・翌日に書きかえ
     * ちなみに, メニューの [日↓] で日付形式を入力できます
   * リンクもこの呪文の一種
     * 他におもしろいアイデアあったら教えてください
@@ -914,6 +915,31 @@ Emacs で断片的なメモをどんどんとるための環境です.
 === 更新記録
 
 thx > patch・改良案・指摘をくださった皆様
+
+* リリース版 howm-1.5.4 [2025-03-23]
+  * 使いはじめを便利に (README.mdの「Quick start」を参照)
+    * markdownやorgとの連携
+      thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no), Nicolai Singh san (nicolaisingh at pm.me), @mmarshall540 san
+    * テーマ機能をhowmにも適用
+      thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+    * メニューを改良
+      * 整列や色
+        thx > @mmarshall540 san, Mark Butala san (@butala), Sukhovskii san (@Emacs101)
+      * 更新時刻を表示
+        thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+      * ヘッダ等を設定にあわせる
+        thx > @mmarshall540 san, Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+      * 不具合や不統一の修正
+        thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no), Bob Nadler san (@rnadler)
+    * 説明書を更新
+      thx > Xavier Maillard san (@xmailla), Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no), Sukhovskii san (@Emacs101)
+  * 日付上で RET を押して「[」「]」キーで前日・翌日に書きかえ
+    thx > Nicolai Singh san (nicolaisingh at pm.me)
+  * LinuxやMacではデフォルトで grep コマンドを使用
+    thx > Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+  * 検索中の件数表示からバックアップファイルを除外
+    thx > Sukhovskii san (@Emacs101)
+  * 細かいバグ修正
 
 * リリース版 howm-1.5.3 [2025-01-30]
   * 着色などの細かな((<バグ修正|URL:https://github.com/kaorahi/howm/commits/master?since=2025-01-01T00:00:00Z&until=2025-01-29T23:59:59Z>))
