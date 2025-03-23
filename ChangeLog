@@ -1,3 +1,7 @@
+2025-03-23  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* configure.ac: version 1.5.4
+
 2025-03-13  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-lang-en.el (howm-menu-legend-en):
