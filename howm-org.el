@@ -50,6 +50,7 @@
 (setq howm-dtime-format "[%Y-%m-%d %a %H:%M]")
 (setq howm-menu-file-extension ".org")
 (setq howm-menu-skel-replace-rules '(("^= " . "* ") ("^== " . "** ")))
+(add-hook 'howm-view-summary-mode-hook #'howm-org-font-lock-minor-mode)
 (add-hook 'howm-view-contents-mode-hook #'howm-org-font-lock-minor-mode)
 
 (setq howm-keyword-body-regexp "[^>=]+")
