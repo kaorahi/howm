@@ -1600,9 +1600,13 @@ RNAME must be relative name."
   (goto-char (point-min))
   ;; Raw call of `dired-get-filename' and `dired-next-line' causes
   ;; warnings in compilation.
-  (while (let ((c (howm-funcall-if-defined (dired-get-filename 'no-dir t))))
-           (not (and c (equal (file-relative-name c) rname))))
-    (howm-funcall-if-defined (dired-next-line 1))))
+  (let ((last-point (point)))
+    (while (let ((c (howm-funcall-if-defined (dired-get-filename 'no-dir t))))
+             (not (and c (equal (file-relative-name c) rname))))
+      (howm-funcall-if-defined (dired-next-line 1))
+      (when (<= (point) last-point)
+        (error "Failed howm-view-dired-goto."))
+      (setq last-point (point)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; shell
