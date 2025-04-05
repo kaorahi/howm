@@ -1,3 +1,17 @@
+2025-04-05  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-org.el (howm-view-summary-mode-hook):
+	support org font-lock in summary buffer
+	thx > @rhstanton san
+	https://github.com/kaorahi/howm/issues/29
+
+2025-04-05  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-view.el (howm-view-dired-goto):
+	fix potential infinite loop in howm-view-dired-goto
+	thx > @masmarius san
+	https://github.com/kaorahi/howm/issues/60
+
 2025-03-23  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* configure.ac: version 1.5.4
