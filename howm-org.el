@@ -53,8 +53,8 @@
 (add-hook 'howm-view-summary-mode-hook #'howm-org-font-lock-minor-mode)
 (add-hook 'howm-view-contents-mode-hook #'howm-org-font-lock-minor-mode)
 
-(setq howm-keyword-body-regexp "[^>=]+")
-(setq howm-ref-body-regexp "[^=]+")
+(setq howm-keyword-body-regexp "[^>=\r\n]+")
+(setq howm-ref-body-regexp "[^=\r\n]+")
 
 ;; Disable wiki link [[...]] for syntax compatibility.
 (setq howm-wiki-regexp nil)

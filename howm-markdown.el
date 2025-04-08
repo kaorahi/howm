@@ -50,7 +50,7 @@
 (setq howm-menu-file-extension ".md")
 (setq howm-menu-skel-replace-rules '(("^= " . "# ") ("^== " . "## ")))
 
-(setq howm-keyword-body-regexp "[^`]+")
+(setq howm-keyword-body-regexp "[^`\r\n]+")
 (setq howm-ref-body-regexp howm-keyword-body-regexp)
 
 ;; Disable wiki link [[...]] for syntax compatibility.
