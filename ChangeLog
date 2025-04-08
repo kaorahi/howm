@@ -1,3 +1,10 @@
+2025-04-08  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-org.el (howm-dtime-format):
+	fix wrong faces for the lines below a goto link
+	thx > Jack Baty san (@jackbaty)
+	https://github.com/kaorahi/howm/issues/62
+
 2025-04-05  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-org.el (howm-view-summary-mode-hook):
