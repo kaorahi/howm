@@ -1,3 +1,18 @@
+2025-04-13  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-misc.el (howm-auto-theme):
+	fix missing org mode faces
+	thx > Mark Butala san (@butala),
+	Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+	https://github.com/kaorahi/howm/issues/66
+
+2025-04-13  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-vars.el (howm-view-open-by-myself):
+	fix unintentional external viewer for *.org in Gentoo Linux
+	thx > Alexis Praga san (@apraga)
+	https://github.com/kaorahi/howm/issues/64
+
 2025-04-08  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-org.el (howm-dtime-format):
