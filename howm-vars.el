@@ -991,7 +991,15 @@ cause conflicts."
   :type 'boolean
   :group 'howm-viewer)
 
-(defcustom howm-view-open-by-myself '("text/.*" "application/emacs-lisp")
+(defcustom howm-view-open-by-myself
+  (list "text/.*"
+        "application/emacs-lisp"
+        ;; Workaround for *.org in Gentoo Linux [2025-04-12]
+        ;; /etc/mime.types says that "*.org" is
+        ;; "application/vnd.lotus-organizer", and
+        ;; /etc/mailcap associates "application/*" with "less".
+        ;; https://github.com/kaorahi/howm/issues/64
+        (regexp-quote "application/vnd.lotus-organizer"))
   "List of regular expressions for mime types which should be opened normally."
   :type '(repeat regexp)
   :group 'howm-viewer)
