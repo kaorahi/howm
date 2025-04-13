@@ -713,12 +713,12 @@ When DOTS-STR is non-nil, it is used instead of \"...\"."
   (when custom-enabled-themes
     (custom-set-faces
      '(action-lock-face ((t :inherit button)))
-     '(howm-mode-keyword-face ((t :inherit org-keyword)))
+     '(howm-mode-keyword-face ((t :inherit org-link)))
      '(howm-mode-ref-face ((t :inherit org-link)))
      '(howm-mode-title-face ((t :inherit org-level-1)))
      '(howm-mode-wiki-face ((t :inherit org-link)))
      '(howm-reminder-deadline-face ((t :inherit org-scheduled-today)))
-     '(howm-reminder-late-deadline-face ((t :inherit bold :inherit org-deadline-overdue)))
+     '(howm-reminder-late-deadline-face ((t :inherit bold :inherit org-imminent-deadline)))
      '(howm-reminder-defer-face ((t :inherit org-scheduled)))
      '(howm-reminder-scheduled-face ((t :inherit org-scheduled)))
      '(howm-reminder-done-face ((t :inherit org-done)))
