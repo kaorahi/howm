@@ -42,7 +42,7 @@
 (defun howm-action-lock-date (date &optional new future-p)
   (let* ((pass-through (and new howm-insert-date-pass-through))
          (prompt (howm-action-lock-date-prompt date new pass-through))
-         (immediate-chars (if pass-through "" ".[]"))
+         (immediate-chars (if pass-through "[]" ".[]"))
          (c (howm-read-string prompt immediate-chars "+-~0123456789"
                               pass-through pass-through)))
     (cond
@@ -85,7 +85,7 @@
          (today-help ", .(today)")
          (shift-help ", [(-1), ](+1)")
          (help (cond ((and new pass-through)
-                      common-help)
+                      (concat common-help shift-help))
                      ((and new (not pass-through))
                       (concat "RET(ok), " common-help today-help shift-help))
                      ((not new)
