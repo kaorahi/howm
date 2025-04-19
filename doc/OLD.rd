@@ -2087,7 +2087,7 @@
     (setq howm-menu-top nil) ; C-c , , で「<< %menu%」を開かない
     (setq howm-menu-file "menu.howm") ; C-c , , で menu.howm を開く
     (setq howm-use-color nil) ; << などに色をつけない
-    (setq howm-menu-name-format " *howmM:%s*") ; メニューは隠し buffer
+    ;(setq howm-menu-name-format " *howmM:%s*") ; メニューは隠し buffer ← 廃止 [2025-02-06]
     (setq howm-abbreviate-file-name nil) ; ファイル名表記は full path
     ;; 旧デフォルト設定
     (setq howm-file-name-format "%Y/%m/%Y_%m_%d.howm") ; 1 日 1 ファイル
@@ -2270,7 +2270,7 @@
   * メニューの末尾に「R[menu 更新] E[menu 編集]」をつける
       (setq howm-menu-footer "\n-- \n%\"R\"[menu 更新] %\"E\"[menu 編集]")
   * メニューは隠しバッファに
-      (setq howm-menu-name-format " *howmM:%s*")
+      ;(setq howm-menu-name-format " *howmM:%s*") ; ← この設定は廃止 [2025-02-06]
     * ※ Emacs 豆知識
       * 空白で始まるバッファ名は, C-x b や C-x C-b で出てこない
       * そんなバッファを見るには, C-x b C-q SPC SPC

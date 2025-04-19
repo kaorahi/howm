@@ -280,7 +280,7 @@ A file is excluded iff this regexp matches with all the relative paths."
 
 (defcustom howm-menu-name-format "*howmM:%s*"
   "*Name format of menu buffer."
-  :type '(radio (const :tag "Never show in normal buffer list" " *howmM:%s*")
+  :type '(radio (const :tag "(Obsolete) Never show in normal buffer list" " *howmM:%s*")
                 string)
   :group 'howm-menu)
 
