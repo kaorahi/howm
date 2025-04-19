@@ -277,7 +277,6 @@ at the beginning of this file, when ARG-P is non-nil."
                                 (cons matcher hilit)))
                             action-lock-rules)))
       (cheat-font-lock-append-keywords entries)
-;;       (cheat-font-lock-prepend-keywords entries)
       (cheat-font-lock-fontify)
       )))
 

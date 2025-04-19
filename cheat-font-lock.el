@@ -41,8 +41,6 @@
 ;;         (font-lock-add-keywords nil (apply #'append keywords-list) 'set))
 ;;       (defun cheat-font-lock-append-keywords (entries)
 ;;         (font-lock-add-keywords nil entries 'append))
-;;       (defun cheat-font-lock-prepend-keywords (entries)
-;;         (font-lock-add-keywords nil entries))
 ;;       ;; inhibit warning. sigh...
 ;;       (defun cheat-font-lock-20040624-format-p () nil)
 ;;       (defun cheat-font-lock-compiled-p (keywords) nil)
@@ -76,8 +74,6 @@
           (apply #'append bodies-list))))
 (defun cheat-font-lock-append-keywords (entries)
   (cheat-font-lock-merge-keywords font-lock-keywords entries))
-(defun cheat-font-lock-prepend-keywords (entries)
-  (cheat-font-lock-merge-keywords entries font-lock-keywords))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
