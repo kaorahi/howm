@@ -73,11 +73,13 @@
   ;; See howm-action-lock-forward in howm-reminder.el.
   (let* ((new-date (howm-action-lock-date-shift n date))
          (dow (howm-datestr-day-of-week new-date))
-         (prompt (format "%s [%s] RET(ok), [(-1), ](+1): " new-date dow))
-         (c (howm-read-string prompt "[]" nil t nil)))
+         (prompt (format "%s [%s] RET(ok), [(-1), ](+1), .(today): " new-date dow))
+         (c (howm-read-string prompt "[]." nil t nil)))
     (cond
      ((string= c "[") (howm-action-lock-date-quickshift -1 new-date))
-     ((string= c "]") (howm-action-lock-date-quickshift +1 new-date)))))
+     ((string= c "]") (howm-action-lock-date-quickshift +1 new-date))
+     ((string= c ".")
+      (howm-action-lock-date-quickshift +0 (howm-time-to-datestr))))))
 
 (defun howm-action-lock-date-prompt (date new pass-through)
   (let* ((dow (howm-datestr-day-of-week date))
