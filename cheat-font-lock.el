@@ -50,30 +50,11 @@
 ;;     ;; for xemacs and emacs20
 ;;     ))
 
-(defun cheat-font-lock-20040624-format-p ()
-  ;; need to call font-lock-set-defaults before font-lock-compile-keywords.
-  ;; see http://lists.gnu.org/archive/html/emacs-diffs/2005-12/msg00961.html
-  (font-lock-set-defaults)
-  (>= (length (font-lock-compile-keywords '(("dummy" . 'dummy)))) 3)) ;; dirty
-(defun cheat-font-lock-compiled-p (keywords)
-  (eq (car-safe keywords) t))
-(defun cheat-font-lock-compiled-body (keywords)
-  (cdr keywords))
-(when (cheat-font-lock-20040624-format-p)
-  ;; re-defun for avoiding the warning:
-  ;; "the function `...' is not known to be defined."
-  (defun cheat-font-lock-compiled-body (keywords)
-    (cddr keywords)))
-(defun cheat-font-lock-keywords (keywords)
-  (if (cheat-font-lock-compiled-p keywords)
-      (cheat-font-lock-compiled-body keywords)
-    keywords))
-(defun cheat-font-lock-merge-keywords (&rest keywords-list)
-  (let ((bodies-list (mapcar #'cheat-font-lock-keywords keywords-list)))
-    (setq font-lock-keywords
-          (apply #'append bodies-list))))
 (defun cheat-font-lock-append-keywords (entries)
-  (cheat-font-lock-merge-keywords font-lock-keywords entries))
+  (font-lock-add-keywords nil entries 'append))
+(defun cheat-font-lock-merge-keywords (&rest keywords-list)
+  (font-lock-add-keywords nil nil 'set)
+  (mapc #'cheat-font-lock-append-keywords keywords-list))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
