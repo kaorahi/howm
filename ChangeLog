@@ -1,3 +1,10 @@
+2025-04-19  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-org.el (howm-view-title-skip-regexp):
+	fix unhelpful summary lines in titleless org notes
+	thx > @Claudisimo san
+	https://github.com/kaorahi/howm/issues/68
+
 2025-04-13  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-misc.el (howm-auto-theme):
