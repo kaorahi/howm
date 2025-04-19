@@ -81,43 +81,12 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defvar cheat-font-lock-warned-old-mode-p nil)
-
 (defun cheat-font-lock-mode ()
-  (let* ((hidden-p (eq (aref (buffer-name) 0) ?\ ))
-         (warn-p (and hidden-p (not cheat-font-lock-warned-old-mode-p))))
-    (when warn-p
-      (message "Cheat-font-lock will no longer support invisible buffers.")
-      (setq cheat-font-lock-warned-old-mode-p t))
-    (if hidden-p
-        (cheat-font-lock-mode-old)
-      (cheat-font-lock-mode-new))))
-
-(defun cheat-font-lock-mode-new ()
   "Just enable font-lock-mode."
-  (font-lock-mode 1))
-
-;; will be removed in the future
-(defun cheat-font-lock-mode-old ()
-  "Enable font-lock-mode without calling fontify-buffer."
   ;; font-lock-defaults seems necessary for "C-c , a" (howm-list-all) [2025-02-07]
   (when (null font-lock-defaults)
     (set (make-local-variable 'font-lock-defaults) '(nil)))
-  ;; Without the next line, global value is changed to t. [2003-12-30]
-  ;; (emacs-20.7.2 on Vine Linux 2.6)
-  (make-local-variable 'font-lock-fontified)
-  (let* (;; Stop cheating font-lock in such a way. [2021-02-15]
-         ;; This seems troublesome and font-lock is not slow today.
-         ;; (font-lock-fontified t) ;; adjourn fontify-buffer
-         (bname (buffer-name))
-         (need-rename (eq (aref (buffer-name) 0) ?\ )))
-    ;; Rename invisible buffer in order to force font-lock-mode.
-    ;; cf. snap:///usr/share/emacs/21.2/lisp/font-lock.el#694:(define-minor-mode font-lock-mode
-    (when need-rename
-      (rename-buffer (concat "xxx-" bname) t))
-    (font-lock-mode 1)
-    (when need-rename
-      (rename-buffer bname)))
+  (font-lock-mode 1)
   (font-lock-set-defaults))
 
 (defun cheat-font-lock-fontify (&optional dummy)
