@@ -278,7 +278,7 @@ at the beginning of this file, when ARG-P is non-nil."
                             action-lock-rules)))
       (cheat-font-lock-append-keywords entries)
 ;;       (cheat-font-lock-prepend-keywords entries)
-      (cheat-font-lock-fontify t)
+      (cheat-font-lock-fontify)
       )))
 
 (defun action-lock-restore-font-lock ()
