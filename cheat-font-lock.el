@@ -83,9 +83,6 @@
 
 (defun cheat-font-lock-mode (&optional silent)
   "Enable font-lock-mode without calling fontify-buffer."
-  ;; For xemacs. But this seems to have no effect. ;_; [2004-01-14]
-  (when silent
-    (set (make-local-variable 'font-lock-verbose) nil))
   ;; Keywords are not highlighted on the fly in emacs-21.3.50.1
   ;; when font-lock-defaults is nil. I don't understand this. [2003-11-28]
   (when (null font-lock-defaults)
