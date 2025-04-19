@@ -278,11 +278,9 @@ A file is excluded iff this regexp matches with all the relative paths."
   :group 'howm-efficiency
   :group 'howm-menu)
 
-(defcustom howm-menu-name-format "*howmM:%s*"
-  "*Name format of menu buffer."
-  :type '(radio (const :tag "(Obsolete) Never show in normal buffer list" " *howmM:%s*")
-                string)
-  :group 'howm-menu)
+(defvar howm-menu-name-format "*howmM:%s*"
+  "*Name format of menu buffer. White spaces at the beginning are not
+allowed.")
 
 (defcustom howm-menu-footer nil
   "Footer string for each menu."
