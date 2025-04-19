@@ -54,8 +54,6 @@
 (defvar action-lock-magic-return-key "\C-m")
 (put 'action-lock-magic-return-key 'risky-local-variable t)
 (defvar action-lock-lighter " AL")
-(defvar action-lock-silent t
-  "Inhibit font-lock-verbose if non-nil.")
 
 ;; If you want to change these values,
 ;; you must set them before loading this file.
@@ -265,7 +263,7 @@ at the beginning of this file, when ARG-P is non-nil."
     regexp))
 
 (defun action-lock-font-lock ()
-  (cheat-font-lock-mode action-lock-silent)
+  (cheat-font-lock-mode)
   (if (null action-lock-original-font-lock-keywords)
       (setq action-lock-original-font-lock-keywords font-lock-keywords)
     (setq font-lock-keywords action-lock-original-font-lock-keywords))

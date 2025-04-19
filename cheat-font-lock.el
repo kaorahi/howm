@@ -81,7 +81,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun cheat-font-lock-mode (&optional silent)
+(defun cheat-font-lock-mode ()
   "Enable font-lock-mode without calling fontify-buffer."
   ;; font-lock-defaults seems necessary for "C-c , a" (howm-list-all) [2025-02-07]
   (when (null font-lock-defaults)
