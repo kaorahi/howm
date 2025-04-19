@@ -108,10 +108,8 @@
   (font-lock-set-defaults))
 
 (defun cheat-font-lock-fontify (&optional dummy)
-  (if (and (fboundp 'font-lock-flush) (fboundp 'font-lock-ensure))
-      (progn (font-lock-flush) (font-lock-ensure))
-    (with-no-warnings
-      (font-lock-fontify-buffer))))
+  (font-lock-flush)
+  (font-lock-ensure))
 
 (provide 'cheat-font-lock)
 
