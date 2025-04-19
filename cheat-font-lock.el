@@ -19,36 +19,13 @@
 ;;; USA.
 ;;--------------------------------------------------------------------
 
-;; depends on internal implementation of font-lock.el
+;; no "cheat" now [2025-02-07]
 
 ;; renamed from howm-font-lock.el [2003-12-12]
 
 (require 'font-lock)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; This code is canceled because it caused a bug on howm-1.2.2rc5.
-;; cheat-font-lock-merge-keywords must support compiled keywords for current
-;; implementation of riffle-contents-mode. [2005-04-28]
-;; See below.
-;; snap:///~/elisp/howm/howm-view.el#223:(define-derived-mode howm-view-contents-mode riffle-contents-mode "HowmC"
-;; snap:///~/elisp/howm/howm-view.el#256:(cheat-font-lock-merge-keywords howm-view-contents-font-lock-keywords
-;; 
-;; (if (and (fboundp 'font-lock-add-keywords) (>= emacs-major-version 21))
-;;     (progn
-;;       (defun cheat-font-lock-merge-keywords (&rest keywords-list)
-;;         ;; compiled keywords are not supported in keywords-list.
-;;         (font-lock-add-keywords nil (apply #'append keywords-list) 'set))
-;;       (defun cheat-font-lock-append-keywords (entries)
-;;         (font-lock-add-keywords nil entries 'append))
-;;       ;; inhibit warning. sigh...
-;;       (defun cheat-font-lock-20040624-format-p () nil)
-;;       (defun cheat-font-lock-compiled-p (keywords) nil)
-;;       (defun cheat-font-lock-compiled-body (keywords) nil)
-;;       )
-;;   (progn
-;;     ;; for xemacs and emacs20
-;;     ))
 
 (defun cheat-font-lock-append-keywords (entries)
   (font-lock-add-keywords nil entries 'append))
