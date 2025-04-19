@@ -83,8 +83,7 @@
 
 (defun cheat-font-lock-mode (&optional silent)
   "Enable font-lock-mode without calling fontify-buffer."
-  ;; Keywords are not highlighted on the fly in emacs-21.3.50.1
-  ;; when font-lock-defaults is nil. I don't understand this. [2003-11-28]
+  ;; font-lock-defaults seems necessary for "C-c , a" (howm-list-all) [2025-02-07]
   (when (null font-lock-defaults)
     (set (make-local-variable 'font-lock-defaults) '(nil)))
   ;; Without the next line, global value is changed to t. [2003-12-30]
