@@ -773,15 +773,19 @@ ITEM-LIST is list of items which should be shown."
                                      (howm-folder-items
                                       howm-directory t)))))
          (files (howm-first-n sorted num)))
-    (let ((r (howm-menu-recent-regexp)))
+    (let* ((r (howm-menu-recent-regexp))
+           (searcher (lambda (f)
+                       (let* ((is (or (howm-view-search-items r (list f) summarizer)
+                                      (list (howm-make-item f)))))
+                         (mapc #'howm-view-change-title is)
+                         is))))
       (if randomp
           (cl-mapcan (lambda (f)
-                       (let ((is (howm-view-search-items r (list f)
-                                                         summarizer)))
+                       (let ((is (funcall searcher f)))
                          (and is (list (nth (random (length is))
                                             is)))))
                      files)
-        (howm-first-n (howm-view-search-items r files summarizer) num)))))
+        (howm-first-n (cl-mapcan searcher files) num)))))
 
 (defun howm-menu-recent-regexp ()
   (or howm-menu-recent-regexp (howm-view-title-regexp-grep)))

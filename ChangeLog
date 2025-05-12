@@ -1,3 +1,10 @@
+2025-05-12  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-menu.el (howm-recent-menu):
+	fix: titleless notes were missing in %recent and %random in menu
+	thx > @Claudisimo san
+	https://github.com/kaorahi/howm/issues/68
+
 2025-04-19  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-org.el (howm-view-title-skip-regexp):
