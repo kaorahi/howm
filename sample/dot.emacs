@@ -2,6 +2,7 @@
 
 (setq load-path (cons default-directory load-path))
 (setq debug-on-error t)
+(setq font-lock-verbose t)
 (setq inhibit-startup-message t)
 
 (setq howm-sample-directory (expand-file-name "sample/"))
