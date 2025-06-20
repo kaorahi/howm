@@ -1,3 +1,10 @@
+2025-06-20  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-mode.el (howm-dup):
+	fix: make howm-dup respect the howm-prepend setting
+	thx > Nicolai Singh san (nicolaisingh at pm.me)
+	https://github.com/kaorahi/howm/pull/76
+
 2025-05-12  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-menu.el (howm-recent-menu):

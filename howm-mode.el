@@ -1007,16 +1007,15 @@ is necessary.")
 (defun howm-dup ()
   (interactive)
   (let* ((r (howm-view-paragraph-region))
-         (s (buffer-substring-no-properties (car r) (cadr r)))
-         (buffer-empty-p))
+         (s (buffer-substring-no-properties (car r) (cadr r))))
     (howm-create-file)
     (howm-set-mode)
-    (setq buffer-empty-p (howm-buffer-empty-p))
-    (unless buffer-empty-p
-      (howm-create-newline))
-    (insert s)
-    (if (and howm-prepend (not buffer-empty-p))
-        (save-excursion (insert "\n\n")))))
+    (if (howm-buffer-empty-p)
+        (insert s)
+      (howm-create-newline)
+      (insert s)
+      (when howm-prepend
+        (save-excursion (insert "\n\n"))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Keyword
