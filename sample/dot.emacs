@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: nil; -*-
+
 (setq load-path (cons default-directory load-path))
 (setq debug-on-error t)
 (setq inhibit-startup-message t)
