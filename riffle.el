@@ -59,6 +59,29 @@ even if you delete other windows explicitly."
 ;; experimental [2008-05-23]
 (defvar riffle-keep-window nil)
 
+(defcustom riffle-frame-alist `((name . "*howm*"))
+  "Initial frame parameters when `howm-view-window-location' is set to \'tab."
+  :type 'alist
+  :group 'howm-list-bufwin)
+(defcustom riffle-tab-name "*howm*"
+  "Tab name when `howm-view-window-location' is set to \'tab."
+  :type 'string
+  :group 'howm-list-bufwin)
+
+(defcustom howm-view-window-location nil
+  "Use separate frame/tab for howm summary/contents buffers."
+  :type '(radio (const :tag "Default" nil)
+                (const :tag "Frame" frame)
+                (const :tag "Tab" tab))
+  :group 'howm-list-bufwin)
+
+(defcustom howm-view-close-frame-on-exit nil
+  "Close the frame when exiting from howm summary/contents buffers."
+  :type '(radio (const :tag "Default" nil)
+                (const :tag "Close" t)
+                (const :tag "Close if only howm buffers are displayed" howm-only))
+  :group 'howm-list-bufwin)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; internal variables and accessors
 
@@ -156,9 +179,62 @@ even if you delete other windows explicitly."
 (advice-add 'riffle-mode :around #'riffle-mode-localvar-advice)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; frame/tab
+
+(defun riffle-initialize-frame ()
+  (let* ((name (cdr (assoc 'name riffle-frame-alist)))
+         (selected (and name
+                        (condition-case err
+                            (progn (select-frame-by-name name) t)
+                          (error nil)))))
+    (unless selected
+      (select-frame (make-frame riffle-frame-alist)))))
+(defun riffle-initialize-tab ()
+  (tab-bar-switch-to-tab riffle-tab-name))
+
+(defun riffle-summary (&rest args)
+  (when (and (eq howm-view-window-location 'tab)
+             (version< emacs-version "29.1"))
+    (if (yes-or-no-p "Not supported. Reset howm-view-window-location? ")
+        (setq howm-view-window-location nil)
+      (error "Emacs < 29.1 doesn't support tab for howm-view-window-location.")))
+  (let ((orig-frame (selected-frame)))
+    (unwind-protect
+        (let* ((initializer-table '((frame . riffle-initialize-frame)
+                                    (tab . riffle-initialize-tab)))
+               (initializer (cdr (assoc howm-view-window-location
+                                        initializer-table))))
+          (when initializer
+            (funcall initializer))
+          (apply #'riffle-summary-doit args))
+      (when (eq howm-view-window-location 'frame)
+        (when iigrep-show-what  ;; Dirty! (Peeks at an internal variable.)
+          (select-frame-set-input-focus orig-frame))))))
+
+(defun riffle-kill-buffer (&rest args)
+  (let* ((howm-window-p
+          (lambda (w)
+            (with-current-buffer (window-buffer w)
+              (or howm-mode
+                  (member major-mode '(howm-view-summary-mode
+                                       howm-view-contents-mode))))))
+         (delete-frame/tab-p
+          (cond ((eq howm-view-close-frame-on-exit t) t)
+                ((eq howm-view-close-frame-on-exit 'howm-only)
+                 (cl-every howm-window-p
+                           (window-list nil 'no-minibuf)))
+                (t nil))))
+    (apply #'riffle-kill-buffer-doit args)
+    (when delete-frame/tab-p
+      (cond ((eq howm-view-window-location 'frame)
+             (delete-frame))
+            ((eq howm-view-window-location 'tab)
+             (tab-bar-close-tab))))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; summary
 
-(defun riffle-summary (&optional name item-list type background)
+(defun riffle-summary-doit (&optional name item-list type background)
   "Create summary buffer for NAME, ITEM-LIST, and TYPE.
 When NAME is nil, default values for them are selected.
 Created buffer is shown immediately as far as BACKGROUND is nil.
@@ -376,7 +452,7 @@ This function returns effective value of ITEM-LIST."
       (kill-buffer buf))
     (get-buffer-create bufname)))
 
-(defun riffle-kill-buffer ()
+(defun riffle-kill-buffer-doit ()
   (interactive)
   (when (riffle-p)
     (let* ((s (riffle-summary-buffer))
