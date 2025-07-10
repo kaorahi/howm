@@ -322,6 +322,13 @@ key	binding
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Main functions
 
+(defun howm-refresh-all-buffers ()
+  (mapc (lambda (buf)
+          (with-current-buffer buf
+            (when howm-mode
+              (howm-refresh))))
+        (buffer-list)))
+
 (defun howm-refresh ()
   (interactive)
   (if (howm-menu-p)
@@ -1020,12 +1027,12 @@ is necessary.")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Keyword
 
-(defun howm-completing-read-keyword ()
+(defun howm-completing-read-keyword (&rest opts)
   (message "Scanning...")
   (let* ((kl (howm-keyword-list))
          (table (mapcar #'list kl))
          (completion-ignore-case howm-keyword-case-fold-search))
-    (completing-read "Keyword: " table)))
+    (apply #'completing-read "Keyword: " table opts)))
 
 (defun howm-insert-keyword ()
   (interactive)
@@ -1088,6 +1095,50 @@ is necessary.")
             keyword-list)
       (when (buffer-file-name)
         (howm-basic-save-buffer)))))
+
+(defvar howm-keyword-remove-warn-p t)
+
+(defun howm-keyword-remove (keyword)
+  "Remove KEYWORD from the keyword list for come-from links."
+  (interactive (list (howm-completing-read-keyword nil t)))
+  (when howm-keyword-remove-warn-p
+    (let ((prompt (format "Safe to back up \"%s\" yourself before truncating. Truncate now? "
+                          (howm-keyword-file))))
+      (if (yes-or-no-p prompt)
+          (setq howm-keyword-remove-warn-p nil)
+        (error "Abort."))))
+  (unless (string= keyword "")
+    (howm-keyword-remove-sub keyword)
+    (howm-refresh-all-buffers)
+    (let ((prompt (format "Removed \"%s\"; but you may need to edit existing notes. Search for it?"
+                          keyword)))
+      (when (y-or-n-p prompt)
+        (howm-search keyword t)))))
+
+(defun howm-keyword-remove-sub (keyword)
+  (with-current-buffer (howm-keyword-buffer)
+    (save-excursion
+      (save-restriction
+        (widen)
+        (let ((case-fold-search nil))
+          ;; It's inefficient to scan the buffer multiple times, but
+          ;; since this isn't a frequently used feature, the code is
+          ;; kept simple for now. [2025-06-27]
+          (let* ((q (regexp-quote keyword))
+                 (regs (mapcar (lambda (pat) (format pat q))
+                               '("^%s$" "^%s\t" "\t%s$" "\t%s\t")))
+                 (replace-pattern
+                  (lambda (n to)
+                    (goto-char (point-min))
+                    (while (re-search-forward (nth n regs) nil t)
+                      (replace-match to nil nil)))))
+            (goto-char (point-min))
+            (flush-lines (nth 0 regs))
+            (funcall replace-pattern 1 "")
+            (funcall replace-pattern 2 "")
+            (funcall replace-pattern 3 "\t")
+            (when (buffer-file-name)
+              (howm-basic-save-buffer))))))))
 
 (defun howm-keyword-new-p (str)
   (save-excursion
