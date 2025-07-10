@@ -989,9 +989,20 @@ When DOTS-STR is non-nil, it is used instead of \"...\"."
   :lighter " orgFL"
   (if howm-org-font-lock-minor-mode
       (progn
+        ;; [2025-05-25]
+        ;; Workaround for the error "void-variable org-element-citation-prefix-re".
+        ;; Actually, just (require 'org-element) is enough,
+        ;; but for future robustness, we initialize org-mode entirely for now.
+        ;; https://github.com/kaorahi/howm/issues/65
+        (with-temp-buffer (org-mode))  ;; workaround (#65)
         (require 'org)
         (org-set-font-lock-defaults)
         (setq-local font-lock-keywords nil)
+        ;; restore howm's font-lock (#65)
+        (cond ((eq major-mode 'howm-view-summary-mode)
+               (howm-view-summary-mode-body))
+              ((eq major-mode 'howm-view-contents-mode)
+               (howm-view-contents-mode-body)))
         (font-lock-add-keywords nil org-font-lock-keywords))
     (font-lock-remove-keywords nil org-font-lock-keywords))
   (font-lock-flush)

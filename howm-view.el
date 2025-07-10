@@ -244,6 +244,9 @@ key	binding
 \\[describe-mode]	This help
 \\[howm-view-kill-buffer]	Quit
 "
+  (howm-view-contents-mode-body))
+
+(defun howm-view-contents-mode-body ()
 ;   (kill-all-local-variables)
   (make-local-variable 'font-lock-keywords)
   (cheat-font-lock-mode)
