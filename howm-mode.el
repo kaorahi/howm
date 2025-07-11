@@ -1095,7 +1095,8 @@ is necessary.")
             keyword-list)
       (when (buffer-file-name)
         (howm-basic-save-buffer))))
-  (howm-refresh-all-buffers))
+  (when (called-interactively-p 'interactive)
+    (howm-refresh-all-buffers)))
 
 (defvar howm-keyword-remove-warn-p t)
 
