@@ -212,6 +212,7 @@ even if you delete other windows explicitly."
           (select-frame-set-input-focus orig-frame))))))
 
 (defun riffle-kill-buffer (&rest args)
+  (interactive)
   (let* ((howm-window-p
           (lambda (w)
             (with-current-buffer (window-buffer w)
@@ -453,7 +454,6 @@ This function returns effective value of ITEM-LIST."
     (get-buffer-create bufname)))
 
 (defun riffle-kill-buffer-doit ()
-  (interactive)
   (when (riffle-p)
     (let* ((s (riffle-summary-buffer))
            (c (riffle-contents-buffer))
