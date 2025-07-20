@@ -1,3 +1,13 @@
+2025-07-20  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-misc.el (howm-org-font-lock-minor-mode):
+	fix font-lock issue in howm-org summary/contents buffers
+	thx > Mark Butala san (@butala),
+	https://github.com/kaorahi/howm/issues/65
+
+	* howm-view.el (howm-view-contents-mode,howm-view-contents-mode-body):
+	ditto.
+
 2025-06-20  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-mode.el (howm-dup):
