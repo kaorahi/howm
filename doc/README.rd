@@ -88,6 +88,7 @@
   Move the cursor on it and type [return] to search for 'hoge' in all notes.
 * Remember that '<<< hoge' is always shown first when you search for 'hoge'.
   Others are sorted by their modification time.
+* (To remove a come-from keyword that was registered by mistake, run M-x howm-keyword-remove.)
 
 === Search come-from keyword with completion.
 
