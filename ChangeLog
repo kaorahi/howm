@@ -1,5 +1,17 @@
 2025-07-20  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
+	* howm-view.el (howm-view-filter-methods)
+	(howm-view-filter-by-contents,howm-view-filter-by-keyword-in-contents)
+	(howm-view-grep-in-contents, howm-view-grep-keyword-in-contents)
+	(howm-view-actually-filter-by-keyword-in-contents)
+	(howm-view-actually-filter-by-contents,howm-view-filter-by-contents-gen)
+	(howm-rangeset-belong-p):
+	"f contents RET" in summary buffer actually performs "filtering" now
+	thx > Nicolai Singh san (nicolaisingh at pm.me)
+	https://github.com/kaorahi/howm/issues/79
+
+2025-07-20  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
 	* riffle.el (howm-view-window-location, howm-view-close-frame/tab-on-exit)
 	(riffle-summary, riffle-kill-buffer)
 	(riffle-summary-doit, riffle-kill-buffer-doit)
