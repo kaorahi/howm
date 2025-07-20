@@ -1,5 +1,17 @@
 2025-07-20  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
+	* riffle.el (howm-view-window-location, howm-view-close-frame/tab-on-exit)
+	(riffle-summary, riffle-kill-buffer)
+	(riffle-summary-doit, riffle-kill-buffer-doit)
+	(riffle-initialize-frame, riffle-initialize-tab)
+	(riffle-frame-alist, riffle-tab-name):
+	add howm-view-window-location & howm-view-close-frame/tab-on-exit
+	thx > Jack Baty san (@jackbaty), Mark Butala san (@butala),
+	Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+	https://github.com/kaorahi/howm/issues/70
+
+2025-07-20  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
 	* howm-mode.el (howm-keyword-remove, howm-keyword-remove-sub)
 	(howm-refresh-all-buffers)
 	(howm-completing-read-keyword, howm-keyword-remove-warn-p):
