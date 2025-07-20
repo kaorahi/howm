@@ -431,7 +431,7 @@ key	binding
   (let ((b (current-buffer)))
     (howm-list-title-put-previous)
     (howm-view-list-title (howm-list-title-regexp))
-    ;;       (howm-view-filter-by-contents (howm-list-title-regexp))
+    ;;       (howm-view-grep-in-contents (howm-list-title-regexp))
     (let ((c (current-buffer)))
       (when (not (eq b c))
         (set-buffer b)
