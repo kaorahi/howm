@@ -1,5 +1,14 @@
 2025-07-20  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
+	* howm-mode.el (howm-keyword-remove, howm-keyword-remove-sub)
+	(howm-refresh-all-buffers)
+	(howm-completing-read-keyword, howm-keyword-remove-warn-p):
+	add M-x howm-keyword-remove
+	thx > @OrionRandD san
+	https://github.com/kaorahi/howm/issues/74
+
+2025-07-20  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
 	* howm-misc.el (howm-org-font-lock-minor-mode):
 	fix font-lock issue in howm-org summary/contents buffers
 	thx > Mark Butala san (@butala),
