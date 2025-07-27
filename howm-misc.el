@@ -729,7 +729,8 @@ When DOTS-STR is non-nil, it is used instead of \"...\"."
      '(howm-simulate-todo-mode-line-face ((t :inherit bold)))
      '(howm-view-empty-face ((t :inherit shadow)))
      '(howm-view-hilit-face ((t :inherit isearch)))
-     '(howm-view-name-face ((t :inherit org-document-info))))))
+     '(howm-view-name-face ((t :inherit org-document-info))))
+    (apply #'custom-set-faces howm-auto-theme-custom-entries)))
 
 (when howm-follow-theme
   (add-hook 'enable-theme-functions #'howm-auto-theme)

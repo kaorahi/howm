@@ -1061,6 +1061,20 @@ value, you need to restart Emacs to apply it."
   :type 'boolean
   :group 'howm-faces)
 
+(defcustom howm-auto-theme-custom-entries nil
+  "*Entries to `custom-set-faces' that override the defaults for
+  `howm-follow-theme'.
+
+;; example
+(setq howm-follow-theme t)
+(setq howm-auto-theme-custom-entries
+      \\='(
+        (howm-view-hilit-face ((t :inherit isearch)))
+        (howm-view-name-face ((t :inherit org-document-info)))
+        ))"
+  :type '(repeat sexp)
+  :group 'howm-faces)
+
 (defface howm-view-hilit-face
   '((((class color)) (:foreground "red"))
     (t ()))
