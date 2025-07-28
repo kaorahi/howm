@@ -412,6 +412,12 @@ x → マークしたファイルたちを本当に消す</pre></li>
 <li>mtime: 更新時刻</li>
 <li>summary: 一行表示の文字列</li>
 <li>contents: 内容</li>
+<li>grep: 内容 (ヒット行を表示)</li>
+<li>Keyword-in-contents: 内容が指定キーワードを含むか
+<ul>
+<li>補完と alias に対応するのが contents との違い</li>
+</ul></li>
+<li>Grep-keyword: 内容が指定キーワードを含むか (ヒット行を表示)</li>
 <li>reminder: リマインダの日付範囲</li>
 <li>Region: 領域</li>
 <li>Around: カーソル位置の周辺
@@ -421,7 +427,9 @@ x → マークしたファイルたちを本当に消す</pre></li>
 <li>uniq: 同じファイル中で何箇所ヒットしても, 最初の一箇所だけ表示</li>
 </ul></li>
 <li>C-u f なら, マッチしたものを取り除く</li>
-<li>G → contents</li>
+<li>F → contents</li>
+<li>G → grep</li>
+<li>K → Keyword-in-contents</li>
 <li>u → uniq</li>
 </ul></li>
 <li>howm-mode と共通

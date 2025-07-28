@@ -284,13 +284,19 @@ Emacs で断片的なメモをどんどんとるための環境です.
     * mtime: 更新時刻
     * summary: 一行表示の文字列
     * contents: 内容
+    * grep: 内容 (ヒット行を表示)
+    * Keyword-in-contents: 内容が指定キーワードを含むか
+      * 補完と alias に対応するのが contents との違い
+    * Grep-keyword: 内容が指定キーワードを含むか (ヒット行を表示)
     * reminder: リマインダの日付範囲
     * Region: 領域
     * Around: カーソル位置の周辺
       * C-u 7 f → Around なら, 前後 7 つ
     * uniq: 同じファイル中で何箇所ヒットしても, 最初の一箇所だけ表示
   * C-u f なら, マッチしたものを取り除く
-  * G → contents
+  * F → contents
+  * G → grep
+  * K → Keyword-in-contents
   * u → uniq
 
 * howm-mode と共通
