@@ -1,5 +1,29 @@
 2025-07-28  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
+	* howm-view.el (howm-view-filter-methods)
+	(howm-view-filter-by-contents,howm-view-filter-by-keyword-in-contents)
+	(howm-view-grep-in-contents, howm-view-grep-keyword-in-contents)
+	(howm-view-actually-filter-by-keyword-in-contents)
+	(howm-view-actually-filter-by-contents,howm-view-filter-by-contents-gen)
+	(howm-rangeset-belong-p):
+	"f contents RET" in summary buffer actually performs "filtering" now,
+	breaking backward compatibility
+	thx > Nicolai Singh san (nicolaisingh at pm.me)
+	https://github.com/kaorahi/howm/issues/79
+
+	* howm-view.el (howm-view-define-common-key)
+	(howm-view-summary-mode, howm-view-contents-mode):
+	bind "F" key to howm-view-actually-filter-by-contents in summary
+	buffer, and "K" key to
+	howm-view-actually-filter-by-keyword-in-contents instead of
+	conventional howm-keyword-to-kill-ring for convenience
+	thx > Nicolai Singh san (nicolaisingh at pm.me)
+	https://github.com/kaorahi/howm/issues/79
+
+	* howm-mode.el (howm-default-key-table): ditto
+
+2025-07-28  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
 	* howm-misc.el (howm-auto-theme):
 	fix too large font in summary buffer for howm-follow-theme
 	thx > @rhstanton san
