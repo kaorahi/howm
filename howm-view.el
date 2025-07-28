@@ -69,13 +69,13 @@
     ("summary" . howm-view-filter-by-summary)
     ("keyword" . howm-view-filter-by-keyword-in-summary)
     ("Keyword-in-contents" . howm-view-actually-filter-by-keyword-in-contents)
-    ("Grep-keyword" . howm-view-filter-by-keyword-in-contents)
+    ("Grep-keyword" . howm-view-grep-keyword-in-contents)
     ("mtime" . howm-view-filter-by-mtime)
 ;     ("ctime" . howm-view-filter-by-ctime) ;; needless
     ("date" . howm-view-filter-by-date)
     ("reminder" . howm-view-filter-by-reminder)
     ("contents" . howm-view-actually-filter-by-contents)
-    ("grep" . howm-view-filter-by-contents)
+    ("grep" . howm-view-grep-in-contents)
     ("Region" . howm-view-filter-by-region)
     ("Around" . howm-view-filter-by-around)
     ("uniq" . howm-view-filter-uniq)
@@ -189,7 +189,7 @@ key	binding
 \\[howm-list-toggle-title]	Show/Hide Title
 
 \\[howm-view-filter]	Filter (by date, contents, etc.)
-\\[howm-view-filter-by-contents]	Search within results
+\\[howm-view-grep-in-contents]	Search within results
 \\[howm-view-sort]	Sort (by date, summary line, etc.)
 \\[howm-view-sort-reverse]	Reverse order
 \\[howm-view-dired]	Invoke Dired-X
@@ -239,7 +239,7 @@ key	binding
 \\[riffle-contents-goto-previous-item]	Previous item
 
 \\[howm-view-filter]	Filter (by date, contents, etc.)
-\\[howm-view-filter-by-contents]	Search within results
+\\[howm-view-grep-in-contents]	Search within results
 \\[howm-view-sort]	Sort
 \\[howm-view-sort-reverse]	Reverse order
 \\[howm-view-dired]	Invoke Dired-X
@@ -282,7 +282,7 @@ key	binding
   (let ((m keymap))
 ;;     (define-key m "?" 'howm-view-help)
     (define-key m "f" 'howm-view-filter)
-    (define-key m "G" 'howm-view-filter-by-contents)
+    (define-key m "G" 'howm-view-grep-in-contents)
     (define-key m "S" 'howm-view-sort)
     (define-key m "R" 'howm-view-sort-reverse)
     (define-key m "q" 'howm-view-kill-buffer)
@@ -634,9 +634,9 @@ But I'm not sure for multi-byte characters on other versions of emacsen."
   (howm-view-filter-by-keyword-general #'howm-view-filter-by-summary
                                        remove-p keyword))
 
-(defun howm-view-filter-by-keyword-in-contents (&optional remove-p keyword)
+(defun howm-view-grep-keyword-in-contents (&optional remove-p keyword)
   (interactive "P")
-  (howm-view-filter-by-keyword-general #'howm-view-filter-by-contents
+  (howm-view-filter-by-keyword-general #'howm-view-grep-in-contents
                                        remove-p keyword))
 
 (defun howm-view-actually-filter-by-keyword-in-contents (&optional remove-p keyword)
@@ -699,7 +699,11 @@ But I'm not sure for multi-byte characters on other versions of emacsen."
                               (min ,end (length item-list))))))
     (howm-view-filter-doit f)))
 
-(defun howm-view-filter-by-contents (&optional remove-p regexp)
+;; keep misnamed functions that aren't really "filters" for backward compatibility
+(defalias 'howm-view-filter-by-contents 'howm-view-grep-in-contents)
+(defalias 'howm-view-filter-by-keyword-in-contents 'howm-view-grep-keyword-in-contents)
+
+(defun howm-view-grep-in-contents (&optional remove-p regexp)
   ;; not "filter" but "search in result" actually for backward
   ;; compatibility
   (interactive "P")
