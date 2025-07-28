@@ -68,12 +68,14 @@
   '(("name" . howm-view-filter-by-name)
     ("summary" . howm-view-filter-by-summary)
     ("keyword" . howm-view-filter-by-keyword-in-summary)
-    ("Keyword-in-contents" . howm-view-filter-by-keyword-in-contents)
+    ("Keyword-in-contents" . howm-view-actually-filter-by-keyword-in-contents)
+    ("Grep-keyword" . howm-view-filter-by-keyword-in-contents)
     ("mtime" . howm-view-filter-by-mtime)
 ;     ("ctime" . howm-view-filter-by-ctime) ;; needless
     ("date" . howm-view-filter-by-date)
     ("reminder" . howm-view-filter-by-reminder)
-    ("contents" . howm-view-filter-by-contents)
+    ("contents" . howm-view-actually-filter-by-contents)
+    ("grep" . howm-view-filter-by-contents)
     ("Region" . howm-view-filter-by-region)
     ("Around" . howm-view-filter-by-around)
     ("uniq" . howm-view-filter-uniq)
@@ -187,7 +189,7 @@ key	binding
 \\[howm-list-toggle-title]	Show/Hide Title
 
 \\[howm-view-filter]	Filter (by date, contents, etc.)
-\\[howm-view-filter-by-contents]	Search (= filter by contents)
+\\[howm-view-filter-by-contents]	Search within results
 \\[howm-view-sort]	Sort (by date, summary line, etc.)
 \\[howm-view-sort-reverse]	Reverse order
 \\[howm-view-dired]	Invoke Dired-X
@@ -237,7 +239,7 @@ key	binding
 \\[riffle-contents-goto-previous-item]	Previous item
 
 \\[howm-view-filter]	Filter (by date, contents, etc.)
-\\[howm-view-filter-by-contents]	Search (= filter by contents)
+\\[howm-view-filter-by-contents]	Search within results
 \\[howm-view-sort]	Sort
 \\[howm-view-sort-reverse]	Reverse order
 \\[howm-view-dired]	Invoke Dired-X
@@ -637,6 +639,11 @@ But I'm not sure for multi-byte characters on other versions of emacsen."
   (howm-view-filter-by-keyword-general #'howm-view-filter-by-contents
                                        remove-p keyword))
 
+(defun howm-view-actually-filter-by-keyword-in-contents (&optional remove-p keyword)
+  (interactive "P")
+  (howm-view-filter-by-keyword-general #'howm-view-actually-filter-by-contents
+                                       remove-p keyword))
+
 (defun howm-view-filter-by-keyword-general (f &optional remove-p keyword)
   (let* ((k (or keyword (howm-completing-read-keyword)))
          (aliases (if (howm-support-aliases-p)
@@ -693,13 +700,26 @@ But I'm not sure for multi-byte characters on other versions of emacsen."
     (howm-view-filter-doit f)))
 
 (defun howm-view-filter-by-contents (&optional remove-p regexp)
+  ;; not "filter" but "search in result" actually for backward
+  ;; compatibility
   (interactive "P")
+  (howm-view-filter-by-contents-gen "Search in result (grep): "
+                                    nil remove-p regexp))
+
+(defun howm-view-actually-filter-by-contents (&optional remove-p regexp)
+  ;; just "filter" without modifying the items
+  (interactive "P")
+  (howm-view-filter-by-contents-gen "Regexp: "
+                                    t remove-p regexp))
+
+(defun howm-view-filter-by-contents-gen (prompt purely &optional remove-p regexp)
   (let ((r (or regexp (howm-view-filter-read-from-minibuffer
-                       "Search in result (grep): "
+                       prompt
                        remove-p))))
-    (if remove-p
-        (howm-view-remove-by-contents r)
-      (howm-view-search-in-result r))))
+    (cond (purely (howm-view-summary-rebuild
+                   (howm-filter-items-by-contents (howm-view-item-list) r remove-p)))
+          (remove-p (howm-view-remove-by-contents r))
+          (t (howm-view-search-in-result r)))))
 
 (howm-if-ver1dot3 nil
   (defcustom howm-view-search-in-result-correctly t
@@ -1171,6 +1191,7 @@ B is items in REFERENCE-ITEM-LIST that do not match in case 1."
 
 (defun howm-rangeset-belong-p (point rs)
   (or (null (cdr rs))
+      (null point) ;; for howm-view-actually-filter-by-contents [2025-07-20]
       (cl-member-if (lambda (pair)
                            (and (<= (car pair) point) (<= point (cdr pair))))
                          (cdr rs))))
