@@ -1,3 +1,17 @@
+2025-07-28  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-misc.el (howm-auto-theme):
+	fix too large font in summary buffer for howm-follow-theme
+	thx > @rhstanton san
+	https://github.com/kaorahi/howm/issues/82
+
+	* howm-vars.el (howm-auto-theme-custom-entries):
+	add howm-auto-theme-custom-entries for howm-follow-theme
+	thx > @rhstanton san
+	https://github.com/kaorahi/howm/issues/82
+
+	* howm-misc.el (howm-auto-theme): ditto
+
 2025-07-20  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* riffle.el (howm-view-window-location, howm-view-close-frame/tab-on-exit)
