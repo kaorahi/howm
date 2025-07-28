@@ -189,6 +189,8 @@ key	binding
 \\[howm-list-toggle-title]	Show/Hide Title
 
 \\[howm-view-filter]	Filter (by date, contents, etc.)
+\\[howm-view-actually-filter-by-contents]	Filter by contents
+\\[howm-view-actually-filter-by-keyword-in-contents]	Filter by keyword in contents
 \\[howm-view-grep-in-contents]	Search within results
 \\[howm-view-sort]	Sort (by date, summary line, etc.)
 \\[howm-view-sort-reverse]	Reverse order
@@ -239,6 +241,8 @@ key	binding
 \\[riffle-contents-goto-previous-item]	Previous item
 
 \\[howm-view-filter]	Filter (by date, contents, etc.)
+\\[howm-view-actually-filter-by-contents]	Filter by contents
+\\[howm-view-actually-filter-by-keyword-in-contents]	Filter by keyword in contents
 \\[howm-view-grep-in-contents]	Search within results
 \\[howm-view-sort]	Sort
 \\[howm-view-sort-reverse]	Reverse order
@@ -282,6 +286,8 @@ key	binding
   (let ((m keymap))
 ;;     (define-key m "?" 'howm-view-help)
     (define-key m "f" 'howm-view-filter)
+    (define-key m "F" 'howm-view-actually-filter-by-contents)
+    (define-key m "K" 'howm-view-actually-filter-by-keyword-in-contents)
     (define-key m "G" 'howm-view-grep-in-contents)
     (define-key m "S" 'howm-view-sort)
     (define-key m "R" 'howm-view-sort-reverse)

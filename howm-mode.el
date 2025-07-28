@@ -90,7 +90,7 @@ If it is a function, it is called to get template string with the argument <n>."
     ("i" howm-insert-keyword nil t)
     ("d" howm-insert-date nil t)
     ("T" howm-insert-dtime nil t)
-    ("K" howm-keyword-to-kill-ring t t)
+    ("K" howm-keyword-to-kill-ring nil t)
     ("n" action-lock-goto-next-link)
     ("p" action-lock-goto-previous-link)
     ("Q" howm-kill-all t t)
