@@ -923,6 +923,49 @@ Emacs で断片的なメモをどんどんとるための環境です.
 
 thx > patch・改良案・指摘をくださった皆様
 
+* リリース予定版 howm-1.5.5-pre1 [2025-07-28]
+  * 変更
+    * 一覧の f contents RET は純粋な「絞り込み」に変更 (単にヒットした項目のみを残す).
+      従来の「絞り込んでヒット行を一覧」は G キーもしくは f grep RET で.
+      f Keyword-in-contents RET も同様に, 従来動作は f Grep-keyword RET で.
+      また, F キーおよび K キーでこれらの絞り込みを直接呼出.
+      thx > Nicolai Singh san (nicolaisingh at pm.me)
+      * もしどうしても従来の動作に戻したければ, 以下を howm のロード後に
+          ;; 一覧上での「f contents RET」などを howm-1.5.4 以前の動作に戻す
+          (setf (alist-get "contents" howm-view-filter-methods nil nil #'equal)
+                ;; Use the old name intentionally for safety in older versions
+                'howm-view-filter-by-contents)
+          (setf (alist-get "Keyword-in-contents" howm-view-filter-methods nil nil #'equal)
+                'howm-view-filter-by-keyword-in-contents)
+          (define-key howm-view-summary-mode-map "K" 'howm-keyword-to-kill-ring)
+          (define-key howm-view-contents-mode-map "K" 'howm-keyword-to-kill-ring)
+  * 改良
+    * 一覧を新規フレーム・タブで開き, q キーでフレーム・タブを閉じる
+      (M-x customize-group RET howm-list-bufwin RET から
+      howm-view-window-location および howm-view-close-frame/tab-on-exit を設定)
+      thx > Jack Baty san (@jackbaty), Mark Butala san (@butala),
+      Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)
+    * まちがえて登録した come-from キーワードを M-x howm-keyword-remove で削除
+      thx > @OrionRandD san
+    * 日付のクイックシフト機能を拡張 (日付上で RET →「[」「]」キー)
+      * 「.」で今日の日付に
+      * メニュー上でも対応
+    * テーマ機能 (howm-follow-theme) をカスタマイズ可能に (howm-auto-theme-custom-entries)
+      thx > @rhstanton san
+    * (cheat-font-lock.el からチートを排除)
+  * fix
+    * org 併用時の各種不具合
+      thx > @rhstanton san, Jack Baty san (@jackbaty), Alexis Praga san (@apraga),
+      Mark Butala san (@butala), Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no),
+      @Claudisimo san, Xavier Capaldi san (xcapaldi)
+    * タイトルなしのメモもメニューの %recent や %random に表示
+      thx > @Claudisimo san
+    * howm-prepend の設定を howm-dup にも反映
+      thx > Nicolai Singh san (nicolaisingh at pm.me)
+    * howm-view-dired-goto の無限ループ予防
+      thx > @masmarius san
+    * make test 時の警告 "Missing lexical-binding cookie"
+
 * リリース版 howm-1.5.4 [2025-03-23]
   * 使いはじめを便利に (README.mdの「Quick start」を参照)
     * markdownやorgとの連携

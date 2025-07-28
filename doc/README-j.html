@@ -1281,6 +1281,60 @@ make test</pre></li>
 <h3><a name="label-19" id="label-19">更新記録</a></h3><!-- RDLabel: "更新記録" -->
 <p>thx &gt; patch・改良案・指摘をくださった皆様</p>
 <ul>
+<li>リリース予定版 howm-1.5.5-pre1 [2025-07-28]
+<ul>
+<li>変更
+<ul>
+<li>一覧の f contents RET は純粋な「絞り込み」に変更 (単にヒットした項目のみを残す).
+      従来の「絞り込んでヒット行を一覧」は G キーもしくは f grep RET で.
+      f Keyword-in-contents RET も同様に, 従来動作は f Grep-keyword RET で.
+      また, F キーおよび K キーでこれらの絞り込みを直接呼出.
+      thx &gt; Nicolai Singh san (nicolaisingh at pm.me)
+<ul>
+<li><p>もしどうしても従来の動作に戻したければ, 以下を howm のロード後に</p>
+<pre>;; 一覧上での「f contents RET」などを howm-1.5.4 以前の動作に戻す
+(setf (alist-get "contents" howm-view-filter-methods nil nil #'equal)
+      ;; Use the old name intentionally for safety in older versions
+      'howm-view-filter-by-contents)
+(setf (alist-get "Keyword-in-contents" howm-view-filter-methods nil nil #'equal)
+      'howm-view-filter-by-keyword-in-contents)
+(define-key howm-view-summary-mode-map "K" 'howm-keyword-to-kill-ring)
+(define-key howm-view-contents-mode-map "K" 'howm-keyword-to-kill-ring)</pre></li>
+</ul></li>
+</ul></li>
+<li>改良
+<ul>
+<li>一覧を新規フレーム・タブで開き, q キーでフレーム・タブを閉じる
+      (M-x customize-group RET howm-list-bufwin RET から
+      howm-view-window-location および howm-view-close-frame/tab-on-exit を設定)
+      thx &gt; Jack Baty san (@jackbaty), Mark Butala san (@butala),
+      Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no)</li>
+<li>まちがえて登録した come-from キーワードを M-x howm-keyword-remove で削除
+      thx &gt; @OrionRandD san</li>
+<li>日付のクイックシフト機能を拡張 (日付上で RET →「[」「]」キー)
+<ul>
+<li>「.」で今日の日付に</li>
+<li>メニュー上でも対応</li>
+</ul></li>
+<li>テーマ機能 (howm-follow-theme) をカスタマイズ可能に (howm-auto-theme-custom-entries)
+      thx &gt; @rhstanton san</li>
+<li>(cheat-font-lock.el からチートを排除)</li>
+</ul></li>
+<li>fix
+<ul>
+<li>org 併用時の各種不具合
+      thx &gt; @rhstanton san, Jack Baty san (@jackbaty), Alexis Praga san (@apraga),
+      Mark Butala san (@butala), Jabir Ali Ouassou san (jabir.ali.ouassou at hvl.no),
+      @Claudisimo san, Xavier Capaldi san (xcapaldi)</li>
+<li>タイトルなしのメモもメニューの %recent や %random に表示
+      thx &gt; @Claudisimo san</li>
+<li>howm-prepend の設定を howm-dup にも反映
+      thx &gt; Nicolai Singh san (nicolaisingh at pm.me)</li>
+<li>howm-view-dired-goto の無限ループ予防
+      thx &gt; @masmarius san</li>
+<li>make test 時の警告 "Missing lexical-binding cookie"</li>
+</ul></li>
+</ul></li>
 <li>リリース版 howm-1.5.4 [2025-03-23]
 <ul>
 <li>使いはじめを便利に (README.mdの「Quick start」を参照)

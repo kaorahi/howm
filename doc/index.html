@@ -116,6 +116,93 @@ For customization, try 'M-x customize-group RET howm RET'.
 
 <h2><a name="changes"></a>Updates</h2>
 
+<h3>1.5.4 to 1.5.5-pre1</h3>
+
+<ul>
+  <li>Changes
+    <ul>
+      <li>
+        In the summary buffer, "f contents RET" now performs pure filtering (it simply retains only the matched entries).
+        The previous behavior (filter and list matching lines) is available via "G" or "f grep RET".
+        Similarly, "f Keyword-in-contents RET" has changed; the previous behavior is now available via "f Grep-keyword RET".
+        Also, "F" and "K" now serve as shortcuts for these pure filtering commands.
+        <a href="https://github.com/kaorahi/howm/issues/79">thx</a>
+        <ul>
+          <li>
+            If you really want to restore the previous behavior, add the following after loading howm:
+            <pre><code>;; Restore the behavior of "f contents RET" etc. in the list view
+;; to how it was in howm-1.5.4 or earlier
+(setf (alist-get "contents" howm-view-filter-methods nil nil #'equal)
+  ;; Use the old name intentionally for safety in older versions
+  'howm-view-filter-by-contents)
+(setf (alist-get "Keyword-in-contents" howm-view-filter-methods nil nil #'equal)
+  'howm-view-filter-by-keyword-in-contents)
+(define-key howm-view-summary-mode-map "K" 'howm-keyword-to-kill-ring)
+(define-key howm-view-contents-mode-map "K" 'howm-keyword-to-kill-ring)</code></pre>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Improvements
+    <ul>
+      <li>
+        List view can now open in a new frame or tab, and pressing "q" closes it
+        (Run "M-x customize-group RET howm-list-bufwin RET", then set "howm-view-window-location" and "howm-view-close-frame/tab-on-exit")
+        <a href="https://github.com/kaorahi/howm/issues/70">thx</a>
+      </li>
+      <li>
+        Remove mistakenly registered come-from keywords using "M-x howm-keyword-remove"
+        <a href="https://github.com/kaorahi/howm/issues/74">thx</a>
+      </li>
+      <li>
+        Extended quick-shift functionality for dates (RET on a date → "[" and "]" keys)
+        <ul>
+          <li>"." key jumps to today's date</li>
+          <li>Also supported in the menu</li>
+        </ul>
+      </li>
+      <li>
+        The theme functionality (cf. howm-follow-theme) is now customizable via howm-auto-theme-custom-entries
+        <a href="https://github.com/kaorahi/howm/issues/82">thx</a>
+      </li>
+      <li>(Removed "cheats" from cheat-font-lock.el)</li>
+    </ul>
+  </li>
+  <li>Fixes
+    <ul>
+      <li>
+        Org-related issues
+        <a href="https://github.com/kaorahi/howm/issues/29">thx</a>
+        <a href="https://github.com/kaorahi/howm/issues/62">thx</a>
+        <a href="https://github.com/kaorahi/howm/issues/64">thx</a>
+        <a href="https://github.com/kaorahi/howm/issues/65">thx</a>
+        <a href="https://github.com/kaorahi/howm/issues/66">thx</a>
+        <a href="https://github.com/kaorahi/howm/issues/68">thx</a>
+      </li>
+      <li>
+        Fonts could be too large in the summary buffer if howm-follow-theme was enabled
+        <a href="https://github.com/kaorahi/howm/issues/82">thx</a>
+      </li>
+      <li>
+        Notes without titles now appear in %recent and %random in the menu
+        <a href="https://github.com/kaorahi/howm/issues/68">thx</a>
+      </li>
+      <li>
+        howm-dup now respects howm-prepend settings
+        <a href="https://github.com/kaorahi/howm/issues/76">thx</a>
+      </li>
+      <li>
+        Prevented potential infinite loop in howm-view-dired-goto
+        <a href="https://github.com/kaorahi/howm/issues/60">thx</a>
+      </li>
+      <li>
+        (Fixed warning "Missing lexical-binding cookie" during "make test")
+      </li>
+    </ul>
+  </li>
+</ul>
+
 <h3>1.5.3 to 1.5.4</h3>
 
 <ul>
