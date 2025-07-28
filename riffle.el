@@ -60,11 +60,11 @@ even if you delete other windows explicitly."
 (defvar riffle-keep-window nil)
 
 (defcustom riffle-frame-alist `((name . "*howm*"))
-  "Initial frame parameters when `howm-view-window-location' is set to \'tab."
+  "Initial frame parameters when `howm-view-window-location' is set to \\='tab."
   :type 'alist
   :group 'howm-list-bufwin)
 (defcustom riffle-tab-name "*howm*"
-  "Tab name when `howm-view-window-location' is set to \'tab."
+  "Tab name when `howm-view-window-location' is set to \\='tab."
   :type 'string
   :group 'howm-list-bufwin)
 
