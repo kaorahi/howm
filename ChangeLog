@@ -1,3 +1,7 @@
+2025-08-05  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* configure.ac: version 1.5.5
+
 2025-07-28  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-view.el (howm-view-filter-methods)
