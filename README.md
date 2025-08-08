@@ -4,7 +4,7 @@ Howm is a note-taking tool on Emacs. It is similar to emacs-wiki.el; you can enj
 
 * [Home](https://kaorahi.github.io/howm/)
 * [Introduction by Leah Neukirchen](https://leahneukirchen.org/blog/archive/2022/03/note-taking-in-emacs-with-howm.html) (thx!)
-* [Detailed English & Russian tutorials by Andrei Sukhovskii](https://github.com/Emacs101/howm-manual) (thx!)
+* [Detailed tutorial by Andrei Sukhovskii](https://emacs101.github.io/howm.html) (thx!)
 * [1-minute introduction on YouTube by Raoul Comninos](https://www.youtube.com/watch?v=RHxYMF1wsmk) (thx!)
 
 The following screenshot illustrates the Howm linking system:
