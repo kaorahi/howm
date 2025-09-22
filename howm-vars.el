@@ -566,7 +566,8 @@ if `howm-list-normalizer' is non-nil."
   :group 'howm-sort)
 
 (defcustom howm-list-prefer-word nil
-  "*Matches to whole word are listed first in summary buffer."
+  "*Matches to whole word are listed first in summary buffer.
+Related: `howm-word-match-required-cases', `howm-check-word-break'."
   :type 'boolean
   :group 'howm-sort)
 
@@ -699,11 +700,20 @@ If it is a function, the evaluated value is used instead of itself."
 (defcustom howm-check-word-break nil
   "*Non-nil if come-from keywords within a word should not linked.
 When the value is a string (regexp), word breaks are checked
-only for matched keywords. "
+only for matched keywords.
+Related: `howm-list-prefer-word', `howm-word-match-required-cases'."
   :type '(radio (const :tag "Always" t)
                 (const :tag "Never" nil)
                 (const :tag "ASCII only" "^[[:ascii:]]+$")
                 string)
+  :group 'howm-search)
+
+(defcustom howm-word-match-required-cases nil
+  "*List of cases in which word match is required.
+See `customize-variable' (M-x customize-variable RET
+howm-word-match-required-cases RET) for supported case names.
+Related: `howm-list-prefer-word', `howm-check-word-break'."
+  :type '(set (const filter-by-keyword))
   :group 'howm-search)
 
 (defcustom howm-view-update-search-ring nil

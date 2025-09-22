@@ -1,3 +1,14 @@
+2025-09-22  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-vars.el (howm-word-match-required-cases): add option
+	thx > Pere Quintana san (@bitic)
+	https://github.com/kaorahi/howm/issues/85
+
+	* howm-view.el (howm-view-filter-by-keyword-general): ditto
+
+	* howm-vars.el (howm-list-prefer-word, howm-check-word-break):
+	add "Related: " to docstrings.
+
 2025-08-05  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* configure.ac: version 1.5.5

@@ -656,10 +656,15 @@ But I'm not sure for multi-byte characters on other versions of emacsen."
                       (howm-keyword-aliases k)
                     k))
          (regexp (if (listp aliases)
-                     (mapconcat 'regexp-quote aliases "\\|")
+                     (regexp-opt aliases t)
                    (regexp-quote aliases)))
+         (wrapper (if (memq 'filter-by-keyword
+                            howm-word-match-required-cases)
+                      "\\<%s\\>"
+                    "%s"))
+         (wrapped-regexp (format wrapper regexp))
          (howm-view-use-grep nil))  ;; necessary for "\\|"
-    (funcall f remove-p regexp)))
+    (funcall f remove-p wrapped-regexp)))
 
 (defun howm-view-filter-by-date (&optional remove-p)
   (interactive "P")
