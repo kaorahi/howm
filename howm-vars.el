@@ -698,7 +698,7 @@ If it is a function, the evaluated value is used instead of itself."
   :group 'howm-search)
 
 (defcustom howm-check-word-break nil
-  "*Non-nil if come-from keywords within a word should not linked.
+  "*Non-nil if come-from keywords inside words should not be linked.
 When the value is a string (regexp), word breaks are checked
 only for matched keywords.
 Related: `howm-list-prefer-word', `howm-word-match-required-cases'."
