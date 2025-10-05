@@ -944,9 +944,13 @@ But I'm not sure for multi-byte characters on other versions of emacsen."
        (r1 (format "^\\(%s\\)? *$" h))
        (t2 (format "Skip \"%s \" and \"[xxxx-xx-xx xx:xx]\""
                    howm-view-title-header))
-       (r2 (format "\\(%s\\)\\|\\(^\\[[-: 0-9]+\\]\\)" r1)))
+       (r2 (format "\\(%s\\)\\|\\(^\\[[-: 0-9]+\\]\\)" r1))
+       (t3 (format "Skip \"%s \" and \"[xxxx-xx-xx xx:xx]\", but accept todo forms"
+                   howm-view-title-header))
+       (r3 (format "\\(%s\\)\\|\\(^\\[[-: 0-9]+\\]\\( \\|$\\)\\)" r1)))
+
   (howm-if-ver1dot3 nil
-    (defcustom howm-view-title-skip-regexp r2
+    (defcustom howm-view-title-skip-regexp r3
       "*Regular expression for lines which should not be titles.
 If the original title matches this regexp, the first non-matched line
 is shown as title instead.
@@ -956,6 +960,7 @@ This feature does not work when `howm-view-search-in-result-correctly' is nil."
       :type `(radio (const :tag "Off" nil)
                     (const :tag ,t1 ,r1)
                     (const :tag ,t2 ,r2)
+                    (const :tag ,t3 ,r3)
                     regexp)
       :group 'howm-title
       :group 'howm-efficiency)))

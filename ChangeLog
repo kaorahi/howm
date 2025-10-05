@@ -1,3 +1,12 @@
+2025-10-05  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-view.el (howm-view-title-skip-regexp):
+	accept todo forms as title by default;
+	if the title line is empty and the first line of the body contains
+	a todo form, treat that as the title.
+	thx > @SenkiReign san
+	https://github.com/kaorahi/howm/issues/91
+
 2025-09-22  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-vars.el (howm-word-match-required-cases): add option
