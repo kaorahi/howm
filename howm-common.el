@@ -45,9 +45,8 @@ The objects removed are those matching
        folder-items)
     folder-items))
 
-(defun howm-subdirectory-p (dir target &optional strict)
-  "For the directory DIR, check whether TARGET is under it.
-When TARGET and DIR are same, (not STRICT) is returned."
+(defun howm-subdirectory-p (dir target)
+  "For the directory DIR, check whether TARGET is under it."
   (and (stringp dir)
        ;; avoid unnecessary password prompting
        ;; (I'm not sure about the return value of file-remote-p.)
@@ -55,10 +54,7 @@ When TARGET and DIR are same, (not STRICT) is returned."
        (progn
          (setq target (howm-normalize-file-name target))
          (setq dir (howm-normalize-file-name dir))
-         (if (string= target dir)
-             (not strict)
-           (and (string-match (regexp-quote dir) target)
-                (= 0 (match-beginning 0)))))))
+         (string-prefix-p dir target))))
 
 (defun howm-normalize-file-name (filename)
   (let* ((r (file-remote-p filename))

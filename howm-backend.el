@@ -103,51 +103,33 @@ Flag is non-nil if new page is created.")
 (defun howm-folder-grep-internal:dir (folder pattern &optional fixed-p)
   (howm-grep-items pattern folder fixed-p #'howm-exclude-p))
 
-(defun howm-files-in-directory (path &optional dummy-exclusion-checker)
-  "List files in PATH recursively, when PATH is a directory.
-When PATH is a file, list of it is returned.
-Some files and directories are ignored according to `howm-exclude-p'.
-DUMMY-EXCLUSION-CHECKER has no effect; it should be removed soon."
-  (howm-files-in-directory-sub (expand-file-name path)))
+(defun howm-files-in-directory (path)
+  "Return a list of files under PATH if PATH is a directory, searching
+subdirectories recursively.  If PATH is a file, return a single-element
+list containing it.  Files and subdirectories matching
+`howm-exclude-p' are ignored, but PATH itself is always included.
+This is because some users like to store their notes in ~/.howm/ but
+still ignore the dot files inside it."
+  (let ((full-path (expand-file-name path))
+        (include-p (lambda (d) (not (howm-exclude-p d)))))
+    (if (file-directory-p full-path)
+        ;; comparison of two implementations [2025-09-30]
+        ;; C-u 10 M-x benchmark RET (howm-list-recent) RET
+        ;; <implementation A> Elapsed time: 7.524661s (1.446273s in 17 GCs)
+        (seq-remove #'howm-exclude-p
+                    (directory-files-recursively full-path "" nil include-p t))
+        ;; ;; <implementation B> Elapsed time: 7.938591s (1.480866s in 17 GCs)
+        ;; (howm-files-in-directory-sub full-path)
+      (and (file-exists-p full-path) (list full-path)))))
 
-(defun howm-files-in-directory-sub (full-path &optional under)
-  (let* ((top-call-p (null under))
-         (excluded-p (if top-call-p
-                         nil
-                       (or (howm-exclude-p full-path)
-                           ;; exclude "." & ".."
-                           (not (howm-subdirectory-p under full-path
-                                                     'strict))))))
-    (cond (excluded-p
-           nil)
-          ((file-directory-p full-path)
-           (cl-mapcan (lambda (s)
-                             (howm-files-in-directory-sub s full-path))
-                   (directory-files full-path t)))
-          ((file-exists-p full-path)
-           (list full-path))
-          (t
-           nil))))
-
-;; ;; list files recursively
-;; (defun howm-files-in-directory (dir &optional exclusion-checker)
-;;   (when (null exclusion-checker)
-;;     (setq exclusion-checker (lambda (x) nil)))
-;;   (cond ((file-directory-p dir) (howm-files-in-directory-sub dir
-;;                                                              exclusion-checker))
-;;         ((file-exists-p dir) (list dir))
-;;         (t nil)))
-
-;; (defun howm-files-in-directory-sub (dir exclusion-checker)
-;;   (cl-mapcan (lambda (f)
-;;             (cond
-;;              ((funcall exclusion-checker f) nil)
-;;              ((file-directory-p f) (if (howm-subdirectory-p dir f t)
-;;                                        (howm-files-in-directory f exclusion-checker)
-;;                                      nil)) ;; exclude "." & ".."
-;;              ((file-regular-p f) (list f))
-;;              (t nil)))
-;;           (directory-files dir t)))
+;; (defun howm-files-in-directory-sub (dir)
+;;   (let* ((fs (directory-files dir t
+;;                               directory-files-no-dot-files-regexp))
+;;          (filtered (cl-remove-if #'howm-exclude-p fs))
+;;          (grouped (seq-group-by #'file-directory-p filtered))
+;;          (files (alist-get nil grouped))
+;;          (subdirs (alist-get t grouped)))
+;;     (nconc files (mapcan #'howm-files-in-directory-sub subdirs))))
 
 (defun howm-folder-get-page-create:dir (folder page-name)
   (let* ((file (expand-file-name page-name folder))
