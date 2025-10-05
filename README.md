@@ -10,7 +10,7 @@ Howm is a note-taking tool on Emacs. It is similar to emacs-wiki.el; you can enj
 The following screenshot illustrates the Howm linking system:
 ![screenshot](doc/screenshot.png)
 
-(Colorscheme: [Modus themes](https://protesilaos.com/emacs/modus-themes#h:7ea8fa66-1cd8-47b0-92b4-9998a3068f85).)
+(Colorscheme: [Modus themes](https://protesilaos.com/emacs/modus-themes).)
 
 ## Quick start
 
