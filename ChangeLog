@@ -1,5 +1,7 @@
 2026-01-01  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
+	* configure.ac: version 1.5.6
+
 	* howm.el.in: update copyright years
 
 2025-10-05  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
