@@ -1,3 +1,7 @@
+2026-01-01  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm.el.in: update copyright years
+
 2025-10-05  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* howm-view.el (howm-view-title-skip-regexp):

@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: nil; -*-
 ;;; riffle.el --- template of list browser with immediate preview
-;;; Copyright (C) 2004, 2005-2025
+;;; Copyright (C) 2004, 2005-2026
 ;;;   HIRAOKA Kazuyuki <kakkokakko@gmail.com>
 ;;;
 ;;; This program is free software; you can redistribute it and/or modify

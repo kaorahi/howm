@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: nil; -*-
 ;;; illusion.el --- load, edit, and submit something which is not pure file
-;;; Copyright (C) 2005-2025
+;;; Copyright (C) 2005-2026
 ;;;   HIRAOKA Kazuyuki <kakkokakko@gmail.com>
 ;;;
 ;;; This program is free software; you can redistribute it and/or modify
