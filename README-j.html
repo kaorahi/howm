@@ -1281,7 +1281,20 @@ make test</pre></li>
 <h3><a name="label-19" id="label-19">更新記録</a></h3><!-- RDLabel: "更新記録" -->
 <p>thx &gt; patch・改良案・指摘をくださった皆様</p>
 <ul>
-<li>リリース予定版 howm-1.5.5 [2025-08-05]
+<li>リリース版 howm-1.5.6 [2026-01-01]
+<ul>
+<li>「最近のメモ一覧」を高速化.</li>
+<li><p>キーワードでの絞り込みの際にワードマッチを要求する設定を追加.
+    thx &gt; Pere Quintana san (@bitic)</p>
+<pre>;; 「ask」を指定したとき「tasks」はヒットしない
+(setq howm-word-match-required-cases '(filter-by-keyword))</pre>
+<ul>
+<li>関連: 変数 howm-list-prefer-word や howm-check-word-break も参照.</li>
+</ul></li>
+<li>タイトル欄にも todo を書けるように.
+    thx &gt; @SenkiReign san</li>
+</ul></li>
+<li>リリース版 howm-1.5.5 [2025-08-05]
 <ul>
 <li>変更
 <ul>
