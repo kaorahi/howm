@@ -923,7 +923,17 @@ Emacs で断片的なメモをどんどんとるための環境です.
 
 thx > patch・改良案・指摘をくださった皆様
 
-* リリース予定版 howm-1.5.5 [2025-08-05]
+* リリース版 howm-1.5.6 [2026-01-01]
+  * 「最近のメモ一覧」を高速化.
+  * キーワードでの絞り込みの際にワードマッチを要求する設定を追加.
+    thx > Pere Quintana san (@bitic)
+      ;; 「ask」を指定したとき「tasks」はヒットしない
+      (setq howm-word-match-required-cases '(filter-by-keyword))
+    * 関連: 変数 howm-list-prefer-word や howm-check-word-break も参照.
+  * タイトル欄にも todo を書けるように.
+    thx > @SenkiReign san
+
+* リリース版 howm-1.5.5 [2025-08-05]
   * 変更
     * 一覧の f contents RET は純粋な「絞り込み」に変更 (単にヒットした項目のみを残す).
       従来の「絞り込んでヒット行を一覧」は G キーもしくは f grep RET で.
