@@ -698,7 +698,7 @@ STR can be list of strings. They are regarded as \"or\" pattern of all elements.
 (defun howm-page-name:buf (page)
   (buffer-name page))
 
-(defconst howm-dummy-mtime (encode-time 0 0 9 1 1 1970)
+(defconst howm-dummy-mtime (howm-encode-time 0 0 9 1 1 1970)
   "Dummy mtime which has no meaning.")
 
 (defun howm-page-mtime:buf (page)

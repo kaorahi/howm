@@ -381,6 +381,13 @@ returns ((\"a\" \"aaa\" \"abc\") (\"x\" \"xyz\"))."
   (let ((message-log-max nil))
     (apply #'message `(,str ,@args))))
 
+(defun howm-encode-time (time &rest rest-args)
+  "Emulate `encode-time` of Emacs 30 for backward compatibility."
+  (encode-time
+   (cond ((null rest-args) time)
+         ((= (length rest-args) 5) (cons time rest-args))
+         (t `(,time ,@(howm-first-n rest-args 5) nil -1 ,@(last rest-args))))))
+
 (defun howm-decode-time (&optional specified-time)
   "Decode SPECIFIED-TIME and remove DOW, DST, ZONE, SUBSEC.
 When we do something like (encode-time (decode-time)), we use this function

@@ -929,7 +929,7 @@ But I'm not sure for multi-byte characters on other versions of emacsen."
   (when (eq d 'last-day-of-month)
     (setq m (+ m 1))
     (setq d -1))
-  (encode-time sec min hour d m y))
+  (howm-encode-time sec min hour d m y))
 
 (defun howm-view-filter-read-from-minibuffer (message &optional remove-p)
   (read-from-minibuffer (if remove-p
@@ -1487,7 +1487,7 @@ which simply calls howm-sort-items-by-NAME."
   (let* ((howm-view-s-b-r-i-regexp (howm-reminder-regexp howm-reminder-types))
          (howm-view-s-b-r-i-max (format-time-string
                                  howm-reminder-today-format
-                                 (encode-time 59 59 23 31 12
+                                 (howm-encode-time 59 59 23 31 12
                                               howm-view-max-year)))
          (evaluator (lambda (item)
                       (let ((s (howm-view-item-summary item)))

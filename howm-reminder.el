@@ -612,7 +612,7 @@ Example: (howm-todo-parse-string \"abcde [2004-11-04]@ hogehoge\")
              ;;                      0
              ;;                    (string-to-number (or lz "0"))))
              (day-of-week (nth 6
-                               (decode-time (apply #'encode-time
+                               (decode-time (apply #'howm-encode-time
                                                    (mapcar #'string-to-number
                                                            (list "0" "0" "0"
                                                                  d m y)))))))
@@ -739,7 +739,7 @@ Return true if E1 has higher priority than E2."
   "Convert date Y-M-D to a float number, days from the reference date.
 When D is omitted, the current time is encoded.
 When D is t, the beginning of today is encoded."
-  (let* ((e (apply #'encode-time (cond ((eq d t)
+  (let* ((e (apply #'howm-encode-time (cond ((eq d t)
                                         (let ((now (howm-decode-time)))
                                           (append '(0 0 0) (cl-cdddr now))))
                                        (d
@@ -747,10 +747,9 @@ When D is t, the beginning of today is encoded."
                                                 (list "0" "0" "0" d m y)))
                                        (t
                                         (howm-decode-time)))))
-         (hi (car e))
-         (low (cadr e))
+         (sec (time-convert e 'integer))
          (daysec (* 60 60 24.0)))
-    (+ (* hi (/ 65536 daysec)) (/ low daysec))))
+    (/ sec daysec)))
 
 (defun howm-congrats ()
   (setq howm-congrats-count (1+ howm-congrats-count))

@@ -150,7 +150,7 @@
             (setq i (+ i 1))))))))
 
 (defun howm-make-datestr (y m d)
-  (let ((ti (encode-time 0 0 0 d m y)))
+  (let ((ti (howm-encode-time 0 0 0 d m y)))
     (format-time-string howm-date-format ti)))
 
 (defun howm-datestr-parse (date)
@@ -166,7 +166,7 @@
          (y (car ymd))
          (m (cadr ymd))
          (d (cl-caddr ymd)))
-    (encode-time 0 0 0 d m y)))
+    (howm-encode-time 0 0 0 d m y)))
 
 (defun howm-time-to-datestr (&optional time)
   (let ((x (decode-time time)))

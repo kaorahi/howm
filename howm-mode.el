@@ -453,7 +453,7 @@ key	binding
          (nd (nth day-pos ne)))
     (setf (nth hour-pos ne) (+ nh (or hours 0)))
     (setf (nth day-pos ne) (+ nd days))
-    (apply #'encode-time ne)))
+    (apply #'howm-encode-time ne)))
 
 (defun howm-days-before (ti days)
   (howm-days-after ti (- days)))
