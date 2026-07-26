@@ -1,3 +1,14 @@
+2026-07-26  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
+
+	* howm-common.el (howm-encode-time, howm-time-difference-second):
+	fix timestamp issue in Emacs 32.0.50 due to change of current-time-list
+	thx > @kobarity san
+	https://github.com/kaorahi/howm/issues/97
+
+	* howm-reminder.el (howm-encode-day): ditto.
+
+	* howm-menu.el (howm-time<): ditto. (replaced with time-less-p)
+
 2026-01-01  HIRAOKA Kazuyuki  <kakkokakko@gmail.com>
 
 	* configure.ac: version 1.5.6
