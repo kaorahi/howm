@@ -231,8 +231,8 @@ key	binding
             (null b)
             (progn
               (set-buffer b)
-              (or (howm-time< howm-menu-last-time mtime)
-                  (howm-time< howm-menu-next-expiry-time
+              (or (time-less-p howm-menu-last-time mtime)
+                  (time-less-p howm-menu-next-expiry-time
                               (current-time)))))
         (howm-menu-refresh f place name)
       (switch-to-buffer b))
@@ -996,11 +996,6 @@ If you don't like misc. category, try
   (and howm-menu-keyword-regexp
        (stringp keyword) ;; perhaps unnecessary
        (string-match howm-menu-keyword-regexp keyword)))
-
-(defun howm-time< (t1 t2)
-  (or (< (car t1) (car t2))
-      (and (= (car t1) (car t2))
-           (< (cadr t1) (cadr t2)))))
 
 (defun howm-menu-invisible-region (beg end)
   (if howm-menu-invisible
