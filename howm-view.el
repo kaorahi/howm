@@ -127,7 +127,31 @@
 (defalias 'howm-view-summary-current-item  #'riffle-summary-current-item)
 (defalias 'howm-view-contents-current-item #'riffle-contents-current-item)
 (defalias 'howm-view-summary-to-contents   #'riffle-summary-to-contents)
-(defalias 'howm-view-restore-window-configuration #'riffle-restore-window-configuration)
+
+(defvar *howm-view-original-window-configuration* nil
+  "Window configuration before howm summary took over the frame.
+This is set when `howm-view-summary' first displays a summary in the
+current howm session, and is restored (and reset to nil) by
+`howm-view-kill-buffer'.")
+
+(defun howm-view-record-original-window-configuration ()
+  (setq *howm-view-original-window-configuration* (current-window-configuration)))
+
+(defun howm-view-restore-original-window-configuration ()
+  (if *howm-view-original-window-configuration*
+      (progn
+        (set-window-configuration *howm-view-original-window-configuration*)
+        (setq *howm-view-original-window-configuration* nil))
+    (riffle-refresh-window-configuration)))
+
+(setq riffle-restore-window-configuration-function
+      'howm-view-restore-original-window-configuration)
+
+(defun howm-view-restore-window-configuration ()
+  (let ((conf (howm-view-window-configuration)))
+    (if conf
+        (set-window-configuration conf)
+      (riffle-refresh-window-configuration))))
 
 ;; for howmoney.el
 ;; https://howm.osdn.jp/cgi-bin/hiki/hiki.cgi?howmoney
@@ -317,6 +341,8 @@ key	binding
 ;;; summary
 
 (defun howm-view-summary (&optional name item-list fl-keywords)
+  (unless *howm-view-original-window-configuration*
+    (howm-view-record-original-window-configuration))
   (let* ((*howm-view-font-lock-keywords* fl-keywords) ;; ok? [2008-07-11]
          (r (riffle-summary name item-list ':howm
                            (howm-view-in-background-p))))

@@ -498,8 +498,15 @@ snap://Info-mode/emacs#File Variables
       (funcall z)
     z))
 
+(defvar riffle-restore-window-configuration-function
+  'riffle-refresh-window-configuration
+  "Function called by `riffle-restore-window-configuration'.
+The function should take no arguments and restore the window configuration.
+It is called from `riffle-kill-buffer-doit' after the summary/contents
+buffers are killed.")
+
 (defun riffle-restore-window-configuration ()
-  (riffle-refresh-window-configuration))
+  (funcall riffle-restore-window-configuration-function))
 
 (defun riffle-refresh-window-configuration ()
 ;;   (message "%s -- %s" (buffer-name) (if (riffle-p) t nil)) ;; debug
